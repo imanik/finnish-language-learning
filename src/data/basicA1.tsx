@@ -370,3 +370,27 @@ export const mathData = {
         { english: "10", finnish: "Kymmenen", pronunciation: "KYU-meh-nen" , answer: "kymmenen"},
     ] 
 };
+
+export const colorData = {
+
+    basicColors: [
+            { english: 'Yellow', finnish: 'Keltainen', pronunciation: 'KEL-Tai-Nen' },
+            { english: 'Gray', finnish: 'Harmaa', pronunciation: 'HAR-maa' },
+            { english: 'Silver', finnish: 'Hopea', pronunciation: 'HO-pe-a' },
+            { english: 'Yellow', finnish: 'Keltainen', pronunciation: 'KEL-tai-nen' },
+            { english: 'Khaki', finnish: 'Khaki', pronunciation: 'KHA-ki' },
+            { english: 'Gold', finnish: 'Kulta', pronunciation: 'KUL-ta' },
+            { english: 'Black', finnish: 'Musta', pronunciation: 'MUS-ta' },
+            { english: 'Orange', finnish: 'Oranssi', pronunciation: 'O-rans-si' },
+            { english: 'Pink', finnish: 'Pinkki', pronunciation: 'PINK-ki' },
+            { english: 'Red', finnish: 'Punainen', pronunciation: 'PU-nai-nen' },
+            { english: 'Brown', finnish: 'Ruskea', pronunciation: 'RUS-ke-a' },
+            { english: 'Blue', finnish: 'Sininen', pronunciation: 'SI-ni-nen' },
+            { english: 'Turquoise', finnish: 'Turkoosi', pronunciation: 'TUR-koo-si' },
+            { english: 'White', finnish: 'Valkoinen', pronunciation: 'VAL-koi-nen' },
+            { english: 'Green', finnish: 'Vihreä', pronunciation: 'VIH-re-a' },
+            { english: 'Purple', finnish: 'Violetti', pronunciation: 'VI-o-let-ti' }
+
+        
+    ]
+}

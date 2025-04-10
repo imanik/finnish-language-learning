@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { nationalityData } from "../../../data/basicA1";
+import GenerateQuiz from "../../../components/GenarateQuiz";
 
 
 interface Nationality {
@@ -9,12 +10,7 @@ interface Nationality {
 
 }
 
-interface QuizState {
-  question: string,
-  correctAnswer: string,
-  shuffledOptions: Nationality[],
 
-}
 
 interface QuizScore {
   correct: number,
@@ -26,116 +22,6 @@ interface LeaderboardEntry {
   score: number,
   total: number,
 }
-
-interface GenerateQuizProps {
-  nationality: Nationality,
-  onNext: ()=> void,
-  onAnswer: (isCorrect: boolean)=> void,
-  onReset: ()=> void,
-  // type: 'basic'
-}
-
-// Basic Family Quiz (English -> Finnish )
-
-function GenerateQuiz({nationality, onNext, onAnswer, onReset}: GenerateQuizProps){
-
-  const [selected, setSelected] = useState<string | null>(null);
-  const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
-  const [quizState, setQuizState] = useState<QuizState | null>(null);
-
-useEffect(() => {
-  const correctAnswer = nationality;
-
-  const allNationality =  nationalityData.nationalitySentence;
-
-  const incorrectOptions: Nationality[] = [];
-  //check if any option duplicated in incorrect option
-  const usedOptions = new Set([correctAnswer.finnish]);
-
-  //insert data in incorrectOption[]
-  while(incorrectOptions.length<3){
-
-    const randomIndex =  Math.floor(Math.random() * allNationality.length);
-    const option = allNationality[randomIndex];
-    if(!usedOptions.has(option.finnish)){
-      incorrectOptions.push(option);
-      usedOptions.add(option.finnish);
-    }
-  }
-
-  const shuffledOptions = [...incorrectOptions, correctAnswer].sort(() => Math.random() -0.5);
-
-  setQuizState({question: nationality.finnish, correctAnswer: correctAnswer.finnish, shuffledOptions });
-  setSelected(null);
-  setIsCorrect(null);
-
-
-
-},[nationality]);
-
-
-const handleSubmit = () => {
-  if(!quizState) return;
-  const correct = selected === quizState.correctAnswer;
-  setIsCorrect(correct);
-  onAnswer(correct);
-  // handleQuizComplete(correct); // Update quizScore via the passed function
-};
-
-if (!quizState) return null;
-
-  return (
-    <div className="bg-white p-6 rounded-lg shadow-lg max-w-2xl mx-auto">
-      <h3 className="text-xl font-semibold text-teal-700 mb-4">
-        What is the meaning of "<span className="text-xl text-red-500">{quizState.question}</span>"
-      </h3>
-      <div className="space-y-2">
-        {/*  */}
-        {quizState.shuffledOptions.map((option, index) => (
-          <label key={index} className="block">
-            <input
-              type="radio"
-              name="languageQuiz"
-              value={option.english}
-              checked={selected === option.english}
-              onChange={() => setSelected(option.english)}
-              disabled={isCorrect !== null}
-              className="mr-2"
-            />
-            {option.english} 
-          </label>
-        ))}
-      </div>
-      {isCorrect === null ? (
-        <button
-          onClick={handleSubmit}
-          className="mt-4 bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-700"
-        >
-          Submit
-        </button>
-      ) : (
-        <div className="mt-4">
-          <p className={isCorrect ? "text-green-600" : "text-red-600"}>
-            {isCorrect ? "Correct!" : `Wrong! The correct answer is "${quizState.correctAnswer}".`}
-          </p>
-          <button
-            onClick={onNext}
-            className="mt-2 bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-700 m-4"
-          >
-            Next Question
-          </button>
-          <button onClick={onReset} className="m-4 bg-red-500 text-white px-4 py-2 rounded">
-            Reset Score
-          </button>
-        </div>
-      )}
-    </div>
-  );
-
-
-
- 
-} 
  
 
 
@@ -329,11 +215,13 @@ function NationalityQuizzes() {
           </button>
         ) : (
           <GenerateQuiz
-            nationality={nationalityQuizState}
+            item={nationalityQuizState}
+            optionsPool = {allNationality}
             onNext={nextQuestion}
             onAnswer={handleAnswer}
             onReset={resetScore}
-            // type={quizType}
+            type={quizType}
+            handleQuizComplete={handleQuizComplete}
           />
         )}
 

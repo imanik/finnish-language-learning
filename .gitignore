@@ -21,3 +21,24 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Dependency directories
+node_modules/
+.env
+
+# Build output
+build/
+dist/
+static/
+index.html
+manifest.json
+asset-manifest.json
+service-worker.js
+
+# Optional: if you also moved build files to root
+main.*.js
+main.*.css
+*.map
+
+
+

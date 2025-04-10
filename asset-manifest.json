@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/learn-finnish-app/static/css/main.07a4d0d9.css",
+    "main.js": "/learn-finnish-app/static/js/main.1a44f6d8.js",
+    "static/js/453.95b8e829.chunk.js": "/learn-finnish-app/static/js/453.95b8e829.chunk.js",
+    "index.html": "/learn-finnish-app/index.html",
+    "main.07a4d0d9.css.map": "/learn-finnish-app/static/css/main.07a4d0d9.css.map",
+    "main.1a44f6d8.js.map": "/learn-finnish-app/static/js/main.1a44f6d8.js.map",
+    "453.95b8e829.chunk.js.map": "/learn-finnish-app/static/js/453.95b8e829.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.07a4d0d9.css",
+    "static/js/main.1a44f6d8.js"
+  ]
+}

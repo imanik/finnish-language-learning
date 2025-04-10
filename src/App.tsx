@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import MainContent from './MainContent';
+import MainContent from './components/MainContent';
 
 import BasicAdjectivePage from './pages/levels/a1/BasicAdjectivePage';
 import NationalityPage from './pages/levels/a1/NationalityPage';
@@ -28,12 +28,12 @@ function App() {
   const basename = process.env.NODE_ENV === 'development' ? '/learn-finnish-app' : '/learn-finnish-app';
 
   const [quizScore, setQuizScore] = useState<QuizScore>(() => {
-    const storedScore = localStorage.getItem("quizscore");
-    return storedScore ? JSON.parse(storedScore) : { correct: 71, total: 84 };
+    const storedScore = localStorage.getItem("overAllQuizScore");
+    return storedScore ? JSON.parse(storedScore) : { correct: 0, total: 0 };
   });
 
   useEffect(() => {
-    localStorage.setItem("quizscore", JSON.stringify(quizScore));
+    localStorage.setItem("overAllQuizScore", JSON.stringify(quizScore));
   }, [quizScore]);
 
   const handleQuizComplete = (wasCorrect: boolean) => {
@@ -46,7 +46,6 @@ function App() {
   return (
     <BrowserRouter basename={basename}>
       <Routes>
-      <Route path="/" element={<MainContent quizScore={quizScore} handleQuizComplete={handleQuizComplete} />} />
       <Route path="/" element={<MainContent quizScore={quizScore} handleQuizComplete={handleQuizComplete} />} />
         <Route path="/greetings" element={<GreetingsPage />} />
         <Route path="/numbers" element={<NumbersPage />} />
