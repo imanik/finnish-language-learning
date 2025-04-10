@@ -25,7 +25,7 @@ interface QuizScore {
 }
 
 function App() {
-  const basename = process.env.NODE_ENV === 'development' ? '/' : '/finnish-learning/build';
+  const basename = process.env.NODE_ENV === 'development' ? '/learn-finnish-app' : '/learn-finnish-app';
 
   const [quizScore, setQuizScore] = useState<QuizScore>(() => {
     const storedScore = localStorage.getItem("quizscore");
