@@ -221,7 +221,7 @@ function NationalityQuizzes() {
             onAnswer={handleAnswer}
             onReset={resetScore}
             type={quizType}
-            handleQuizComplete={handleQuizComplete}
+        //    handleQuizComplete={handleQuizComplete}
           />
         )}
 

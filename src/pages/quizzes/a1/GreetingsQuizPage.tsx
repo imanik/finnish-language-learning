@@ -164,7 +164,7 @@ import GenerateQuiz from '../../../components/GenarateQuiz';
             onReset={resetScore}
             type={quizType}
        //     quizScore={quizScore}
-            handleQuizComplete={handleQuizComplete}
+          //  handleQuizComplete={handleQuizComplete}
           />
         )}
 

@@ -1,3 +1,5 @@
+import { sentenceTopics } from "../data";
+
 export const familyData = {
     
     basicFamily: [
@@ -152,13 +154,6 @@ export const greetingsData = {
 export const langaugeData = {
         
             basicLanguage : [
-                {finnish: 'Mitä kieltä sinä puhut?',	english:'What language do you speak?'},
-                {finnish: 'Mitä kieliä sinä puhut?',	english:'What language do you speak?'},
-                {finnish: 'Puhutko sinä englantia',	english:'Do you speak English?'},
-                {finnish: 'Puhutko sinä suomea?',	english:'Do you speak Finnish?'},
-                {finnish: 'Puhutko sinä ranskaa?',	english:'Do you speak French?'},
-                {finnish: 'Puhutko sinä arabiaa?',	english:'Do you speak Arabian?'},
-                {finnish: 'Oletko opiskellut ranskaa?',	english:'Have you studied French?'},
                 {finnish: "Minä puhun unkari" , english: "I speak Hungarian" },
                 {finnish: "Minä puhun venäjä" , english: "I speak Russian" },
                 {finnish: "Minä puhun ranska" , english: "I speak French" },
@@ -354,21 +349,82 @@ export const adjectivesData = {
 };
 
 // Define numbers outside the component and export it
-export const mathData = {
+export const numberData = {
 
     numbers: [
 
-        { english: "1", finnish: "Yksi", pronunciation: "YUK-si" , answer: "yksi"},
-        { english: "2", finnish: "Kaksi", pronunciation: "KAHK-si" , answer: "kaksi"},
-        { english: "3", finnish: "Kolme", pronunciation: "KOL-me" , answer: "kolme"},
-        { english: "4", finnish: "Neljä", pronunciation: "NEL-ya" , answer: "neljä"},
-        { english: "5", finnish: "Viisi", pronunciation: "VEE-si" , answer: "viisi"},
-        { english: "6", finnish: "Kuusi", pronunciation: "KOO-si" , answer: "kuusi"},
-        { english: "7", finnish: "Seitsemän", pronunciation: "SAYT-seh-mahn" , answer: "seitsemän"},
-        { english: "8", finnish: "Kahdeksan", pronunciation: "KAH-dek-sahn" , answer: "kahdeksan"},
-        { english: "9", finnish: "Yhdeksän", pronunciation: "OOH-dek-sahn" , answer: "yhdeksän"},
-        { english: "10", finnish: "Kymmenen", pronunciation: "KYU-meh-nen" , answer: "kymmenen"},
-    ] 
+        { english: "0", finnish: "Nolla", pronunciation: "NOL-la" ,},
+        { english: "1", finnish: "Yksi", pronunciation: "YUK-si" , },
+        { english: "2", finnish: "Kaksi", pronunciation: "KAHK-si" , },
+        { english: "3", finnish: "Kolme", pronunciation: "KOL-me" , },
+        { english: "4", finnish: "Neljä", pronunciation: "NEL-ya" , },
+        { english: "5", finnish: "Viisi", pronunciation: "VEE-si" , },
+        { english: "6", finnish: "Kuusi", pronunciation: "KOO-si" , },
+        { english: "7", finnish: "Seitsemän", pronunciation: "SAYT-seh-mahn" , },
+        { english: "8", finnish: "Kahdeksan", pronunciation: "KAH-dek-sahn" , },
+        { english: "9", finnish: "Yhdeksän", pronunciation: "OOH-dek-sahn" , },
+        { english: "10", finnish: "Kymmenen", pronunciation: "KYU-meh-nen" , },
+        { english: "20", finnish: "Kaksikymmentä", pronunciation: "KAHK-si-kum-men-tah",  },
+        { english: "30", finnish: "Kolmekymmentä", pronunciation: "KOL-me-kum-men-tah",  },
+        { english: "40", finnish: "Neljäkymmentä", pronunciation: "NEL-yah-kum-men-tah",  },
+        { english: "50", finnish: "Viisikymmentä", pronunciation: "VEE-si-kum-men-tah", },
+        { english: "60", finnish: "Kuusikymmentä", pronunciation: "KOO-si-kum-men-tah",},
+        { english: "70", finnish: "Seitsemänkymmentä", pronunciation: "SAYT-se-man-kum-men-tah",  },
+        { english: "80", finnish: "Kahdeksankymmentä", pronunciation: "KAH-dek-san-kum-men-tah", },
+        { english: "90", finnish: "Yhdeksänkymmentä", pronunciation: "OOH-dek-san-kum-men-tah",  },
+        { english: "100", finnish: "Sata", pronunciation: "SAH-tah",  },
+        { english: "200", finnish: "Kaksisataa", pronunciation: "KAHK-si-sah-tah",  },
+        { english: "1,000", finnish: "Tuhat", pronunciation: "TOO-haht",  },
+        { english: "10,000", finnish: "Kymmenentuhatta", pronunciation: "KYU-meh-nen-too-haht-tah",  },
+        { english: "100,000", finnish: "Satatuhatta", pronunciation: "SAH-tah-too-haht-tah",  },
+        { english: "1,000,000", finnish: "Miljoona", pronunciation: "MIL-yoh-nah",  },
+
+
+
+    ],
+
+    sentenceNumbers: [
+        {finnish: "Minulla on nolla paperia.", english: "I have zero papers.", },
+        { finnish: "Minulla on yksi kissa.", english: "I have one cat." },
+        { finnish: "Minulla on kaksi poikaa.", english: "I have two sons." },
+        { finnish: "Minulla on kolme pingviiniä.", english: "I have three penguins." },
+        { finnish: "Minulla on neljä ammattia.", english: "I have four professions." },
+        { finnish: "Minulla on viisi kukkaa.", english: "I have five flowers." },
+        { finnish: "Minulla on kuusi deodoranttia.", english: "I have six deodorants." },
+        { finnish: "Minulla on seitsemän ystävää.", english: "I have seven friends." },
+        { finnish: "Minulla on kahdeksan jojoa.", english: "I have eight yoyos." },
+        { finnish: "Minulla on yhdeksän paitaa.", english: "I have nine shirts." },
+        { finnish: "Minulla on kymmenen sormea.", english: "I have ten fingers." },
+        { finnish: "Huoneessa on yksitoista maalausta.", english: "There are eleven paintings." },
+        { finnish: "Keittiössä on kaksitoista ulkofileetä.", english: "There are twelve sirloins." },
+        { finnish: "Eteisessä on kolmetoista tuuletinta.", english: "There are thirteen fans." },
+        { finnish: "Autossa on kaksikymmentä kirvestä.", english: "There are twenty axes in the car." }
+
+    ],
+
+    ordinalNumbers : [
+    {finnish: "ensimmäinen", english: "1st"},
+    { finnish: "toinen", english: "2nd" },
+    { finnish: "kolmas", english: "3rd" },
+    { finnish: "neljäs", english: "4th" },
+    { finnish: "viides", english: "5th" },
+    { finnish: "kuudes", english: "6th" },
+    { finnish: "seitsemäs", english: "7th" },
+    { finnish: "kahdeksas", english: "8th" },
+    { finnish: "yhdeksäs", english: "9th" },
+    { finnish: "kymmenes", english: "10th" },
+    { finnish: "kahdeskymmenes", english: "20th" },
+    { finnish: "kolmaskymmenes", english: "30th" },
+    { finnish: "neljäskymmenes", english: "40th" },
+    { finnish: "viideskymmenes", english: "50th" },
+    { finnish: "sadas", english: "100th" },
+    { finnish: "tuhannes", english: "1000th" }
+
+    ]
+
+
+
+
 };
 
 export const colorData = {
@@ -392,5 +448,227 @@ export const colorData = {
             { english: 'Purple', finnish: 'Violetti', pronunciation: 'VI-o-let-ti' }
 
         
-    ]
+    ],
+
+    extendedColors:[
+    {english: 'light blue', finnish: 'vaaleansininen', pronunciation: 'VAA-lean-sini-nen'},
+    { english: 'dark blue', finnish: 'tummansininen', pronunciation: 'TUM-man-sini-nen' },
+    { english: 'sky blue', finnish: 'taivaansininen', pronunciation: 'TAI-van-sini-nen' },
+    { english: 'baby blue', finnish: 'vauvansininen', pronunciation: 'VAU-van-sini-nen' },
+    { english: 'bright blue', finnish: 'kirkkaansininen', pronunciation: 'KIRK-kaan-sini-nen' },
+    { english: 'indigo blue', finnish: 'indigosininen', pronunciation: 'IN-di-go-sini-nen' },
+    { english: 'light pink', finnish: 'vaaleanpunainen', pronunciation: 'VAA-lean-pu-nai-nen' },
+    { english: 'dark red', finnish: 'tummanpunainen', pronunciation: 'TUM-man-pu-nai-nen' },
+    { english: 'fiery red', finnish: 'tulenpunainen', pronunciation: 'TU-len-pu-nai-nen' },
+    { english: 'wine red', finnish: 'viininpunainen', pronunciation: 'VII-nin-pu-nai-nen' },
+    { english: 'cherry red', finnish: 'kirsikanpunainen', pronunciation: 'KIR-si-kan-pu-nai-nen' },
+    { english: 'bright red', finnish: 'kirkkaanpunainen', pronunciation: 'KIRK-kaan-pu-nai-nen' },
+    { english: 'ruby red', finnish: 'rubiininpunainen', pronunciation: 'RU-bii-nin-pu-nai-nen' },
+    { english: 'brick red', finnish: 'tiilenpunainen', pronunciation: 'TII-len-pu-nai-nen' },
+    { english: 'light green', finnish: 'vaaleanvihreä', pronunciation: 'VAA-lean-vih-re-ä' },
+    { english: 'dark green', finnish: 'tummanvihreä', pronunciation: 'TUM-man-vih-re-ä' },
+    { english: 'grey-green', finnish: 'harmaanvihreä', pronunciation: 'HAR-maan-vih-re-ä' },
+    { english: 'lime green', finnish: 'limenvihreä', pronunciation: 'LI-men-vih-re-ä' },
+    { english: 'mint green', finnish: 'mintunvihreä', pronunciation: 'MIN-tun-vih-re-ä' },
+    { english: 'poison green', finnish: 'myrkynvihreä', pronunciation: 'MYR-kyn-vih-re-ä' },
+    { english: 'olive green', finnish: 'oliivinvihreä', pronunciation: 'O-lii-vin-vih-re-ä' },
+    { english: 'emerald green', finnish: 'smaragdinvihreä', pronunciation: 'SMA-rag-din-vih-re-ä' },
+    { english: 'light brown', finnish: 'vaaleanruskea', pronunciation: 'VAA-lean-rus-ke-a' },
+    { english: 'dark brown', finnish: 'tummanruskea', pronunciation: 'TUM-man-rus-ke-a' },
+    { english: 'chestnut red', finnish: 'kastanjanruskea', pronunciation: 'KAS-tan-jan-rus-ke-a' },
+    { english: 'apricot colored', finnish: 'aprikoosinvärinen', pronunciation: 'A-pri-koo-sin-vä-ri-nen' },
+    { english: 'sand colored', finnish: 'hiekanvärinen', pronunciation: 'HIE-kan-vä-ri-nen' },
+    { english: 'gold-brown', finnish: 'kullanruskea', pronunciation: 'KUL-lan-rus-ke-a' },
+    { english: 'cream colored', finnish: 'kermanvärinen', pronunciation: 'KER-man-vä-ri-nen' },
+    { english: 'plum colored', finnish: 'luumunvärinen', pronunciation: 'LUU-mun-vä-ri-nen' },
+    { english: 'color of mandarins', finnish: 'mandariininvärinen', pronunciation: 'MAN-da-rii-nin-vä-ri-nen' }
+    
+    ],
+};
+
+
+export const dayData = {
+    
+    basicDays: [
+        {finnish: "maanantai", english: "Monday", pronunciation: "MAA-nan-tai"},
+        { finnish: "tiistai", english: "Tuesday", pronunciation: "TEE-stai" },
+        { finnish: "keskiviikko", english: "Wednesday", pronunciation: "KES-ki-vik-ko" },
+        { finnish: "torstai", english: "Thursday", pronunciation: "TORS-tai" },
+        { finnish: "perjantai", english: "Friday", pronunciation: "PER-yan-tai" },
+        { finnish: "lauantai", english: "Saturday", pronunciation: "LAU-an-tai" },
+        { finnish: "sunnuntai", english: "Sunday", pronunciation: "SUN-nun-tai" },
+
+        { finnish: "maanantaina", english: "on Monday", pronunciation: "MAA-nan-tai-na" },
+        { finnish: "tiistaina", english: "on Tuesday", pronunciation: "TEE-stai-na" },
+        { finnish: "keskiviikkona", english: "on Wednesday", pronunciation: "KES-ki-vik-ko-na" },
+        { finnish: "torstaina", english: "on Thursday", pronunciation: "TORS-tai-na" },
+        { finnish: "perjantaina", english: "on Friday", pronunciation: "PER-yan-tai-na" },
+        { finnish: "lauantaina", english: "on Saturday", pronunciation: "LAU-an-tai-na" },
+        { finnish: "sunnuntaina", english: "on Sunday", pronunciation: "SUN-nun-tai-na" },
+
+        { finnish: "maanantaisin", english: "every Monday", pronunciation: "MAA-nan-tai-sin" },
+        { finnish: "tiistaisin", english: "every Tuesday", pronunciation: "TEE-stai-sin" },
+        { finnish: "keskiviikkoisin", english: "every Wednesday", pronunciation: "KES-ki-vik-koi-sin" },
+        { finnish: "torstaisin", english: "every Thursday", pronunciation: "TORS-tai-sin" },
+        { finnish: "perjantaisin", english: "every Friday", pronunciation: "PER-yan-tai-sin" },
+        { finnish: "lauantaisin", english: "every Saturday", pronunciation: "LAU-an-tai-sin" },
+        { finnish: "sunnuntaisin", english: "every Sunday", pronunciation: "SUN-nun-tai-sin" },
+
+        { finnish: "maanantaista", english: "from Monday", pronunciation: "MAA-nan-tai-sta" },
+        { finnish: "maanantaihin", english: "until Monday", pronunciation: "MAA-nan-tai-hin" },
+        { finnish: "tiistaista", english: "from Tuesday", pronunciation: "TEE-stai-sta" },
+        { finnish: "tiistaihin", english: "until Tuesday", pronunciation: "TEE-stai-hin" },
+        { finnish: "keskiviikosta", english: "from Wednesday", pronunciation: "KES-ki-vii-kos-ta" },
+        { finnish: "keskiviikkoon", english: "until Wednesday", pronunciation: "KES-ki-vik-koon" },
+        { finnish: "torstaista", english: "from Thursday", pronunciation: "TORS-tai-sta" },
+        { finnish: "torstaihin", english: "until Thursday", pronunciation: "TORS-tai-hin" },
+        { finnish: "perjantaista", english: "from Friday", pronunciation: "PER-yan-tai-sta" },
+        { finnish: "perjantaihin", english: "until Friday", pronunciation: "PER-yan-tai-hin" },
+        { finnish: "lauantaista", english: "from Saturday", pronunciation: "LAU-an-tai-sta" },
+        { finnish: "lauantaihin", english: "until Saturday", pronunciation: "LAU-an-tai-hin" },
+        { finnish: "sunnuntaista", english: "from Sunday", pronunciation: "SUN-nun-tai-sta" },
+        { finnish: "sunnuntaihin", english: "until Sunday", pronunciation: "SUN-nun-tai-hin" },
+    ],
+
+    sentenceDays: [
+        {finnish: "Olen lomalla maanantaista alkaen", english: "I’m on vacation starting from Monday."},
+        { finnish: "Keskiviikosta alkaen olen työtön.", english: "Starting from Wednesday I’m unemployed." },
+        { finnish: "Tiistaista lähtien toimin osa-aikaisena.", english: "I will work half-time starting from Tuesday." },
+        { finnish: "Perjantaista lähtien asun yksin.", english: "Starting from Friday I will live alone." },
+        { finnish: "Olen lomalla sunnuntaihin asti.", english: "I’m on vacation until Sunday." },
+        { finnish: "Aurinko paistaa maanantaihin asti.", english: "The sun will shine until Monday." },
+        { finnish: "Lue kirja keskiviikkoon mennessä!", english: "Read the book by Wednesday!" },
+        { finnish: "Tiistaihin mennessä pitää olla valmis.", english: "I have to be ready by Tuesday." },
+        { finnish: "Koulu alkaa maanantaina.", english: "School starts on Monday." },
+        { finnish: "Viime maanantaina myöhästyin bussista.", english: "I was late for the bus last Monday." },
+        { finnish: "Käyn joka tiistai kuntosalilla.", english: "I go to the gym every Tuesday." },
+        { finnish: "Ensi tiistaina on syntymäpäiväni.", english: "Next Tuesday is my birthday." },
+        { finnish: "Olen lomalla keskiviikkoon asti.", english: "I’m on vacation until Wednesday." },
+        { finnish: "Matkustan keskiviikosta perjantaihin.", english: "I travel from Wednesday till Friday." },
+        { finnish: "Torstaista lähtien on myrskyisää.", english: "Starting from Thursday it’s stormy." },
+        { finnish: "Torstai on viikon paras päivä.", english: "Thursday is the best day of the week." },
+        { finnish: "Me syömme ravintolassa perjantaisin.", english: "We eat in a restaurant on Fridays." },
+        { finnish: "Talo on valmis perjantaihin mennessä.", english: "The building will be ready by Friday." },
+        { finnish: "Tänä lauantaina on pääsiäinen.", english: "On this Saturday is Easter." },
+        { finnish: "Aion lauantaista alkaen olla tupakoimatta.", english: "I plan not to smoke from Saturday on." },
+        { finnish: "Kävin uimassa viime sunnuntaina.", english: "I went swimming last Sunday." },
+        { finnish: "Hiihtoloma alkaa maanantaina.", english: "Winter break starts on Monday." },
+        
+
+    ],
+
+};
+
+export const monthData = {
+
+    basicMonths: [
+        {finnish: "tammikuu", english: "January", pronunciation: "TAM-mee-koo"},
+        { finnish: "helmikuu", english: "February", pronunciation: "HEL-mee-koo" },
+        { finnish: "maaliskuu", english: "March", pronunciation: "MAAL-iss-koo" },
+        { finnish: "huhtikuu", english: "April", pronunciation: "HOOKH-tee-koo" },
+        { finnish: "toukokuu", english: "May", pronunciation: "TOE-ko-koo" },
+        { finnish: "kesäkuu", english: "June", pronunciation: "KEH-sah-koo" },
+        { finnish: "heinäkuu", english: "July", pronunciation: "HAY-na-koo" },
+        { finnish: "elokuu", english: "August", pronunciation: "EH-lo-koo" },
+        { finnish: "syyskuu", english: "September", pronunciation: "SEWS-koo" },
+        { finnish: "lokakuu", english: "October", pronunciation: "LOH-ka-koo" },
+        { finnish: "marraskuu", english: "November", pronunciation: "MAR-rah-skoo" },
+        { finnish: "joulukuu", english: "December", pronunciation: "YO-loo-koo" },
+
+        { finnish: "tammikuussa", english: "in January", pronunciation: "TAM-mee-koo-sa" },
+        { finnish: "helmikuussa", english: "in February", pronunciation: "HEL-mee-koo-sa" },
+        { finnish: "maaliskuussa", english: "in March", pronunciation: "MAAL-iss-koo-sa" },
+        { finnish: "huhtikuussa", english: "in April", pronunciation: "HOOKH-tee-koo-sa" },
+        { finnish: "toukokuussa", english: "in May", pronunciation: "TOE-ko-koo-sa" },
+        { finnish: "kesäkuussa", english: "in June", pronunciation: "KEH-sah-koo-sa" },
+        { finnish: "heinäkuussa", english: "in July", pronunciation: "HAY-na-koo-sa" },
+        { finnish: "elokuussa", english: "in August", pronunciation: "EH-lo-koo-sa" },
+        { finnish: "syyskuussa", english: "in September", pronunciation: "SEWS-koo-sa" },
+        { finnish: "lokakuussa", english: "in October", pronunciation: "LOH-ka-koo-sa" },
+        { finnish: "marraskuussa", english: "in November", pronunciation: "MAR-rah-skoo-sa" },
+        { finnish: "joulukuussa", english: "in December", pronunciation: "YO-loo-koo-sa" },
+
+        { finnish: "tammikuusta", english: "from January", pronunciation: "TAM-mee-koo-sta" },
+        { finnish: "tammikuuhun", english: "until January", pronunciation: "TAM-mee-koo-hun" },
+        { finnish: "helmikuusta", english: "from February", pronunciation: "HEL-mee-koo-sta" },
+        { finnish: "helmikuuhun", english: "until February", pronunciation: "HEL-mee-koo-hun" },
+        { finnish: "maaliskuusta", english: "from March", pronunciation: "MAAL-iss-koo-sta" },
+        { finnish: "maaliskuuhun", english: "until March", pronunciation: "MAAL-iss-koo-hun" },
+        { finnish: "huhtikuusta", english: "from April", pronunciation: "HOOKH-tee-koo-sta" },
+        { finnish: "huhtikuuhun", english: "until April", pronunciation: "HOOKH-tee-koo-hun" },
+        { finnish: "toukokuusta", english: "from May", pronunciation: "TOE-ko-koo-sta" },
+        { finnish: "toukokuuhun", english: "until May", pronunciation: "TOE-ko-koo-hun" },
+        { finnish: "kesäkuusta", english: "from June", pronunciation: "KEH-sah-koo-sta" },
+        { finnish: "kesäkuuhun", english: "until June", pronunciation: "KEH-sah-koo-hun" },
+        { finnish: "heinäkuusta", english: "from July", pronunciation: "HAY-na-koo-sta" },
+        { finnish: "heinäkuuhun", english: "until July", pronunciation: "HAY-na-koo-hun" },
+        { finnish: "elokuusta", english: "from August", pronunciation: "EH-lo-koo-sta" },
+        { finnish: "elokuuhun", english: "until August", pronunciation: "EH-lo-koo-hun" },
+        { finnish: "syyskuusta", english: "from September", pronunciation: "SEWS-koo-sta" },
+        { finnish: "syyskuuhun", english: "until September", pronunciation: "SEWS-koo-hun" },
+        { finnish: "lokakuusta", english: "from October", pronunciation: "LOH-ka-koo-sta" },
+        { finnish: "lokakuuhun", english: "until October", pronunciation: "LOH-ka-koo-hun" },
+        { finnish: "marraskuusta", english: "from November", pronunciation: "MAR-rah-skoo-sta" },
+        { finnish: "marraskuuhun", english: "until November", pronunciation: "MAR-rah-skoo-hun" },
+        { finnish: "joulukuusta", english: "from December", pronunciation: "YO-loo-koo-sta" },
+        { finnish: "joulukuuhun", english: "until December", pronunciation: "YO-loo-koo-hun" },
+        
+    ],
+
+    sentenceMonths: [
+        {finnish: "Synnyin helmikuussa.", english: "I was born in February."},
+        { finnish: "Lomani alkaa heinäkuussa.", english: "My vacation starts in July." },
+        { finnish: "Kurssi kestää maaliskuusta kesäkuuhun.", english: "The course lasts from March to June." },
+        { finnish: "Olen Suomessa elokuusta lähtien.", english: "I've been in Finland since August." },
+        { finnish: "Tammikuussa on yleensä kylmä.", english: "It's usually cold in January." },
+        { finnish: "Aloitan työt syyskuussa.", english: "I will start work in September." },
+        { finnish: "Maksoin laskun marraskuuhun mennessä.", english: "I paid the bill by November." },
+        { finnish: "Kesäkuussa matkustan Italiaan.", english: "I'm traveling to Italy in June." },
+        { finnish: "Opiskelin suomea lokakuusta joulukuuhun.", english: "I studied Finnish from October to December." },
+        { finnish: "Asuin Espanjassa huhtikuuhun asti.", english: "I lived in Spain until April." },
+        { finnish: "Vietämme joulua joulukuussa.", english: "We celebrate Christmas in December." },
+        { finnish: "Viime kuussa ostin uuden puhelimen.", english: "I bought a new phone last month." },
+        { finnish: "Ensi kuussa alkaa uusi projekti.", english: "A new project starts next month." },
+        { finnish: "Matkustan Ruotsiin kahden kuukauden kuluttua.", english: "I’m traveling to Sweden in two months." },
+        { finnish: "Olin lomalla kolme kuukautta sitten.", english: "I was on vacation three months ago." },
+        { finnish: "Toukokuussa kukat alkavat kukkia.", english: "Flowers start blooming in May." },
+        { finnish: "Olen ollut Suomessa maaliskuusta alkaen.", english: "I’ve been in Finland since March." },
+        { finnish: "Lämpötila nousee huhtikuussa.", english: "The temperature rises in April." },
+        { finnish: "Koulu loppuu kesäkuussa.", english: "School ends in June." },
+        { finnish: "He muuttivat uuteen kotiin tammikuussa.", english: "They moved to a new home in January." },
+        { finnish: "Vietämme juhannusta kesäkuun lopussa.", english: "We celebrate Midsummer at the end of June." },
+        { finnish: "Pidän syyskuun tunnelmasta.", english: "I like the atmosphere of September." },
+        { finnish: "Muutan uuteen kaupunkiin lokakuun alussa.", english: "I’m moving to a new city at the beginning of October." },
+        { finnish: "Joulukuussa ostamme joululahjoja.", english: "In December, we buy Christmas presents." },
+        { finnish: "Työskentelen maaliskuusta elokuuhun.", english: "I work from March until August." },
+        { finnish: "Kurssi kestää tammikuusta toukokuuhun.", english: "The course lasts from January until May." },
+        { finnish: "Tammikuu on lempikuukauteni.", english: "January is my favorite month." },
+        { finnish: "Missä kuussa olet syntynyt?", english: "In what month were you born?" },
+        { finnish: "Olen syntynyt helmikuussa.", english: "I was born in February." },
+        { finnish: "Syön lihaa kerran kuussa.", english: "I eat meat once a month." },
+        { finnish: "Maaliskuuhun asti voi vielä sataa lunta.", english: "It can still snow until March." },
+        { finnish: "Vauvani syntyi kaksi kuukautta sitten.", english: "My baby was born two months ago." },
+        { finnish: "Olen yrittänyt laihtua huhtikuusta lähtien.", english: "I’ve been trying to lose weight starting from April." },
+        { finnish: "Odotan toukokuuhun asti.", english: "I will wait until May." },
+        { finnish: "Aloitin opinnot kuukausi sitten.", english: "I started my studies a month ago." },
+        { finnish: "Haluan palata kotimaahani kuukauden päästä.", english: "I want to return to my home country in a month." },
+        { finnish: "Syksy kestää syyskuusta joulukuuhun.", english: "Autumn lasts from September until December." },
+        { finnish: "Joulukuussa satoi paljon lunta.", english: "It snowed a lot in December." },
+        { finnish: "Kokous on viides lokakuuta.", english: "The meeting is on the fifth of October." },
+        { finnish: "Olen töissä tammikuusta alkaen.", english: "I’ve been working starting from January." },
+        { finnish: "Opiskelen syyskuusta lähtien.", english: "I study starting from September." },
+        { finnish: "Aurinko paistaa lokakuuhun asti.", english: "The sun shines until October." },
+        { finnish: "Olen lomalla syyskuuhun asti.", english: "I’m on vacation until September." },
+        { finnish: "Maksa lasku tammikuuhun mennessä!", english: "Pay the bill by January!" },
+        { finnish: "Joulukuuhun mennessä tiedämme vastaukset.", english: "By December, we will know the answers." },
+        { finnish: "Muutin Suomeen viime kuussa.", english: "I moved to Finland last month." },
+        { finnish: "Matkustan Tallinnaan ensi kuussa.", english: "I will travel to Tallinn next month." },
+        { finnish: "Tässä kuussa on paljon töitä.", english: "There is a lot of work this month." },
+        { finnish: "Syön kalaa kerran kuussa.", english: "I eat fish once a month." },
+        { finnish: "Käyn uimassa kaksi kertaa kuussa.", english: "I go swimming twice a month." },
+        { finnish: "Synnytin vauvani kuukausi sitten.", english: "I gave birth a month ago." },
+        { finnish: "Kurssini alkaa kuukauden päästä.", english: "My course starts in a month." }
+
+    ],
 }
+ 

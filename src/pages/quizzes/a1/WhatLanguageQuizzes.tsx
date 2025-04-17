@@ -197,7 +197,7 @@ function WhatLanguageQuizzes() {
             onAnswer={handleAnswer} // Pass function to handle the answer
             onReset={resetScore} // Pass function to reset the score
             type={quizType} // Pass the quiz type (e.g., "basic")
-            handleQuizComplete={handleQuizComplete}
+            // handleQuizComplete={handleQuizComplete}
           />
         )}
 

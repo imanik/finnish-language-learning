@@ -7,10 +7,13 @@ import NationalityPage from './pages/levels/a1/NationalityPage';
 import WhatLanguages from './pages/levels/a1/WhatLanguages';
 import GreetingsPage from './pages/levels/a1/GreetingsPage';
 import NumbersPage from './pages/levels/a1/NumbersPage';
+import DaysPage from './pages/levels/a1/DaysPage';
+import MonthsPage from './pages/levels/a1/MonthsPage';
 import BeginarsPage from './pages/BeginarsPage';
 import GrammarsPage from './pages/GrammarsPage';
 import NounsPage from './pages/NounsPage';
 import VerbsPage from './pages/VerbsPage';
+import ColorsPage from './pages/levels/a1/ColorsPage';
 import FamilyPage from './pages/levels/a1/FamilyPage';
 import LocationPage from './pages/levels/a1/LocationPage';
 import FamilyQuizzes from './pages/quizzes/a1/FamilyQuizzes';
@@ -47,10 +50,11 @@ function App() {
     <BrowserRouter basename={basename}>
       <Routes>
       <Route path="/" element={<MainContent quizScore={quizScore} handleQuizComplete={handleQuizComplete} />} />
-        <Route path="/greetings" element={<GreetingsPage />} />
-        <Route path="/numbers" element={<NumbersPage />} />
-        <Route path="/grammars" element={<GrammarsPage />} />
-        <Route path="/nouns" element={<NounsPage />} />
+        {/* <Route path="/greetings" element={<GreetingsPage />} /> */}
+        {/* <Route path="/numbers" element={<NumbersPage />} /> */}
+        {/* <Route path="/grammars" element={<GrammarsPage />} /> */}
+        {/* <Route path="/nouns" element={<NounsPage />} /> */}
+       
         <Route path="/nouns/:topic" element={<NounsPage />} />
         <Route path="/nouns/:topic/:subtopic" element={<NounsPage />} />
         <Route path="/verbs" element={<VerbsPage />} />
@@ -70,9 +74,18 @@ function App() {
         <Route path="/beginars/nationality/:subtopic/:child" element={<NationalityQuizzes />} />
         <Route path="/beginars/location/:topic" element={<LocationPage />} />
         <Route path="/beginars/location/:subtopic" element={<LocationPage />} />
-        <Route path="/beginars/basic-words/:topic" element={<BasicAdjectivePage />} />
-        <Route path="/beginars/basic-words/:subtopic" element={<BasicAdjectivePage />} />
-        <Route path="/beginars/basic-words/:subtopic/:child" element={<BasicAdjectiveQuizzes />} /> 
+        
+        <Route path="/beginars/color/:topic" element={<ColorsPage />} />
+        <Route path="/beginars/greeting/:topic" element={<GreetingsPage />} />
+        <Route path="/beginars/number/:topic" element={<NumbersPage />} />
+        <Route path="/beginars/day/:topic" element={<DaysPage />} />
+        <Route path="/beginars/month/:topic" element={<MonthsPage />} />
+        {/* <Route path="/beginars/basic-words/adjective/:topic" element={<BasicAdjectivePage />} /> */}
+        <Route path="/beginars/adjective/:subtopic" element={<BasicAdjectivePage />} />
+        {/* <Route path="/beginars/adjective/:subtopic/:child" element={<BasicAdjectiveQuizzes />} />  */}
+        <Route path="/beginars/adjective/:subtopic/:child" element={<BasicAdjectiveQuizzes />} /> 
+        {/* <Route path="/beginars/basic-words/color/:subtopic" element={<ColorsPage />} /> */}
+        {/* <Route path="/beginars/basic-words/:subtopic/:child" element={<BasicAdjectiveQuizzes />} />  */}
       </Routes>
     </BrowserRouter>
   );
@@ -87,7 +100,6 @@ export default App;
 // Add converted files
 // import NumbersQuizPage from './pages/NumbersQuizPage';
 // import SentencesPage from './pages/SentencesPage';
-// import ColorsPage from './pages/ColorsPage';
 // import MonthsPage from './pages/MonthsPage';
 // import DaysPage from './pages/DaysPage';
 

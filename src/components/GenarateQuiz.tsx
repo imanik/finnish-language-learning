@@ -29,7 +29,7 @@ interface GenerateQuizProps<T extends QuizItem> {
   onReset: () => void; // Function to reset the quiz
   type?: string; // Optional quiz type, not yet used
   // quizScore: QuizScore;
-  handleQuizComplete: (wasCorrect: boolean) => void;
+  // handleQuizComplete: (wasCorrect: boolean) => void;
 }
 
 // Main GenerateQuiz functional component with generic type <T>
@@ -41,7 +41,7 @@ function GenerateQuiz<T extends QuizItem>({
   onReset,
   type,
   // quizScore,
-  handleQuizComplete,
+  // handleQuizComplete,
   
 }: GenerateQuizProps<T>) {
 

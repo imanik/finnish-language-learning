@@ -8,7 +8,7 @@ interface QuizScore {
 
 interface UserStatsProps {
   quizScore: QuizScore;
-  handleQuizComplete: (wasCorrect: boolean) => void;
+  handleQuizComplete?: (wasCorrect: boolean) => void;
 }
 
 const UserStats: React.FC<UserStatsProps> = ({ quizScore, handleQuizComplete }) => {

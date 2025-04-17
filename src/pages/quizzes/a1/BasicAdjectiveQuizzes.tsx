@@ -14,12 +14,6 @@ interface Adjective {
   pronunciation: string;
 }
 
-interface QuizState {
-  question: string;
-  correctAnswer: string;
-  shuffledOptions: Adjective[];
-}
-
 interface QuizScore {
   correct: number;
   total: number;
@@ -165,8 +159,6 @@ function BasicAdjectiveQuizzes() {
             onAnswer={handleAnswer}
             onReset={resetScore}
             type={quizType}
-            // quizScore = {quizScore}
-            handleQuizComplete={handleQuizComplete}
           />
         )}
 

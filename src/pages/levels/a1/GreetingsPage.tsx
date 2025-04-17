@@ -38,16 +38,25 @@
                     <td>{item.english}</td>
                     <td>{item.finnish}</td>
                     <td>{item.pronunciation}</td> {/* Fixed typo: "pronounciation" -> "pronunciation" */}
-                    <td> <button
-                        onClick={() => {
-                        const utterance = new SpeechSynthesisUtterance(item.finnish);
-                        utterance.lang = 'fi-FI';
-                        window.speechSynthesis.speak(utterance);
-                        }}
-                        className="ml-2 bg-teal-500 text-white px-2 py-1 rounded hover:bg-teal-600 transform hover:scale-110 transition duration-200"
-                    >
-                        Play
-                    </button></td>
+                    <td className="px-4 py-2">
+                      <button
+                          onClick={() => {
+                          const utterance = new SpeechSynthesisUtterance(item.finnish);
+                          utterance.lang = 'fi-FI';
+                          window.speechSynthesis.speak(utterance);
+                          }}
+                          className="ml-2 bg-teal-300 text-white px-2 py-1 rounded hover:bg-teal-600 transform hover:scale-110 transition duration-200"
+                      >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                            className="w-6 h-6 text-blue-600 hover:text-blue-800 cursor-pointer"
+                          >
+                            <path d="M5 3.868v16.264a1 1 0 0 0 1.528.849l13.056-8.132a1 1 0 0 0 0-1.698L6.528 3.019A1 1 0 0 0 5 3.868z" />
+                          </svg>
+                      </button>
+                  </td>
                   </tr>
                 ))}
               </tbody>
@@ -66,38 +75,32 @@
            ← Back to Beginars Lesson
          </Link>
    
+        <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-6">
+        
+                              <h2 className="text-2xl font-semibold text-teal-600 mb-3">🔢 List of Greetings in Finnish</h2>
+                  
+                              {/* <p className="text-gray-600 mb-4">
+                      To say you speak a certain language, you use the verb puhua. This verb is a partitive verb. This means that you have to put the language in the partitive (the extra "a" below) behind the verb puhua.
+                      </p> */}
+
+                  <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
+                      
+                          <ConjugationTable greetings={greetingsData.basicGreetings} />
+                                   
+                  </section>
+              
+                      <Link to={`/beginars/what-languages/language-basics/language-quiz`}>
+                        <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200 m-2">
+                          Basic Greeting Exercises
+                        </button>
+                      </Link>
+              
+        </div>
+
+        
    
-   
-         {/* Verbtype 1 Section */}
-         <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-6">
-           <h3 className="text-xl font-semibold text-teal-700 mb-2">1. List of Languages in Finnish</h3>
-           <p className="text-gray-600 mb-4">
-           To say you speak a certain language, you use the verb puhua. This verb is a partitive verb. This means that you have to put the language in the partitive (the extra "a" below) behind the verb puhua.
-           </p>
-   
-   
-           <ConjugationTable greetings={greetingsData.basicGreetings} />
-   
-           
-           <p className="text-gray-600 mb-4">
-           * The language hindi gets an -ä instead of an -a (hindiä instead of hindia). This is also the case for venäjää instead of venäjäa. This is due to vowel harmony rules. The same would also be true for friisi (puhun friisiä), simlish (puhun simlishiä) and khmer (puhun khmeriä).
-           </p>
-   
-           <Link to={`/beginars/what-languages/language-basics/language-quiz`}>
-             <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200 m-2">
-               Basic Language Exercises
-             </button>
-           </Link>
-   
-           
-         {/* Introduction Section */}
-         </div>
-   
-               <Link to="/numbers/quiz">
-                   <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200 m-2">
-                       Quiz
-                   </button>  
-               </Link>
+
+
            </div>
        );
    

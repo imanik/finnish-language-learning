@@ -448,58 +448,73 @@ export const verbTopics: Topic[] = [
       { 
         title: "Nationality",
         subtopics: [
-          {
-
-            title: "What nationality are you?",
+          {title: "What nationality are you?",
             childTopics: ["Nationality Sentence Quiz"],
-            
-          }
-            
+          }   
         ],
-
       },
       { 
         title: "Location",
         subtopics: [
-          {
-
-            title: "Where do you live?",
-            
-          }
-            
+          { title: "Where do you live?", }
         ],
-
       },
-      {
-        title: "Basic Words",
+
+      { 
+        title: "Greeting",
         subtopics: [
-          { title: "Basic Greeting",
-            childTopics: ["Basic Greetings Quiz"],
-          },
-          { title: "Basic Adjective",
-            childTopics: ["Basic Adjectives Quiz"],
-          },
-          { title: "The Colors", 
-            childTopics: ["Basic Adjectives Quiz"],
-          },
-          { title: "Days of the Week",
-            childTopics: ["Basic Adjectives Quiz"],
-            
-          },
-          { title: "The Cardinal Numbers",
-            childTopics: ["Basic Adjectives Quiz"],
-            
-          },
-          { title: "Names of the Months", 
-            childTopics: ["Basic Adjectives Quiz"],
-            
-          },
-          { title: "The Weather", 
-            childTopics: ["Basic Adjectives Quiz"],
-
-          },
+          { title: "How are you?",}
         ],
       },
+
+      { 
+        title: "Color",
+        subtopics: [
+          {title: "Rainbow!",}
+        ],
+      },
+
+      { 
+        title: "Number",
+        subtopics: [
+          {title: "Ready! One, Two, Three",}
+        ],
+      },
+
+      
+      { 
+        title: "Day",
+        subtopics: [
+          {title: "Sunday! or Monday!",}
+        ],
+      },
+
+      
+      { 
+        title: "Month",
+        subtopics: [
+          {title: "January to December",}
+        ],
+      },
+
+      { 
+        title: "Weather",
+        subtopics: [
+          {title: "Summer or Winter",}
+        ],
+      },
+
+      { 
+        title: "Adjective",
+        subtopics: [
+          {title: "Good, bad or ugly?",}
+        ],
+      },
+
+
+
+
+      
       { title: "Basic phrases" },
       { title: "Basic rooms and furniture vocabulary" },
       { title: "Most common foods and drinks" },

@@ -235,7 +235,7 @@ function FamilyQuizzes() {
             onReset={resetScore}
             type={quizType}
             // quizScore = {quizScore}
-            handleQuizComplete={handleQuizComplete}
+            //handleQuizComplete={handleQuizComplete}
           />
 
         )}
