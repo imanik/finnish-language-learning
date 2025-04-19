@@ -1,5 +1,6 @@
 // src/components/Months.js
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Months() {
   const months = [
@@ -36,6 +37,13 @@ function Months() {
           </li>
         ))}
       </ul>
+
+              <Link to="/beginars/month/january-to-december">
+              {/* <Link to="/beginars/number/${a1Topics.}`}"> */}
+                  <button className="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200 m-2">
+                      Learn More
+                  </button>
+              </Link>
     </div>
   );
 }

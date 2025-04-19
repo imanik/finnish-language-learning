@@ -3,19 +3,23 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainContent from './components/MainContent';
 
 import BasicAdjectivePage from './pages/levels/a1/BasicAdjectivePage';
+import RoomFurnituresPage from './pages/levels/a1/RoomFurnituresPage';
 import NationalityPage from './pages/levels/a1/NationalityPage';
-import WhatLanguages from './pages/levels/a1/WhatLanguages';
+import FoodDrinksPage from './pages/levels/a1/FoodDrinksPage';
 import GreetingsPage from './pages/levels/a1/GreetingsPage';
+import WeathersPage from './pages/levels/a1/WeathersPage';
 import NumbersPage from './pages/levels/a1/NumbersPage';
-import DaysPage from './pages/levels/a1/DaysPage';
 import MonthsPage from './pages/levels/a1/MonthsPage';
+import ColorsPage from './pages/levels/a1/ColorsPage';
+import DaysPage from './pages/levels/a1/DaysPage';
 import BeginarsPage from './pages/BeginarsPage';
 import GrammarsPage from './pages/GrammarsPage';
 import NounsPage from './pages/NounsPage';
 import VerbsPage from './pages/VerbsPage';
-import ColorsPage from './pages/levels/a1/ColorsPage';
 import FamilyPage from './pages/levels/a1/FamilyPage';
+import ClothesPage from './pages/levels/a1/ClothesPage';
 import LocationPage from './pages/levels/a1/LocationPage';
+import WhatLanguages from './pages/levels/a1/WhatLanguages';
 import FamilyQuizzes from './pages/quizzes/a1/FamilyQuizzes';
 import NationalityQuizzes from './pages/quizzes/a1/NationalityQuizzes';
 import WhatLanguageQuizzes from './pages/quizzes/a1/WhatLanguageQuizzes';
@@ -28,7 +32,7 @@ interface QuizScore {
 }
 
 function App() {
-  const basename = process.env.NODE_ENV === 'development' ? '/learn-finnish-app' : '/learn-finnish-app';
+  const basename = process.env.NODE_ENV === 'development' ? '/learn-finnish-app' : '/';
 
   const [quizScore, setQuizScore] = useState<QuizScore>(() => {
     const storedScore = localStorage.getItem("overAllQuizScore");
@@ -80,6 +84,10 @@ function App() {
         <Route path="/beginars/number/:topic" element={<NumbersPage />} />
         <Route path="/beginars/day/:topic" element={<DaysPage />} />
         <Route path="/beginars/month/:topic" element={<MonthsPage />} />
+        <Route path="/beginars/weather/:topic" element={<WeathersPage />} />
+        <Route path="/beginars/most-common-rooms-and-furnitures/:topic" element={<RoomFurnituresPage />} />
+        <Route path="/beginars/most-common-foods-and-drinks/:topic" element={<FoodDrinksPage />} />
+        <Route path="/beginars/most-common-clothes-and-wearings/:topic" element={<ClothesPage />} />
         {/* <Route path="/beginars/basic-words/adjective/:topic" element={<BasicAdjectivePage />} /> */}
         <Route path="/beginars/adjective/:subtopic" element={<BasicAdjectivePage />} />
         {/* <Route path="/beginars/adjective/:subtopic/:child" element={<BasicAdjectiveQuizzes />} />  */}

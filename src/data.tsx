@@ -513,18 +513,55 @@ export const verbTopics: Topic[] = [
 
 
 
-
-      
-      { title: "Basic phrases" },
-      { title: "Basic rooms and furniture vocabulary" },
-      { title: "Most common foods and drinks" },
-      { title: "Most common clothing items" },
-      { title: "Most common body parts" },
-      { title: "Most common places in the city" },
-      { title: "Most common animals" },
-      { title: "Most common verbs" },
-      { title: "Talking about simple illnesses" },
-      { title: "Some survival Finnish phrases" },
-      { title: "Basic knowledge about telling the time" },
+      { title: "Most common rooms and furnitures",
+        subtopics: [
+          {title: "Rooms, Furnitures.",}
+        ],
+       },
+      { title: "Most common foods and drinks",
+        subtopics: [
+          {title: "Foods, Drinks.",}
+        ],
+       },
+      { title: "Most common clothes and wearings",
+        subtopics: [
+          {title: "Clothes, Wearings.",}
+        ],
+       },
+      { title: "Most common body parts",
+        subtopics: [
+          {title: "Room, Furnitures.",}
+        ],
+       },
+      { title: "Most common places in the city",
+        subtopics: [
+          {title: "Room, Furnitures.",}
+        ],
+       },
+      { title: "Most common animals",
+        subtopics: [
+          {title: "Room, Furnitures.",}
+        ],
+       },
+      { title: "Most common verbs",
+        subtopics: [
+          {title: "Room, Furnitures.",}
+        ],
+       },
+      { title: "Talking about simple illnesses",
+        subtopics: [
+          {title: "Room, Furnitures.",}
+        ],
+       },
+      { title: "Some survival Finnish phrases",
+        subtopics: [
+          {title: "Room, Furnitures.",}
+        ],
+       },
+      { title: "Basic knowledge about telling the time",
+        subtopics: [
+          {title: "Room, Furnitures.",}
+        ],
+       },
     ];
 
