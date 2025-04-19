@@ -1,4 +1,10 @@
 # RewriteEngine On
+# RewriteCond %{HTTP_HOST} ^fin\.aiflex\.tech$ [NC]
+# RewriteRule ^(.*)$ /learn-finnish-app/$1 [L]
+
+
+
+# RewriteEngine On
 # RewriteBase /learn-finnish-app/build/
 # RewriteRule ^index\.html$ - [L]
 # RewriteCond %{REQUEST_FILENAME} !-f
