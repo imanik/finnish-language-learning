@@ -28,6 +28,7 @@ node_modules/
 
 # Build output
 build/
+build.zip/
 dist/
 static/
 index.html

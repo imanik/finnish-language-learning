@@ -23,7 +23,7 @@ interface ConjugationTableProps {
           return (
             <div className="mb-6">
               <h4 className="text-lg font-semibold text-teal-600 mb-2"></h4>
-              <table className="table-auto w-full text-gray-600 text-center">
+              <table className="table-auto w-full text-gray-600 ">
                 <thead>
                   <tr className="bg-teal-100">
                     <th className="px-4 py-2">Finnish</th>
@@ -33,12 +33,7 @@ interface ConjugationTableProps {
                 <tbody>
                   {languages.map((langItem, index) => (
                     <tr key={index}>
-                        <td>{langItem.finnish}</td>
-                      <td>
-                       
-                          {langItem.finnish}
-                      
-                      </td>
+                      <td>{langItem.finnish}</td>              
                       <td>{langItem.english}</td>
                     </tr>
                   ))}
@@ -59,62 +54,50 @@ return (
         ← Back to Beginars Lesson
       </Link>
 
-
-
-      {/* Verbtype 1 Section */}
       <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-6">
-        <h3 className="text-xl font-semibold text-teal-700 mb-2">1. List of Languages in Finnish</h3>
-        <p className="text-gray-600 mb-4">
-        To say you speak a certain language, you use the verb puhua. This verb is a partitive verb. This means that you have to put the language in the partitive (the extra "a" below) behind the verb puhua.
-        </p>
+      
+                    <h2 className="text-xl font-semibold text-teal-700 mb-2">1. List of Languages in Finnish</h2>
+                    <p className="text-gray-600 mb-4">
+                    To say you speak a certain language, you use the verb puhua. This verb is a partitive verb. This means that you have to put the language in the partitive (the extra "a" below) behind the verb puhua.
+                    </p>
+                           
+                    <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
+                        
+            
+                        <ConjugationTable languages={langaugeData.basicLanguage} highlightLastLetter={true}/>
 
-
-        <ConjugationTable languages={langaugeData.basicLanguage} highlightLastLetter={true}/>
-
-        
-        <p className="text-gray-600 mb-4">
-        * The language hindi gets an -ä instead of an -a (hindiä instead of hindia). This is also the case for venäjää instead of venäjäa. This is due to vowel harmony rules. The same would also be true for friisi (puhun friisiä), simlish (puhun simlishiä) and khmer (puhun khmeriä).
-        </p>
-
-        <Link to={`/beginars/what-languages/language-basics/language-quiz`}>
-          <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200 m-2">
-            Basic Language Exercises
-          </button>
-        </Link>
-
-        
-      {/* Introduction Section */}
+                        
+                        <p className="text-gray-600 mb-4">
+                        * The language hindi gets an -ä instead of an -a (hindiä instead of hindia). This is also the case for venäjää instead of venäjäa. This is due to vowel harmony rules. The same would also be true for friisi (puhun friisiä), simlish (puhun simlishiä) and khmer (puhun khmeriä).
+                        </p>
+                    </section>
+            
+                    <Link to={`/beginars/what-languages/language-basics/language-quiz`}>
+                      <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200 m-2">
+                        Basic Language Exercises
+                      </button>
+                    </Link>
+                        
       </div>
 
       <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-6">
+      
+                    <h2 className="text-xl font-semibold text-teal-700 mb-2">2. Questions about what languages you speak</h2>
+                    
+                    <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
+                        
+            
+                        <ConjugationTable languages={langaugeData.sentenceLanguage} highlightLastLetter={true}/>
 
-
-
-        <h3 className="text-xl font-semibold text-teal-700 mb-2">2. Questions about what languages you speak</h3>
-        <table className="table-auto w-full text-gray-600">
-          <thead>
-            <tr className="bg-teal-100">
-              <th className="px-4 py-2">Finnish</th>
-              <th className="px-4 py-2">English</th>
-            </tr>
-          </thead>
-          <tbody>
-            {langaugeData.sentenceLanguage.map((pair, index) => (
-              <tr key={index}>
-                <td className="px-4 py-2">{pair.finnish}</td>
-                <td className="px-4 py-2">{pair.english}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-
-        {/* <Link to={`/beginars/the-present-tense/the-finnish-verbtypes/quiz/language-quiz`}> */}
-
-        <Link to={`/beginars/what-languages/language-basics/speak-finnish-quiz`}>
-          <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200 m-2">
-             Speak Finnish Exercises
-          </button>
-        </Link>
+                      
+                    </section>
+            
+                    <Link to={`/beginars/what-languages/language-basics/language-quiz`}>
+                      <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200 m-2">
+                        Sentence Language Exercises
+                      </button>
+                    </Link>
+                        
       </div>
 
     </div>

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { adjectivesData } from "../../../data/basicA1"; // Removed unused basicA1 import
 import UserStats from "../../../components/UserStats";
+import GenerateQuiz from "../../../components/GenarateQuiz";
 
 
 
@@ -11,12 +12,6 @@ interface Adjective {
   finnish: string;
   english: string;
   pronunciation: string;
-}
-
-interface QuizState {
-  question: string;
-  correctAnswer: string;
-  shuffledOptions: Adjective[];
 }
 
 interface QuizScore {
@@ -30,109 +25,9 @@ interface LeaderboardEntry {
   total: number;
 }
 
-interface GenerateQuizProps {
-  adjective: Adjective;
-  onNext: () => void;
-  onAnswer: (isCorrect: boolean) => void;
-  onReset: () => void;
-  type: "basic"; // Restrict to known values
-  quizScore: QuizScore;
-  handleQuizComplete: (wasCorrect: boolean) => void;
-}
-
-
-function GenerateQuiz({ adjective, onNext, onAnswer, onReset, type, handleQuizComplete }: GenerateQuizProps) {
-  
-  const [selected, setSelected] = useState<string | null>(null);
-  const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
-  const [quizState, setQuizState] = useState<QuizState | null>(null);
-
-  useEffect(() => {
-    const correctAnswer = adjective; // Full object for the correct answer
-
-    const adjectiveDataMap: Record<string, Adjective[]> = {
-      basic: adjectivesData.basicAdjective,
-    };
-    const allBasicAdjective = adjectiveDataMap[type] || adjectivesData.basicAdjective;
-
-    const incorrectOptions: Adjective[] = [];
-    const usedOptions = new Set([correctAnswer.finnish]);
-
-    while (incorrectOptions.length < 3) {
-      const randomIndex = Math.floor(Math.random() * allBasicAdjective.length);
-      const option = allBasicAdjective[randomIndex];
-      if (!usedOptions.has(option.finnish)) {
-        incorrectOptions.push(option);
-        usedOptions.add(option.finnish);
-      }
-    }
-
-    const shuffledOptions = [...incorrectOptions, correctAnswer].sort(() => Math.random() - 0.5);
-
-    setQuizState({ question: adjective.english, correctAnswer: correctAnswer.finnish, shuffledOptions });
-    setSelected(null);
-    setIsCorrect(null);
-  }, [adjective, type]);
-
-  const handleSubmit = () => {
-    if(!quizState) return;
-    const correct = selected === quizState.correctAnswer;
-    setIsCorrect(correct);
-    onAnswer(correct);
-    handleQuizComplete(correct); // Update quizScore via the passed function
-  };
-
-  if (!quizState) return null;
-
-  return (
-    <div className="bg-white p-6 rounded-lg shadow-lg max-w-2xl mx-auto">
-      <h3 className="text-xl font-semibold text-teal-700 mb-4">
-        What is the meaning of "<span className="text-xl text-red-500">{quizState.question}</span>"
-      </h3>
-      <div className="space-y-2">
-        {quizState.shuffledOptions.map((option, index) => (
-          <label key={index} className="block">
-            <input
-              type="radio"
-              name="languageQuiz"
-              value={option.finnish}
-              checked={selected === option.finnish}
-              onChange={() => setSelected(option.finnish)}
-              disabled={isCorrect !== null}
-              className="mr-2"
-            />
-            {option.finnish} <span className="text-gray-500 ml-2">({option.pronunciation})</span>
-          </label>
-        ))}
-      </div>
-      {isCorrect === null ? (
-        <button
-          onClick={handleSubmit}
-          className="mt-4 bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-700"
-        >
-          Submit
-        </button>
-      ) : (
-        <div className="mt-4">
-          <p className={isCorrect ? "text-green-600" : "text-red-600"}>
-            {isCorrect ? "Correct!" : `Wrong! The correct answer is "${quizState.correctAnswer}".`}
-          </p>
-          <button
-            onClick={onNext}
-            className="mt-2 bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-700 m-4"
-          >
-            Next Question
-          </button>
-          <button onClick={onReset} className="m-4 bg-red-500 text-white px-4 py-2 rounded">
-            Reset Score
-          </button>
-        </div>
-      )}
-    </div>
-  );
-}
 
 function BasicAdjectiveQuizzes() {
+  
   const { child } = useParams<{ child?: string }>();
   const [quizBasicAdjective, setQuizBasicAdjective] = useState<Adjective | null>(null);
   const [score, setScore] = useState<QuizScore>({ correct: 0, total: 0 }); // Session score
@@ -258,13 +153,12 @@ function BasicAdjectiveQuizzes() {
           </button>
         ) : (
           <GenerateQuiz
-            adjective={quizBasicAdjective}
+            item={quizBasicAdjective}
+            optionsPool={allBasicAdjective}
             onNext={nextQuestion}
             onAnswer={handleAnswer}
             onReset={resetScore}
             type={quizType}
-            quizScore={quizScore}
-            handleQuizComplete={handleQuizComplete}
           />
         )}
 

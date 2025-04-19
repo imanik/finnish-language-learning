@@ -448,68 +448,120 @@ export const verbTopics: Topic[] = [
       { 
         title: "Nationality",
         subtopics: [
-          {
-
-            title: "What nationality are you?",
+          {title: "What nationality are you?",
             childTopics: ["Nationality Sentence Quiz"],
-            
-          }
-            
+          }   
         ],
-
       },
       { 
         title: "Location",
         subtopics: [
-          {
-
-            title: "Where do you live?",
-            
-          }
-            
+          { title: "Where do you live?", }
         ],
-
       },
-      {
-        title: "Basic Words",
+
+      { 
+        title: "Greeting",
         subtopics: [
-          { title: "Basic Greeting",
-            childTopics: ["Basic Greetings Quiz"],
-          },
-          { title: "Basic Adjective",
-            childTopics: ["Basic Adjectives Quiz"],
-          },
-          { title: "The Colors", 
-            childTopics: ["Basic Adjectives Quiz"],
-          },
-          { title: "Days of the Week",
-            childTopics: ["Basic Adjectives Quiz"],
-            
-          },
-          { title: "The Cardinal Numbers",
-            childTopics: ["Basic Adjectives Quiz"],
-            
-          },
-          { title: "Names of the Months", 
-            childTopics: ["Basic Adjectives Quiz"],
-            
-          },
-          { title: "The Weather", 
-            childTopics: ["Basic Adjectives Quiz"],
-
-          },
+          { title: "How are you?",}
         ],
       },
-      { title: "Basic phrases" },
-      { title: "Basic rooms and furniture vocabulary" },
-      { title: "Most common foods and drinks" },
-      { title: "Most common clothing items" },
-      { title: "Most common body parts" },
-      { title: "Most common places in the city" },
-      { title: "Most common animals" },
-      { title: "Most common verbs" },
-      { title: "Talking about simple illnesses" },
-      { title: "Some survival Finnish phrases" },
-      { title: "Basic knowledge about telling the time" },
+
+      { 
+        title: "Color",
+        subtopics: [
+          {title: "Rainbow!",}
+        ],
+      },
+
+      { 
+        title: "Number",
+        subtopics: [
+          {title: "Ready! One, Two, Three",}
+        ],
+      },
+
+      
+      { 
+        title: "Day",
+        subtopics: [
+          {title: "Sunday! or Monday!",}
+        ],
+      },
+
+      
+      { 
+        title: "Month",
+        subtopics: [
+          {title: "January to December",}
+        ],
+      },
+
+      { 
+        title: "Weather",
+        subtopics: [
+          {title: "Summer or Winter",}
+        ],
+      },
+
+      { 
+        title: "Adjective",
+        subtopics: [
+          {title: "Good, bad or ugly?",}
+        ],
+      },
+
+
+
+      { title: "Most common rooms and furnitures",
+        subtopics: [
+          {title: "Rooms, Furnitures.",}
+        ],
+       },
+      { title: "Most common foods and drinks",
+        subtopics: [
+          {title: "Foods, Drinks.",}
+        ],
+       },
+      { title: "Most common clothes and wearings",
+        subtopics: [
+          {title: "Clothes, Wearings.",}
+        ],
+       },
+      { title: "Most common body parts",
+        subtopics: [
+          {title: "Room, Furnitures.",}
+        ],
+       },
+      { title: "Most common places in the city",
+        subtopics: [
+          {title: "Room, Furnitures.",}
+        ],
+       },
+      { title: "Most common animals",
+        subtopics: [
+          {title: "Room, Furnitures.",}
+        ],
+       },
+      { title: "Most common verbs",
+        subtopics: [
+          {title: "Room, Furnitures.",}
+        ],
+       },
+      { title: "Talking about simple illnesses",
+        subtopics: [
+          {title: "Room, Furnitures.",}
+        ],
+       },
+      { title: "Some survival Finnish phrases",
+        subtopics: [
+          {title: "Room, Furnitures.",}
+        ],
+       },
+      { title: "Basic knowledge about telling the time",
+        subtopics: [
+          {title: "Room, Furnitures.",}
+        ],
+       },
     ];
 

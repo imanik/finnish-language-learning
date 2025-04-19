@@ -1,5 +1,6 @@
 // src/components/Months.js
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Months() {
   const months = [
@@ -18,8 +19,11 @@ function Months() {
   };
 
   return (
-    <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg mb-6 w-full max-w-md transform hover:scale-105 hover:rotate-2 transition duration-300 border border-teal-300 hover:shadow-xl font-['Roboto']">
+    <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg w-full max-w-md">
       <h2 className="text-2xl font-semibold text-gray-800 mb-4">Finnish Months</h2>
+
+      <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
+
       <ul className="list-disc pl-5 text-gray-700">
         {months.map((month, index) => (
           <li key={index} className="flex items-center justify-between m-2">
@@ -36,6 +40,14 @@ function Months() {
           </li>
         ))}
       </ul>
+      </section>
+
+              <Link to="/beginars/month/january-to-december">
+              {/* <Link to="/beginars/number/${a1Topics.}`}"> */}
+                  <button className="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200 m-2">
+                      Learn More
+                  </button>
+              </Link>
     </div>
   );
 }

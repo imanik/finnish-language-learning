@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { langaugeData } from "../../../data/basicA1";
 import UserStats from "../../../components/UserStats";
+import GenerateQuiz from "../../../components/GenarateQuiz";
 
 
 interface Language {
@@ -20,118 +21,6 @@ interface LeaderboardEntry {
   score: number,
   total: number,  
 }
-
-interface QuizState {
-  question: string,
-  correctAnswer: string,
-  shuffledOptions: Language[],
-}
-
-interface GenerateQuizProps {
-  language: Language,
-  onNext: () => void,
-  onAnswer: (isCorrect: boolean) => void,
-  onReset: () => void,
-  type: "basic" | "sentence" ,
-}
-
-// Original Language Quiz (Finnish -> Language Name)
-function GenerateQuiz({ language, onNext, onAnswer, onReset, type }: GenerateQuizProps) {
-
-  // console.log("language:", language);
-  const [selected, setSelected] = useState<string | null>(null);
-    const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
-    const [quizState, setQuizState] = useState<QuizState | null>(null);
-
-   useEffect(() => {
-      const correctAnswer = language; // Full object for the correct answer
-  
-      const languageDataMap: Record<string, Language[]> = {
-        basic: langaugeData.basicLanguage,
-      };
-      const allBasicLanguage = languageDataMap[type] || langaugeData.basicLanguage;
-  
-      const incorrectOptions: Language[] = [];
-      const usedOptions = new Set([correctAnswer.finnish]);
-  
-      while (incorrectOptions.length < 3) {
-        const randomIndex = Math.floor(Math.random() * allBasicLanguage.length);
-        const option = allBasicLanguage[randomIndex];
-        if (!usedOptions.has(option.finnish)) {
-          incorrectOptions.push(option);
-          usedOptions.add(option.finnish);
-        }
-      }
-  
-      const shuffledOptions = [...incorrectOptions, correctAnswer].sort(() => Math.random() - 0.5);
-  
-      setQuizState({ question: language.english, correctAnswer: correctAnswer.finnish, shuffledOptions });
-      setSelected(null);
-      setIsCorrect(null);
-
-  }, [language, type]);
-
-
-
-  const handleSubmit = () => {
-    if(!quizState) return;
-    const correct = selected === quizState.correctAnswer;
-    setIsCorrect(correct);
-    onAnswer(correct);
-    // handleQuizComplete(correct); // Update quizScore via the passed function
-  };
-
-  if (!quizState) return null;
-
-  return (
-    <div className="bg-white p-6 rounded-lg shadow-lg max-w-2xl mx-auto">
-      <h3 className="text-xl font-semibold text-teal-700 mb-4">
-        What is the meaning of "<span className="text-xl text-red-500">{quizState.question}</span>"?
-      </h3>
-      <div className="space-y-2">
-        {quizState.shuffledOptions.map((option, index) => (
-          <label key={index} className="block">
-            <input
-              type="radio"
-              name="languageQuiz"
-              value={option.finnish}
-              checked={selected === option.finnish}
-              onChange={() => setSelected(option.finnish)}
-              disabled={isCorrect !== null}
-              className="mr-2"
-            />
-            {option.finnish}
-          </label>
-        ))}
-      </div>
-      {isCorrect === null ? (
-        <button
-          onClick={handleSubmit}
-          className="mt-4 bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-700"
-        >
-          Submit
-        </button>
-      ) : (
-        <div className="mt-4">
-          <p className={isCorrect ? "text-green-600" : "text-red-600"}>
-            {isCorrect ? "Correct!" : `Wrong! The correct answer is "${quizState.correctAnswer}".`}
-          </p>
-          <button
-            onClick={onNext}
-            className="mt-2 bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-700 m-4"
-          >
-            Next Question
-          </button>
-          <button onClick={onReset} className="m-4 bg-red-500 text-white px-4 py-2 rounded">
-            Reset Score
-          </button>
-        </div>
-      )}
-    </div>
-  );
-}
-
-
 
 function WhatLanguageQuizzes() {
 
@@ -302,11 +191,13 @@ function WhatLanguageQuizzes() {
           </button>
         ) : (
           <GenerateQuiz
-            language={quizLanguageState} // Pass the current language member to GenerateQuiz
+            item={quizLanguageState} // Pass the current language member to GenerateQuiz
+            optionsPool={allLanguages}
             onNext={nextQuestion} // Pass function to move to the next question
             onAnswer={handleAnswer} // Pass function to handle the answer
             onReset={resetScore} // Pass function to reset the score
             type={quizType} // Pass the quiz type (e.g., "basic")
+            // handleQuizComplete={handleQuizComplete}
           />
         )}
 

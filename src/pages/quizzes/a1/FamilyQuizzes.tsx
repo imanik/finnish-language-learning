@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { familyData } from "../../../data/basicA1";
 import UserStats from "../../../components/UserStats";
+import  GenerateQuiz  from "../../../components/GenarateQuiz";
 
 interface Family {
   english: string;
@@ -9,11 +10,6 @@ interface Family {
   pronunciation: string;
 }
 
-interface QuizState {
-  question: string;
-  correctAnswer: string;
-  shuffledOptions: Family[];
-}
 
 interface QuizScore {
   correct: number;
@@ -26,186 +22,10 @@ interface LeaderboardEntry {
   total: number;
 }
 
-interface GenerateQuizProps {
-  family: Family; // Changed from Family[] to Family
-  onNext: () => void;
-  onAnswer: (isCorrect: boolean) => void;
-  onReset: () => void;
-  type: "basic" | "extended" | "step" | "marital"; // Restrict to known values
-}
-
-
-// GenerateQuiz Component
-// A React component that generates and displays a single quiz question based on a family member.
-// Props: family (current family member), onNext (next question callback), onAnswer (answer callback), onReset (reset callback), type (quiz category).
-function GenerateQuiz({ family, onNext, onAnswer, onReset, type }: GenerateQuizProps) {
-  // State to track the user's selected answer (e.g., "äiti"), initially null (no selection).
-  // Typed as string | null to allow either a string (Finnish term) or null.
-  const [selected, setSelected] = useState<string | null>(null);
-
-  // State to track whether the user's answer was correct, initially null (no submission yet).
-  // Typed as boolean | null to allow true (correct), false (incorrect), or null (unsubmitted).
-  const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
-
-  // State to hold the quiz data (question, correct answer, options), initially null until set.
-  // Typed as QuizState | null, where QuizState defines the structure of the quiz.
-  const [quizState, setQuizState] = useState<QuizState | null>(null);
-
-  // useEffect hook to set up the quiz whenever the 'family' or 'type' prop changes.
-  useEffect(() => {
-    // Assign the 'family' prop (a single Family object) to correctAnswer.
-    // This represents the correct answer for the quiz (e.g., { english: "mother", finnish: "äiti", pronunciation: "AY-tee" }).
-    const correctAnswer = family; // Single Family object
-
-    // Define a mapping of quiz types to their respective family data arrays.
-    // Record<string, Family[]> ensures keys are strings and values are arrays of Family objects.
-    const familyDataMap: Record<string, Family[]> = {
-      basic: familyData.basicFamily, // Basic family members (e.g., mother, father).
-      extended: familyData.extendedFamily, // Extended family (e.g., uncle, aunt).
-      step: familyData.stepFamily, // Step-family (e.g., stepmother, stepfather).
-      marital: familyData.maritalStatus, // Marital status (e.g., husband, wife).
-    };
-
-    // Select the appropriate family data array based on the 'type' prop, default to basicFamily if type is invalid.
-    // allBasicFamilyMembers will be an array of Family objects (e.g., familyData.basicFamily).
-    const allBasicFamilyMembers = familyDataMap[type] || familyData.basicFamily;
-
-    // Assign allBasicFamilyMembers to allOptions for clarity (no transformation needed here).
-    // This is the pool of family members to draw incorrect options from.
-    const allOptions = allBasicFamilyMembers;
-
-    // Array to store three incorrect family member options.
-    // Typed as Family[] to hold Family objects.
-    const incorrectOptions: Family[] = [];
-
-    // Set to track used Finnish terms to avoid duplicates.
-    // Initialized with the correct answer's Finnish term (e.g., "äiti").
-    const usedOptions = new Set([correctAnswer.finnish]);
-
-    // Loop to select three unique incorrect options.
-    while (incorrectOptions.length < 3) {
-      // Generate a random index within the range of allOptions array length (e.g., 0 to 10 if 11 members).
-      const randomIndex = Math.floor(Math.random() * allOptions.length);
-
-      // Select a family member object at the random index (e.g., { english: "father", finnish: "isä", ... }).
-      const option = allOptions[randomIndex];
-
-      // Check if this option’s Finnish term hasn’t been used yet (to avoid duplicates).
-      if (!usedOptions.has(option.finnish)) {
-        // Add the option to incorrectOptions (e.g., { english: "father", finnish: "isä", ... }).
-        incorrectOptions.push(option);
-        // Add its Finnish term to usedOptions to mark it as taken (e.g., "isä").
-        usedOptions.add(option.finnish);
-      }
-    }
-
-    // Combine incorrect options with the correct answer into a single array and shuffle it.
-    // Spread incorrectOptions (3 items) and add correctAnswer (1 item), then sort randomly.
-    // Result: e.g., [{ finnish: "isä" }, { finnish: "äiti" }, { finnish: "sisko" }, { finnish: "veli" }], order randomized.
-    const shuffledOptions = [...incorrectOptions, correctAnswer].sort(() => Math.random() - 0.5);
-
-    // Update quizState with the quiz data:
-    // - question: The English term (e.g., "mother") to be translated.
-    // - correctAnswer: The Finnish term (e.g., "äiti") that’s correct.
-    // - shuffledOptions: The four options (correct + 3 incorrect) in random order.
-    setQuizState({ question: family.english, correctAnswer: correctAnswer.finnish, shuffledOptions });
-
-    // Reset selected to null to clear any previous selection for the new question.
-    setSelected(null);
-
-    // Reset isCorrect to null to clear feedback for the new question.
-    setIsCorrect(null);
-  }, [family, type]); // Dependency array: runs when 'family' or 'type' changes.
-
-  // Function to handle form submission when the user clicks "Submit".
-  const handleSubmit = () => {
-    // Guard clause: if quizState is null (not yet set), do nothing.
-    if (!quizState) return;
-
-    // Compare the user’s selected answer (e.g., "äiti") with the correct answer (e.g., "äiti").
-    // Result: true if they match, false if not.
-    const correct = selected === quizState.correctAnswer;
-
-    // Update isCorrect state with the result (true or false) to show feedback.
-    setIsCorrect(correct);
-
-    // Call the onAnswer prop (passed from parent) with the result to update external state (e.g., score).
-    onAnswer(correct);
-  };
-
-  // If quizState is null (not yet set), render nothing to avoid errors.
-  if (!quizState) return null;
-
-  // Render the quiz UI once quizState is set.
-  return (
-    <div className="bg-white p-6 rounded-lg shadow-lg max-w-2xl mx-auto">
-      {/* Display the question (e.g., "What is the meaning of 'mother'?") */}
-      <h3 className="text-xl font-semibold text-teal-700 mb-4">
-        What is the meaning of "<span className="text-xl text-red-500">{quizState.question}</span>"?
-      </h3>
-
-      {/* Container for radio button options */}
-      <div className="space-y-2">
-        {/* Map through shuffledOptions to create radio buttons for each option */}
-        {quizState.shuffledOptions.map((option, index) => (
-          <label key={index} className="block">
-            {/* Radio input for selecting an answer */}
-            <input
-              type="radio" // Radio button type ensures only one option can be selected.
-              name="languageQuiz" // Groups radio buttons together so only one is active.
-              value={option.finnish} // Value is the Finnish term (e.g., "äiti").
-              checked={selected === option.finnish} // Checked if this option matches the user’s selection.
-              onChange={() => setSelected(option.finnish)} // Update selected state when clicked.
-              disabled={isCorrect !== null} // Disable after submission (when isCorrect is true or false).
-              className="mr-2" // Margin-right for spacing.
-            />
-            {/* Display the Finnish term and pronunciation (e.g., "äiti (AY-tee)") */}
-            {option.finnish} <span className="text-gray-500 ml-2">({option.pronunciation})</span>
-          </label>
-        ))}
-      </div>
-
-      {/* Conditional rendering based on submission state */}
-      {isCorrect === null ? (
-        // If not yet submitted (isCorrect is null), show the Submit button.
-        <button
-          onClick={handleSubmit} // Trigger handleSubmit when clicked.
-          className="mt-4 bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-700"
-        >
-          Submit
-        </button>
-      ) : (
-        // If submitted (isCorrect is true or false), show feedback and buttons.
-        <div className="mt-4">
-          {/* Feedback message: green for correct, red for wrong */}
-          <p className={isCorrect ? "text-green-600" : "text-red-600"}>
-            {isCorrect
-              ? "Correct!" // Display "Correct!" if the answer was right.
-              : `Wrong! The correct answer is "${quizState.correctAnswer}".` // Show correct answer if wrong.
-            }
-          </p>
-          {/* Button to move to the next question */}
-          <button
-            onClick={onNext} // Trigger onNext (passed from parent) to load a new question.
-            className="mt-2 bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-700 m-4"
-          >
-            Next Question
-          </button>
-          {/* Button to reset the quiz scores */}
-          <button
-            onClick={onReset} // Trigger onReset (passed from parent) to clear scores.
-            className="m-4 bg-red-500 text-white px-4 py-2 rounded"
-          >
-            Reset Score
-          </button>
-        </div>
-      )}
-    </div>
-  );
-}
-
 // FamilyQuizzes Component
 function FamilyQuizzes() {
+
+  console.log(localStorage);
   // Extract the 'child' parameter from the URL using react-router-dom's useParams hook.
   // TypeScript typing ensures 'child' is either a string or undefined.
   const { child } = useParams<{ child?: string }>();
@@ -362,6 +182,9 @@ function FamilyQuizzes() {
       // Return the new score to update the state.
       return newScore;
     });
+
+      // Update overall quiz score here:
+       handleQuizComplete(isCorrect); // <-- This is where it belongs
   };
 
   // Render the component UI.
@@ -405,12 +228,16 @@ function FamilyQuizzes() {
           </button>
         ) : (
           <GenerateQuiz
-            family={quizFamily} // Pass the current family member to GenerateQuiz
-            onNext={nextQuestion} // Pass function to move to the next question
-            onAnswer={handleAnswer} // Pass function to handle the answer
-            onReset={resetScore} // Pass function to reset the score
-            type={quizType} // Pass the quiz type (e.g., "basic")
+            item={quizFamily}
+            optionsPool={familyMembers} // <- This changes based on quiz type now!
+            onNext={nextQuestion}
+            onAnswer={handleAnswer}
+            onReset={resetScore}
+            type={quizType}
+            // quizScore = {quizScore}
+            //handleQuizComplete={handleQuizComplete}
           />
+
         )}
 
         {/* Leaderboard section */}
@@ -438,3 +265,4 @@ function FamilyQuizzes() {
 }
 
 export default FamilyQuizzes;
+
