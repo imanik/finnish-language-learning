@@ -33,6 +33,9 @@ function Days() {
       >
         {showPronunciation ? 'Hide Pronunciation' : 'Show Pronunciation'} 
       </button>
+
+      <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
+
       <ul className="list-disc pl-5 text-gray-700">
         {days.map((day, index) => (
           <li key={index} className="flex items-center justify-between m-2">
@@ -49,10 +52,14 @@ function Days() {
           </li>
         ))}
       </ul>
+        </section>
+
       <p className="text-sm text-gray-600 mt-4">
         <strong>Tip:</strong> Finnish days of the week are not capitalized unless at the beginning of a sentence. 
         For example, "maanantai" (Monday) is not capitalized in the middle of a sentence.     
       </p>
+
+      
 
       <Link to="/beginars/day/sunday-or-monday">
             <button className="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200">

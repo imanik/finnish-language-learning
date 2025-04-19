@@ -32,7 +32,7 @@ interface QuizScore {
 }
 
 function App() {
-  const basename = process.env.NODE_ENV === 'development' ? '/learn-finnish-app' : '/';
+  const basename = process.env.NODE_ENV === 'development' ? '/' : '/';
 
   const [quizScore, setQuizScore] = useState<QuizScore>(() => {
     const storedScore = localStorage.getItem("overAllQuizScore");

@@ -30,6 +30,9 @@ import { a1Topics } from '../data';
             {showPronunciation ? 'Hide Pronunciation' : 'Show Pronunciation'}
         </button>
 
+        <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
+
+
         <ul className="list-disc pl-5 text-gray-700">
             {numbers.map((number, index) => (
                 <li key={index} className="flex items-center justify-between m-2">
@@ -46,6 +49,7 @@ import { a1Topics } from '../data';
                 </li>
             ))}
         </ul>
+        </section>
 
         <Link to="/beginars/number/ready-one-two-three">
         {/* <Link to="/beginars/number/${a1Topics.}`}"> */}

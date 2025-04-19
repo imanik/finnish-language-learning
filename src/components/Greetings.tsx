@@ -30,6 +30,8 @@ function Greetings() {
         {showPronunciation ? 'Hide Pronunciation' : 'Show Pronunciation'}
       </button>
 
+      <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
+
       <ul className="list-disc pl-5 text-gray-700">
         {greets.map((greet, index) => (
           <li key={index} className="flex items-center justify-between m-2">
@@ -46,6 +48,8 @@ function Greetings() {
           </li>
         ))}
       </ul>
+
+      </section>
       
       {/* // Inside your component (e.g., Greetings.js): */}
 <Link to="/beginars/greeting/how-are-you">

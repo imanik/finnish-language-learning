@@ -81,8 +81,16 @@
     };
 
     return (
-        <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg w-full max-w-md">
+         <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg w-full max-w-md">
         <h2 className="text-2xl font-semibold text-gray-800 mb-4">Finnish Colors</h2>
+        
+
+      
+      <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
+     
+
+        
+        
         <ul className="list-none mb-4">
             {colors.map((color, index) => (
             <li key={index} className="flex items-center mb-2">
@@ -91,6 +99,9 @@
             </li>
             ))}
         </ul>
+        </section>
+      
+
         <button
             onClick={() => setShowAnswer(!showAnswer)}
             className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transform hover:scale-110 transition duration-200 mb-4"
@@ -126,6 +137,7 @@
         <p className={`mb-2 ${feedback.includes('Correct') ? 'text-green-600' : 'text-red-600'}`}>
             {feedback}
         </p>
+        
         <Link to="/beginars/color/rainbow">
             <button className="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200">
                 Learn More

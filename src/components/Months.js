@@ -21,6 +21,9 @@ function Months() {
   return (
     <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg w-full max-w-md">
       <h2 className="text-2xl font-semibold text-gray-800 mb-4">Finnish Months</h2>
+
+      <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
+
       <ul className="list-disc pl-5 text-gray-700">
         {months.map((month, index) => (
           <li key={index} className="flex items-center justify-between m-2">
@@ -37,6 +40,7 @@ function Months() {
           </li>
         ))}
       </ul>
+      </section>
 
               <Link to="/beginars/month/january-to-december">
               {/* <Link to="/beginars/number/${a1Topics.}`}"> */}

@@ -42,30 +42,30 @@ const UserStats: React.FC<UserStatsProps> = ({ quizScore, handleQuizComplete }) 
       <h2 className="text-2xl font-semibold text-gray-800 mb-4">Your Stats</h2>
       <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
         <div className="mb-4">
-          <p className="text-gray-700">
-            <span className="font-medium">Score:</span> {quizScore.correct}/{quizScore.total} ({currentScore}%)
+          <p className="text-teal-600 mt-2">
+            <span className="font-medium"><strong>🧠 Score:</strong></span> {quizScore.correct}/{quizScore.total} ({currentScore}%)
           </p>
           <div className="w-full bg-gray-200 rounded-full h-2.5 mt-1">
             <div className="bg-teal-600 h-2.5 rounded-full" style={{ width: `${currentScore}%` }} />
           </div>
         </div>
 
-        <p className="text-gray-700 mb-2">
-          <span className="font-medium">Quizzes Solved:</span> {quizScore.total}
+        <p className="text-teal-600 mt-2">
+          <span className="font-medium"><strong>Quizzes Solved:</strong></span> {quizScore.total}
         </p>
-        <p className="text-gray-700 mb-2">
-          <span className="font-medium">Correct Answers:</span> {quizScore.correct}
+        <p className="text-teal-600 mt-2">
+          <span className="font-medium"><strong>Correct Answers:</strong></span> {quizScore.correct}
         </p>
-        <p className="text-gray-700 mb-2">
-          <span className="font-medium">Level:</span> {currentLevel}
+        <p className="text-teal-600 mt-2">
+          <span className="font-medium"><strong>Level:</strong></span> {currentLevel}
         </p>
-        <p className="text-gray-700 mb-2">
-          <span className="font-medium">Quizzes left:</span> {quizzesToNext}
+        <p className="text-teal-600 mt-2">
+          <span className="font-medium"><strong>Quizzes left:</strong></span> {quizzesToNext}
         </p>
-        <p className="text-gray-700 mb-4">
-          <span className="font-medium">Next Milestone:</span> Complete {nextMilestone} quizzes with ≥ {requiredScore}%
+        <p className="text-teal-600 mt-2">
+          <span className="font-medium"><strong>Next Milestone:</strong></span><br></br> Complete {nextMilestone} quizzes with ≥ {requiredScore}%
         </p>
-        <p className="text-teal-700 font-medium mb-4">{levelUpMessage()}</p>
+        <p className="text-teal-700 font-medium mt-2">{levelUpMessage()}</p>
       </section>
     </div>
   );
