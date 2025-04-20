@@ -100,7 +100,7 @@ function FamilyQuizzes() {
         .replace("step-family", "stepFamily") // Replace "step-family" with "stepFamily".
         .replace("marital-status", "maritalStatus") // Replace "marital-status" with "maritalStatus".
     : "basicFamily"; // Default to "basicFamily" if child is undefined.
-
+    // console.log("familyTypeKey", familyTypeKey); // Log the determined familyTypeKey for debugging.
   // Access the family members array from familyData using familyTypeKey.
   // Cast as keyof typeof familyData to tell TypeScript the key is valid, fallback to basicFamily if not found.
   const familyMembers = (familyData[familyTypeKey as keyof typeof familyData] ||

@@ -39,7 +39,7 @@ function WhatLanguageQuizzes() {
     //over All quiz Score
     const [quizScore, setQuizScore] = useState<QuizScore>(() => {
       const anySavedOverAllQuizScore = localStorage.getItem("overAllQuizScore");
-      return anySavedOverAllQuizScore ? localStorage.parse(anySavedOverAllQuizScore) : {correct:0, total:0}
+      return anySavedOverAllQuizScore ? JSON.parse(anySavedOverAllQuizScore) : {correct:0, total:0}
     });
 
     // Now showdata if any value presents in current game or leaderboard when pages load this is a one time run useState func
@@ -156,7 +156,7 @@ function WhatLanguageQuizzes() {
   return (
     <div className="min-h-screen bg-teal-50 p-6 font-['Roboto']">
       {/* Link to navigate back to the family lessons page */}
-      <Link to="/beginars/language/basic-language" className="text-teal-700 hover:underline mb-6 inline-block">
+      <Link to="/beginars/what-languages/basic-language" className="text-teal-700 hover:underline mb-6 inline-block">
         ← Back to Language Lessons
       </Link>
 
@@ -170,7 +170,7 @@ function WhatLanguageQuizzes() {
       <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto">
         {/* Display the quiz type in the header (e.g., "BASIC FAMILY QUIZ" or "MARITAL STATUS QUIZ") */}
         <h3 className="text-xl font-semibold text-teal-700 mb-4">
-          {languageTypeMap[languageTypeKey] === "basic"? "BASIC": `${languageTypeMap[languageTypeKey].toUpperCase()} LANGUAGE`}{" "}
+          {languageTypeMap[languageTypeKey] === "basic"?  `${languageTypeMap[languageTypeKey].toUpperCase()}  LANGUAGE`: `${languageTypeMap[languageTypeKey].toUpperCase()} LANGUAGE`}{" "}
           QUIZ
         </h3>
 

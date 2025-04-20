@@ -19,9 +19,10 @@ import { monthData } from "../../../data/basicA1";
 function ConjugationTable({ days, min, max, isVocab } :ConjugationTableProps) {
     // console.log("ConjugationTable loaded", families);
     return (
-      <div className="mb-6">
-        <h4 className="text-lg font-semibold text-teal-600 mb-2"></h4>
-        <table className="table-auto w-full text-gray-600">
+      <div className="mb-6 overflow-x-auto">
+      <h4 className="text-lg font-semibold text-teal-600 mb-2"></h4>
+      <div className="min-w-full inline-block align-middle">
+          <table className="table-auto w-full text-gray-600 border-collapse">
           <thead>
           {isVocab ?   
               <tr className="bg-teal-100">
@@ -80,6 +81,7 @@ function ConjugationTable({ days, min, max, isVocab } :ConjugationTableProps) {
             ))}
           </tbody>
         </table>
+      </div>
       </div>
     );
   }

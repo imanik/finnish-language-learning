@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-    import { Link, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import {greetingsData} from '../../../data/basicA1';
 import UserStats from '../../../components/UserStats';
 import GenerateQuiz from '../../../components/GenarateQuiz';
@@ -29,7 +29,7 @@ import GenerateQuiz from '../../../components/GenarateQuiz';
  
    
     
- function GreetingQuizzes() {
+ function GreetingQuizzesPage() {
 
    const { child } = useParams<{ child?: string }>();
     const [quizBasicGreeting, setQuizBasicGreeting] = useState<Greeting | null>(null);
@@ -134,7 +134,7 @@ import GenerateQuiz from '../../../components/GenarateQuiz';
    // Render the component UI.
    return (
     <div className="min-h-screen bg-teal-50 p-6 font-['Roboto']">
-      <Link to="/beginars/basic-words/basic-greeting" className="text-teal-700 hover:underline mb-6 inline-block">
+      <Link to="/beginars/greeting/how-are-you" className="text-teal-700 hover:underline mb-6 inline-block">
         ← Back to Basic Greeting Lessons
       </Link>     
       <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-6">
@@ -142,7 +142,7 @@ import GenerateQuiz from '../../../components/GenarateQuiz';
       </div>
       <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto">
         <h3 className="text-xl font-semibold text-teal-700 mb-4">
-          {quizTypeMap[greetingTypeKey] === "basic" ? quizTypeMap[greetingTypeKey].toUpperCase() : "BASIC ADJECTIVE"}{" "}
+          {quizTypeMap[greetingTypeKey] === "basic" ?  `${quizTypeMap[greetingTypeKey].toUpperCase()}  GREETINGS` : "BASIC GREETINGS"}{" "}
           QUIZ
         </h3>
         <p className="text-gray-600 mb-4">
@@ -188,4 +188,4 @@ import GenerateQuiz from '../../../components/GenarateQuiz';
   );
 }
 
-    export default GreetingQuizzes;
+    export default GreetingQuizzesPage;

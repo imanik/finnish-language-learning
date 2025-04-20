@@ -431,7 +431,7 @@ export const verbTopics: Topic[] = [
         title: "What Languages", // Changed from "What language do you speak?"
         subtopics: [
           {
-            title: "Basic Language ",
+            title: "Basic Language",
             childTopics: ["Basic Language Quiz", "Sentence Language Quiz"],
           },
         ],
@@ -463,21 +463,26 @@ export const verbTopics: Topic[] = [
       { 
         title: "Greeting",
         subtopics: [
-          { title: "How are you?",}
+          { title: "How are you?",
+            childTopics: ["Basic Greeting Quiz", ],
+          }
         ],
       },
 
       { 
         title: "Color",
         subtopics: [
-          {title: "Rainbow!",}
+          {title: "Rainbow!",
+          childTopics: ["Basic Color Quiz", ],
+          }
         ],
       },
 
       { 
         title: "Number",
         subtopics: [
-          {title: "Ready! One, Two, Three",}
+          {title: "Ready! One, Two, Three",
+            childTopics: ["Basic Numbers Quiz", "Ordinal Numbers Quiz", "Sentence Numbers Quiz"],}
         ],
       },
 
@@ -485,7 +490,9 @@ export const verbTopics: Topic[] = [
       { 
         title: "Day",
         subtopics: [
-          {title: "Sunday! or Monday!",}
+          {title: "Sunday! or Monday!",
+            childTopics: ["Basic Days Quiz",],
+          }
         ],
       },
 
@@ -530,37 +537,37 @@ export const verbTopics: Topic[] = [
        },
       { title: "Most common body parts",
         subtopics: [
-          {title: "Room, Furnitures.",}
+          {title: "Body Parts.",}
         ],
        },
       { title: "Most common places in the city",
         subtopics: [
-          {title: "Room, Furnitures.",}
+          {title: "Places.",}
         ],
        },
       { title: "Most common animals",
         subtopics: [
-          {title: "Room, Furnitures.",}
+          {title: "Animals.",}
         ],
        },
       { title: "Most common verbs",
         subtopics: [
-          {title: "Room, Furnitures.",}
+          {title: "Verbs.",}
         ],
        },
       { title: "Talking about simple illnesses",
         subtopics: [
-          {title: "Room, Furnitures.",}
+          {title: "Illness",}
         ],
        },
       { title: "Some survival Finnish phrases",
         subtopics: [
-          {title: "Room, Furnitures.",}
+          {title: "Phrases",}
         ],
        },
       { title: "Basic knowledge about telling the time",
         subtopics: [
-          {title: "Room, Furnitures.",}
+          {title: "Time",}
         ],
        },
     ];

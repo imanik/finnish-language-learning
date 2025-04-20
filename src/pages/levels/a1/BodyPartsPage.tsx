@@ -1,16 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { clothesData } from "../../../data/basicA1";
+import { bodyPartData } from "../../../data/basicA1";
 
 
-interface Clothes {
+interface Food {
   english: string,
   finnish: string,
   pronunciation?: string,
 }
 
 interface ConjugationTableProps {
-  days: Clothes[];
+  days: Food[];
   min?: number;
   max?: number;
   isVocab?: boolean;
@@ -86,7 +86,7 @@ return (
 );
 }
 
-function ClothesPage(){
+function BodyPartsPage(){
 
     
 return (
@@ -102,15 +102,15 @@ return (
 
       <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-6">
       
-                        <h2 className="text-2xl font-semibold text-teal-800 mb-4">👕 A1 Finnish – Clothes & Accessories (Vaatteet ja Asusteet)</h2>
+                        <h2 className="text-2xl font-semibold text-teal-800 mb-4">🧍‍♂️ A1 Finnish – Body Parts – Kehonosat </h2>
                     {/* <!-- Header --> */}
                         {/* <h4 className="text-xl font-semibold text-teal-700 mb-6"><span className="font-medium">“The world is colorful (värikäs)”</span>  – let’s learn how to describe it in Finnish!</h4> */}
       
-                          <h2 className="text-2xl font-semibold text-teal-600 mb-3">👗 Vaatteet – Clothes</h2>
+                          <h2 className="text-2xl font-semibold text-teal-600 mb-3">🧠 1. The Head and Face – Pää ja kasvot</h2>
                   <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
                       {/* <p className="text-gray-700 mb-2">These are regular counting numbers: one, two, three...</p> */}
           
-                      <ConjugationTable days={clothesData.clothes} min={0} max={31} isVocab={true} />
+                      <ConjugationTable days={bodyPartData.bodyParts} min={0} max={21} isVocab={true} />
                       
                       
                                   {/* <p className="text-teal-600 mt-2"><strong>🧠 Tip:</strong> In Finnish, the months are not capitalized. Each ends in -kuu, meaning "moon/month".</p> */}
@@ -124,11 +124,11 @@ return (
                     {/* <!-- Header --> */}
                         {/* <h4 className="text-xl font-semibold text-teal-700 mb-6"><span className="font-medium">“The world is colorful (värikäs)”</span>  – let’s learn how to describe it in Finnish!</h4> */}
       
-                  <h2 className="text-2xl font-semibold text-teal-600 mb-3">🧤 Asusteet – Accessories</h2>
+                  <h2 className="text-2xl font-semibold text-teal-600 mb-3">🫀 2. The Torso – Vartalo</h2>
                   <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
                       {/* <p className="text-gray-700 mb-2">These are regular counting numbers: one, two, three...</p> */}
           
-                      <ConjugationTable days={clothesData.clothes} min={32} max={51} isVocab={true} />
+                      <ConjugationTable days={bodyPartData.bodyParts} min={22} max={36} isVocab={true} />
                       
                       
                                   {/* <p className="text-teal-600 mt-2"><strong>🧠 Tip:</strong> In Finnish, the months are not capitalized. Each ends in -kuu, meaning "moon/month".</p> */}
@@ -141,11 +141,11 @@ return (
                     {/* <!-- Header --> */}
                         {/* <h4 className="text-xl font-semibold text-teal-700 mb-6"><span className="font-medium">“The world is colorful (värikäs)”</span>  – let’s learn how to describe it in Finnish!</h4> */}
       
-                  <h2 className="text-2xl font-semibold text-teal-600 mb-3">🧵 Vaatteiden osat – Parts of Clothes</h2>
+                  <h2 className="text-2xl font-semibold text-teal-600 mb-3">💪 3. The Arms and Hands – Kädet</h2>
                   <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
                       {/* <p className="text-gray-700 mb-2">These are regular counting numbers: one, two, three...</p> */}
           
-                      <ConjugationTable days={clothesData.clothes} min={52} max={65} isVocab={true} />
+                      <ConjugationTable days={bodyPartData.bodyParts} min={37} max={53} isVocab={true} />
                       
                       
                                   {/* <p className="text-teal-600 mt-2"><strong>🧠 Tip:</strong> In Finnish, the months are not capitalized. Each ends in -kuu, meaning "moon/month".</p> */}
@@ -158,57 +158,94 @@ return (
                     {/* <!-- Header --> */}
                         {/* <h4 className="text-xl font-semibold text-teal-700 mb-6"><span className="font-medium">“The world is colorful (värikäs)”</span>  – let’s learn how to describe it in Finnish!</h4> */}
       
-                  <h2 className="text-2xl font-semibold text-teal-600 mb-3">🧶 Materiaalit – Materials</h2>
+                  <h2 className="text-2xl font-semibold text-teal-600 mb-3">🦵 4. The Legs and Feet – Jalat</h2>
                   <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
                       {/* <p className="text-gray-700 mb-2">These are regular counting numbers: one, two, three...</p> */}
           
-                      <ConjugationTable days={clothesData.clothes} min={66} max={77} isVocab={true} />
+                      <ConjugationTable days={bodyPartData.bodyParts} min={54} max={bodyPartData.bodyParts.length-1} isVocab={true} />
                       
                       
                                   {/* <p className="text-teal-600 mt-2"><strong>🧠 Tip:</strong> In Finnish, the months are not capitalized. Each ends in -kuu, meaning "moon/month".</p> */}
                   </section>
-                  {/* <h4 className="text-xl font-semibold text-teal-700 mb-6"><span className="font-medium">🔸 Adjectives in Nominative </span> (used with "päivä") </h4> */}    
-      </div>
-      <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-6">
-      
-                        {/* <h2 className="text-2xl font-semibold text-teal-800 mb-4">🏠 A1 Finnish – Rooms and Furniture (Huoneet ja Huonekalut)</h2> */}
-                    {/* <!-- Header --> */}
-                        {/* <h4 className="text-xl font-semibold text-teal-700 mb-6"><span className="font-medium">“The world is colorful (värikäs)”</span>  – let’s learn how to describe it in Finnish!</h4> */}
-      
-                  <h2 className="text-2xl font-semibold text-teal-600 mb-3">🎨 Kuviot – Patterns</h2>
-                  <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
-                      {/* <p className="text-gray-700 mb-2">These are regular counting numbers: one, two, three...</p> */}
-          
-                      <ConjugationTable days={clothesData.clothes} min={78} max={88} isVocab={true} />
-                      
-                      
-                                  {/* <p className="text-teal-600 mt-2"><strong>🧠 Tip:</strong> In Finnish, the months are not capitalized. Each ends in -kuu, meaning "moon/month".</p> */}
-                  </section>
-                  {/* <h4 className="text-xl font-semibold text-teal-700 mb-6"><span className="font-medium">🔸 Adjectives in Nominative </span> (used with "päivä") </h4> */}    
-      </div>
-      <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-6">
-      
-                        {/* <h2 className="text-2xl font-semibold text-teal-800 mb-4">🏠 A1 Finnish – Rooms and Furniture (Huoneet ja Huonekalut)</h2> */}
-                    {/* <!-- Header --> */}
-                        {/* <h4 className="text-xl font-semibold text-teal-700 mb-6"><span className="font-medium">“The world is colorful (värikäs)”</span>  – let’s learn how to describe it in Finnish!</h4> */}
-      
-                  <h2 className="text-2xl font-semibold text-teal-600 mb-3">👟 Jalkineet – Footwear</h2>
-                  <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
-                      {/* <p className="text-gray-700 mb-2">These are regular counting numbers: one, two, three...</p> */}
-          
-                      <ConjugationTable days={clothesData.clothes} min={89} max={clothesData.clothes.length-1} isVocab={true} />
-                      
-                      
-                                  {/* <p className="text-teal-600 mt-2"><strong>🧠 Tip:</strong> In Finnish, the months are not capitalized. Each ends in -kuu, meaning "moon/month".</p> */}
-                  </section>
-                   <Link to={`/beginars/basic-words/basic-adjective/basic-adjective-quiz`}>
+                  <Link to={`/beginars/basic-words/basic-adjective/basic-adjective-quiz`}>
                       <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200 m-2">
-                      Basic Clothes & Wearings Vocabulary Exercises
+                      Basic Body Parts Vocabulary Exercises
                       </button>
                   </Link>
-     
                   {/* <h4 className="text-xl font-semibold text-teal-700 mb-6"><span className="font-medium">🔸 Adjectives in Nominative </span> (used with "päivä") </h4> */}    
       </div>
+      <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-6">
+      
+                        {/* <h2 className="text-2xl font-semibold text-teal-800 mb-4">🏠 A1 Finnish – Rooms and Furniture (Huoneet ja Huonekalut)</h2> */}
+                    {/* <!-- Header --> */}
+                        {/* <h4 className="text-xl font-semibold text-teal-700 mb-6"><span className="font-medium">“The world is colorful (värikäs)”</span>  – let’s learn how to describe it in Finnish!</h4> */}
+      
+                  <h2 className="text-2xl font-semibold text-teal-600 mb-3">🧾 Useful Phrases with Bodyparts (Sayings – Sanontoja)s</h2>
+                  <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
+                      {/* <p className="text-gray-700 mb-2">These are regular counting numbers: one, two, three...</p> */}
+          
+                      <div className="mb-6 overflow-x-auto">
+                      <h4 className="text-lg font-semibold text-teal-600 mb-2"></h4>
+                      <div className="min-w-full inline-block align-middle">
+                          <table className="table-auto w-full text-gray-600 border-collapse">
+                      <thead>
+                      
+                          <tr className="bg-teal-100">
+                          <th className="px-4 py-2">Finnish</th>
+                          <th className="px-4 py-2">Literal Meaning</th>
+                          <th className="px-4 py-2">Actual Meaning</th> 
+                          </tr>
+                          
+                          
+
+                      </thead>
+                      <tbody>
+                        
+                            <tr >
+                            <td >Häneltä meni sormi suuhun.</td>
+                            <td>His finger went into his mouth.</td>
+                            <td>He didn’t know what to do.</td>
+                            </tr>    
+                            <tr >
+                            <td>Nyt pitää ottaa järki käteen.	</td>
+                            <td>Take the wits in the hand.</td>
+                            <td>Time to be smart.</td>
+                            </tr>
+                            <tr>
+                            <td>Hän otti kynän kauniiseen käteen.</td>
+                            <td>Took the pen in a beautiful hand.</td>
+                            <td>She understood and fixed her mistake.</td>
+                            </tr>
+                            <tr>
+                            <td>Häntä pestiin kiireestä kantapäähän.</td>
+                            <td>Washed from top of head to heel.</td>
+                            <td>Washed from head to toe.</td>
+                            </tr>
+                            <tr>
+                            <td>Tiina juoksi kieli vyön alla.</td>
+                            <td>Tiina ran with tongue under the belt.</td>
+                            <td>She was in a great hurry.</td>
+                            </tr>
+                      
+                        
+                      </tbody>
+                    </table>
+                      
+                      </div>
+                      </div>
+                                  {/* <p className="text-teal-600 mt-2"><strong>🧠 Tip:</strong> In Finnish, the months are not capitalized. Each ends in -kuu, meaning "moon/month".</p> */}
+                  </section>
+                  {/* <h4 className="text-xl font-semibold text-teal-700 mb-6"><span className="font-medium">🔸 Adjectives in Nominative </span> (used with "päivä") </h4> */}    
+      </div>
+     
+      
+
+        
+
+
+
+      
+
 
            
     </div>
@@ -218,4 +255,4 @@ return (
 }
 
 
-export default ClothesPage;
+export default BodyPartsPage;

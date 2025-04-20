@@ -16,9 +16,10 @@
   function ConjugationTable({ nationalities }: ConjugationTableProps) {
     // console.log("ConjugationTable loaded", nationality);
     return (
-      <div className="mb-6">
+        <div className="mb-6 overflow-x-auto">
         <h4 className="text-lg font-semibold text-teal-600 mb-2"></h4>
-        <table className="table-auto w-full text-gray-600">
+        <div className="min-w-full inline-block align-middle">
+            <table className="table-auto w-full text-gray-600 border-collapse">
           <thead>
             <tr className="bg-teal-100">
               <th className="px-4 py-2">English</th>
@@ -37,6 +38,7 @@
             ))}
           </tbody>
         </table>
+      </div>
       </div>
     );
   }

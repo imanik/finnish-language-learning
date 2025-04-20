@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { nationalityData } from "../../../data/basicA1";
+import UserStats from "../../../components/UserStats";
 import GenerateQuiz from "../../../components/GenarateQuiz";
 
 
@@ -36,7 +37,7 @@ function NationalityQuizzes() {
   // Initialized with stored data from localStorage if available, otherwise { correct: 0, total: 0 }.
       const [quizScore, setQuizScore] = useState<QuizScore>(() => {  // Anono function used as a setQuizscore Parameter
             const storedScore = localStorage.getItem("overAllQuizScore");
-            return storedScore ? localStorage.parse(storedScore) : {correct:0, total:0};
+            return storedScore ? JSON.parse(storedScore) : {correct:0, total:0};
 
       })
 
@@ -197,6 +198,14 @@ function NationalityQuizzes() {
       <Link to="/beginars/nationality/what-nationality-are-you" className="text-teal-700 hover:underline mb-6 inline-block">
         ← Back to Nationality Lessons
       </Link>
+
+      <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-6">
+        {/* Pass quizScore and handleQuizComplete to UserStats (assumed to display overall stats) */}
+        <UserStats quizScore={quizScore} handleQuizComplete={handleQuizComplete} />
+      </div>
+
+
+
       <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto">
         <h3 className="text-xl font-semibold text-teal-700 mb-4">
           {quizTypeMap[nationalityTypeKey] == "basic" ?  quizTypeMap[nationalityTypeKey].toUpperCase() : "NATIONALITY"  } QUIZ

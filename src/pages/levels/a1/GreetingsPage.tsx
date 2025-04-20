@@ -21,9 +21,10 @@
     function ConjugationTable({ greetings } :ConjugationTableProps) {
         // console.log("ConjugationTable loaded", families);
         return (
-          <div className="mb-6">
-            <h4 className="text-lg font-semibold text-teal-600 mb-2"></h4>
-            <table className="table-auto w-full text-gray-600">
+          <div className="mb-6 overflow-x-auto">
+          <h4 className="text-lg font-semibold text-teal-600 mb-2"></h4>
+          <div className="min-w-full inline-block align-middle">
+              <table className="table-auto w-full text-gray-600 border-collapse">
               <thead>
                 <tr className="bg-teal-100">
                   <th className="px-4 py-2">English</th>
@@ -62,6 +63,7 @@
               </tbody>
             </table>
           </div>
+        </div>
         );
       }
 
@@ -89,7 +91,7 @@
                                    
                   </section>
               
-                      <Link to={`/beginars/what-languages/language-basics/language-quiz`}>
+                      <Link to={`/beginars/greeting/how-are-you/basic-greeting-quiz`}>
                         <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200 m-2">
                           Basic Greeting Exercises
                         </button>

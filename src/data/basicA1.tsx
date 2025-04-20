@@ -351,7 +351,7 @@ export const adjectivesData = {
 // Define numbers outside the component and export it
 export const numberData = {
 
-    numbers: [
+    basicNumbers: [
 
         { english: "0", finnish: "Nolla", pronunciation: "NOL-la" ,},
         { english: "1", finnish: "Yksi", pronunciation: "YUK-si" , },
@@ -403,24 +403,24 @@ export const numberData = {
     ],
 
     ordinalNumbers : [
-    {finnish: "ensimmäinen", english: "1st"},
-    { finnish: "toinen", english: "2nd" },
-    { finnish: "kolmas", english: "3rd" },
-    { finnish: "neljäs", english: "4th" },
-    { finnish: "viides", english: "5th" },
-    { finnish: "kuudes", english: "6th" },
-    { finnish: "seitsemäs", english: "7th" },
-    { finnish: "kahdeksas", english: "8th" },
-    { finnish: "yhdeksäs", english: "9th" },
-    { finnish: "kymmenes", english: "10th" },
-    { finnish: "kahdeskymmenes", english: "20th" },
-    { finnish: "kolmaskymmenes", english: "30th" },
-    { finnish: "neljäskymmenes", english: "40th" },
-    { finnish: "viideskymmenes", english: "50th" },
-    { finnish: "sadas", english: "100th" },
-    { finnish: "tuhannes", english: "1000th" }
+        {finnish: "ensimmäinen", english: "1st"},
+        { finnish: "toinen", english: "2nd" },
+        { finnish: "kolmas", english: "3rd" },
+        { finnish: "neljäs", english: "4th" },
+        { finnish: "viides", english: "5th" },
+        { finnish: "kuudes", english: "6th" },
+        { finnish: "seitsemäs", english: "7th" },
+        { finnish: "kahdeksas", english: "8th" },
+        { finnish: "yhdeksäs", english: "9th" },
+        { finnish: "kymmenes", english: "10th" },
+        { finnish: "kahdeskymmenes", english: "20th" },
+        { finnish: "kolmaskymmenes", english: "30th" },
+        { finnish: "neljäskymmenes", english: "40th" },
+        { finnish: "viideskymmenes", english: "50th" },
+        { finnish: "sadas", english: "100th" },
+        { finnish: "tuhannes", english: "1000th" }
 
-    ]
+    ],
 
 
 
@@ -1258,3 +1258,262 @@ export const clothesData = {
 
 };
 
+
+export const bodyPartData = {
+
+    bodyParts: [
+        { finnish: "pää", english: "head", pronunciation: "PÄÄ" },
+        { finnish: "hiukset", english: "hair", pronunciation: "HIUK-set" },
+        { finnish: "kasvot, naama", english: "face", pronunciation: "KAS-vot, NAA-ma" },
+        { finnish: "suu", english: "mouth", pronunciation: "SUU" },
+        { finnish: "kieli", english: "tongue", pronunciation: "KIE-li" },
+        { finnish: "huuli, huulet", english: "lip, lips", pronunciation: "HUU-li, HUU-let" },
+        { finnish: "hammas", english: "tooth", pronunciation: "HAM-mas" },
+        { finnish: "nenä", english: "nose", pronunciation: "NE-nä" },
+        { finnish: "sierain, sieraimet", english: "nostril, nostrils", pronunciation: "SIE-rain, SIE-rai-met" },
+        { finnish: "silmä, silmät", english: "eye, eyes", pronunciation: "SIL-mä, SIL-mät" },
+        { finnish: "silmäripsi, ripset", english: "eyelash, eyelashes", pronunciation: "SIL-mä-rip-si, RIP-set" },
+        { finnish: "kulmakarvat", english: "eyebrows", pronunciation: "KUL-ma-kar-vat" },
+        { finnish: "poski, posket", english: "cheek, cheeks", pronunciation: "POS-ki, POS-ket" },
+        { finnish: "poskipää, poskipäät", english: "cheekbone, cheekbones", pronunciation: "POS-ki-pää, POS-ki-päät" },
+        { finnish: "otsa", english: "forehead", pronunciation: "OT-sa" },
+        { finnish: "leuka", english: "chin", pronunciation: "LEU-ka" },
+        { finnish: "korva, korvat", english: "ear, ears", pronunciation: "KOR-va, KOR-vat" },
+        { finnish: "hiukset / tukka", english: "hair", pronunciation: "HIUK-set / TUK-ka" },
+        { finnish: "ohimo, ohimot", english: "temple, temples", pronunciation: "O-hi-mo, O-hi-mot" },
+        { finnish: "takaraivo", english: "back of the head", pronunciation: "TA-ka-rai-vo" },
+        { finnish: "kaula", english: "neck", pronunciation: "KAU-la" },
+        { finnish: "niska", english: "back of the neck", pronunciation: "NIS-ka" },
+
+
+        { finnish: "vatsa", english: "stomach", pronunciation: "VAT-sa" },
+        { finnish: "maha", english: "belly", pronunciation: "MA-ha" },
+        { finnish: "napa", english: "belly button", pronunciation: "NA-pa" },
+        { finnish: "vyötärö", english: "waist", pronunciation: "VYÖ-tä-rö" },
+        { finnish: "rintakehä", english: "chest", pronunciation: "RIN-ta-ke-hä" },
+        { finnish: "rinta, rinnat", english: "breast, breasts", pronunciation: "RIN-ta, RIN-nat" },
+        { finnish: "tissit (informal)", english: "boobs", pronunciation: "TIS-sit" },
+        { finnish: "selkä", english: "back", pronunciation: "SEL-kä" },
+        { finnish: "yläselkä", english: "upper back", pronunciation: "Y-LÄ-sel-kä" },
+        { finnish: "alaselkä", english: "lower back", pronunciation: "A-LA-sel-kä" },
+        { finnish: "selkäranka", english: "spine", pronunciation: "SEL-kä-ran-ka" },
+        { finnish: "kylki, kyljet", english: "side, sides", pronunciation: "KYL-ki, KYL-jet" },
+        { finnish: "lonkka, lonkat", english: "hip, hips", pronunciation: "LONK-ka, LON-kat" },
+        { finnish: "peppu / takapuoli", english: "butt", pronunciation: "PEP-pu / TA-ka-puo-li" },
+        { finnish: "kainalo, kainalot", english: "armpit, armpits", pronunciation: "KAI-na-lo, KAI-na-lot" },
+
+
+        { finnish: "käsi, kädet", english: "hand, hands", pronunciation: "KÄ-si, KÄ-det" },
+        { finnish: "käsivarsi, käsivarret", english: "arm, arms", pronunciation: "KÄ-si-var-si, KÄ-si-var-ret" },
+        { finnish: "olkapää, olkapäät", english: "shoulder, shoulders", pronunciation: "OL-ka-pää, OL-ka-päät" },
+        { finnish: "olkavarsi, olkavarret", english: "upper arm, upper arms", pronunciation: "OL-ka-var-si, OL-ka-var-ret" },
+        { finnish: "kyynärpää, kyynärpäät", english: "elbow, elbows", pronunciation: "KYY-när-pää, KYY-när-päät" },
+        { finnish: "kyynärvarsi, kyynärvarret", english: "forearm, forearms", pronunciation: "KYY-när-var-si, KYY-när-var-ret" },
+        { finnish: "ranne, ranteet", english: "wrist, wrists", pronunciation: "RAN-ne, RAN-teet" },
+        { finnish: "kämmen, kämmenet", english: "palm, palms", pronunciation: "KÄM-men, KÄM-me-net" },
+        { finnish: "kädenselkä", english: "back of the hand", pronunciation: "KÄ-den-SEL-kä" },
+        { finnish: "nyrkki, nyrkit", english: "fist, fists", pronunciation: "NYRK-ki, NYR-kit" },
+        { finnish: "sormi, sormet", english: "finger, fingers", pronunciation: "SOR-mi, SOR-met" },
+        { finnish: "peukalo", english: "thumb", pronunciation: "PEU-ka-lo" },
+        { finnish: "etusormi", english: "index finger", pronunciation: "E-tu-SOR-mi" },
+        { finnish: "keskisormi", english: "middle finger", pronunciation: "KES-ki-SOR-mi" },
+        { finnish: "nimetön", english: "ring finger", pronunciation: "NI-me-tön" },
+        { finnish: "pikkurilli", english: "little finger", pronunciation: "PIK-ku-RIL-li" },
+        { finnish: "kynsi, kynnet", english: "nail, nails", pronunciation: "KYN-si, KYN-net" },
+
+
+        { finnish: "jalka, jalat", english: "leg or foot, legs or feet", pronunciation: "JAL-ka, JA-lat" },
+        { finnish: "reisi, reidet", english: "thigh, thighs", pronunciation: "REI-si, REI-det" },
+        { finnish: "sääri, sääret", english: "shin, shins", pronunciation: "SÄÄ-ri, SÄÄ-ret" },
+        { finnish: "pohje, pohkeet", english: "calf, calves", pronunciation: "POH-je, POH-keet" },
+        { finnish: "polvi, polvet", english: "knee, knees", pronunciation: "POL-vi, POL-vet" },
+        { finnish: "nilkka, nilkat", english: "ankle, ankles", pronunciation: "NILK-ka, NIL-kat" },
+        { finnish: "jalkaterä, jalkaterät", english: "foot, feet", pronunciation: "JAL-ka-te-rä, JAL-ka-te-rät" },
+        { finnish: "jalkapohja, jalkapohjat", english: "sole of the foot, soles", pronunciation: "JAL-ka-POH-ja, JAL-ka-POH-jat" },
+        { finnish: "kantapää, kantapäät", english: "heel, heels", pronunciation: "KAN-ta-pää, KAN-ta-päät" },
+        { finnish: "varvas, varpaat", english: "toe, toes", pronunciation: "VAR-vas, VAR-paat" },
+        { finnish: "lantio", english: "pelvis", pronunciation: "LAN-ti-o" },
+        { finnish: "varvasväli", english: "toe space", pronunciation: "VAR-vas-VÄ-li" },
+
+
+
+    ]
+};
+
+
+export const placeData = {
+   places:  [
+    { finnish: "kauppa", english: "shop", pronunciation: "KAU-ppa" },
+    { finnish: "ruokakauppa", english: "food store", pronunciation: "RUO-ka-KAU-ppa" },
+    { finnish: "kioski", english: "kiosk", pronunciation: "KIOS-ki" },
+    { finnish: "pankki", english: "bank", pronunciation: "PANK-ki" },
+    { finnish: "posti", english: "post office", pronunciation: "POS-ti" },
+    { finnish: "kampaamo", english: "hair salon", pronunciation: "KAM-paa-mo" },
+    { finnish: "kauneushoitola", english: "beauty salon", pronunciation: "KAU-neus-HOI-to-la" },
+    { finnish: "pankkiautomaatti", english: "ATM", pronunciation: "PANK-ki-AU-to-MAA-tti" },
+    
+    
+    { finnish: "ravintola", english: "restaurant", pronunciation: "RA-vin-to-la" },
+    { finnish: "kahvila", english: "café", pronunciation: "KAH-vi-la" },
+    { finnish: "baari", english: "bar", pronunciation: "BAA-ri" },
+    { finnish: "pubi", english: "pub", pronunciation: "PU-bi" },
+    { finnish: "ruokala", english: "canteen", pronunciation: "RUO-ka-la" },
+
+    
+    { finnish: "sairaala", english: "hospital", pronunciation: "SAI-raa-la" },
+    { finnish: "terveyskeskus", english: "health center", pronunciation: "TER-veys-KES-kus" },
+    { finnish: "hammaslääkäri", english: "dentist", pronunciation: "HAM-mas-LÄÄ-kä-ri" },
+    { finnish: "neuvola", english: "maternity clinic", pronunciation: "NEU-vo-la" },
+    { finnish: "apteekki", english: "pharmacy", pronunciation: "AP-tee-kki" },
+
+    
+    { finnish: "päiväkoti", english: "daycare", pronunciation: "PÄI-vä-ko-ti" },
+    { finnish: "esikoulu", english: "preschool", pronunciation: "E-si-KOU-lu" },
+    { finnish: "peruskoulu", english: "primary school", pronunciation: "PE-rus-KOU-lu" },
+    { finnish: "lukio", english: "high school", pronunciation: "LU-ki-o" },
+    { finnish: "yliopisto", english: "university", pronunciation: "Y-li-o-pis-to" },
+    { finnish: "opetustila", english: "classroom", pronunciation: "O-pe-tus-TI-la" },
+
+    
+    
+    { finnish: "kuntosali", english: "gym", pronunciation: "KUN-to-sa-li" },
+    { finnish: "kirjasto", english:"library", pronunciation:"KIR-ja-sto"},
+    { finnish: "elokuvateatteri", english: "cinema", pronunciation: "E-lo-ku-va-TEAT-te-ri" },
+    { finnish: "teatteri", english: "theatre", pronunciation: "TEAT-te-ri" },
+    { finnish: "museo", english: "museum", pronunciation: "MU-se-o" },
+    { finnish: "puisto", english: "park", pronunciation: "PUI-sto" },
+    
+    { finnish: "hotelli", english: "hotel", pronunciation: "HO-tel-li" },
+    { finnish: "juna-asema", english: "train station", pronunciation: "JU-na-ASE-ma" },
+    { finnish: "bussipysäkki", english: "bus stop", pronunciation: "BUS-si-py-SÄK-ki" },
+    { finnish: "lentoasema", english: "airport", pronunciation: "LEN-to-ASE-ma" },
+    { finnish: "pysäköintialue", english: "parking lot", pronunciation: "PY-sä-KOIN-ti-AU-le" },
+    { finnish: "autokorjaamo", english: "car repair shop", pronunciation: "AU-to-KOR-ja-a-mo" },
+
+    { finnish: "katu", english: "street", pronunciation: "KA-tu" },
+    { finnish: "silta", english: "bridge", pronunciation: "SIL-ta" },
+    { finnish: "saari", english: "island", pronunciation: "SAA-ri" },
+    { finnish: "tori", english: "market square", pronunciation: "TO-ri" },
+    { finnish: "aukio", english: "square", pronunciation: "AU-kio" },
+    { finnish: "tienristeys", english: "intersection", pronunciation: "TI-en-RIS-teys" },
+    { finnish: "teollisuusalue", english: "industrial area", pronunciation: "TE-ol-li-SUU-s-AU-le" },
+    { finnish: "asuinalue", english: "residential area", pronunciation: "AS-uin-AU-le" },
+    { finnish: "kylä", english: "village", pronunciation: "KY-lä" },
+    { finnish: "kaupunki", english: "city", pronunciation: "KAU-pun-ki" },
+    { finnish: "metsä", english: "forest", pronunciation: "MET-sä" },
+    { finnish: "joki", english: "river", pronunciation: "JO-ki" },
+    { finnish: "ranta", english: "beach", pronunciation: "RAN-ta" },
+    { finnish: "järvi", english: "lake", pronunciation: "JÄR-vi" },
+    { finnish: "meri", english: "sea", pronunciation: "ME-ri" },
+    { finnish: "vuori", english: "mountain", pronunciation: "VUO-ri" },
+    { finnish: "laakso", english: "valley", pronunciation: "LAAK-so" },
+    
+    { finnish: "talo", english: "house", pronunciation: "TA-lo" },
+    { finnish: "linna", english: "castle", pronunciation: "LIN-na" },
+    { finnish: "tehdas", english: "factory", pronunciation: "TEH-das" },
+    { finnish: "kirkko", english: "church", pronunciation: "KIR-kko" },
+    { finnish: "kerrostalo", english: "apartment building", pronunciation: "KER-ros-TA-lo" },
+    { finnish: "mökki", english: "cabin", pronunciation: "MÖK-ki" },
+    { finnish: "maalaistalo", english: "farmhouse", pronunciation: "MAA-lais-TA-lo" },
+
+
+    
+],
+};
+
+export const animalData = {
+    animals: [
+        { finnish: "koira", english: "dog", pronunciation: "KOI-ra" },
+        { finnish: "koira", english: "dog", pronunciation: "KOI-ra" },
+        { finnish: "kissa", english: "cat", pronunciation: "KIS-sa" },
+        { finnish: "kani", english: "rabbit (bunny)", pronunciation: "KA-ni" },
+        { finnish: "marsu", english: "guinea pig", pronunciation: "MAR-su" },
+        { finnish: "hamsteri", english: "hamster", pronunciation: "HAM-ste-ri" },
+        { finnish: "kilpikonna", english: "turtle", pronunciation: "KIL-pi-kon-na" },
+        { finnish: "akvaariokala", english: "aquarium fish", pronunciation: "AK-va-ri-o-ka-la" },
+        { finnish: "papukaija", english: "parrot", pronunciation: "PA-pu-kai-ja" },
+
+        { finnish: "lehmä", english: "cow", pronunciation: "LEH-mä" },
+        { finnish: "sika", english: "pig", pronunciation: "SI-ka" },
+        { finnish: "lammas", english: "sheep", pronunciation: "LAM-mas" },
+        { finnish: "vuohi", english: "goat", pronunciation: "VUO-hi" },
+        { finnish: "kana", english: "hen/chicken", pronunciation: "KA-na" },
+        { finnish: "kukko", english: "rooster", pronunciation: "KUK-ko" },
+        { finnish: "hevonen", english: "horse", pronunciation: "HE-vo-nen" },
+        { finnish: "ankka", english: "duck", pronunciation: "ANK-ka" },
+        { finnish: "hanhi", english: "goose", pronunciation: "HAN-hi" },
+
+        { finnish: "karhu", english: "bear", pronunciation: "KAR-hu" },
+        { finnish: "susi", english: "wolf", pronunciation: "SU-si" },
+        { finnish: "kettu", english: "fox", pronunciation: "KET-tu" },
+        { finnish: "hirvi", english: "moose", pronunciation: "HIR-vi" },
+        { finnish: "ilves", english: "lynx", pronunciation: "IL-ves" },
+        { finnish: "orava", english: "squirrel", pronunciation: "O-ra-va" },
+        { finnish: "siili", english: "hedgehog", pronunciation: "SII-li" },
+        { finnish: "jänis", english: "hare", pronunciation: "JÄ-nis" },
+
+        { finnish: "norsu", english: "elephant", pronunciation: "NOR-su" },
+        { finnish: "leijona", english: "lion", pronunciation: "LEI-jo-na" },
+        { finnish: "tiikeri", english: "tiger", pronunciation: "TII-ke-ri" },
+        { finnish: "kirahvi", english: "giraffe", pronunciation: "KI-rah-vi" },
+        { finnish: "apina", english: "monkey", pronunciation: "A-pi-na" },
+        { finnish: "seeprä", english: "zebra", pronunciation: "SEE-prä" },
+        { finnish: "krokotiili", english: "crocodile", pronunciation: "KRO-ko-tiili" },
+        { finnish: "virtahepo", english: "hippopotamus", pronunciation: "VIR-ta-he-po" },
+
+        { finnish: "lintu", english: "bird", pronunciation: "LIN-tu" },
+        { finnish: "varis", english: "crow", pronunciation: "VA-ris" },
+        { finnish: "lokki", english: "seagull", pronunciation: "LOK-ki" },
+        { finnish: "pääskynen", english: "swallow", pronunciation: "PÄÄS-ky-nen" },
+        { finnish: "pöllö", english: "owl", pronunciation: "PÖL-lö" },
+        { finnish: "haukka", english: "hawk", pronunciation: "HAUK-ka" },
+        { finnish: "joutsen", english: "swan (Finland’s national bird)", pronunciation: "JOUT-sen" },
+
+        { finnish: "kala", english: "fish", pronunciation: "KA-la" },
+        { finnish: "delfiini", english: "dolphin", pronunciation: "DEL-fii-ni" },
+        { finnish: "hylje", english: "seal", pronunciation: "HYL-je" },
+        { finnish: "mustekala", english: "octopus", pronunciation: "MUS-te-ka-la" },
+        { finnish: "valas", english: "whale", pronunciation: "VA-las" },
+        { finnish: "meduusa", english: "jellyfish", pronunciation: "ME-duu-sa" },
+
+        { finnish: "hyttynen", english: "mosquito", pronunciation: "HYT-ty-nen" },
+        { finnish: "kärpänen", english: "fly", pronunciation: "KÄR-pä-nen" },
+        { finnish: "mehiläinen", english: "bee", pronunciation: "ME-hi-läi-nen" },
+        { finnish: "ampianen", english: "wasp", pronunciation: "AM-pi-a-nen" },
+        { finnish: "perhonen", english: "butterfly", pronunciation: "PER-ho-nen" },
+        { finnish: "muurahainen", english: "ant", pronunciation: "MUU-ra-hai-nen" },
+    ],
+
+    animalSentences: [
+        { finnish: "Minulla on koira.", english: "I have a dog.", pronunciation: "MI-nul-la on KOI-ra." },
+        { finnish: "Kissani on söpö.", english: "My cat is cute.", pronunciation: "KIS-sa-ni on SÖ-pö." },
+        { finnish: "Lapsi haluaa marsun.", english: "The child wants a guinea pig.", pronunciation: "LAP-si ha-lu-aa MAR-sun." },
+        { finnish: "Lehmä on pellolla.", english: "The cow is in the field.", pronunciation: "LEH-mä on pel-LO-la." },
+        { finnish: "Hevonen juoksee nopeasti.", english: "The horse runs fast.", pronunciation: "HE-vo-nen JUOK-see NO-peasti." },
+        { finnish: "Kukko kiekuu aamulla.", english: "The rooster crows in the morning.", pronunciation: "KUK-ko KIE-kuu AA-mul-la." },
+        { finnish: "Karhu asuu metsässä.", english: "The bear lives in the forest.", pronunciation: "KAR-hu AS-suu MET-säs-sa." },
+        { finnish: "Orava syö pähkinöitä.", english: "The squirrel eats nuts.", pronunciation: "O-ra-va SYÖ PÄH-ki-nö-i-tä." },
+        { finnish: "Näin hirven tiellä.", english: "I saw a moose on the road.", pronunciation: "NÄIN HIR-ven TI-el-lä." },
+        { finnish: "Lapset menevät eläintarhaan.", english: "The children go to the zoo.", pronunciation: "LAP-set ME-ne-vät E-läin-TAR-haan." },
+        { finnish: "Leijona on suuri kissaeläin.", english: "The lion is a big cat.", pronunciation: "LEI-jo-na on SUU-ri KIS-sa-E-läin." },
+        { finnish: "Kirahvilla on pitkä kaula.", english: "The giraffe has a long neck.", pronunciation: "KI-rah-vi-lä on PIT-kä KAU-la." },
+        { finnish: "Lintu laulaa puussa.", english: "The bird is singing in the tree.", pronunciation: "LIN-tu LAUL-aa PUUS-sa." },
+        { finnish: "Joutsen ui järvessä.", english: "The swan swims in the lake.", pronunciation: "JOUT-sen UI JÄR-ves-sä." },
+        { finnish: "Delfiini on älykäs eläin.", english: "The dolphin is an intelligent animal.", pronunciation: "DEL-fii-ni on ÄLY-käs E-läin." },
+        { finnish: "Valas on maailman suurin eläin.", english: "The whale is the world’s largest animal.", pronunciation: "VA-las on mai-lman SUU-rin E-läin." },
+        { finnish: "Mehiläinen tekee hunajaa.", english: "The bee makes honey.", pronunciation: "ME-hi-läi-nen TE-ke-e HUN-a-jaa." },
+        { finnish: "Pidän kauniista perhosista.", english: "I like beautiful butterflies.", pronunciation: "PI-dän KAU-niis-ta PER-ho-si-sta." },
+        { finnish: "Kärpänen lentää nopeasti.", english: "The fly flies fast.", pronunciation: "KÄR-pä-nen LEN-tää NO-peasti." },
+        { finnish: "Ampiaisen pisto sattuu.", english: "A wasp sting hurts.", pronunciation: "AM-pi-ai-sen PIS-to SAT-tuu." },
+        { finnish: "Perhonen on kaunis.", english: "The butterfly is beautiful.", pronunciation: "PER-ho-nen on KAU-nis." },
+        { finnish: "Muurahainen on pieni.", english: "The ant is small.", pronunciation: "MUU-ra-hai-nen on PIEN-i." },
+        { finnish: "Hyttynen inisee.", english: "The mosquito buzzes.", pronunciation: "HYT-ty-nen IN-i-see." },
+    ]
+};
+
+
+
+
+    
+
+    
