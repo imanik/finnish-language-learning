@@ -111,7 +111,7 @@ function DaysPage() {
                             <p className="text-teal-600 mt-2"><strong>🧠 Tip:</strong>  Weekdays in Finnish are not capitalized!</p>
             </section>
     
-            <Link to={`/beginars/basic-words/basic-adjective/basic-adjective-quiz`}>
+            <Link to={`/beginars/day/sunday-or-monday/basic-days-quiz`}>
                 <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200 m-2">
                 Basic Days Vocabulary Exercises
                 </button>
@@ -265,7 +265,7 @@ function DaysPage() {
                 
                 
             </section>
-            <Link to={`/beginars/basic-words/basic-adjective/basic-adjective-quiz`}>
+            <Link to={`/beginars/day/sunday-or-monday/sentence-days-quiz`}>
                 <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200 m-2">
                 Basic Days In Sentence Exercises
                 </button>

@@ -473,7 +473,7 @@ export const verbTopics: Topic[] = [
         title: "Color",
         subtopics: [
           {title: "Rainbow!",
-          childTopics: ["Basic Color Quiz", ],
+          childTopics: ["Basic Colors Quiz", "Extended Colors Quiz" ],
           }
         ],
       },
@@ -491,7 +491,7 @@ export const verbTopics: Topic[] = [
         title: "Day",
         subtopics: [
           {title: "Sunday! or Monday!",
-            childTopics: ["Basic Days Quiz",],
+            childTopics: ["Basic Days Quiz", "Sentence Days Quiz"],
           }
         ],
       },
@@ -500,21 +500,27 @@ export const verbTopics: Topic[] = [
       { 
         title: "Month",
         subtopics: [
-          {title: "January to December",}
+          {title: "January to December",
+            childTopics: ["Basic Months Quiz", "Sentence Months Quiz"],
+          }
         ],
       },
 
       { 
         title: "Weather",
         subtopics: [
-          {title: "Summer or Winter",}
+          {title: "Summer or Winter",
+            childTopics: ["Basic Weathers Quiz", "Sentence Weathers Quiz"],
+          }
         ],
       },
 
       { 
         title: "Adjective",
         subtopics: [
-          {title: "Good, bad or ugly?",}
+          {title: "Good, bad or ugly?",
+            childTopics: ["Basic Adjectives Quiz",],
+          }
         ],
       },
 

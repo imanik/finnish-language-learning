@@ -113,7 +113,7 @@ function WeathersPage() {
             {/* <h4 className="text-xl font-semibold text-teal-700 mb-6"><span className="font-medium">🔸 Adjectives in Nominative </span> (used with "päivä") </h4> */}
             
     
-            <Link to={`/beginars/basic-words/basic-adjective/basic-adjective-quiz`}>
+            <Link to={`/beginars/weather/summer-or-winter/basic-weathers-quiz`}>
                 <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200 m-2">
                 Basic Weathers Vocabulary Exercises
                 </button>
@@ -131,7 +131,7 @@ function WeathersPage() {
                 <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
                 {/* <p className="text-gray-700 mb-2">These are regular counting numbers: one, two, three...</p> */}
 
-                 <ConjugationTable days={weatherData.weatherSentences} min={30} max={42} isVocab={false} />
+                 <ConjugationTable days={weatherData.sentenceWeathers} min={30} max={42} isVocab={false} />
 
 
                          
@@ -193,7 +193,7 @@ function WeathersPage() {
                   <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
                 {/* <p className="text-gray-700 mb-2">These are regular counting numbers: one, two, three...</p> */}
 
-                 <ConjugationTable days={weatherData.weatherSentences} min={0} max={12} isVocab={false} />
+                 <ConjugationTable days={weatherData.sentenceWeathers} min={0} max={12} isVocab={false} />
 
 
                          
@@ -202,7 +202,7 @@ function WeathersPage() {
     
           
     
-            <Link to={`/beginars/basic-words/basic-adjective/sentence-month-quiz`}>
+            <Link to={`/beginars/weather/summer-or-winter/sentence-weathers-quiz`}>
                 <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200 m-2">
                 Basic Weathers In Sentence Exercises
                 </button>

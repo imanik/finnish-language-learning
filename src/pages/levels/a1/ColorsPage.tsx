@@ -95,7 +95,7 @@ return (
             
         </section>
 
-        <Link to={`/beginars/color/rainbow/basic-color-quiz`}>
+        <Link to={`/beginars/color/rainbow/basic-colors-quiz`}>
             <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200 m-2">
             Basic Colors Exercises
             </button>
@@ -117,6 +117,11 @@ return (
 
                   <ConjugationTable colors={colorData.extendedColors} />
             </section>
+            <Link to={`/beginars/color/rainbow/extended-colors-quiz`}>
+            <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200 m-2">
+            Extended Colors Exercises
+            </button>
+        </Link>
 
         </div>
         <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-6">

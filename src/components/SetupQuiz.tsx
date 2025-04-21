@@ -24,30 +24,14 @@ interface QuizItem {
 }
 
 
-// interface QuizScore {
-//   correct: number;
-//   total: number;
-// }
 
-// Define the structure for the current quiz state (holds question + options)
-interface QuizState<T extends QuizItem> {
-  question: string;
-  correctAnswer: string;
-  shuffledOptions: T[];
-}
+
+
 
 // Props for SetupQuizProps component — made generic using <T extends QuizItem>
 interface SetupQuizProps<T extends QuizItem> {
   items : T[]; // Current quiz question item
   quizType?: string; // Optional quiz type, not yet used
-  // onNext: () => void; // Function to load next question
-  // onAnswer: (isCorrect: boolean) => void; // Callback when user answers
-  // onReset: () => void; // Function to reset the quiz
-
-  
-
-  // quizScore: QuizScore;
-  // handleQuizComplete: (wasCorrect: boolean) => void;
 }
 
 // Main GenerateQuiz functional component with generic type <T>
@@ -55,36 +39,39 @@ function SetupQuiz<T extends QuizItem>({
   items ,
   quizType,
 
-  // optionsPool,
-  // onNext,
-  // onAnswer,
-  // onReset,
-  // type,
-  // quizScore,
-  // handleQuizComplete,
   
 }: SetupQuizProps<T>) {
 
     const [quizItem, setQuizItem] = useState<QuizItem | null>(null); // Current quiz question item
     const [score, setScore] = useState<QuizScore>({correct:0, total:0});
-    const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([]);
+    
+    const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>(() => {
+      const saved = localStorage.getItem("quizLeaderboard");
+      const parsed: LeaderboardEntry[] = saved ? JSON.parse(saved) : [];
+      console.log("Loaded leaderboard from localStorage", parsed);
+      return parsed;
+    });
+
     const [quizScore, setQuizScore] = useState<QuizScore>(() => {
-      const storedScore = localStorage.getItem("overallQuizScore");
+      const storedScore = localStorage.getItem("overAllQuizScore");
       return storedScore ? JSON.parse(storedScore) : { correct: 0, total: 0 };
     });
-    // const [quizScore, setQuizScore] = useState<QuizScore>(() => {
+
     
-    console.log("SetupQuiz loaded with Type", quizType);
-    console.log("SetupQuiz loaded with", items);
-    console.log("SetupQuiz loaded", score, leaderboard, quizScore);
+    // console.log("SetupQuiz loaded with Type", quizType);
+    // console.log("SetupQuiz loaded with", items);
+    // console.log("SetupQuiz loaded", score, leaderboard, quizScore);
+    // console.log("Local loaded with", localStorage);
 
 
      // Load session score and leaderboard on mount
       useEffect(() => {
-        const savedScore = JSON.parse(localStorage.getItem("sessionScore") || "null") || { correct: 0, total: 0 };
-        const savedLeaderboard = JSON.parse(localStorage.getItem("quizLeaderboard") || "null") || [];
+        const savedScore = JSON.parse(localStorage.getItem("overallQuizScore") || "null") || { correct: 0, total: 0 };
+        // const savedLeaderboard = JSON.parse(localStorage.getItem("quizLeaderboard") || "null") || [];
+        // console.log("Loaded leaderboard from localStorage", savedLeaderboard);
         setScore(savedScore);
-        setLeaderboard(savedLeaderboard);
+        // setLeaderboard(savedLeaderboard);
+        // console.log("SetupQuiz UseEffect", score, leaderboard, quizScore);
       }, []);
     
       // Save session score when it changes (non-zero)
@@ -97,19 +84,21 @@ function SetupQuiz<T extends QuizItem>({
     
       // Save overall quizScore when it changes
       useEffect(() => {
-        localStorage.setItem("overallQuizScore", JSON.stringify(quizScore));
+        localStorage.setItem("overAllQuizScore", JSON.stringify(quizScore));
       }
     , [quizScore]); // Added dependency array
     
       // Save leaderboard when it changes
       useEffect(() => {
         localStorage.setItem("quizLeaderboard", JSON.stringify(leaderboard));
+        
       }
     , [leaderboard]); // Added dependency array
 
     const startQuiz = () => {
       const randomIndex = Math.floor(Math.random() * items.length);
       setQuizItem(items[randomIndex]);
+      setScore({ correct: 0, total: 0 }); // Reset score when starting a new quiz
     }
 
     const nextQuestion = () => {
@@ -120,6 +109,8 @@ function SetupQuiz<T extends QuizItem>({
      
 
       const handleQuizComplete = (wasCorrect: boolean) => {
+        // console.log("handleQuizComplete wasCorrect", wasCorrect);
+        // Update the quiz score
         setQuizScore((prev) => ({
           total: prev.total + 1,
           correct: wasCorrect ? prev.correct + 1 : prev.correct,
@@ -128,7 +119,7 @@ function SetupQuiz<T extends QuizItem>({
     
       const resetScore = () => {
         setScore({ correct: 0, total: 0 });
-        setLeaderboard([]); // Reset leaderboard if needed
+        // setLeaderboard([]); // Reset leaderboard if needed
         // setQuizScore({ correct: 0, total: 0 }); // Reset overall quiz score
       };
       const handleAnswer = (isCorrect: boolean) => {
@@ -137,40 +128,59 @@ function SetupQuiz<T extends QuizItem>({
             correct: prev.correct + (isCorrect ? 1 : 0),
             total: prev.total + 1,
           };
-    
-          setLeaderboard((prev) => {
+      
+          // Update leaderboard here in the same cycle
+          setLeaderboard((prevLeaderboard) => {
+            console.log("Leaderboard before update", prevLeaderboard);
             const userEntry: LeaderboardEntry = {
               name: "User",
               score: newScore.correct,
               total: newScore.total,
             };
-            const updated = prev.filter((entry) => entry.name !== "User").concat(userEntry);
-            return updated.sort((a, b) => b.score - a.score).slice(0, 5);
+            const updated = prevLeaderboard
+              .filter((entry) => entry.name !== "User")
+              .concat(userEntry)
+              .sort((a, b) => b.score - a.score)
+              .slice(0, 5);
+      
+            return updated;
           });
+      
           return newScore;
         });
       };
+      
 
-  console.log("SetupQuiz loaded");
 
+//     // Function to clear leaderboard
+//   const clearLeaderboard = () => {
+//     localStorage.removeItem('finnishQuizLeaderboard'); // Remove only this key
+//     setLeaderboard([]); // Reset state to empty array
+//   };
   
 
   return (
 
 
-     <div className="min-h-screen bg-teal-50 p-6 font-['Roboto']">
-     <Link to="/beginars/number/ready-one-two-three" className="text-teal-700 hover:underline mb-6 inline-block">
-       ← Back to Basic Numbers Lessons
-     </Link>
 
+    <div>
      <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-6">
      <UserStats quizScore={quizScore} handleQuizComplete={handleQuizComplete} />
      </div>
      <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto">
-       <h3 className="text-xl font-semibold text-teal-700 mb-4">
-         {/* {quizTypeMap[numberTypeKey] === "basic" ? "BASIC NUMBERS" : `${quizTypeMap[numberTypeKey].toUpperCase()}  NUMBERS` }{" "} */}
-         QUIZ
-       </h3>
+     <h3 className="text-xl font-semibold text-teal-700 mb-4">
+     
+     
+     
+     {/* {map && mapKey && map[mapKey] 
+  ? (map[mapKey] === "basic" 
+      ? "BASIC"
+      : `${map[mapKey].toUpperCase()}` )
+  : "BASIC"}{" "} */}
+  { quizType ? quizType.toUpperCase() : "BASIC"}{" "}
+    QUIZ
+      </h3>
+  
        <p className="text-gray-600 mb-4">
          Score: {score.correct}/{score.total} ({((score.correct / score.total) * 100 || 0).toFixed(1)}%)
        </p>
@@ -188,9 +198,9 @@ function SetupQuiz<T extends QuizItem>({
            onNext={nextQuestion}
            onAnswer={handleAnswer}
            onReset={resetScore}
-           type={quizType}
+           handleQuizComplete={handleQuizComplete}
       //     quizScore={quizScore}
-         //  handleQuizComplete={handleQuizComplete}
+           
          />
        )}
 
@@ -210,7 +220,7 @@ function SetupQuiz<T extends QuizItem>({
          )}
        </div>
      </div>
-   </div>
+     </div>
   );
 }
 

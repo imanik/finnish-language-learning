@@ -23,13 +23,15 @@ import BeginarsPage from './pages/BeginarsPage';
 import GrammarsPage from './pages/GrammarsPage';
 import NounsPage from './pages/NounsPage';
 import VerbsPage from './pages/VerbsPage';
-import FamilyQuizzes from './pages/quizzes/a1/FamilyQuizzes';
 import DaysQuizPage from './pages/quizzes/a1/DaysQuizPage';
+import MonthsQuizPage from './pages/quizzes/a1/MonthsQuizPage';
 import ColorsQuizPage from './pages/quizzes/a1/ColorsQuizPage';
+import FamilyQuizPage from './pages/quizzes/a1/FamilyQuizPage';
 import NumbersQuizPage from './pages/quizzes/a1/NumbersQuizPage';
-import GreetingQuizzesPage from './pages/quizzes/a1/GreetingsQuizPage';
-import NationalityQuizzes from './pages/quizzes/a1/NationalityQuizzes';
-import WhatLanguageQuizzes from './pages/quizzes/a1/WhatLanguageQuizzes';
+import GreetingsQuizPage from './pages/quizzes/a1/GreetingsQuizPage';
+import WeathersQuizPage from './pages/quizzes/a1/WeathersQuizPage';
+import NationalityQuizPage from './pages/quizzes/a1/NationalityQuizPage';
+import WhatLanguageQuizPage from './pages/quizzes/a1/WhatLanguageQuizPage';
 import BasicAdjectiveQuizzes from './pages/quizzes/a1/BasicAdjectiveQuizzes';
 import TheFinnishVerbtypesQuiz from './pages/quizzes/verbs/TheFinnishVerbtypesQuiz';
 
@@ -77,23 +79,20 @@ function App() {
         
         <Route path="/beginars" element={<BeginarsPage />} />
 
-        <Route path="/beginars/what-languages" element={<WhatLanguages />} />
-        <Route path="/beginars/what-languages/:subtopic" element={<WhatLanguages />} />
-        <Route path="/beginars/what-languages/:subtopic/:child" element={<WhatLanguageQuizzes />} />
+        <Route path="/beginars/what-languages/:topic" element={<WhatLanguages />} />
+        <Route path="/beginars/what-languages/:subtopic/:child" element={<WhatLanguageQuizPage />} />
         
         <Route path="/beginars/family/:topic" element={<FamilyPage />} />
-        <Route path="/beginars/family/:subtopic" element={<FamilyPage />} />
-        <Route path="/beginars/family/:subtopic/:child" element={<FamilyQuizzes />} />
+        <Route path="/beginars/family/:subtopic/:child" element={<FamilyQuizPage />} />
         
         <Route path="/beginars/nationality/:topic" element={<NationalityPage />} />
-        <Route path="/beginars/nationality/:subtopic" element={<NationalityPage />} />
-        <Route path="/beginars/nationality/:subtopic/:child" element={<NationalityQuizzes />} />
+        <Route path="/beginars/nationality/:subtopic/:child" element={<NationalityQuizPage />} />
         
         <Route path="/beginars/location/:topic" element={<LocationPage />} />
         <Route path="/beginars/location/:subtopic" element={<LocationPage />} />
         
         <Route path="/beginars/greeting/:topic" element={<GreetingsPage />} />
-        <Route path="/beginars/greeting/:subtopic/:child" element={<GreetingQuizzesPage />} />
+        <Route path="/beginars/greeting/:subtopic/:child" element={<GreetingsQuizPage />} />
 
         <Route path="/beginars/color/:topic" element={<ColorsPage />} />
         <Route path="/beginars/color/:subtopic/:child" element={<ColorsQuizPage />} />
@@ -105,9 +104,14 @@ function App() {
         <Route path="/beginars/day/:subtopic/:child" element={<DaysQuizPage />} />
         
         <Route path="/beginars/month/:topic" element={<MonthsPage />} />
+        <Route path="/beginars/month/:subtopic/:child" element={<MonthsQuizPage />} />
+        
 
 
         <Route path="/beginars/weather/:topic" element={<WeathersPage />} />
+        <Route path="/beginars/weather/:subtopic/:child" element={<WeathersQuizPage />} />
+
+        
         <Route path="/beginars/most-common-rooms-and-furnitures/:topic" element={<RoomFurnituresPage />} />
         <Route path="/beginars/most-common-foods-and-drinks/:topic" element={<FoodDrinksPage />} />
         <Route path="/beginars/most-common-clothes-and-wearings/:topic" element={<ClothesPage />} />

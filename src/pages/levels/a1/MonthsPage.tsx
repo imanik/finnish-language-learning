@@ -111,7 +111,7 @@ function DaysPage() {
                             <p className="text-teal-600 mt-2"><strong>🧠 Tip:</strong> In Finnish, the months are not capitalized. Each ends in -kuu, meaning "moon/month".</p>
             </section>
     
-            <Link to={`/beginars/basic-words/basic-adjective/basic-adjective-quiz`}>
+            <Link to={`/beginars/month/january-to-december/basic-months-quiz`}>
                 <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200 m-2">
                 Basic Months Vocabulary Exercises
                 </button>
@@ -167,7 +167,7 @@ function DaysPage() {
 
                 <ConjugationTable days={monthData.basicMonths} min={24} max={47} isVocab={true}/>
 
-
+                </section>
                 <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
                 {/* <p className="text-gray-700 mb-4">Adjectives answer <span className="font-medium">Millainen?</span> (What kind?). Learn these pairs to describe people and things!</p> */}
 
@@ -185,7 +185,7 @@ function DaysPage() {
                                   {/* <p className="text-teal-600 mt-2"><strong>Quick Rule:</strong> These use a pattern ending in “toista” (teen).</p> */}
                     
 
-                </section>
+                
 
                 </section>
 
@@ -411,7 +411,7 @@ function DaysPage() {
                             {/* <p className="text-teal-600 mt-2"><strong>🧠 Tip:</strong> In Finnish, the months are not capitalized. Each ends in -kuu, meaning "moon/month".</p> */}
             </section>
     
-            <Link to={`/beginars/basic-words/basic-adjective/sentence-month-quiz`}>
+            <Link to={`/beginars/month/january-to-december/sentence-months-quiz`}>
                 <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200 m-2">
                 Basic Months In Sentence Exercises
                 </button>

@@ -275,7 +275,7 @@ export const locationData = {
 
 export const adjectivesData = {
     
-    basicAdjective : [
+    basicAdjectives : [
          
         { finnish: "uusi", english: "new", pronunciation: "OO-see"  },
         { finnish: "vanha", english: "old", pronunciation: "VAN-ha" },
@@ -451,6 +451,7 @@ export const colorData = {
     ],
 
     extendedColors:[
+
     {english: 'light blue', finnish: 'vaaleansininen', pronunciation: 'VAA-lean-sini-nen'},
     { english: 'dark blue', finnish: 'tummansininen', pronunciation: 'TUM-man-sini-nen' },
     { english: 'sky blue', finnish: 'taivaansininen', pronunciation: 'TAI-van-sini-nen' },
@@ -531,7 +532,7 @@ export const dayData = {
     ],
 
     sentenceDays: [
-        {finnish: "Olen lomalla maanantaista alkaen", english: "I’m on vacation starting from Monday."},
+        { finnish: "Olen lomalla maanantaista alkaen", english: "I’m on vacation starting from Monday."},
         { finnish: "Keskiviikosta alkaen olen työtön.", english: "Starting from Wednesday I’m unemployed." },
         { finnish: "Tiistaista lähtien toimin osa-aikaisena.", english: "I will work half-time starting from Tuesday." },
         { finnish: "Perjantaista lähtien asun yksin.", english: "Starting from Friday I will live alone." },
@@ -714,7 +715,7 @@ export const weatherData = {
         
     ],
 
-    weatherSentences: [
+    sentenceWeathers: [
 
         {finnish: "Eilen satoi.", english: "It rained yesterday."},
         {finnish: "On oikein kuuma.", english: "It’s really hot."},

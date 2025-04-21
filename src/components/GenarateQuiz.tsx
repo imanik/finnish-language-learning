@@ -27,9 +27,9 @@ interface GenerateQuizProps<T extends QuizItem> {
   onNext: () => void; // Function to load next question
   onAnswer: (isCorrect: boolean) => void; // Callback when user answers
   onReset: () => void; // Function to reset the quiz
-  type?: string; // Optional quiz type, not yet used
+ // Optional quiz type, not yet used
   // quizScore: QuizScore;
-  // handleQuizComplete: (wasCorrect: boolean) => void;
+   handleQuizComplete: (wasCorrect: boolean) => void;
 }
 
 // Main GenerateQuiz functional component with generic type <T>
@@ -39,9 +39,9 @@ function GenerateQuiz<T extends QuizItem>({
   onNext,
   onAnswer,
   onReset,
-  type,
+
   // quizScore,
-  // handleQuizComplete,
+   handleQuizComplete,
   
 }: GenerateQuizProps<T>) {
 
@@ -60,6 +60,7 @@ function GenerateQuiz<T extends QuizItem>({
     const isAnswerCorrect = selected === quizState.correctAnswer;
     setIsCorrect(isAnswerCorrect); // Store result
     onAnswer(isAnswerCorrect); // Inform parent component
+    handleQuizComplete(isAnswerCorrect); // Call the quiz completion handler
   };
 
   // This effect runs whenever a new question item is passed to this component
@@ -118,7 +119,7 @@ function GenerateQuiz<T extends QuizItem>({
             />
             {option.finnish}
             <span className="text-gray-500 ml-2">
-              ({option.pronunciation ?? "?"}) {/* Optional pronunciation */}
+              ({option.pronunciation ?? " "}) {/* Optional pronunciation */}
             </span>
           </label>
         ))}

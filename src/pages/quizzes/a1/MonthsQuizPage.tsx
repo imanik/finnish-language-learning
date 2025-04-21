@@ -1,19 +1,19 @@
 
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { dayData } from '../../../data/basicA1'; 
+import { monthData } from '../../../data/basicA1'; 
 // Removed unused basicA1 import
 import SetupQuiz from '../../../components/SetupQuiz';
 
 
-interface Day {
+interface Month {
   english: string;
   finnish: string;
   pronunciation?: string;
 }
 
 
-function DaysQuizPage() {
+function MonthsQuizPage() {
   
   const {child} = useParams<{child?: string}>();
 
@@ -21,31 +21,31 @@ function DaysQuizPage() {
    child
    .toLowerCase()
    .replace("-quiz", "")
-   .replace("basic-days", "basicDays") // Convert "basic-numbers" to "basicNumbers"
-   .replace("sentence-days", "sentenceDays") // Convert "basic-numbers" to "basicNumbers"
-   : "basicDays"; // Default to "numbers" if child is undefined
+   .replace("basic-months", "basicMonths") // Convert "basic-numbers" to "basicNumbers"
+   .replace("sentence-months", "sentenceMonths") // Convert "basic-numbers" to "basicNumbers"
+   : "basicMonths"; // Default to "numbers" if child is undefined
  
     // console.log("numberTypeKey",keyType);
  
    const quizTypeMap: Record<string, string> = {
-     basicDays: "basic days",
-    sentenceDays: "sentence days",
+     basicMonths: "basic months",
+    sentenceMonths: "sentence months",
 
    };
    
    const quizType = (quizTypeMap[keyType] || "basic") as "basic" | "sentence"; // Determine quiz type based on numberTypeKey
  
-   const allItems = (dayData[keyType as keyof typeof dayData] || dayData.basicDays) as Day[] ; // Type assertion to Number[]
+   const allItems = (monthData[keyType as keyof typeof monthData] || monthData.basicMonths) as Month[] ; // Type assertion to Number[]
    
-    // console.log("Map",quizTypeMap);
+     console.log("Map",quizType);
  
 
 
 
    return (
     <div className="min-h-screen bg-teal-50 p-6 font-['Roboto']">
-    <Link to="/beginars/day/sunday-or-monday" className="text-teal-700 hover:underline mb-6 inline-block">
-      ← Back to Basic Days Lessons
+    <Link to="/beginars/month/january-to-december" className="text-teal-700 hover:underline mb-6 inline-block">
+      ← Back to Basic Months Lessons
     </Link>
       <SetupQuiz items={allItems} quizType={quizType}  />
     </div>
@@ -54,4 +54,4 @@ function DaysQuizPage() {
   );
 };
 
-export default DaysQuizPage;
+export default MonthsQuizPage;

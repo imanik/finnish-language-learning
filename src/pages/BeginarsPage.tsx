@@ -23,7 +23,7 @@ function BeginarsPage() {
 
   const getDynamicContent = (): React.ReactNode => {
     const matchedTopic = a1Topics.find((t) => toSlug(t.title) === topic);
-    console.log("matchedTopic -- ", matchedTopic);
+    // console.log("matchedTopic -- ", matchedTopic);
     if (!matchedTopic && topic) {
       return (
         <div className="bg-white rounded-xl shadow-lg p-6 max-w-2xl mx-auto">

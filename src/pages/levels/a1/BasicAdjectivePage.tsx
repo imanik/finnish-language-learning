@@ -198,11 +198,11 @@ interface Adjective {
         {/* <!-- Wrap-Up Section --> */}
         <h2 className="text-2xl font-semibold text-teal-600 mb-3">6. Some Basic Adjectives:</h2>
                 <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
-            <ConjugationTable adjectives={adjectivesData.basicAdjective}/>
+            <ConjugationTable adjectives={adjectivesData.basicAdjectives}/>
             </section>
-    <Link to={`/beginars/basic-words/basic-adjective/basic-adjective-quiz`}>
+    <Link to={`/beginars/adjective/good-bad-or-ugly/basic-adjectives-quiz`}>
                 <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200 m-2">
-                Basic Adjective Exercises
+                Basic Adjectives Exercises
                 </button>
             </Link>
 

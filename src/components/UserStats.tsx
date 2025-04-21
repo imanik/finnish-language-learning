@@ -15,7 +15,7 @@ const UserStats: React.FC<UserStatsProps> = ({ quizScore, handleQuizComplete }) 
   // const { child } = useParams();
 
   const milestoneInterval = 50;
-  const requiredScore = 75;
+  const requiredScore = 70;
   const currentScore =
     quizScore.total > 0
       ? Math.round((quizScore.correct / quizScore.total) * 100 * 10) / 10
