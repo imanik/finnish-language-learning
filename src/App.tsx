@@ -5,6 +5,8 @@ import MainContent from './components/MainContent';
 import { QuizProvider } from './components/QuizContext';
 
 
+
+import UnderConstructionPage from './pages/levels/a1/UnderConstructionPage';
 import RoomsFurnituresPage from './pages/levels/a1/RoomsFurnituresPage';
 import ClothesWearingsPage from './pages/levels/a1/ClothesWearingsPage';
 import BasicAdjectivePage from './pages/levels/a1/BasicAdjectivePage';
@@ -44,29 +46,12 @@ import BasicAdjectiveQuizPage from './pages/quizzes/a1/BasicAdjectiveQuizPage';
 import RoomsFurnituresQuizPage from './pages/quizzes/a1/RoomsFurnitersQuizPage';
 import ClothesWearingsQuizPage from './pages/quizzes/a1/ClothesWearingsQuizPage';
 
-interface QuizScore {
-  correct: number;
-  total: number;
-}
+
 
 function App() {
+
   const basename = process.env.NODE_ENV === 'development' ? '/' : '/';
 
-  // const [quizScore, setQuizScore] = useState<QuizScore>(() => {
-  //   const storedScore = localStorage.getItem("overAllQuizScore");
-  //   return storedScore ? JSON.parse(storedScore) : { correct: 0, total: 0 };
-  // });
-
-  // useEffect(() => {
-  //   localStorage.setItem("overAllQuizScore", JSON.stringify(quizScore));
-  // }, [quizScore]);
-
-  // const handleQuizComplete = (wasCorrect: boolean) => {
-  //   setQuizScore((prev: QuizScore) => ({
-  //     total: prev.total + 1,
-  //     correct: wasCorrect ? prev.correct + 1 : prev.correct,
-  //   }));
-  // };
 
   return (
 
@@ -79,7 +64,7 @@ function App() {
         {/* <Route path="/" element={<MainContent quizScore={quizScore} handleQuizComplete={handleQuizComplete} />} /> */}
 
         <Route path="/" element={<MainContent />} />
-        
+
         <Route path="/beginars" element={<BeginarsPage />} />
 
         <Route path="/beginars/what-languages/:topic" element={<WhatLanguages />} />
@@ -137,6 +122,10 @@ function App() {
        
         <Route path="/beginars/most-common-verbs/:topic" element={<VerbsPage />} />
         <Route path="/beginars/most-common-verbs/:subtopic/:child" element={<VerbsQuizPage />} />
+
+        <Route path="/beginars/talking-about-simple-illnesses/:topic" element={<UnderConstructionPage />} />
+        <Route path="/beginars/some-survival-finnish-phrases/:topic" element={<UnderConstructionPage />} />
+        <Route path="/beginars/basic-knowledge-about-telling-the-time/:topic" element={<UnderConstructionPage />} />
         
       </Routes>
       
