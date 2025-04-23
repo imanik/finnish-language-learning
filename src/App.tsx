@@ -17,23 +17,27 @@ import BodyPartsPage from './pages/levels/a1/BodyPartsPage';
 import WhatLanguages from './pages/levels/a1/WhatLanguages';
 import WeathersPage from './pages/levels/a1/WeathersPage';
 import LocationPage from './pages/levels/a1/LocationPage';
+import IllnesssPage from './pages/levels/a1/IllnessPage';
 import NumbersPage from './pages/levels/a1/NumbersPage';
 import AnimalsPage from './pages/levels/a1/AnimalsPage';
+import PhrasesPage from './pages/levels/a1/PhrasesPage';
 import MonthsPage from './pages/levels/a1/MonthsPage';
 import ColorsPage from './pages/levels/a1/ColorsPage';
 import PlacesPage from './pages/levels/a1/PlacesPage';
 import FamilyPage from './pages/levels/a1/FamilyPage';
+import VerbsPage from './pages/levels/a1/VerbsPage';
 import DaysPage from './pages/levels/a1/DaysPage';
 import BeginarsPage from './pages/BeginarsPage';
 import GrammarsPage from './pages/GrammarsPage';
 import NounsPage from './pages/NounsPage';
-import VerbsPage from './pages/levels/a1/VerbsPage';
 import DaysQuizPage from './pages/quizzes/a1/DaysQuizPage';
 import VerbsQuizPage from './pages/quizzes/a1/VerbsQuizPage';
 import FamilyQuizPage from './pages/quizzes/a1/FamilyQuizPage';
 import MonthsQuizPage from './pages/quizzes/a1/MonthsQuizPage';
 import ColorsQuizPage from './pages/quizzes/a1/ColorsQuizPage';
 import PlacesQuizPage from './pages/quizzes/a1/PlacesQuizPage';
+import IllnessQuizPage from './pages/quizzes/a1/IllnessQuizPage';
+import PhrasesQuizPage from './pages/quizzes/a1/PhrasesQuizPage';
 import NumbersQuizPage from './pages/quizzes/a1/NumbersQuizPage';
 import AnimalsQuizPage from './pages/quizzes/a1/AnimalsQuizPage';
 import WeathersQuizPage from './pages/quizzes/a1/WeathersQuizPage';
@@ -123,8 +127,13 @@ function App() {
         <Route path="/beginars/most-common-verbs/:topic" element={<VerbsPage />} />
         <Route path="/beginars/most-common-verbs/:subtopic/:child" element={<VerbsQuizPage />} />
 
-        <Route path="/beginars/talking-about-simple-illnesses/:topic" element={<UnderConstructionPage />} />
-        <Route path="/beginars/some-survival-finnish-phrases/:topic" element={<UnderConstructionPage />} />
+        <Route path="/beginars/talking-about-simple-illnesses/:topic" element={<IllnesssPage />} />
+        <Route path="/beginars/talking-about-simple-illnesses/:subtopic/:child" element={<IllnessQuizPage />} />
+
+        {/* <Route path="/beginars/talking-about-simple-illnesses/:topic" element={<UnderConstructionPage />} /> */}
+        <Route path="/beginars/some-survival-finnish-phrases/:topic" element={<PhrasesPage />} />
+        <Route path="/beginars/some-survival-finnish-phrases/:subtopic/:child" element={<PhrasesQuizPage />} />
+
         <Route path="/beginars/basic-knowledge-about-telling-the-time/:topic" element={<UnderConstructionPage />} />
         
       </Routes>

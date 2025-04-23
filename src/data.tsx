@@ -573,12 +573,16 @@ export const verbTopics: Topic[] = [
        },
       { title: "Talking about simple illnesses",
         subtopics: [
-          {title: "Illness",}
+          {title: "Illness",
+            childTopics: ["Illness Quiz", "Illness Sentence Quiz"],
+          }
         ],
        },
       { title: "Some survival Finnish phrases",
         subtopics: [
-          {title: "Phrases",}
+          {title: "Phrases",
+            childTopics: ["Phrases Quiz", "Phrases Sentence Quiz"],
+          }
         ],
        },
       { title: "Basic knowledge about telling the time",

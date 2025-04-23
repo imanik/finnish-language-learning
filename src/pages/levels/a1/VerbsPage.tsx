@@ -2,87 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { verbData } from '../../../data/basicA1';
 
-
-interface Verb {
-  finnish: string,
-  english: string,
-  pronunciation?: string,
-}
-
-interface ConjugationTableProps {
-  verbs: Verb[];
-  min?: number;
-  max?: number;
-  isVocab?: boolean;
-}
-
-
-
-function ConjugationTable({ verbs, min, max, isVocab } :ConjugationTableProps) {
-// console.log("ConjugationTable loaded", verbs);
-return (
-  <div className="mb-6 overflow-x-auto">
-<h4 className="text-lg font-semibold text-teal-600 mb-2"></h4>
-<div className="min-w-full inline-block align-middle">
-  <table className="table-auto w-full text-gray-600 border-collapse">
-    <thead>
-      {isVocab ? (
-        <tr className="bg-teal-100">
-          <th className="px-4 py-2">English</th>
-          <th className="px-4 py-2">Finnish</th>
-          <th className="px-4 py-2">Pronunciation</th>
-          <th className="px-4 py-2">Listen</th>
-        </tr>
-      ) : (
-        <tr className="bg-teal-100">
-          <th className="px-4 py-2">English</th>
-          <th className="px-4 py-2">Finnish</th>
-          <th className="px-4 py-2"></th>
-          <th className="px-4 py-2">Listen</th>
-        </tr>
-      )}
-    </thead>
-    <tbody>
-      {verbs
-        .filter((_, index) => {
-          if (min !=undefined && max !=undefined) {
-            return index >min && index <max;
-          }
-          return true;
-        })
-        .map((item, index) => (
-          <tr key={index}>
-            <td className="px-4 py-2">{item.english}</td>
-            <td className="px-4 py-2">{item.finnish}</td>
-            <td className="px-4 py-2">{item.pronunciation}</td>
-            <td className="px-4 py-2">
-              <button
-                onClick={() => {
-                  const utterance = new SpeechSynthesisUtterance(item.finnish);
-                  utterance.lang = 'fi-FI';
-                  window.speechSynthesis.speak(utterance);
-                }}
-                className="ml-2 bg-teal-300 text-white px-2 py-1 rounded hover:bg-teal-600 transform hover:scale-110 transition duration-200"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  className="w-6 h-6 text-blue-600 hover:text-blue-800 cursor-pointer"
-                >
-                  <path d="M5 3.868v16.264a1 1 0 0 0 1.528.849l13.056-8.132a1 1 0 0 0 0-1.698L6.528 3.019A1 1 0 0 0 5 3.868z" />
-                </svg>
-              </button>
-            </td>
-          </tr>
-        ))}
-    </tbody>
-  </table>
-</div>
-</div>
-
-);
-}
+import ConjugationTable from '../../../components/ConjugationTable';
 
 function VerbsPage()  {
   return (
@@ -104,7 +24,7 @@ function VerbsPage()  {
                       <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
                                 
                     
-                            <ConjugationTable verbs={verbData.basicVerbs} min={0} max={19} isVocab={true}/>
+                            <ConjugationTable items={verbData.basicVerbs} min={0} max={19} isVocab={true}/>
         
                               
                       </section>
@@ -139,7 +59,7 @@ function VerbsPage()  {
                       <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
                                 
                     
-                      <ConjugationTable verbs={verbData.basicVerbs} min={20} max={39} isVocab={true}/>
+                      <ConjugationTable items={verbData.basicVerbs} min={20} max={39} isVocab={true}/>
         
                               
                       </section>
@@ -178,7 +98,7 @@ function VerbsPage()  {
                         <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
                                   
                       
-                        <ConjugationTable verbs={verbData.basicVerbs} min={40} max={59} isVocab={true}/>
+                        <ConjugationTable items={verbData.basicVerbs} min={40} max={59} isVocab={true}/>
           
                                 
                         </section>
@@ -215,7 +135,7 @@ function VerbsPage()  {
                           <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
                                     
                         
-                          <ConjugationTable verbs={verbData.basicVerbs} min={60} max={79} isVocab={true} />
+                          <ConjugationTable items={verbData.basicVerbs} min={60} max={79} isVocab={true} />
             
                                   
                           </section>
@@ -270,7 +190,7 @@ function VerbsPage()  {
                         <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
                                   
                       
-                        <ConjugationTable verbs={verbData.basicVerbs} min={80} max={verbData.basicVerbs.length-1} isVocab={true} />
+                        <ConjugationTable items={verbData.basicVerbs} min={80} max={verbData.basicVerbs.length-1} isVocab={true} />
           
                                 
                         </section>

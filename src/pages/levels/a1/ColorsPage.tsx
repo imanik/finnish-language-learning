@@ -2,70 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { colorData } from "../../../data/basicA1";
 
-// Define the shape of an adjective item
-interface Color {
-english: string;
-finnish: string;
-pronunciation: string;
-}
-
-// Define props for ConjugationTable
-interface ConjugationTableProps {
-colors: Color[];
-}
-
-
-
-function ConjugationTable({ colors } : ConjugationTableProps) {
-
-    
-    // console.log("ConjugationTable loaded", nationality);
-    return (
-      <div className="mb-6 overflow-x-auto">
-      <h4 className="text-lg font-semibold text-teal-600 mb-2"></h4>
-      <div className="min-w-full inline-block align-middle">
-          <table className="table-auto w-full text-gray-600 border-collapse">
-        <thead>
-            <tr className="bg-teal-100">
-            <th className="px-4 py-2">English</th>
-            <th className="px-4 py-2">Finnish</th>
-            <th className="px-4 py-2">Pronunciation</th>
-            <th className="px-4 py-2">Listen</th>
-            </tr>
-        </thead>
-        <tbody>
-            {colors.map((item, index) => (
-            <tr key={index}>
-                <td className="px-4 py-2">{item.english}</td>
-                <td className="px-4 py-2">{item.finnish}</td>
-                <td className="px-4 py-2">{item.pronunciation}</td> {/* Fixed typo: "pronounciation" -> "pronunciation" */}
-                <td className="px-4 py-2">
-                <button
-                        onClick={() => {
-                        const utterance = new SpeechSynthesisUtterance(item.finnish);
-                        utterance.lang = 'fi-FI';
-                        window.speechSynthesis.speak(utterance);
-                        }}
-                        className="ml-2 bg-teal-300 text-white px-2 py-1 rounded hover:bg-teal-600 transform hover:scale-110 transition duration-200"
-                    >
-                         <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                    className="w-6 h-6 text-blue-600 hover:text-blue-800 cursor-pointer"
-                  >
-                    <path d="M5 3.868v16.264a1 1 0 0 0 1.528.849l13.056-8.132a1 1 0 0 0 0-1.698L6.528 3.019A1 1 0 0 0 5 3.868z" />
-                  </svg>
-                    </button>
-                 </td>
-            </tr>
-            ))}
-        </tbody>
-        </table>
-    </div>
-    </div>
-    );
-}
+import ConjugationTable from "../../../components/ConjugationTable";
 
 function ColorsPage(){
 
@@ -92,7 +29,7 @@ return (
             <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
             <p className="text-gray-700 mb-2">Let’s start by basic colors!</p>
 
-            <ConjugationTable colors={colorData.basicColors} />
+            <ConjugationTable items={colorData.basicColors} />
             
             
         </section>
@@ -115,11 +52,11 @@ return (
                   {/* <!-- Warm-Up Section --> */}
                       {/* <h2 className="text-2xl font-semibold text-teal-600 mb-3">📘 Vocabulary: Basic Colors (Perusvärit)</h2> */}
             <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
-                  {/* <p className="text-gray-700 mb-2">Let’s start by basic colors!</p> */}
+                  {/* <p className="text-gray-700 mb-2">Let’s start by basic items!</p> */}
 
-                  <ConjugationTable colors={colorData.extendedColors} />
+                  <ConjugationTable items={colorData.extendedColors} />
             </section>
-            <Link to={`/beginars/color/rainbow/extended-colors-quiz`}>
+            <Link to={`/beginars/color/rainbow/extended-items-quiz`}>
             <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200 m-2">
             Extended Colors Exercises
             </button>

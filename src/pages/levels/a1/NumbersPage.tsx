@@ -3,74 +3,7 @@
   import { Link } from "react-router-dom";
   import { numberData } from "../../../data/basicA1";
 
-      interface Number {
-          english: string,
-          finnish: string,
-          pronunciation?: string,
-      }
-
-      interface ConjugationTableProps {
-          numbers: Number[];
-          min?: number;
-          max?: number;
-      }
-
-  function ConjugationTable({ numbers, min, max } :ConjugationTableProps) {
-      // console.log("ConjugationTable loaded", families);
-      return (
-        <div className="mb-6 overflow-x-auto">
-        <h4 className="text-lg font-semibold text-teal-600 mb-2"></h4>
-        <div className="min-w-full inline-block align-middle">
-            <table className="table-auto w-full text-gray-600 border-collapse">
-            <thead>
-              <tr className="bg-teal-100">
-                <th className="px-4 py-2">English</th>
-                <th className="px-4 py-2">Finnish</th>
-                <th className="px-4 py-2">Pronunciation</th>
-                <th className="px-4 py-2">Listen</th>
-              </tr>
-            </thead>
-            <tbody>
-              {numbers
-              .filter((_, index) => {
-              if (min !== undefined && max !== undefined) {
-              return index >= min && index <= max;
-              }
-              return true;
-              }).map((item, index) => (
-                //  {if (index >== 0 && index <== 10)
-                <tr key={index}>
-                  <td>{item.english}</td>
-                  <td>{item.finnish}</td>
-                  <td>{item.pronunciation}</td> {/* Fixed typo: "pronounciation" -> "pronunciation" */}
-                  <td className="px-4 py-2">
-                  <button
-                          onClick={() => {
-                          const utterance = new SpeechSynthesisUtterance(item.finnish);
-                          utterance.lang = 'fi-FI';
-                          window.speechSynthesis.speak(utterance);
-                          }}
-                          className="ml-2 bg-teal-300 text-white px-2 py-1 rounded hover:bg-teal-600 transform hover:scale-110 transition duration-200"
-                      >
-                          <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                      className="w-6 h-6 text-blue-600 hover:text-blue-800 cursor-pointer"
-                    >
-                      <path d="M5 3.868v16.264a1 1 0 0 0 1.528.849l13.056-8.132a1 1 0 0 0 0-1.698L6.528 3.019A1 1 0 0 0 5 3.868z" />
-                    </svg>
-                      </button>
-                  </td>
-                </tr>
-              //  }
-              ))}
-            </tbody>
-          </table>
-        </div>
-        </div>
-      );
-    }
+  import ConjugationTable from "../../../components/ConjugationTable";
 
   function NumbersPage() {
       
@@ -92,7 +25,7 @@
               <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
                   <p className="text-gray-700 mb-2">These are regular counting numbers: one, two, three...</p>
       
-                  <ConjugationTable numbers={numberData.basicNumbers} min={0} max={10} />
+                  <ConjugationTable items={numberData.basicNumbers} min={0} max={10} />
                   
                   
               </section>
@@ -116,7 +49,7 @@
                   {/* <p className="text-gray-700 mb-2">These end in -toista, like the cardinal form:</p> */}
               <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
       
-                  <ConjugationTable numbers={numberData.basicNumbers} min={11} max={18} />
+                  <ConjugationTable items={numberData.basicNumbers} min={11} max={18} />
                   
                   
               </section>
@@ -132,7 +65,7 @@
                   {/* <p className="text-gray-700 mb-2">These end in -toista, like the cardinal form:</p> */}
               <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
       
-                  <ConjugationTable numbers={numberData.basicNumbers} min={19} max={numberData.basicNumbers.length-1} />
+                  <ConjugationTable items={numberData.basicNumbers} min={19} max={numberData.basicNumbers.length-1} />
                   
                   
               </section>
@@ -193,7 +126,7 @@
                   <p className="text-gray-700 mb-2">These are for position or order: first, second, third...</p>
               <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
       
-                  <ConjugationTable numbers={numberData.ordinalNumbers} min={0} max={9} />
+                  <ConjugationTable items={numberData.ordinalNumbers} min={0} max={9} />
                                 
               </section>
             </div>
@@ -246,7 +179,7 @@
                   {/* <p className="text-gray-700 mb-2">These are for position or order: first, second, third...</p> */}
               <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
       
-                  <ConjugationTable numbers={numberData.ordinalNumbers} min={10} max={numberData.ordinalNumbers.length-1} />
+                  <ConjugationTable items={numberData.ordinalNumbers} min={10} max={numberData.ordinalNumbers.length-1} />
                                 
               </section>
 

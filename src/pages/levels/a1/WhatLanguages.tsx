@@ -1,49 +1,9 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { langaugeData } from '../../../data/basicA1';
 
 
-// Define the shape of a Language object
-interface Language {
-  english: string,
-  finnish: string,
-}
-
-interface ConjugationTableProps {
-  languages: Language[];
-  highlightLastLetter?: boolean; // Optional prop with default value
-}
-
-
-
-    function ConjugationTable({ languages, highlightLastLetter = false }: ConjugationTableProps) {
-      // console.log("ConjugationTable loaded", languages); // Fixed: log 'languages', not 'language'
-
-
-          return (
-            <div className="mb-6 overflow-x-auto">
-            <h4 className="text-lg font-semibold text-teal-600 mb-2"></h4>
-            <div className="min-w-full inline-block align-middle">
-                <table className="table-auto w-full text-gray-600 border-collapse">
-                <thead>
-                  <tr className="bg-teal-100">
-                    <th className="px-4 py-2">Finnish</th>
-                    <th className="px-4 py-2">English</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {languages.map((langItem, index) => (
-                    <tr key={index}>
-                      <td>{langItem.finnish}</td>              
-                      <td>{langItem.english}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            </div>
-          );
-        }
+import ConjugationTable from '../../../components/ConjugationTable';
 
 
 function WhatLanguages(){
@@ -68,7 +28,7 @@ return (
                     <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
                         
             
-                        <ConjugationTable languages={langaugeData.basicLanguage} highlightLastLetter={true}/>
+                        <ConjugationTable items={langaugeData.basicLanguage} />
 
                         
                         <p className="text-gray-600 mb-4">
@@ -91,7 +51,7 @@ return (
                     <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
                         
             
-                        <ConjugationTable languages={langaugeData.languageSentence} highlightLastLetter={true}/>
+                        <ConjugationTable items={langaugeData.languageSentence} />
 
                       
                     </section>

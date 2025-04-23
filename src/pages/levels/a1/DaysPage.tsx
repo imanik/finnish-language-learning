@@ -3,88 +3,8 @@ import React, { useState} from "react";
 import { Link } from "react-router-dom";
 import { dayData } from "../../../data/basicA1";
 
-    interface Day {
-        english: string,
-        finnish: string,
-        pronunciation?: string,
-    }
+import ConjugationTable from "../../../components/ConjugationTable";
 
-    interface ConjugationTableProps {
-        days: Day[];
-        min?: number;
-        max?: number;
-        isVocab?: boolean;
-    }
-
-function ConjugationTable({ days, min, max, isVocab } :ConjugationTableProps) {
-    // console.log("ConjugationTable loaded", families);
-    return (
-      <div className="mb-6 overflow-x-auto">
-      <h4 className="text-lg font-semibold text-teal-600 mb-2"></h4>
-      <div className="min-w-full inline-block align-middle">
-          <table className="table-auto w-full text-gray-600 border-collapse">
-          <thead>
-          {isVocab ?   
-              <tr className="bg-teal-100">
-              <th className="px-4 py-2">English</th>
-              <th className="px-4 py-2">Finnish</th>
-              <th className="px-4 py-2">Pronunciation</th> 
-              <th className="px-4 py-2">Listen</th>
-              </tr>
-               :
-               
-               <tr className="bg-teal-100">
-              <th className="px-4 py-2">English</th>
-              <th className="px-4 py-2">Finnish</th>
-              <th className="px-4 py-2"></th>
-              <th className="px-4 py-2">Listen</th>
-                </tr>
-              }
-            
-          </thead>
-          <tbody>
-            {days
-            .filter((_, index) => {
-            if (min !== undefined && max !== undefined) {
-            return index >= min && index <= max;
-            }
-            return true;
-            }).map((item, index) => (
-              //  {if (index >== 0 && index <== 10)
-                
-            
-              <tr key={index}>
-                <td>{item.english}</td>
-                <td>{item.finnish}</td>
-                <td>{item.pronunciation}</td> {/* Fixed typo: "pronounciation" -> "pronunciation" */}
-                <td className="px-4 py-2">
-                <button
-                        onClick={() => {
-                        const utterance = new SpeechSynthesisUtterance(item.finnish);
-                        utterance.lang = 'fi-FI';
-                        window.speechSynthesis.speak(utterance);
-                        }}
-                        className="ml-2 bg-teal-300 text-white px-2 py-1 rounded hover:bg-teal-600 transform hover:scale-110 transition duration-200"
-                    >
-                        <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                    className="w-6 h-6 text-blue-600 hover:text-blue-800 cursor-pointer"
-                  >
-                    <path d="M5 3.868v16.264a1 1 0 0 0 1.528.849l13.056-8.132a1 1 0 0 0 0-1.698L6.528 3.019A1 1 0 0 0 5 3.868z" />
-                  </svg>
-                    </button>
-                </td>
-              </tr>
-            //  }
-            ))}
-          </tbody>
-        </table>
-      </div>
-      </div>
-    );
-  }
 
 function DaysPage() {
     
@@ -106,7 +26,7 @@ function DaysPage() {
             <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
                 {/* <p className="text-gray-700 mb-2">These are regular counting numbers: one, two, three...</p> */}
     
-                <ConjugationTable days={dayData.basicDays} min={0} max={6} isVocab={true} />
+                <ConjugationTable items={dayData.basicDays} min={0} max={6} isVocab={true} />
                 
                 
                             <p className="text-teal-600 mt-2"><strong>🧠 Tip:</strong>  Weekdays in Finnish are not capitalized!</p>
@@ -130,7 +50,7 @@ function DaysPage() {
                 <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
                 {/* <p className="text-gray-700 mb-2">These are regular counting numbers: one, two, three...</p> */}
 
-                <ConjugationTable days={dayData.basicDays} min={7} max={13} isVocab = {true}/>
+                <ConjugationTable items={dayData.basicDays} min={7} max={13} isVocab = {true}/>
 
 
                           <p className="text-teal-600 mt-2"><strong>📝  Use this when something happens once, e.g.:</strong><br></br> Koulu alkaa maanantaina. – School starts on Monday. </p>
@@ -151,7 +71,7 @@ function DaysPage() {
                 <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
                 {/* <p className="text-gray-700 mb-2">These are regular counting numbers: one, two, three...</p> */}
 
-                  <ConjugationTable days={dayData.basicDays} min={14} max={20} isVocab={true}/>
+                  <ConjugationTable items={dayData.basicDays} min={14} max={20} isVocab={true}/>
                 
                 </section>
                 
@@ -183,7 +103,7 @@ function DaysPage() {
                 <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
                 {/* <p className="text-gray-700 mb-2">These are regular counting numbers: one, two, three...</p> */}
 
-                <ConjugationTable days={dayData.basicDays} min={21} max={dayData.basicDays.length-1} isVocab = {true}/>
+                <ConjugationTable items={dayData.basicDays} min={21} max={dayData.basicDays.length-1} isVocab = {true}/>
                           
                 </section>
 
@@ -269,7 +189,7 @@ function DaysPage() {
                 {/* <p className="text-gray-700 mb-2">These end in -toista, like the cardinal form:</p> */}
             <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
     
-                <ConjugationTable days={dayData.daysSentence} min={0} max={dayData.daysSentence.length-1} isVocab={false} />
+                <ConjugationTable items={dayData.daysSentence} min={0} max={dayData.daysSentence.length-1} isVocab={false} />
                 
                 
             </section>
