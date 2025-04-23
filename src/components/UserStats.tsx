@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import { useParams } from "react-router-dom";
+import React from "react";
+import { useQuiz } from "./QuizContext";
 
 interface QuizScore {
   correct: number;
@@ -7,18 +7,16 @@ interface QuizScore {
 }
 
 interface UserStatsProps {
-  quizScore: QuizScore;
+  quizScore?: QuizScore; // 👈 optional
   handleQuizComplete?: (wasCorrect: boolean) => void;
 }
 
-// function UserStats<UserStatsProps>({ quizScore, handleQuizComplete }) {
-  // const { child } = useParams();
-  function UserStats({
-    quizScore ,
-    handleQuizComplete,
+function UserStats({ quizScore: propsScore, handleQuizComplete }: UserStatsProps) {
   
-    
-  }: UserStatsProps) {
+  const { quizScore: contextScore } = useQuiz();
+  
+  const quizScore = propsScore || contextScore; // 👈 use props if available, otherwise context
+  console.log("Homepage quizScore", quizScore);
   
   const milestoneInterval = 50;
   const requiredScore = 70;
@@ -34,26 +32,13 @@ interface UserStatsProps {
   const nextMilestone = (currentLevel + 1) * milestoneInterval;
   const quizzesToNext = nextMilestone - quizScore.total;
 
-   const [statsScore, setStatsScore] = useState<QuizScore>(() => {
-        const storedScore = localStorage.getItem("overAllQuizScore");
-        return storedScore ? JSON.parse(storedScore) : { correct: 0, total: 0 };
-      });
-
-      console.log("UserStats loaded", statsScore);
-
-//  useEffect(() => {
-//   setStatsScore(statsScore);
-//       }
-//     , [statsScore]); // Added dependency array
-  
-
   const levelUpMessage = () => {
     if (quizScore.total >= nextMilestone && currentScore >= requiredScore) {
-      return `Congratulations! You've reached Level ${currentLevel + 1}!`;
+      return `🎉 Congratulations! You've reached Level ${currentLevel + 1}!`;
     } else if (quizScore.total >= nextMilestone && currentScore < requiredScore) {
-      return `Almost there! Improve your score to ≥ ${requiredScore}% to reach Level ${currentLevel + 1}.`;
+      return `⚠️ Almost there! Improve your score to ≥ ${requiredScore}% to reach Level ${currentLevel + 1}.`;
     }
-    return `Practice more to reach Level ${currentLevel + 1}.`;
+    return `📘 Practice more to reach Level ${currentLevel + 1}.`;
   };
 
   return (
@@ -69,25 +54,18 @@ interface UserStatsProps {
           </div>
         </div>
 
+        <p className="text-teal-600 mt-2"><strong>Quizzes Solved:</strong> {quizScore.total}</p>
+        <p className="text-teal-600 mt-2"><strong>Correct Answers:</strong> {quizScore.correct}</p>
+        <p className="text-teal-600 mt-2"><strong>Level:</strong> {currentLevel}</p>
+        <p className="text-teal-600 mt-2"><strong>Quizzes left:</strong> {quizzesToNext}</p>
         <p className="text-teal-600 mt-2">
-          <span className="font-medium"><strong>Quizzes Solved:</strong></span> {quizScore.total}
-        </p>
-        <p className="text-teal-600 mt-2">
-          <span className="font-medium"><strong>Correct Answers:</strong></span> {quizScore.correct}
-        </p>
-        <p className="text-teal-600 mt-2">
-          <span className="font-medium"><strong>Level:</strong></span> {currentLevel}
-        </p>
-        <p className="text-teal-600 mt-2">
-          <span className="font-medium"><strong>Quizzes left:</strong></span> {quizzesToNext}
-        </p>
-        <p className="text-teal-600 mt-2">
-          <span className="font-medium"><strong>Next Milestone:</strong></span><br></br> Complete {nextMilestone} quizzes with ≥ {requiredScore}%
+          <strong>Next Milestone:</strong><br />
+          Complete {nextMilestone} quizzes with ≥ {requiredScore}%
         </p>
         <p className="text-teal-700 font-medium mt-2">{levelUpMessage()}</p>
       </section>
     </div>
   );
-};
+}
 
 export default UserStats;

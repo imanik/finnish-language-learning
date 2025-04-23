@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainContent from './components/MainContent';
 
+import { QuizProvider } from './components/QuizContext';
+
+
 import RoomsFurnituresPage from './pages/levels/a1/RoomsFurnituresPage';
 import ClothesWearingsPage from './pages/levels/a1/ClothesWearingsPage';
 import BasicAdjectivePage from './pages/levels/a1/BasicAdjectivePage';
@@ -49,36 +52,39 @@ interface QuizScore {
 function App() {
   const basename = process.env.NODE_ENV === 'development' ? '/' : '/';
 
-  const [quizScore, setQuizScore] = useState<QuizScore>(() => {
-    const storedScore = localStorage.getItem("overAllQuizScore");
-    return storedScore ? JSON.parse(storedScore) : { correct: 0, total: 0 };
-  });
+  // const [quizScore, setQuizScore] = useState<QuizScore>(() => {
+  //   const storedScore = localStorage.getItem("overAllQuizScore");
+  //   return storedScore ? JSON.parse(storedScore) : { correct: 0, total: 0 };
+  // });
 
-  useEffect(() => {
-    localStorage.setItem("overAllQuizScore", JSON.stringify(quizScore));
-  }, [quizScore]);
+  // useEffect(() => {
+  //   localStorage.setItem("overAllQuizScore", JSON.stringify(quizScore));
+  // }, [quizScore]);
 
-  const handleQuizComplete = (wasCorrect: boolean) => {
-    setQuizScore((prev: QuizScore) => ({
-      total: prev.total + 1,
-      correct: wasCorrect ? prev.correct + 1 : prev.correct,
-    }));
-  };
+  // const handleQuizComplete = (wasCorrect: boolean) => {
+  //   setQuizScore((prev: QuizScore) => ({
+  //     total: prev.total + 1,
+  //     correct: wasCorrect ? prev.correct + 1 : prev.correct,
+  //   }));
+  // };
 
   return (
+
+    
+    <QuizProvider>
     <BrowserRouter basename={basename}>
       <Routes>
-        <Route path="/" element={<MainContent quizScore={quizScore} handleQuizComplete={handleQuizComplete} />} />
-       
-        <Route path="/nouns/:topic" element={<NounsPage />} />
-        <Route path="/nouns/:topic/:subtopic" element={<NounsPage />} />
-        
-        
+    
+        {/* <Route path="/" element={<MainContent quizScore={quizScore} handleQuizComplete={handleQuizComplete} />} /> */}
+        {/* <Route path="/" element={<MainContent quizScore={quizScore} handleQuizComplete={handleQuizComplete} />} /> */}
+
+        <Route path="/" element={<MainContent />} />
         
         <Route path="/beginars" element={<BeginarsPage />} />
 
         <Route path="/beginars/what-languages/:topic" element={<WhatLanguages />} />
         <Route path="/beginars/what-languages/:subtopic/:child" element={<WhatLanguageQuizPage />} />
+
         
         <Route path="/beginars/family/:topic" element={<FamilyPage />} />
         <Route path="/beginars/family/:subtopic/:child" element={<FamilyQuizPage />} />
@@ -106,12 +112,9 @@ function App() {
         
         <Route path="/beginars/weather/:topic" element={<WeathersPage />} />
         <Route path="/beginars/weather/:subtopic/:child" element={<WeathersQuizPage />} />
-
         
         <Route path="/beginars/most-common-rooms-and-furnitures/:topic" element={<RoomsFurnituresPage />} />
         <Route path="/beginars/most-common-rooms-and-furnitures/:subtopic/:child" element={<RoomsFurnituresQuizPage />} />
-
-
 
         <Route path="/beginars/most-common-foods-and-drinks/:topic" element={<FoodsDrinksPage />} />
         <Route path="/beginars/most-common-foods-and-drinks/:subtopic/:child" element={<FoodsDrinksQuizPage />} />
@@ -128,17 +131,19 @@ function App() {
 
         <Route path="/beginars/most-common-animals/:topic" element={<AnimalsPage />} />
         <Route path="/beginars/most-common-animals/:subtopic/:child" element={<AnimalsQuizPage />} />
-        {/* <Route path="/beginars/basic-words/adjective/:topic" element={<BasicAdjectivePage />} /> */}
-        
+       
         <Route path="/beginars/adjective/:subtopic" element={<BasicAdjectivePage />} />
         <Route path="/beginars/adjective/:subtopic/:child" element={<BasicAdjectiveQuizPage />} /> 
-        {/* <Route path="/beginars/adjective/:subtopic/:child" element={<BasicAdjectiveQuizzes />} />  */}
-        {/* <Route path="/beginars/basic-words/color/:subtopic" element={<ColorsPage />} /> */}
+       
         <Route path="/beginars/most-common-verbs/:topic" element={<VerbsPage />} />
         <Route path="/beginars/most-common-verbs/:subtopic/:child" element={<VerbsQuizPage />} />
-        {/* <Route path="/beginars/basic-words/:subtopic/:child" element={<BasicAdjectiveQuizzes />} />  */}
+        
       </Routes>
+      
     </BrowserRouter>
+ </QuizProvider>
+
+    
   );
 }
 

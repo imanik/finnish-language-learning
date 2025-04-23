@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import UserStats from '../components/UserStats';
 import GenerateQuiz from '../components/GenarateQuiz';
-
+import { useQuiz } from "./QuizContext";
 
 interface QuizScore {
   correct: number;
@@ -22,10 +21,6 @@ interface QuizItem {
   finnish: string;
   pronunciation?: string; // optional
 }
-
-
-
-
 
 
 // Props for SetupQuizProps component — made generic using <T extends QuizItem>
@@ -52,17 +47,8 @@ function SetupQuiz<T extends QuizItem>({
       return parsed;
     });
 
-    const [quizScore, setQuizScore] = useState<QuizScore>(() => {
-      const storedScore = localStorage.getItem("overAllQuizScore");
-      return storedScore ? JSON.parse(storedScore) : { correct: 0, total: 0 };
-    });
 
-    
-    // console.log("SetupQuiz loaded with Type", quizType);
-    // console.log("SetupQuiz loaded with", items);
-    // console.log("SetupQuiz loaded", score, leaderboard, quizScore);
-    // console.log("Local loaded with", localStorage);
-
+    const { quizScore, setQuizScore } = useQuiz();
 
      // Load session score and leaderboard on mount
       useEffect(() => {
@@ -107,15 +93,21 @@ function SetupQuiz<T extends QuizItem>({
     }
 
      
+    const handleQuizComplete = (wasCorrect: boolean) => {
+      setQuizScore((prev) => ({
+        total: prev.total + 1,
+        correct: wasCorrect ? prev.correct + 1 : prev.correct,
+      }));
+    };
 
-      const handleQuizComplete = (wasCorrect: boolean) => {
-        // console.log("handleQuizComplete wasCorrect", wasCorrect);
-        // Update the quiz score
-        setQuizScore((prev) => ({
-          total: prev.total + 1,
-          correct: wasCorrect ? prev.correct + 1 : prev.correct,
-        }));
-      };
+      // const handleQuizComplete = (wasCorrect: boolean) => {
+      //   // console.log("handleQuizComplete wasCorrect", wasCorrect);
+      //   // Update the quiz score
+      //   setQuizScore((prev) => ({
+      //     total: prev.total + 1,
+      //     correct: wasCorrect ? prev.correct + 1 : prev.correct,
+      //   }));
+      // };
     
       const resetScore = () => {
         setScore({ correct: 0, total: 0 });
@@ -131,7 +123,7 @@ function SetupQuiz<T extends QuizItem>({
       
           // Update leaderboard here in the same cycle
           setLeaderboard((prevLeaderboard) => {
-            console.log("Leaderboard before update", prevLeaderboard);
+            // console.log("Leaderboard before update", prevLeaderboard);
             const userEntry: LeaderboardEntry = {
               name: "User",
               score: newScore.correct,
@@ -170,13 +162,7 @@ function SetupQuiz<T extends QuizItem>({
      <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto">
      <h3 className="text-xl font-semibold text-teal-700 mb-4">
      
-     
-     
-     {/* {map && mapKey && map[mapKey] 
-  ? (map[mapKey] === "basic" 
-      ? "BASIC"
-      : `${map[mapKey].toUpperCase()}` )
-  : "BASIC"}{" "} */}
+
   { quizType ? quizType.toUpperCase() : "BASIC"}{" "}
     QUIZ
       </h3>

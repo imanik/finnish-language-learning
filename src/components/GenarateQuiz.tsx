@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+// import UserStats from '../components/UserStats';
 
 // Define the structure of a quiz item (vocabulary term)
 interface QuizItem {
@@ -6,12 +7,6 @@ interface QuizItem {
   finnish: string;
   pronunciation?: string; // optional
 }
-
-
-// interface QuizScore {
-//   correct: number;
-//   total: number;
-// }
 
 // Define the structure for the current quiz state (holds question + options)
 interface QuizState<T extends QuizItem> {
@@ -98,6 +93,10 @@ function GenerateQuiz<T extends QuizItem>({
   if (!quizState) return null;
 
   return (
+    <div>
+           {/* <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-6">
+           <UserStats quizScore={quizScore} handleQuizComplete={handleQuizComplete} />
+           </div> */}
     <div className="bg-white p-6 rounded-lg shadow-lg max-w-2xl mx-auto">
       {/* Quiz Question */}
       <h3 className="text-xl font-semibold text-teal-700 mb-4">
@@ -156,6 +155,7 @@ function GenerateQuiz<T extends QuizItem>({
           </button>
         </div>
       )}
+    </div>
     </div>
   );
 }

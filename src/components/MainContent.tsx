@@ -8,13 +8,12 @@ import Colors from './Colors';
 import Days from './Days';
 import Months from './Months';
 import Grammars from './Grammars';
+import { useQuiz } from './QuizContext'; // Make sure to import useQuiz
 
-interface MainContentProps {
-  quizScore: { correct: number; total: number };
-  handleQuizComplete: (wasCorrect: boolean) => void;
-}
+function MainContent() {
+  // Get quizScore and handleQuizComplete directly from the context
+  const { quizScore, handleQuizComplete } = useQuiz();
 
-function MainContent({ quizScore, handleQuizComplete }: MainContentProps) {
   const location = useLocation();
   const containerClass = location.pathname === "/"
     ? "bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg w-full max-w-md"
@@ -26,6 +25,7 @@ function MainContent({ quizScore, handleQuizComplete }: MainContentProps) {
         Welcome to Finnish Learning
       </h1>
       <div className={containerClass}>
+        {/* Directly using the context's quizScore and handleQuizComplete */}
         <UserStats quizScore={quizScore} handleQuizComplete={handleQuizComplete} />
       </div>
       <Beginars />
