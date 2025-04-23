@@ -47,10 +47,11 @@ function LocationPage(){
 return (
 
 <div className="min-h-screen bg-teal-50 p-6 font-['Roboto']">
-      <Link to="/beginars" className="text-teal-700 hover:underline mb-6 inline-block">
+      <Link to="/beginars" className="text-teal-700 hover:underline bg-teal-100 mb-6 inline-block fixed top-0 left-0 w-full  px-4 py-2 shadow-md">
         ← Back to Beginars Lesson
       </Link>
 
+      <div className="mt-16">
       <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-6">
 
 {/* <!-- Header --> */}
@@ -199,17 +200,18 @@ return (
             <p className="text-teal-600 font-bold mt-4"><span className="font-medium">Hyvä!</span> (Good!) – Practice these to sound like a Finn!</p>
         </section>
 
-<Link to={`/beginars/location/what-location-are-you/location-quiz`}>
+        {/* <Link to={`/beginars/location/what-location-are-you/location-quiz`}>
           <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200 m-2">
              Location Exercises
           </button>
-        </Link>
+        </Link> */}
 
      
 
 </div>  
 
       
+    </div>
     </div>
 
       );

@@ -47,10 +47,12 @@ import SetupQuiz from '../../../components/SetupQuiz'; // Changed to SetupQuiz
    // Render the component UI.
    return (
     <div className="min-h-screen bg-teal-50 p-6 font-['Roboto']">
-    <Link to="/beginars/greeting/how-are-you" className="text-teal-700 hover:underline mb-6 inline-block">
+    <Link to="/beginars/greeting/how-are-you" className="text-teal-700 hover:underline bg-teal-100 mb-6 inline-block fixed top-0 left-0 w-full  px-4 py-2 shadow-md">
       ← Back to Basic Greetings Lessons
     </Link>
+          <div className='mt-16'>
       <SetupQuiz items={allItems} quizType={quizType}  />
+    </div>
     </div>
 
 

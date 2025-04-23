@@ -17,7 +17,7 @@ interface ConjugationTableProps {
 
 
     function ConjugationTable({ languages, highlightLastLetter = false }: ConjugationTableProps) {
-      console.log("ConjugationTable loaded", languages); // Fixed: log 'languages', not 'language'
+      // console.log("ConjugationTable loaded", languages); // Fixed: log 'languages', not 'language'
 
 
           return (
@@ -52,9 +52,11 @@ function WhatLanguages(){
 return (
 
  <div className="min-h-screen bg-teal-50 p-6 font-['Roboto']">
-      <Link to="/beginars" className="text-teal-700 hover:underline mb-6 inline-block">
+      <Link to="/beginars" className="text-teal-700 hover:underline bg-teal-100 mb-6 inline-block fixed top-0 left-0 w-full  px-4 py-2 shadow-md">
         ← Back to Beginars Lesson
       </Link>
+
+      <div className="mt-16">
 
       <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-6">
       
@@ -89,19 +91,20 @@ return (
                     <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
                         
             
-                        <ConjugationTable languages={langaugeData.sentenceLanguage} highlightLastLetter={true}/>
+                        <ConjugationTable languages={langaugeData.languageSentence} highlightLastLetter={true}/>
 
                       
                     </section>
             
-                    <Link to={`/beginars/what-languages/basic-language/sentence-language-quiz`}>
+                    <Link to={`/beginars/what-languages/basic-language/language-sentence-quiz`}>
                       <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200 m-2">
-                        Sentence Language Exercises
+                         Language in Sentence Exercises
                       </button>
                     </Link>
                         
       </div>
 
+    </div>
     </div>
 
       );

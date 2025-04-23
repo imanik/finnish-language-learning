@@ -60,12 +60,12 @@ function BeginarsPage() {
 
   return (
     <div className="min-h-screen bg-teal-50 p-6 font-['Roboto']">
-      <Link to="/" className="text-teal-700 hover:underline mb-6 inline-block">
+      <Link to="/" className="text-teal-700 hover:underline bg-teal-100 mb-6 inline-block fixed top-0 left-0 w-full  px-4 py-2 shadow-md">
         ← Back to Home
       </Link>
 
-      {/* Introduction Section */}
-      <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-6">
+      <div className='mt-16'>
+      <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-8">
         <h2 className="text-2xl font-semibold text-teal-800 mb-4">Beginner Finnish Topics</h2>
         <h4 className="text-xl font-semibold text-teal-700 mb-6">Level A1: A1.1 to A1.3</h4>
         <div className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
@@ -157,6 +157,7 @@ function BeginarsPage() {
 
       {/* Dynamic Content */}
       {getDynamicContent()}
+    </div>
     </div>
   );
 }

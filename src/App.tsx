@@ -2,17 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainContent from './components/MainContent';
 
+import RoomsFurnituresPage from './pages/levels/a1/RoomsFurnituresPage';
+import ClothesWearingsPage from './pages/levels/a1/ClothesWearingsPage';
 import BasicAdjectivePage from './pages/levels/a1/BasicAdjectivePage';
-import RoomFurnituresPage from './pages/levels/a1/RoomFurnituresPage';
 import NationalityPage from './pages/levels/a1/NationalityPage';
-import FoodDrinksPage from './pages/levels/a1/FoodDrinksPage';
+import FoodsDrinksPage from './pages/levels/a1/FoodsDrinksPage';
 import GreetingsPage from './pages/levels/a1/GreetingsPage';
 import BodyPartsPage from './pages/levels/a1/BodyPartsPage';
 import WhatLanguages from './pages/levels/a1/WhatLanguages';
 import WeathersPage from './pages/levels/a1/WeathersPage';
 import LocationPage from './pages/levels/a1/LocationPage';
 import NumbersPage from './pages/levels/a1/NumbersPage';
-import ClothesPage from './pages/levels/a1/ClothesPage';
 import AnimalsPage from './pages/levels/a1/AnimalsPage';
 import MonthsPage from './pages/levels/a1/MonthsPage';
 import ColorsPage from './pages/levels/a1/ColorsPage';
@@ -22,18 +22,24 @@ import DaysPage from './pages/levels/a1/DaysPage';
 import BeginarsPage from './pages/BeginarsPage';
 import GrammarsPage from './pages/GrammarsPage';
 import NounsPage from './pages/NounsPage';
-import VerbsPage from './pages/VerbsPage';
+import VerbsPage from './pages/levels/a1/VerbsPage';
 import DaysQuizPage from './pages/quizzes/a1/DaysQuizPage';
+import VerbsQuizPage from './pages/quizzes/a1/VerbsQuizPage';
+import FamilyQuizPage from './pages/quizzes/a1/FamilyQuizPage';
 import MonthsQuizPage from './pages/quizzes/a1/MonthsQuizPage';
 import ColorsQuizPage from './pages/quizzes/a1/ColorsQuizPage';
-import FamilyQuizPage from './pages/quizzes/a1/FamilyQuizPage';
+import PlacesQuizPage from './pages/quizzes/a1/PlacesQuizPage';
 import NumbersQuizPage from './pages/quizzes/a1/NumbersQuizPage';
-import GreetingsQuizPage from './pages/quizzes/a1/GreetingsQuizPage';
+import AnimalsQuizPage from './pages/quizzes/a1/AnimalsQuizPage';
 import WeathersQuizPage from './pages/quizzes/a1/WeathersQuizPage';
+import BodyPartsQuizPage from './pages/quizzes/a1/BodyPartsQuizPage';
+import GreetingsQuizPage from './pages/quizzes/a1/GreetingsQuizPage';
+import FoodsDrinksQuizPage from './pages/quizzes/a1/FoodsDrinksQuizPage';
 import NationalityQuizPage from './pages/quizzes/a1/NationalityQuizPage';
 import WhatLanguageQuizPage from './pages/quizzes/a1/WhatLanguageQuizPage';
-import BasicAdjectiveQuizzes from './pages/quizzes/a1/BasicAdjectiveQuizzes';
-import TheFinnishVerbtypesQuiz from './pages/quizzes/verbs/TheFinnishVerbtypesQuiz';
+import BasicAdjectiveQuizPage from './pages/quizzes/a1/BasicAdjectiveQuizPage';
+import RoomsFurnituresQuizPage from './pages/quizzes/a1/RoomsFurnitersQuizPage';
+import ClothesWearingsQuizPage from './pages/quizzes/a1/ClothesWearingsQuizPage';
 
 interface QuizScore {
   correct: number;
@@ -62,20 +68,12 @@ function App() {
   return (
     <BrowserRouter basename={basename}>
       <Routes>
-      <Route path="/" element={<MainContent quizScore={quizScore} handleQuizComplete={handleQuizComplete} />} />
-        {/* <Route path="/greetings" element={<GreetingsPage />} /> */}
-        {/* <Route path="/numbers" element={<NumbersPage />} /> */}
-        {/* <Route path="/grammars" element={<GrammarsPage />} /> */}
-        {/* <Route path="/nouns" element={<NounsPage />} /> */}
+        <Route path="/" element={<MainContent quizScore={quizScore} handleQuizComplete={handleQuizComplete} />} />
        
         <Route path="/nouns/:topic" element={<NounsPage />} />
         <Route path="/nouns/:topic/:subtopic" element={<NounsPage />} />
         
-        <Route path="/verbs" element={<VerbsPage />} />
-        <Route path="/verbs/:topic" element={<VerbsPage />} />
-        <Route path="/verbs/:topic/:subtopic" element={<VerbsPage />} />
-        <Route path="/verbs/:topic/:subtopic/quiz/:verbtype" element={<TheFinnishVerbtypesQuiz />} />
-        <Route path="/verbs/:topic/:subtopic/:child" element={<VerbsPage />} />
+        
         
         <Route path="/beginars" element={<BeginarsPage />} />
 
@@ -106,23 +104,38 @@ function App() {
         <Route path="/beginars/month/:topic" element={<MonthsPage />} />
         <Route path="/beginars/month/:subtopic/:child" element={<MonthsQuizPage />} />
         
-
-
         <Route path="/beginars/weather/:topic" element={<WeathersPage />} />
         <Route path="/beginars/weather/:subtopic/:child" element={<WeathersQuizPage />} />
 
         
-        <Route path="/beginars/most-common-rooms-and-furnitures/:topic" element={<RoomFurnituresPage />} />
-        <Route path="/beginars/most-common-foods-and-drinks/:topic" element={<FoodDrinksPage />} />
-        <Route path="/beginars/most-common-clothes-and-wearings/:topic" element={<ClothesPage />} />
+        <Route path="/beginars/most-common-rooms-and-furnitures/:topic" element={<RoomsFurnituresPage />} />
+        <Route path="/beginars/most-common-rooms-and-furnitures/:subtopic/:child" element={<RoomsFurnituresQuizPage />} />
+
+
+
+        <Route path="/beginars/most-common-foods-and-drinks/:topic" element={<FoodsDrinksPage />} />
+        <Route path="/beginars/most-common-foods-and-drinks/:subtopic/:child" element={<FoodsDrinksQuizPage />} />
+        
+        <Route path="/beginars/most-common-clothes-and-wearings/:topic" element={<ClothesWearingsPage />} />
+        <Route path="/beginars/most-common-clothes-and-wearings/:subtopic/:child" element={<ClothesWearingsQuizPage />} />
+
         <Route path="/beginars/most-common-body-parts/:topic" element={<BodyPartsPage />} />
+        <Route path="/beginars/most-common-body-parts/:subtopic/:child" element={<BodyPartsQuizPage />} />
+        
         <Route path="/beginars/most-common-places-in-the-city/:topic" element={<PlacesPage />} />
+        <Route path="/beginars/most-common-places-in-the-city/:subtopic/:child" element={<PlacesQuizPage />} />
+
+
         <Route path="/beginars/most-common-animals/:topic" element={<AnimalsPage />} />
+        <Route path="/beginars/most-common-animals/:subtopic/:child" element={<AnimalsQuizPage />} />
         {/* <Route path="/beginars/basic-words/adjective/:topic" element={<BasicAdjectivePage />} /> */}
+        
         <Route path="/beginars/adjective/:subtopic" element={<BasicAdjectivePage />} />
+        <Route path="/beginars/adjective/:subtopic/:child" element={<BasicAdjectiveQuizPage />} /> 
         {/* <Route path="/beginars/adjective/:subtopic/:child" element={<BasicAdjectiveQuizzes />} />  */}
-        <Route path="/beginars/adjective/:subtopic/:child" element={<BasicAdjectiveQuizzes />} /> 
         {/* <Route path="/beginars/basic-words/color/:subtopic" element={<ColorsPage />} /> */}
+        <Route path="/beginars/most-common-verbs/:topic" element={<VerbsPage />} />
+        <Route path="/beginars/most-common-verbs/:subtopic/:child" element={<VerbsQuizPage />} />
         {/* <Route path="/beginars/basic-words/:subtopic/:child" element={<BasicAdjectiveQuizzes />} />  */}
       </Routes>
     </BrowserRouter>
@@ -133,26 +146,3 @@ export default App;
 
 
 
-// import OthersPage from './pages/OthersPage';
-// import GreetingsQuizPage from './pages/GreetingsQuizPage';
-// Add converted files
-// import NumbersQuizPage from './pages/NumbersQuizPage';
-// import SentencesPage from './pages/SentencesPage';
-// import MonthsPage from './pages/MonthsPage';
-// import DaysPage from './pages/DaysPage';
-
-
-
- {/* */}
-
-
-      {/* <Route path="/greetings/quiz" element={<GreetingsQuizPage />} /> */}
-      {/* <Route path="/numbers/quiz" element={<NumbersQuizPage />} /> */}
-      {/* <Route path="/colors" element={<ColorsPage />} /> */}
-      {/* <Route path="/days" element={<DaysPage />} /> */}
-      {/* <Route path="/months" element={<MonthsPage />} /> */}
-      {/* <Route path="/sentences" element={<SentencesPage />} /> */}
-      {/* <Route path="/sentences/:topic" element={<SentencesPage />} /> */}
-      {/* <Route path="/sentences/:topic/:subtopic" element={<SentencesPage />} /> */}
-      {/* <Route path="/others" element={<OthersPage />} /> */}
-      {/* <Route path="/others/:topic" element={<OthersPage />} /> */}

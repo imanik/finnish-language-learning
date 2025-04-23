@@ -90,10 +90,11 @@ function DaysPage() {
     
     return (
 <div className="min-h-screen bg-teal-50 p-6 font-['Roboto']">
-      <Link to="/beginars" className="text-teal-700 hover:underline mb-6 inline-block">
+      <Link to="/beginars" className="text-teal-700 hover:underline bg-teal-100 mb-6 inline-block fixed top-0 left-0 w-full  px-4 py-2 shadow-md">
         ← Back to Beginars Lesson
       </Link>
 
+      <div className="mt-16">
 
           <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-6">
 
@@ -146,18 +147,26 @@ function DaysPage() {
                 {/* <h4 className="text-xl font-semibold text-teal-700 mb-6"><span className="font-medium">“The world is colorful (värikäs)”</span>  – let’s learn how to describe it in Finnish!</h4> */}
 
                   <h2 className="text-2xl font-semibold text-teal-600 mb-3">🔁 3. Saying "Every [Day]" → Use -(i)sin or joka + base form</h2>
+                
                 <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
                 {/* <p className="text-gray-700 mb-2">These are regular counting numbers: one, two, three...</p> */}
 
-                <ConjugationTable days={dayData.basicDays} min={14} max={20} isVocab={true}/>
+                  <ConjugationTable days={dayData.basicDays} min={14} max={20} isVocab={true}/>
+                
+                </section>
+                
+                <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
 
+                <div className=" p-4 rbg-white rounded-lg border border-gray-300 mb-4">
+                            <h3 className="text-xl font-medium text-teal-700 mb-2">💬 You can also use "JOKA" Examples::</h3>
+                            <p className="text-gray-700"></p>
+                            <ul className="list-disc text-gray-700 space-y-2 m-6">
+                            <li> Käyn <span className="text-red-500">joka tiistai</span> kuntosalilla. → I go to the gym every Tuesday.</li>
+                            <li>Me syömme ravintolassa <span className="text-red-500">perjantaisin.</span> → We eat at a restaurant on Fridays.</li>
+                            </ul>
+                            
+                    </div>
 
-                          <p className="text-teal-600 mt-2"><strong>💬 You can also use "JOKA" Examples:</strong>
-                          <br></br>
-                          <br></br>
-                          Käyn <span className="text-red-500">joka tiistai</span> kuntosalilla. – I go to the gym every Tuesday.
-                          <br></br>
-                          Me syömme ravintolassa <span className="text-red-500">perjantaisin.</span> – We eat at a restaurant on Fridays.</p>
                 </section>
 
 
@@ -170,13 +179,12 @@ function DaysPage() {
                 {/* <h4 className="text-xl font-semibold text-teal-700 mb-6"><span className="font-medium">“The world is colorful (värikäs)”</span>  – let’s learn how to describe it in Finnish!</h4> */}
 
                   <h2 className="text-2xl font-semibold text-teal-600 mb-3">⏳ 4. Time Span: From [Day] → Until [Day]</h2>
+                
                 <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
                 {/* <p className="text-gray-700 mb-2">These are regular counting numbers: one, two, three...</p> */}
 
                 <ConjugationTable days={dayData.basicDays} min={21} max={dayData.basicDays.length-1} isVocab = {true}/>
-
-
-                          <p className="text-teal-600 mt-2"><strong>📝  Use -sta/-stä (elative = "from") and -hVn (illative = "to/until")</strong><br></br> </p>
+                          
                 </section>
 
                 <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
@@ -261,7 +269,7 @@ function DaysPage() {
                 {/* <p className="text-gray-700 mb-2">These end in -toista, like the cardinal form:</p> */}
             <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
     
-                <ConjugationTable days={dayData.sentenceDays} min={0} max={dayData.sentenceDays.length-1} isVocab={false} />
+                <ConjugationTable days={dayData.daysSentence} min={0} max={dayData.daysSentence.length-1} isVocab={false} />
                 
                 
             </section>
@@ -278,6 +286,7 @@ function DaysPage() {
 
           
 
+        </div>
         </div>
         
     );

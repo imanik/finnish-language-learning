@@ -89,11 +89,13 @@ function ConjugationTable({ days, min, max, isVocab } :ConjugationTableProps) {
 function WeathersPage() {
     
     return (
+
 <div className="min-h-screen bg-teal-50 p-6 font-['Roboto']">
-      <Link to="/beginars" className="text-teal-700 hover:underline mb-6 inline-block">
+      <Link to="/beginars" className="text-teal-700 hover:underline bg-teal-100 mb-6 inline-block fixed top-0 left-0 w-full  px-4 py-2 shadow-md">
         ← Back to Beginars Lesson
       </Link>
 
+      <div className="mt-16">
 
           <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-6">
 
@@ -131,7 +133,7 @@ function WeathersPage() {
                 <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
                 {/* <p className="text-gray-700 mb-2">These are regular counting numbers: one, two, three...</p> */}
 
-                 <ConjugationTable days={weatherData.sentenceWeathers} min={30} max={42} isVocab={false} />
+                 <ConjugationTable days={weatherData.weathersSentence} min={30} max={42} isVocab={false} />
 
 
                          
@@ -193,7 +195,7 @@ function WeathersPage() {
                   <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
                 {/* <p className="text-gray-700 mb-2">These are regular counting numbers: one, two, three...</p> */}
 
-                 <ConjugationTable days={weatherData.sentenceWeathers} min={0} max={12} isVocab={false} />
+                 <ConjugationTable days={weatherData.weathersSentence} min={0} max={12} isVocab={false} />
 
 
                          
@@ -211,6 +213,7 @@ function WeathersPage() {
           </div>
 
 
+        </div>
         </div>
         
     );

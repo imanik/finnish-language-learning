@@ -19,7 +19,7 @@ import { familyData } from "../../../data/basicA1";
 
 
 function ConjugationTable({ families, min, max, isVocab } :ConjugationTableProps) {
-  console.log("ConjugationTable loaded", families);
+  // console.log("ConjugationTable loaded", families);
   return (
     <div className="mb-6 overflow-x-auto">
   <h4 className="text-lg font-semibold text-teal-600 mb-2"></h4>
@@ -90,13 +90,13 @@ function FamilyPage(){
 return (
 
  <div className="min-h-screen bg-teal-50 p-6 font-['Roboto']">
-      <Link to="/beginars" className="text-teal-700 hover:underline mb-6 inline-block">
+      <Link to="/beginars" className="text-teal-700 hover:underline bg-teal-100 mb-6 inline-block fixed top-0 left-0 w-full  px-4 py-2 shadow-md">
         ← Back to Beginars Lesson
       </Link>
 
 
 
-      
+      <div className="mt-16"> 
 
       <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-6">
             
@@ -189,6 +189,7 @@ return (
       
 
            
+    </div>
     </div>
 
       );

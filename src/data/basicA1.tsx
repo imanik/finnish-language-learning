@@ -1,4 +1,4 @@
-import { sentenceTopics } from "../data";
+
 
 export const familyData = {
     
@@ -168,7 +168,7 @@ export const langaugeData = {
                 
                 ],
         
-          sentenceLanguage: [
+                languageSentence: [
                     {finnish: 'Mitä kieltä sinä puhut?',	english:'What language do you speak?'},
                     {finnish: 'Mitä kieliä sinä puhut?',	english:'What language do you speak?'},
                     {finnish: 'Puhutko sinä englantia',	english:'Do you speak English?'},
@@ -383,7 +383,7 @@ export const numberData = {
 
     ],
 
-    sentenceNumbers: [
+    numbersSentence: [
         {finnish: "Minulla on nolla paperia.", english: "I have zero papers.", },
         { finnish: "Minulla on yksi kissa.", english: "I have one cat." },
         { finnish: "Minulla on kaksi poikaa.", english: "I have two sons." },
@@ -531,7 +531,7 @@ export const dayData = {
         { finnish: "sunnuntaihin", english: "until Sunday", pronunciation: "SUN-nun-tai-hin" },
     ],
 
-    sentenceDays: [
+    daysSentence: [
         { finnish: "Olen lomalla maanantaista alkaen", english: "I’m on vacation starting from Monday."},
         { finnish: "Keskiviikosta alkaen olen työtön.", english: "Starting from Wednesday I’m unemployed." },
         { finnish: "Tiistaista lähtien toimin osa-aikaisena.", english: "I will work half-time starting from Tuesday." },
@@ -616,7 +616,7 @@ export const monthData = {
         
     ],
 
-    sentenceMonths: [
+    monthsSentence: [
         {finnish: "Synnyin helmikuussa.", english: "I was born in February."},
         { finnish: "Lomani alkaa heinäkuussa.", english: "My vacation starts in July." },
         { finnish: "Kurssi kestää maaliskuusta kesäkuuhun.", english: "The course lasts from March to June." },
@@ -715,7 +715,7 @@ export const weatherData = {
         
     ],
 
-    sentenceWeathers: [
+    weathersSentence: [
 
         {finnish: "Eilen satoi.", english: "It rained yesterday."},
         {finnish: "On oikein kuuma.", english: "It’s really hot."},
@@ -924,6 +924,7 @@ export const roomData = {
 };
 
 export const foodData = {
+    
     foodsDrinks: [
 
     { finnish: "jano", english: "thirst", pronunciation: "JA-no" },
@@ -1140,7 +1141,7 @@ export const foodData = {
 };
 
 export const clothesData = {
-    clothes: [
+    clothesWearings: [
         { finnish: "puku", english: "suit", pronunciation: "PU-ku" },
         { finnish: "hame", english: "skirt", pronunciation: "HA-me" },
         { finnish: "liivi", english: "vest", pronunciation: "LII-vi" },
@@ -1343,6 +1344,7 @@ export const bodyPartData = {
 
 
 export const placeData = {
+
    places:  [
     { finnish: "kauppa", english: "shop", pronunciation: "KAU-ppa" },
     { finnish: "ruokakauppa", english: "food store", pronunciation: "RUO-ka-KAU-ppa" },
@@ -1417,9 +1419,63 @@ export const placeData = {
     { finnish: "mökki", english: "cabin", pronunciation: "MÖK-ki" },
     { finnish: "maalaistalo", english: "farmhouse", pronunciation: "MAA-lais-TA-lo" },
 
-
-    
 ],
+
+    placesSentence: [
+        { finnish: "Missä on lähin kauppa?", english: "Where is the nearest shop?", pronunciation: "MIS-sä on LÄ-hin KAU-ppa?" },
+        { finnish: "Missä on lähin ruokakauppa?", english: "Where is the nearest grocery store?", pronunciation: "MIS-sä on LÄ-hin RUO-ka-KAU-ppa?" },
+        { finnish: "Missä on lähin kioski?", english: "Where is the nearest kiosk?", pronunciation: "MIS-sä on LÄ-hin KIOS-ki?" },
+        { finnish: "Missä on lähin pankki?", english: "Where is the nearest bank?", pronunciation: "MIS-sä on LÄ-hin PANK-ki?" },
+        { finnish: "Missä on lähin posti?", english: "Where is the nearest post office?", pronunciation: "MIS-sä on LÄ-hin POS-ti?" },
+        { finnish: "Missä on lähin kampaamo?", english: "Where is the nearest hair salon?", pronunciation: "MIS-sä on LÄ-hin KAM-paa-mo?" },
+        { finnish: "Missä on lähin ravintola?", english: "Where is the nearest restaurant?", pronunciation: "MIS-sä on LÄ-hin RA-vin-to-la?" },
+        { finnish: "Missä on lähin kahvila?", english: "Where is the nearest café?", pronunciation: "MIS-sä on LÄ-hin KAH-vi-la?" },
+        { finnish: "Missä on lähin baari?", english: "Where is the nearest bar?", pronunciation: "MIS-sä on LÄ-hin BAA-ri?" },
+        { finnish: "Missä on lähin pubi?", english: "Where is the nearest pub?", pronunciation: "MIS-sä on LÄ-hin PU-bi?" },
+        { english: "I go to school.", finnish: "Menen kouluun.", pronunciation: "ME-nen KOU-luun." },
+        { english: "I go to the store.", finnish: "Menen kauppaan.", pronunciation: "ME-nen KAU-ppaan." },
+        { english: "I go to the bank.", finnish: "Menen pankkiin.", pronunciation: "ME-nen PANK-kiin." },
+        { english: "I go to the post office.", finnish: "Menen postiin.", pronunciation: "ME-nen POS-ti-in." },
+        { english: "I go to the factory.", finnish: "Menen tehtaalle.", pronunciation: "ME-nen TEH-taa-le." },
+        { english: "I go to the hospital.", finnish: "Menen sairaalaan.", pronunciation: "ME-nen SAI-raa-laan." },
+        { english: "I go to the beauty salon.", finnish: "Menen kauneushoitolaan.", pronunciation: "ME-nen KAU-neus-HOI-to-laan." },
+        { english: "I go to the ATM.", finnish: "Menen pankkiautomaatille.", pronunciation: "ME-nen PANK-ki-AU-to-MAA-ti-le." },
+        { english: "I go to the market", finnish: "Menen torille.", pronunciation: "ME-nen TO-ri-le." },
+        { english: "I go to the park.", finnish: "Menen puistoon.", pronunciation: "ME-nen PUI-stoon." },
+        { english: "He lives in a city.", finnish: "Hän asuu kaupungissa.", pronunciation: "HÄN AS-uu KAU-pun-gis-sa." },
+        { english: "He lives in a village.", finnish: "Hän asuu kylässä.", pronunciation: "HÄN AS-uu KY-läs-sä." },
+        { english: "He visits a car repair shop.", finnish: "Hän käy autokorjaamossa.", pronunciation: "HÄN KÄY AU-to-KOR-ja-a-mos-sa." },
+        { english: "She visits a restaurant.", finnish: "Hän käy ravintolassa.", pronunciation: "HÄN KÄY RA-vin-to-las-sa." },
+        { english: "He works in a pub.", finnish: "Hän työskentelee pubissa.", pronunciation: "HÄN TYÖS-ken-te-lee PU-bis-sa." },
+        { english: "She works in a gym.", finnish: "Hän työskentelee kuntosalilla.", pronunciation: "HÄN TYÖS-ken-te-lee KUN-to-SA-li-l-la." },
+        { english: "He works in a library.", finnish: "Hän työskentelee kirjastossa.", pronunciation: "HÄN TYÖS-ken-te-lee KIR-jas-tos-sa." },
+        { english: "She works in cinema", finnish: "Hän työskentelee elokuvateatterissa.", pronunciation: "HÄN TYÖS-ken-te-lee E-lo-ku-va-TEAT-te-ri-ssa." },
+        { english: "They are going to the park.", finnish: "He menevät puistoon.", pronunciation: "HE ME-ne-vät PUI-stoon." },
+        { english: "They are going to the theatre.", finnish: "He menevät teatteriin.", pronunciation: "HE ME-ne-vät TEAT-te-ri-in." },
+        { english: "They are going to the museum.", finnish: "He menevät museoon.", pronunciation: "HE ME-ne-vät MU-se-o-on." },
+        { english: "They are going to the market square.", finnish: "He menevät torille.", pronunciation: "HE ME-ne-vät TO-ri-le." },
+        { english: "They are going to the square.", finnish: "He menevät aukiolle.", pronunciation: "HE ME-ne-vät AU-kio-le." },
+        { english: "They are going to the intersection.", finnish: "He menevät tienristeykseen.", pronunciation: "HE ME-ne-vät TI-en-RIS-teyk-seen." },
+        { english: "They are going to the industrial area.", finnish: "He menevät teollisuusalueelle.", pronunciation: "HE ME-ne-vät TE-ol-li-SUU-s-AU-le-el-le." },
+        { english: "They are going to the residential area.", finnish: "He menevät asuinalueelle.", pronunciation: "HE ME-ne-vät AS-uin-AU-le-el-le." },
+        { english: "They are going to the village.", finnish: "He menevät kylään.", pronunciation: "HE ME-ne-vät KY-lään." },
+        { english: "They are going to the city.", finnish: "He menevät kaupunkiin.", pronunciation: "HE ME-ne-vät KAU-pun-kiin." },
+        { english: "They are going to the forest.", finnish: "He menevät metsään.", pronunciation: "HE ME-ne-vät MET-sään." },
+        { english: "They are going to the river.", finnish: "He menevät jokeen.", pronunciation: "HE ME-ne-vät JO-keen." },
+        { english: "They are going to the beach.", finnish: "He menevät rannalle.", pronunciation: "HE ME-ne-vät RAN-nal-le." },
+        { english: "You work at hospital.", finnish: "Sinä työskentelet sairaalassa.", pronunciation: "SI-nä TYÖS-ken-te-let SAI-raa-las-sa." },
+        { english: "You work at health center.", finnish: "Sinä työskentelet terveyskeskuksessa.", pronunciation: "SI-nä TYÖS-ken-te-let TER-veys-KES-kuk-ses-sa." },
+        { english: "You work at dentist.", finnish: "Sinä työskentelet hammaslääkärissä.", pronunciation: "SI-nä TYÖS-ken-te-let HAM-mas-LÄÄ-kä-ri-ssä." },
+        { english: "You work at office", finnish: "Sinä työskentelet toimistossa.", pronunciation: "SI-nä TYÖS-ken-te-let TOI-mis-tos-sa." },
+        { english: "You work at pharmacy.", finnish: "Sinä työskentelet apteekissa.", pronunciation: "SI-nä TYÖS-ken-te-let AP-tee-kis-sa." },
+        { english: "You work at daycare.", finnish: "Sinä työskentelet päiväkodissa.", pronunciation: "SI-nä TYÖS-ken-te-let PÄI-vä-KO-dis-sa." },
+        { english: "You work at preschool.", finnish: "Sinä työskentelet esikoulussa.", pronunciation: "SI-nä TYÖS-ken-te-let E-si-KOU-lus-sa." },
+        { english: "You work at university", finnish: "Sinä työskentelet yliopistossa.", pronunciation: "SI-nä TYÖS-ken-te-let Y-li-o-pis-tos-sa." },
+        { english: "You work at high school.", finnish: "Sinä työskentelet lukiossa.", pronunciation: "SI-nä TYÖS-ken-te-let LU-ki-os-sa." },
+        { english: "You work at primary school.", finnish: "Sinä työskentelet peruskoulussa.", pronunciation: "SI-nä TYÖS-ken-te-let PE-rus-KOU-lus-sa." },
+
+        ],
+
 };
 
 export const animalData = {
@@ -1484,8 +1540,8 @@ export const animalData = {
         { finnish: "perhonen", english: "butterfly", pronunciation: "PER-ho-nen" },
         { finnish: "muurahainen", english: "ant", pronunciation: "MUU-ra-hai-nen" },
     ],
-
-    animalSentences: [
+    
+    animalsSentence: [
         { finnish: "Minulla on koira.", english: "I have a dog.", pronunciation: "MI-nul-la on KOI-ra." },
         { finnish: "Kissani on söpö.", english: "My cat is cute.", pronunciation: "KIS-sa-ni on SÖ-pö." },
         { finnish: "Lapsi haluaa marsun.", english: "The child wants a guinea pig.", pronunciation: "LAP-si ha-lu-aa MAR-sun." },
@@ -1513,8 +1569,114 @@ export const animalData = {
 };
 
 
+export const verbData = {
+    
+    basicVerbs: [
+        
+        { finnish: "olla", english: "to be", pronunciation: "OL-la" },
+        { finnish: "istua", english: "to sit", pronunciation: "IS-tua" },
+        { finnish: "seisoa", english: "to stand", pronunciation: "SEI-soa" },
+        { finnish: "syödä", english: "to eat", pronunciation: "SYÖ-dä" },
+        { finnish: "juoda", english: "to drink", pronunciation: "JUO-da" },
+        { finnish: "odottaa", english: "to wait", pronunciation: "O-dot-taa" },
+        { finnish: "ymmärtää", english: "to understand", pronunciation: "YM-mär-tää" },
+        { finnish: "muistaa", english: "to remember", pronunciation: "MUIS-taa" },
+        { finnish: "unohtaa", english: "to forget", pronunciation: "U-noh-taa" },
+        { finnish: "ajatella", english: "to think", pronunciation: "A-ja-tel-la" },
+        { finnish: "tietää", english: "to know", pronunciation: "TIE-tää" },
+        { finnish: "osata", english: "to know how to do something", pronunciation: "O-sa-ta" },
+        { finnish: "opiskella", english: "to study", pronunciation: "O-pis-kel-la" },
+        { finnish: "oppia", english: "to learn", pronunciation: "OP-pi-a" },
+        { finnish: "kysyä", english: "to ask", pronunciation: "KY-sy-ä" },
+        { finnish: "vastata", english: "to answer", pronunciation: "VAS-ta-ta" },
+        { finnish: "pyytää", english: "to request", pronunciation: "PYÖ-tää" },
+        { finnish: "sanoa", english: "to say", pronunciation: "SA-no-a" },
+        { finnish: "kertoa", english: "to tell", pronunciation: "KER-to-a" },
+        { finnish: "keskustella", english: "to chat", pronunciation: "KES-kus-tel-la" },
+        { finnish: "nukkua", english: "to sleep", pronunciation: "NUK-ku-a" },
+        { finnish: "herätä", english: "to wake up", pronunciation: "HE-rä-tä" },
+        { finnish: "nousta", english: "to get up", pronunciation: "NOU-sta" },
+        { finnish: "maata", english: "to lie down", pronunciation: "MAA-ta" },
+        { finnish: "pestä", english: "to wash", pronunciation: "PES-tä" },
+        { finnish: "tiskata", english: "to wash dishes", pronunciation: "TIS-ka-ta" },
+        { finnish: "siivota", english: "to clean", pronunciation: "SII-vo-ta" },
+        { finnish: "imuroida", english: "to vacuum", pronunciation: "I-mu-roi-da" },
+        { finnish: "uida", english: "to swim", pronunciation: "UI-da" },
+        { finnish: "kävellä", english: "to walk", pronunciation: "KÄ-vel-lä" },
+        { finnish: "pyöräillä", english: "to ride a bike", pronunciation: "PYÖ-räi-llä" },
+        { finnish: "ajaa", english: "to drive", pronunciation: "A-jaa" },
+        { finnish: "juosta", english: "to run", pronunciation: "JUOS-ta" },
+        { finnish: "pelata", english: "to play", pronunciation: "PE-la-ta" },
+        { finnish: "leikkiä", english: "to play (child)", pronunciation: "LEIK-ki-ä" },
+        { finnish: "soittaa", english: "to play / to call", pronunciation: "SOIT-taa" },
+        { finnish: "ottaa", english: "to take", pronunciation: "OT-taa" },
+        { finnish: "antaa", english: "to give", pronunciation: "ANT-taa" },
+        { finnish: "lainata", english: "to borrow / lend", pronunciation: "LAI-na-ta" },
+        { finnish: "tavata", english: "to meet", pronunciation: "TA-va-ta" },
+        { finnish: "tutustua", english: "to get to know", pronunciation: "TU-tus-tua" },
+        { finnish: "tehdä", english: "to do", pronunciation: "TEH-dä" },
+        { finnish: "nähdä", english: "to see", pronunciation: "NÄH-dä" },
+        { finnish: "katsoa", english: "to watch", pronunciation: "KAT-so-a" },
+        { finnish: "tulla", english: "to come", pronunciation: "TUL-la" },
+        { finnish: "mennä", english: "to go", pronunciation: "MEN-nä" },
+        { finnish: "lähteä", english: "to leave", pronunciation: "LÄH-te-ä" },
+        { finnish: "jäädä", english: "to stay", pronunciation: "JÄÄ-dä" },
+        { finnish: "saapua", english: "to arrive", pronunciation: "SAA-pu-a" },
+        { finnish: "käydä", english: "to visit", pronunciation: "KÄY-dä" },
+        { finnish: "tuoda", english: "to bring", pronunciation: "TUO-da" },
+        { finnish: "viedä", english: "to take swh", pronunciation: "VIE-dä" },
+        { finnish: "rakastaa", english: "to love", pronunciation: "RA-kas-taa" },
+        { finnish: "vihata", english: "to hate", pronunciation: "VI-ha-ta" },
+        { finnish: "tykätä", english: "to like", pronunciation: "TY-kä-tä" },
+        { finnish: "pelätä", english: "to fear", pronunciation: "PE-lä-tä" },
+        { finnish: "pukea", english: "to dress", pronunciation: "PU-ke-a" },
+        { finnish: "riisua", english: "to undress", pronunciation: "RII-su-a" },
+        { finnish: "maksaa", english: "to pay", pronunciation: "MAK-saa" },
+        { finnish: "ostaa", english: "to buy", pronunciation: "OS-taa" },
+        { finnish: "myydä", english: "to sell", pronunciation: "MYÖ-dä" },
+        { finnish: "kirjoittaa", english: "to write", pronunciation: "KIR-joi-taa" },
+        { finnish: "lukea", english: "to read", pronunciation: "LU-ke-a" },
+        { finnish: "kuunnella", english: "to listen", pronunciation: "KUUN-nel-la" },
+        { finnish: "kuulla", english: "to hear", pronunciation: "KUUL-la" },
+        { finnish: "piirtää", english: "to draw", pronunciation: "PIIR-tää" },
+        { finnish: "maalata", english: "to paint", pronunciation: "MAA-la-ta" },
+        { finnish: "nauraa", english: "to laugh", pronunciation: "NAU-raa" },
+        { finnish: "itkeä", english: "to cry", pronunciation: "IT-ke-ä" },
+        { finnish: "hymyillä", english: "to smile", pronunciation: "HY-myil-lä" },
+        { finnish: "matkustaa", english: "to travel", pronunciation: "MAT-kus-taa" },
+        { finnish: "muuttaa", english: "to move house", pronunciation: "MUUT-taa" },
+        { finnish: "työntää", english: "to push", pronunciation: "TYÖN-tää" },
+        { finnish: "vetää", english: "to pull", pronunciation: "VE-tää" },
+        { finnish: "nostaa", english: "to lift", pronunciation: "NOS-taa" },
+        { finnish: "laskea", english: "to count", pronunciation: "LAS-ke-a" },
+        { finnish: "laittaa", english: "to put", pronunciation: "LAIT-taa" },
+        { finnish: "heittää", english: "to throw", pronunciation: "HEIT-tää" },
+        { finnish: "häiritä", english: "to disturb", pronunciation: "HÄI-ri-tä" },
+        { finnish: "valita", english: "to choose", pronunciation: "VA-li-ta" },
+        { finnish: "tarvita", english: "to need", pronunciation: "TAR-vi-ta" },
+        { finnish: "hoitaa", english: "to take care of", pronunciation: "HOI-taa" },
+        { finnish: "auttaa", english: "to help", pronunciation: "AUT-taa" },
+        { finnish: "varata", english: "to reserve", pronunciation: "VA-ra-ta" },
+        { finnish: "tilata", english: "to order (drinks)", pronunciation: "TI-la-ta" },
+        { finnish: "asua", english: "to live", pronunciation: "A-su-a" },
+        { finnish: "syntyä", english: "to be born", pronunciation: "SYN-ty-ä" },
+        { finnish: "elää", english: "to be alive", pronunciation: "E-lää" },
+        { finnish: "kuolla", english: "to die", pronunciation: "KUOL-la" },
+        { finnish: "etsiä", english: "to search", pronunciation: "ET-si-ä" },
+        { finnish: "löytää", english: "to find", pronunciation: "LÖY-tää" },
+        { finnish: "avata", english: "to open", pronunciation: "A-va-ta" },
+        { finnish: "sulkea", english: "to close", pronunciation: "SUL-ke-a" },
+        { finnish: "korjata", english: "to fix", pronunciation: "KOR-ja-ta" },
+        { finnish: "riittää", english: "to be enough", pronunciation: "RIIT-tää" },
+        { finnish: "laulaa", english: "to sing", pronunciation: "LAU-laa" },
+        { finnish: "tapahtua", english: "to happen", pronunciation: "TA-paht-ua" },
+        { finnish: "alkaa", english: "to start", pronunciation: "AL-kaa" },
+        { finnish: "aloittaa", english: "to begin", pronunciation: "A-loit-taa" },
+        { finnish: "loppua", english: "to end", pronunciation: "LOP-pu-a" },
 
 
+    ],
+};
     
 
     

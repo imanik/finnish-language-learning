@@ -40,10 +40,12 @@ function NationalityQuizPage() {
 // Render the component UI.
 return (
 <div className="min-h-screen bg-teal-50 p-6 font-['Roboto']">
-<Link to="/beginars/nationality/what-nationality-are-you" className="text-teal-700 hover:underline mb-6 inline-block">
+<Link to="/beginars/nationality/what-nationality-are-you" className="text-teal-700 hover:underline bg-teal-100 mb-6 inline-block fixed top-0 left-0 w-full  px-4 py-2 shadow-md">
  ← Back to Nationality Lessons
 </Link>
- <SetupQuiz items={allItems} quizType={quizType}  />
+     <div className='mt-16'>
+      <SetupQuiz items={allItems} quizType={quizType}  />
+    </div>
 </div>
 
 

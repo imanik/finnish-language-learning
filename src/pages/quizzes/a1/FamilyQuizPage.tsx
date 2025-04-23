@@ -30,10 +30,10 @@ function FamilyQuizPage() {
     console.log("numberTypeKey",keyType);
  
    const quizTypeMap: Record<string, string> = {
-    basicFamily: "basic family", // Maps "basicFamily" to "basic".
-    extendedFamily: "extended family", // Maps "extendedFamily" to "extended".
-    stepFamily: "step family", // Maps "stepFamily" to "step".
-    maritalStatus: "marital status", // Maps "maritalStatus" to "marital".
+    basicFamily: "basic family vocabulary", // Maps "basicFamily" to "basic".
+    extendedFamily: "extended family vocabulary", // Maps "extendedFamily" to "extended".
+    stepFamily: "step family vocabulary", // Maps "stepFamily" to "step".
+    maritalStatus: "marital status vocabulary", // Maps "maritalStatus" to "marital".
 
    };
    
@@ -48,10 +48,12 @@ function FamilyQuizPage() {
 
    return (
     <div className="min-h-screen bg-teal-50 p-6 font-['Roboto']">
-    <Link to="/beginars/family/family-members" className="text-teal-700 hover:underline mb-6 inline-block">
+    <Link to="/beginars/family/family-members" className="text-teal-700 hover:underline bg-teal-100 mb-6 inline-block fixed top-0 left-0 w-full  px-4 py-2 shadow-md">
       ← Back to Basic Family Lessons
     </Link>
+          <div className='mt-16'>
       <SetupQuiz items={allItems} quizType={quizType}  />
+    </div>
     </div>
 
 

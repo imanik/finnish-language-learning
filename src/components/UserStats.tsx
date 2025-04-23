@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 
 interface QuizScore {
@@ -11,9 +11,15 @@ interface UserStatsProps {
   handleQuizComplete?: (wasCorrect: boolean) => void;
 }
 
-const UserStats: React.FC<UserStatsProps> = ({ quizScore, handleQuizComplete }) => {
+// function UserStats<UserStatsProps>({ quizScore, handleQuizComplete }) {
   // const { child } = useParams();
-
+  function UserStats({
+    quizScore ,
+    handleQuizComplete,
+  
+    
+  }: UserStatsProps) {
+  
   const milestoneInterval = 50;
   const requiredScore = 70;
   const currentScore =
@@ -27,6 +33,19 @@ const UserStats: React.FC<UserStatsProps> = ({ quizScore, handleQuizComplete }) 
 
   const nextMilestone = (currentLevel + 1) * milestoneInterval;
   const quizzesToNext = nextMilestone - quizScore.total;
+
+   const [statsScore, setStatsScore] = useState<QuizScore>(() => {
+        const storedScore = localStorage.getItem("overAllQuizScore");
+        return storedScore ? JSON.parse(storedScore) : { correct: 0, total: 0 };
+      });
+
+      console.log("UserStats loaded", statsScore);
+
+//  useEffect(() => {
+//   setStatsScore(statsScore);
+//       }
+//     , [statsScore]); // Added dependency array
+  
 
   const levelUpMessage = () => {
     if (quizScore.total >= nextMilestone && currentScore >= requiredScore) {

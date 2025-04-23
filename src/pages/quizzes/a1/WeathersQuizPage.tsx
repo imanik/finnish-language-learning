@@ -22,14 +22,14 @@ function WeathersQuizPage() {
    .toLowerCase()
    .replace("-quiz", "")
    .replace("basic-weathers", "basicWeathers") // Convert "basic-numbers" to "basicNumbers"
-   .replace("sentence-weathers", "sentenceWeathers") // Convert "basic-numbers" to "basicNumbers"
+   .replace("weathers-sentence", "weathersSentence") // Convert "basic-numbers" to "basicNumbers"
    : "basicWeathers"; // Default to "numbers" if child is undefined
  
     // console.log("numberTypeKey",keyType);
  
    const quizTypeMap: Record<string, string> = {
      basicWeathers: "basic weathers",
-    sentenceWeathers: "sentence weathers",
+    sentenceWeathers: " weathers in sentence",
 
    };
    
@@ -44,10 +44,12 @@ function WeathersQuizPage() {
 
    return (
     <div className="min-h-screen bg-teal-50 p-6 font-['Roboto']">
-    <Link to="/beginars/weather/summer-or-winter" className="text-teal-700 hover:underline mb-6 inline-block">
+    <Link to="/beginars/weather/summer-or-winter" className="text-teal-700 hover:underline bg-teal-100 mb-6 inline-block fixed top-0 left-0 w-full  px-4 py-2 shadow-md">
       ← Back to Basic Weathers Lessons
     </Link>
+          <div className='mt-16'>
       <SetupQuiz items={allItems} quizType={quizType}  />
+    </div>
     </div>
 
 

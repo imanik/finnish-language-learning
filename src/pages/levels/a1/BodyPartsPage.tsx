@@ -92,13 +92,13 @@ function BodyPartsPage(){
 return (
 
  <div className="min-h-screen bg-teal-50 p-6 font-['Roboto']">
-      <Link to="/beginars" className="text-teal-700 hover:underline mb-6 inline-block">
+      <Link to="/beginars" className="text-teal-700 hover:underline bg-teal-100 mb-6 inline-block fixed top-0 left-0 w-full  px-4 py-2 shadow-md">
         ← Back to Beginars Lesson
       </Link>
 
 
 
-      
+      <div className="mt-16">
 
       <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-6">
       
@@ -115,6 +115,11 @@ return (
                       
                                   {/* <p className="text-teal-600 mt-2"><strong>🧠 Tip:</strong> In Finnish, the months are not capitalized. Each ends in -kuu, meaning "moon/month".</p> */}
                   </section>
+                  <Link to={`/beginars/most-common-body-parts/body-parts/body-parts-quiz`}>
+                      <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200 m-2">
+                      Basic Body Parts Vocabulary Exercises
+                      </button>
+                  </Link>
                   {/* <h4 className="text-xl font-semibold text-teal-700 mb-6"><span className="font-medium">🔸 Adjectives in Nominative </span> (used with "päivä") </h4> */}    
       </div>
 
@@ -167,11 +172,7 @@ return (
                       
                                   {/* <p className="text-teal-600 mt-2"><strong>🧠 Tip:</strong> In Finnish, the months are not capitalized. Each ends in -kuu, meaning "moon/month".</p> */}
                   </section>
-                  <Link to={`/beginars/basic-words/basic-adjective/basic-adjective-quiz`}>
-                      <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200 m-2">
-                      Basic Body Parts Vocabulary Exercises
-                      </button>
-                  </Link>
+
                   {/* <h4 className="text-xl font-semibold text-teal-700 mb-6"><span className="font-medium">🔸 Adjectives in Nominative </span> (used with "päivä") </h4> */}    
       </div>
       <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-6">
@@ -248,6 +249,7 @@ return (
 
 
            
+    </div>
     </div>
 
       );

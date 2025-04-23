@@ -1,19 +1,19 @@
 
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { dayData } from '../../../data/basicA1'; 
+import { placeData } from '../../../data/basicA1'; 
 // Removed unused basicA1 import
 import SetupQuiz from '../../../components/SetupQuiz';
 
 
-interface Day {
+interface Place {
   english: string;
   finnish: string;
   pronunciation?: string;
 }
 
 
-function DaysQuizPage() {
+function PlacesQuizPage() {
   
   const {child} = useParams<{child?: string}>();
 
@@ -21,21 +21,21 @@ function DaysQuizPage() {
    child
    .toLowerCase()
    .replace("-quiz", "")
-   .replace("basic-days", "basicDays") // Convert "basic-numbers" to "basicNumbers"
-   .replace("days-sentence", "daysSentence") // Convert "basic-numbers" to "basicNumbers"
-   : "basicDays"; // Default to "numbers" if child is undefined
+   .replace("basic-places", "places") // Convert "basic-numbers" to "basicNumbers"
+  .replace("places-sentence", "placesSentence") // Convert "basic-numbers" to "basicNumbers"
+   : "places"; // Default to "numbers" if child is undefined
  
     // console.log("numberTypeKey",keyType);
  
    const quizTypeMap: Record<string, string> = {
-     basicDays: "basic days vocabulary",
-    sentenceDays: "days in sentence ",
+     places: "places vocabulary",
+     placesSentence: "places in sentence",
 
    };
    
    const quizType = (quizTypeMap[keyType] || "basic") as "basic" | "sentence"; // Determine quiz type based on numberTypeKey
  
-   const allItems = (dayData[keyType as keyof typeof dayData] || dayData.basicDays) as Day[] ; // Type assertion to Number[]
+   const allItems = (placeData[keyType as keyof typeof placeData] || placeData.places) as Place[] ; // Type assertion to Number[]
    
     // console.log("Map",quizTypeMap);
  
@@ -44,8 +44,8 @@ function DaysQuizPage() {
 
    return (
     <div className="min-h-screen bg-teal-50 p-6 font-['Roboto']">
-    <Link to="/beginars/day/sunday-or-monday" className="text-teal-700 hover:underline bg-teal-100 mb-6 inline-block fixed top-0 left-0 w-full  px-4 py-2 shadow-md">
-      ← Back to Basic Days Lessons
+    <Link to="/beginars/most-common-places-in-the-city/places" className="text-teal-700 hover:underline bg-teal-100 mb-6 inline-block fixed top-0 left-0 w-full  px-4 py-2 shadow-md">
+      ← Back to Basic Places Lessons
     </Link>
           <div className='mt-16'>
       <SetupQuiz items={allItems} quizType={quizType}  />
@@ -56,4 +56,4 @@ function DaysQuizPage() {
   );
 };
 
-export default DaysQuizPage;
+export default PlacesQuizPage;

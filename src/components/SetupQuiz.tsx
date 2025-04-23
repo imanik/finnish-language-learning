@@ -48,7 +48,7 @@ function SetupQuiz<T extends QuizItem>({
     const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>(() => {
       const saved = localStorage.getItem("quizLeaderboard");
       const parsed: LeaderboardEntry[] = saved ? JSON.parse(saved) : [];
-      console.log("Loaded leaderboard from localStorage", parsed);
+      // console.log("Loaded leaderboard from localStorage", parsed);
       return parsed;
     });
 

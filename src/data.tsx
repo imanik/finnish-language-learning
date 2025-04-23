@@ -432,7 +432,7 @@ export const verbTopics: Topic[] = [
         subtopics: [
           {
             title: "Basic Language",
-            childTopics: ["Basic Language Quiz", "Sentence Language Quiz"],
+            childTopics: ["Basic Language Quiz", "Language Sentence Quiz"],
           },
         ],
       },
@@ -482,7 +482,7 @@ export const verbTopics: Topic[] = [
         title: "Number",
         subtopics: [
           {title: "Ready! One, Two, Three",
-            childTopics: ["Basic Numbers Quiz", "Ordinal Numbers Quiz", "Sentence Numbers Quiz"],}
+            childTopics: ["Basic Numbers Quiz", "Ordinal Numbers Quiz", "Numbers Sentence Quiz"],}
         ],
       },
 
@@ -491,7 +491,7 @@ export const verbTopics: Topic[] = [
         title: "Day",
         subtopics: [
           {title: "Sunday! or Monday!",
-            childTopics: ["Basic Days Quiz", "Sentence Days Quiz"],
+            childTopics: ["Basic Days Quiz", "Days Sentence Quiz"],
           }
         ],
       },
@@ -501,7 +501,7 @@ export const verbTopics: Topic[] = [
         title: "Month",
         subtopics: [
           {title: "January to December",
-            childTopics: ["Basic Months Quiz", "Sentence Months Quiz"],
+            childTopics: ["Basic Months Quiz", "Months Sentence Quiz"],
           }
         ],
       },
@@ -510,12 +510,53 @@ export const verbTopics: Topic[] = [
         title: "Weather",
         subtopics: [
           {title: "Summer or Winter",
-            childTopics: ["Basic Weathers Quiz", "Sentence Weathers Quiz"],
+            childTopics: ["Basic Weathers Quiz", "Weathers Sentence Quiz"],
           }
         ],
       },
-
-      { 
+      { title: "Most common rooms and furnitures",
+        subtopics: [
+          {title: "Rooms, Furnitures.",
+            childTopics: ["Rooms, Furnitures Quiz",],
+          }
+        ],
+       },
+      { title: "Most common foods and drinks",
+        subtopics: [
+          {title: "Foods, Drinks.",
+            childTopics: ["Foods, Drinks Quiz",],
+          }
+        ],
+       },
+      { title: "Most common clothes and wearings",
+        subtopics: [
+          {title: "Clothes, Wearings.",
+            childTopics: ["Clothes, Wearings Quiz",],
+          }
+        ],
+       },
+      { title: "Most common body parts",
+        subtopics: [
+          {title: "Body Parts.",
+            childTopics: ["Body Parts Quiz",],
+          }
+        ],
+       },
+       { title: "Most common animals",
+        subtopics: [
+          {title: "Animals.",
+            childTopics: ["Animals Quiz", "Animals Sentence Quiz"],
+          }
+        ],
+       },
+      { title: "Most common places in the city",
+        subtopics: [
+          {title: "Places.",
+            childTopics: ["Places Quiz", "Places Sentence Quiz"],
+          }
+        ],
+       },
+       { 
         title: "Adjective",
         subtopics: [
           {title: "Good, bad or ugly?",
@@ -523,42 +564,11 @@ export const verbTopics: Topic[] = [
           }
         ],
       },
-
-
-
-      { title: "Most common rooms and furnitures",
-        subtopics: [
-          {title: "Rooms, Furnitures.",}
-        ],
-       },
-      { title: "Most common foods and drinks",
-        subtopics: [
-          {title: "Foods, Drinks.",}
-        ],
-       },
-      { title: "Most common clothes and wearings",
-        subtopics: [
-          {title: "Clothes, Wearings.",}
-        ],
-       },
-      { title: "Most common body parts",
-        subtopics: [
-          {title: "Body Parts.",}
-        ],
-       },
-      { title: "Most common places in the city",
-        subtopics: [
-          {title: "Places.",}
-        ],
-       },
-      { title: "Most common animals",
-        subtopics: [
-          {title: "Animals.",}
-        ],
-       },
       { title: "Most common verbs",
         subtopics: [
-          {title: "Verbs.",}
+          {title: "Basic Verbs.", 
+            childTopics: ["Basic Verbs Quiz",],
+          }
         ],
        },
       { title: "Talking about simple illnesses",
