@@ -563,7 +563,7 @@ export const dayData = {
 export const monthData = {
 
     basicMonths: [
-        {finnish: "tammikuu", english: "January", pronunciation: "TAM-mee-koo"},
+        { finnish:  "tammikuu", english: "January", pronunciation: "TAM-mee-koo"},
         { finnish: "helmikuu", english: "February", pronunciation: "HEL-mee-koo" },
         { finnish: "maaliskuu", english: "March", pronunciation: "MAAL-iss-koo" },
         { finnish: "huhtikuu", english: "April", pronunciation: "HOOKH-tee-koo" },

@@ -54,7 +54,7 @@ return (
         {items
           .filter((_, index) => {
             if (min !== undefined && max !== undefined) {
-              return index > min && index < max;
+              return index >= min && index <= max;
             }
             return true;
           })
