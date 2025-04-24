@@ -26,7 +26,7 @@ import ConjugationTable from '../../../components/ConjugationTable';
 
                   <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
                       
-                          <ConjugationTable items={greetingsData.basicGreetings} />
+                          <ConjugationTable items={greetingsData.basicGreetings} min={0} max={greetingsData.basicGreetings.length-1} isVocab={true}  />
                                    
                   </section>
               

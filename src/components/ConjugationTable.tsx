@@ -100,6 +100,9 @@ return (
                   } else {
                     speak();
                   }
+
+                  console.log(window.speechSynthesis.getVoices());
+
                 }}
                 
                   className="bg-teal-500 text-white px-3 py-1 rounded hover:bg-teal-600 transition duration-200 flex items-center gap-2"

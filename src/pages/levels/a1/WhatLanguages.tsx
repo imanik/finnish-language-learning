@@ -28,7 +28,7 @@ return (
                     <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
                         
             
-                        <ConjugationTable items={langaugeData.basicLanguage} />
+                        <ConjugationTable items={langaugeData.basicLanguage} min={0} max={langaugeData.basicLanguage.length-1} />
 
                         
                         <p className="text-gray-600 mb-4">
@@ -51,7 +51,7 @@ return (
                     <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
                         
             
-                        <ConjugationTable items={langaugeData.languageSentence} />
+                        <ConjugationTable items={langaugeData.languageSentence} min={0} max={langaugeData.languageSentence.length-1} isVocab= {false} />
 
                       
                     </section>

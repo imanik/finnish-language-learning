@@ -24,7 +24,7 @@ function Grammars() {
 
   return (
     <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg w-full max-w-md">
-      <h2 className="text-2xl font-semibold text-gray-800 mb-4">Finnish Grammar</h2>
+      <h2 className="text-2xl font-semibold text-gray-800 mb-4">Finnish Grammar (Coming Soon)</h2>
 
       <p className="text-gray-700 mb-4">Finnish grammar is known for its complexity, including cases, vowel harmony, and agglutination.</p>
       

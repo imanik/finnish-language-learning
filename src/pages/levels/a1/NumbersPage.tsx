@@ -25,7 +25,7 @@
               <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
                   <p className="text-gray-700 mb-2">These are regular counting numbers: one, two, three...</p>
       
-                  <ConjugationTable items={numberData.basicNumbers} min={0} max={10} />
+                  <ConjugationTable items={numberData.basicNumbers} min={0} max={10} isVocab={true} />
                   
                   
               </section>
@@ -49,7 +49,7 @@
                   {/* <p className="text-gray-700 mb-2">These end in -toista, like the cardinal form:</p> */}
               <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
       
-                  <ConjugationTable items={numberData.basicNumbers} min={11} max={18} />
+                  <ConjugationTable items={numberData.basicNumbers} min={11} max={18} isVocab={true} />
                   
                   
               </section>
@@ -65,7 +65,7 @@
                   {/* <p className="text-gray-700 mb-2">These end in -toista, like the cardinal form:</p> */}
               <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
       
-                  <ConjugationTable items={numberData.basicNumbers} min={19} max={numberData.basicNumbers.length-1} />
+                  <ConjugationTable items={numberData.basicNumbers} min={19} max={numberData.basicNumbers.length-1} isVocab={true} />
                   
                   
               </section>
@@ -126,7 +126,7 @@
                   <p className="text-gray-700 mb-2">These are for position or order: first, second, third...</p>
               <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
       
-                  <ConjugationTable items={numberData.ordinalNumbers} min={0} max={9} />
+                  <ConjugationTable items={numberData.ordinalNumbers} min={0} max={9} isVocab={true} />
                                 
               </section>
             </div>
@@ -179,7 +179,7 @@
                   {/* <p className="text-gray-700 mb-2">These are for position or order: first, second, third...</p> */}
               <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
       
-                  <ConjugationTable items={numberData.ordinalNumbers} min={10} max={numberData.ordinalNumbers.length-1} />
+                  <ConjugationTable items={numberData.ordinalNumbers} min={10} max={numberData.ordinalNumbers.length-1} isVocab={true} />
                                 
               </section>
 

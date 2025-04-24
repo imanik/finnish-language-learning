@@ -29,7 +29,7 @@ return (
             <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
             <p className="text-gray-700 mb-2">Let’s start by basic colors!</p>
 
-            <ConjugationTable items={colorData.basicColors} />
+            <ConjugationTable items={colorData.basicColors} min={0} max={colorData.basicColors.length-1} isVocab={true} />
             
             
         </section>
@@ -54,7 +54,7 @@ return (
             <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
                   {/* <p className="text-gray-700 mb-2">Let’s start by basic items!</p> */}
 
-                  <ConjugationTable items={colorData.extendedColors} />
+                  <ConjugationTable items={colorData.extendedColors} min={0} max={colorData.extendedColors.length-1} isVocab={true} />
             </section>
             <Link to={`/beginars/color/rainbow/extended-items-quiz`}>
             <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200 m-2">
