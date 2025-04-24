@@ -135,6 +135,7 @@ function App() {
         <Route path="/beginars/some-survival-finnish-phrases/:subtopic/:child" element={<PhrasesQuizPage />} />
 
         <Route path="/beginars/basic-knowledge-about-telling-the-time/:topic" element={<UnderConstructionPage />} />
+        <Route path="//grammars" element={<UnderConstructionPage />} />
         
       </Routes>
       
