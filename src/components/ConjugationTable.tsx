@@ -85,25 +85,32 @@ return (
                     utterance.lang = 'fi-FI';
                 
                     const finnishVoice = voices.find(v => v.lang === 'fi-FI');
+                    const fallbackVoice = voices.find(v => v.lang.startsWith('en')) || voices[0];
+                
                     if (finnishVoice) {
                       utterance.voice = finnishVoice;
-                    } else if (voices.length > 0) {
-                      utterance.voice = voices[0]; // fallback voice
+                    } else {
+                      utterance.voice = fallbackVoice;
+                      alert("⚠️ Finnish voice not available on this device. Using fallback voice.");
                     }
                 
                     synth.speak(utterance);
                   };
                 
-                  // If voices are not yet loaded, wait for them
+                  // Prevent repeating `onvoiceschanged` multiple times
                   if (synth.getVoices().length === 0) {
-                    synth.onvoiceschanged = speak;
+                    const handleVoices = () => {
+                      speak();
+                      synth.onvoiceschanged = null; // remove handler after use
+                    };
+                    synth.onvoiceschanged = handleVoices;
                   } else {
                     speak();
                   }
-
-                  console.log(window.speechSynthesis.getVoices());
-
+                
+                  // console.log(synth.getVoices());
                 }}
+                
                 
                   className="bg-teal-500 text-white px-3 py-1 rounded hover:bg-teal-600 transition duration-200 flex items-center gap-2"
                 >
