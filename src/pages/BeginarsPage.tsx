@@ -130,7 +130,7 @@ function BeginarsPage() {
       {/* Roadmap Section */}
       <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-6">
         <h2 className="text-2xl font-semibold text-teal-800 mb-4">A1 Finnish Grammar Roadmap for Daily Life</h2>
-        <h4 className="text-xl font-semibold text-teal-700 mb-6">Goals of A1 Grammar</h4>
+        <h4 className="text-xl font-semibold text-teal-700 mb-6">Goals of A1 Grammar (Coming Soon)</h4>
         <div className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
           <ul className="list-disc pl-6">
             <li className="text-orange-600 font-semibold mb-2">

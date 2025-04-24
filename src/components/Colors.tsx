@@ -104,7 +104,7 @@
 
         <button
             onClick={() => setShowAnswer(!showAnswer)}
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transform hover:scale-110 transition duration-200 mb-4"
+            className="bg-teal-700 text-white px-4 py-2 rounded hover:bg-teal-900 transform hover:scale-110 transition duration-200 mb-4"
         >
             {showAnswer ? 'Hide Answers' : 'Show Answers'}
         </button>
@@ -129,7 +129,7 @@
             />
             <button
             onClick={checkAnswer}
-            className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200"
+            className="bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-900 transform hover:scale-110 transition duration-200"
             >
             Check Answer
             </button>
@@ -139,7 +139,7 @@
         </p>
         
         <Link to="/beginars/color/rainbow">
-            <button className="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200">
+            <button className="mt-4 bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-900 transform hover:scale-110 transition duration-200">
                 Learn More
             </button>
         </Link>

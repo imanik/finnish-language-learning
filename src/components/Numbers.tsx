@@ -25,7 +25,7 @@ import { a1Topics } from '../data';
         <h2 className="text-2xl font-semibold text-gray-800 mb-4">Finnish Numbers</h2>
         <button
             onClick={() => setShowPronunciation(!showPronunciation)}
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transform hover:scale-110 transition duration-200 mb-4"
+            className="bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-900 transform hover:scale-110 transition duration-200 mb-4"
         >
             {showPronunciation ? 'Hide Pronunciation' : 'Show Pronunciation'}
         </button>
@@ -53,7 +53,7 @@ import { a1Topics } from '../data';
 
         <Link to="/beginars/number/ready-one-two-three">
         {/* <Link to="/beginars/number/${a1Topics.}`}"> */}
-            <button className="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200 m-2">
+            <button className="mt-4 bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-900 transform hover:scale-110 transition duration-200 m-2">
                 Learn More
             </button>
         </Link>

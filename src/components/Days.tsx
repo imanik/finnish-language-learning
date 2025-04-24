@@ -29,7 +29,7 @@ function Days() {
 
       <button
         onClick={() => setShowPronunciation(!showPronunciation)}
-        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transform hover:scale-110 transition duration-200 mb-4"
+        className="bg-teal-700 text-white px-4 py-2 rounded hover:bg-blue-600 transform hover:scale-110 transition duration-200 mb-4"
       >
         {showPronunciation ? 'Hide Pronunciation' : 'Show Pronunciation'} 
       </button>
@@ -62,7 +62,7 @@ function Days() {
       
 
       <Link to="/beginars/day/sunday-or-monday">
-            <button className="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200">
+            <button className="mt-4 bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-900 transform hover:scale-110 transition duration-200">
                 Learn More
             </button>
         </Link>

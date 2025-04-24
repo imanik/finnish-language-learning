@@ -30,7 +30,7 @@ function Grammars() {
       
       <button
         onClick={() => setShowPronunciation(!showPronunciation)}
-        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transform hover:scale-110 transition duration-200 mb-4"
+        className="bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-900 transform hover:scale-110 transition duration-200 mb-4"
       >
         {showPronunciation ? "Hide Pronunciation" : "Show Pronunciation"}
       </button>
@@ -53,10 +53,11 @@ function Grammars() {
 
 ))}
       </ul>
+      
 </section>
       
       <Link to="/grammars">
-        <button className="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200 m-2">
+        <button className="mt-4 bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-900 transform hover:scale-110 transition duration-200 m-2">
           Learn More
         </button>
       </Link>

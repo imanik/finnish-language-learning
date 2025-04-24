@@ -20,6 +20,13 @@ interface ConjugationTableProps {
 function ConjugationTable({ items, min, max, isVocab } :ConjugationTableProps) {
 
   const [showPronunciation, setShowPronunciation] = React.useState(false);
+
+  React.useEffect(() => {
+    if (typeof window !== "undefined" && window.speechSynthesis) {
+      window.speechSynthesis.getVoices(); // this may help preload
+    }
+  }, []);
+  
 // console.log("ConjugationTable loaded", illnesss);
 return (
   <div className="mb-6 overflow-x-auto">
@@ -69,11 +76,32 @@ return (
               }
               <td className="px-6 py-4">
                 <button 
-                  onClick={() => {
+                 onClick={() => {
+                  const synth = window.speechSynthesis;
+                
+                  const speak = () => {
+                    const voices = synth.getVoices();
                     const utterance = new SpeechSynthesisUtterance(item.finnish);
                     utterance.lang = 'fi-FI';
-                    window.speechSynthesis.speak(utterance);
-                  }}
+                
+                    const finnishVoice = voices.find(v => v.lang === 'fi-FI');
+                    if (finnishVoice) {
+                      utterance.voice = finnishVoice;
+                    } else if (voices.length > 0) {
+                      utterance.voice = voices[0]; // fallback voice
+                    }
+                
+                    synth.speak(utterance);
+                  };
+                
+                  // If voices are not yet loaded, wait for them
+                  if (synth.getVoices().length === 0) {
+                    synth.onvoiceschanged = speak;
+                  } else {
+                    speak();
+                  }
+                }}
+                
                   className="bg-teal-500 text-white px-3 py-1 rounded hover:bg-teal-600 transition duration-200 flex items-center gap-2"
                 >
                   <svg

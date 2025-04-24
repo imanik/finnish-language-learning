@@ -12,7 +12,7 @@ function Beginars() {
       
       </section>
       <Link to="/beginars">
-        <button className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Learn More</button>
+        <button className="bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-900">Learn More</button>
       </Link>
     </div>
   );
