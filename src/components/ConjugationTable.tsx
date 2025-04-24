@@ -76,40 +76,45 @@ return (
               }
               <td className="px-6 py-4">
                 <button 
-                 onClick={() => {
-                  const synth = window.speechSynthesis;
-                
-                  const speak = () => {
-                    const voices = synth.getVoices();
-                    const utterance = new SpeechSynthesisUtterance(item.finnish);
-                    utterance.lang = 'fi-FI';
-                
-                    const finnishVoice = voices.find(v => v.lang === 'fi-FI');
-                    const fallbackVoice = voices.find(v => v.lang.startsWith('en')) || voices[0];
-                
-                    if (finnishVoice) {
-                      utterance.voice = finnishVoice;
-                    } else {
-                      utterance.voice = fallbackVoice;
-                      alert("⚠️ Finnish voice not available on this device. Using fallback voice.");
-                    }
-                
-                    synth.speak(utterance);
-                  };
-                
-                  // Prevent repeating `onvoiceschanged` multiple times
-                  if (synth.getVoices().length === 0) {
-                    const handleVoices = () => {
-                      speak();
-                      synth.onvoiceschanged = null; // remove handler after use
-                    };
-                    synth.onvoiceschanged = handleVoices;
+               onClick={() => {
+                const synth = window.speechSynthesis;
+              
+                const speak = () => {
+                  const voices = synth.getVoices();
+                  const utterance = new SpeechSynthesisUtterance(item.finnish);
+              
+                  // Try to find a Finnish voice
+                  const finnishVoice = voices.find(v =>
+                    v.lang.toLowerCase().startsWith('fi') || v.name.toLowerCase().includes('finnish')
+                  );
+              
+                  // Use Finnish voice or fallback silently
+                  if (finnishVoice) {
+                    utterance.voice = finnishVoice;
+                    utterance.lang = finnishVoice.lang;
                   } else {
-                    speak();
+                    const fallback = voices.find(v => v.lang.startsWith('en')) || voices[0];
+                    utterance.voice = fallback;
+                    utterance.lang = 'fi-FI';
                   }
+              
+                  synth.speak(utterance);
+                };
+              
+                // Ensure voices are ready
+                if (synth.getVoices().length === 0) {
+                  synth.onvoiceschanged = () => {
+                    speak();
+                    synth.onvoiceschanged = null;
+                  };
+                } else {
+                  speak();
+                }
+              }}
+              
+              
                 
-                  // console.log(synth.getVoices());
-                }}
+                
                 
                 
                   className="bg-teal-500 text-white px-3 py-1 rounded hover:bg-teal-600 transition duration-200 flex items-center gap-2"
