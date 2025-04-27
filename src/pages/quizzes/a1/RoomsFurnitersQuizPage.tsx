@@ -21,22 +21,25 @@ function RoomsFurnituresQuizPage() {
    child
    .toLowerCase()
    .replace("-quiz", "")
-   .replace("rooms-furnitures", "roomsFurnitures") // Convert "basic-numbers" to "basicNumbers"
+   .replace("basic-rooms-furnitures", "roomsFurnitures") // Convert "basic-numbers" to "basicNumbers"
+   .replace("hard-rooms-furnitures", "hardRoomsFurnitures")
   //  .replace("sentence-roomsFurnitures", "sentenceRoomsFurnitures") // Convert "basic-numbers" to "basicNumbers"
    : "roomsFurnitures"; // Default to "numbers" if child is undefined
  
     // console.log("numberTypeKey",keyType);
  
    const quizTypeMap: Record<string, string> = {
-     roomsFurnitures: "Rooms, Furnitures",
+     roomsFurnitures: "basic",
+     hardRoomsFurnitures: "hard",
     // sentenceRoomsFurnitures: "sentence roomsFurnitures",
 
    };
    
-   const quizType = (quizTypeMap[keyType] || "basic") as "basic"; // Determine quiz type based on numberTypeKey
+   const quizType = (quizTypeMap[keyType] === "hard" ? "hard" : "basic") as "basic" | "hard"; // Determine quiz type based on numberTypeKey
  
    const allItems = (roomData[keyType as keyof typeof roomData] || roomData.roomsFurnitures) as RoomsFurniture[] ; // Type assertion to Number[]
    
+   const title = quizType === "hard" ? "hard Rooms, Funrnitures " : "basic Rooms, Funrnitures "
     //  console.log("Map",quizType);
  
 
@@ -48,7 +51,7 @@ function RoomsFurnituresQuizPage() {
       ← Back to Basic Rooms & Furnitures Lessons
     </Link>
     <div className='mt-16'>
-      <SetupQuiz items={allItems} quizType={quizType}  />
+      <SetupQuiz items={allItems} quizType={quizType}  title={title} />
     </div>
     </div>
 

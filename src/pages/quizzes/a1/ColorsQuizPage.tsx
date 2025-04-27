@@ -15,40 +15,28 @@ interface Color {
  function ColorsQuizPage() {
   const {child} = useParams<{child?: string}>();
 
-  // const keyType = child ?
-  //   child
-  //   .toLowerCase()
-  //   .replace("-quiz", "")
-  //   .replace("basic-colors", "basicColors") // Convert "basic-adjectives" to "basicAdjectives"
-  //   .replace("extended-colors", "extendedColors") // Convert "basic-adjectives" to "basicAdjectives"
-  //   : "basicColors"; // Default to "numbers" if child is undefined
-  
+
     const keyType = child
     ? child
         .toLowerCase() // Convert to lowercase for consistency (e.g., "Basic-Family-Quiz" -> "basic-family-quiz").
         .replace("-quiz", "") // Remove "-quiz" suffix (e.g., "basic-family-quiz" -> "basic-family").
         .replace("basic-colors", "basicColors") // Replace "basic-family" with "basicFamily".
         .replace("extended-colors", "extendedColors") // Replace "extended-family" with "extendedFamily".
-        .replace("step-family", "stepFamily") // Replace "step-family" with "stepFamily".
-        .replace("marital-status", "maritalStatus") // Replace "marital-status" with "maritalStatus".
+        .replace("hard-colors", "hardColors") // Replace "extended-family" with "extendedFamily".
     : "basicColors";
 
-     console.log("Child",child);
-     console.log("numberTypeKey",keyType);
   
     const quizTypeMap: Record<string, string> = {
-      basicColors: "basic colors vocabulary",
-      extendedColors: "extended colors vocabulary",
+      basicColors: "basic",
+      extendedColors: "extended",
+      hardColors: "hard",
     };
     
-    const quizType = (quizTypeMap[keyType] || "basic") as "basic" | "extended"; // Determine quiz type based on numberTypeKey
-  
+    const quizType = (quizTypeMap[keyType] === "extended" ? "extended" : quizTypeMap[keyType] === "hard" ? "hard" : "basic") as "basic" | "hard" | "extended"; // Determine quiz type based on numberTypeKey
     const allItems = (colorData[keyType as keyof typeof colorData] || colorData.basicColors) as Color[] ; // Type assertion to Number[]
     
-      
-  
- 
- 
+    console.log("Map",keyType);
+    const title = (quizType === "hard" ? "Hard Colors " : quizType === "extended" ? "Extended Colors " : "Basic Colors ");
  
     return (
 
@@ -58,7 +46,7 @@ interface Color {
            </Link>
 
            <div className='mt-16'>
-      <SetupQuiz items={allItems} quizType={quizType}  />
+      <SetupQuiz items={allItems} quizType={quizType} title={title} />
     </div>
      
      </div>

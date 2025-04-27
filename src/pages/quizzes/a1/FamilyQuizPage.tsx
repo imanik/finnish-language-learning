@@ -25,22 +25,27 @@ function FamilyQuizPage() {
    .replace("extended-family", "extendedFamily") // Replace "extended-family" with "extendedFamily".
    .replace("step-family", "stepFamily") // Replace "step-family" with "stepFamily".
    .replace("marital-status", "maritalStatus") // Replace "marital-status" with "maritalStatus".
+    .replace("hard-family", "hardFamily") // Replace "hard-family" with "hardFamily".
 : "basicFamily";  // Default to "numbers" if child is undefined
  
-    console.log("numberTypeKey",keyType);
+    // console.log("numberTypeKey",keyType);
  
    const quizTypeMap: Record<string, string> = {
-    basicFamily: "basic family vocabulary", // Maps "basicFamily" to "basic".
-    extendedFamily: "extended family vocabulary", // Maps "extendedFamily" to "extended".
-    stepFamily: "step family vocabulary", // Maps "stepFamily" to "step".
-    maritalStatus: "marital status vocabulary", // Maps "maritalStatus" to "marital".
+    basicFamily: "basic", // Maps "basicFamily" to "basic".
+    extendedFamily: "extended", // Maps "extendedFamily" to "extended".
+    stepFamily: "step", // Maps "stepFamily" to "step".
+    maritalStatus: "marital", // Maps "maritalStatus" to "marital".
+    hardFamily: "hard", // Maps "hardFamily" to "hard".
 
    };
    
-   const quizType = (quizTypeMap[keyType] || "basic") as  "basic" | "extended" | "step" | "marital"; // Determine quiz type based on numberTypeKey
+   const quizType = (quizTypeMap[keyType] ===  "extended" ? "extended" : quizTypeMap[keyType] === "step" ? "step" : quizTypeMap[keyType] === "hard" ? "hard" : "basic" ) as  "basic" | "extended" | "step" | "marital" | "hard"; // Determine quiz type based on numberTypeKey
  
    const allItems = (familyData[keyType as keyof typeof familyData] || familyData.basicFamily) as Family[] ; // Type assertion to Number[]
    
+   const title = (quizType === "hard" ? "Hard Family " : quizType === "extended" ? "Extended Family " : quizType === "step" ? "Step Family " : quizType === "marital" ? "Marital Status " : "Basic Family ");
+
+
     // console.log("Map",quizTypeMap);
  
 
@@ -52,7 +57,7 @@ function FamilyQuizPage() {
       ← Back to Basic Family Lessons
     </Link>
           <div className='mt-16'>
-      <SetupQuiz items={allItems} quizType={quizType}  />
+      <SetupQuiz items={allItems} quizType={quizType}  title={title} />
     </div>
     </div>
 

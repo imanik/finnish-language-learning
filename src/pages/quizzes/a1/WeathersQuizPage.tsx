@@ -23,21 +23,26 @@ function WeathersQuizPage() {
    .replace("-quiz", "")
    .replace("basic-weathers", "basicWeathers") // Convert "basic-numbers" to "basicNumbers"
    .replace("weathers-sentence", "weathersSentence") // Convert "basic-numbers" to "basicNumbers"
+   .replace("hard-weathers", "hardWeathers") // Convert "basic-numbers" to "basicNumbers"
+   
    : "basicWeathers"; // Default to "numbers" if child is undefined
  
     // console.log("numberTypeKey",keyType);
  
    const quizTypeMap: Record<string, string> = {
-     basicWeathers: "basic weathers",
-    sentenceWeathers: " weathers in sentence",
+     basicWeathers: "basic",
+     sentenceWeathers: "sentence",
+     hardWeathers: "hard",
 
    };
    
-   const quizType = (quizTypeMap[keyType] || "basic") as "basic" | "sentence"; // Determine quiz type based on numberTypeKey
+   const quizType = (quizTypeMap[keyType] === "sentence" ? "sentence" : quizTypeMap[keyType] === "hard" ? "hard" : "basic") as "basic" | "sentence" | "hard"; // Determine quiz type based on numberTypeKey
  
    const allItems = (weatherData[keyType as keyof typeof weatherData] || weatherData.basicWeathers) as Weather[] ; // Type assertion to Number[]
    
-     console.log("Map",quizType);
+
+   const title = quizType === "sentence" ? "Weathers in sentence " : quizType === "hard" ? "Hard Weathers " : "basic weathers ";
+    //  console.log("Map",quizType);
  
 
 
@@ -48,7 +53,7 @@ function WeathersQuizPage() {
       ← Back to Basic Weathers Lessons
     </Link>
           <div className='mt-16'>
-      <SetupQuiz items={allItems} quizType={quizType}  />
+      <SetupQuiz items={allItems} quizType={quizType} title={title} />
     </div>
     </div>
 

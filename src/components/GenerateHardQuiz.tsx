@@ -14,7 +14,7 @@ interface GenerateHardQuizProps<T extends QuizItem> {
   onNext : () => void; // Function to load the next question,
   onAnswer  : (isCorrect: boolean) => void; // Callback when user answers,
 
-  handleQuizComplete: (wasCorrect: boolean) => void;
+  handleQuizComplete?: (wasCorrect: boolean) => void;
   
 
 }
@@ -36,19 +36,30 @@ function GenerateHardQuiz<T extends QuizItem>({
       return word.replace(/ä/g, "a").replace(/ö/g, "o");
     };
 
+    const correctAnswers = item.finnish
+      .toLowerCase()
+      .split(",")
+      .map((word) => normalizeFinnish(word.trim()));
 
-    const correctAnswer = normalizeFinnish(item.finnish.toLowerCase());
+    //  console.log("correctAnswers = ",correctAnswers);
+     const correctAnswer = normalizeFinnish(correctAnswers[0]);
+
+     console.log("correctAnswer",correctAnswer);
 
    
 
-   console.log("item",correctAnswer);
+  //  console.log("item",correctAnswer);
 
   const checkAnswer = () => {
 
 
     if (userGuess.toLowerCase() === correctAnswer) {
       setFeedback('Correct!');
-      handleQuizComplete(true);
+      
+      
+      if (handleQuizComplete) {
+        handleQuizComplete(true); // Call the handleQuizComplete function if provided
+      }
       onAnswer(true); // Call the onAnswer callback with true
       // setShowAnswer(item.finnish);
       

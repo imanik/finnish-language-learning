@@ -28,12 +28,14 @@ interface QuizItem {
 interface SetupQuizProps<T extends QuizItem> {
   items : T[]; // Current quiz question item
   quizType?: string; // Optional quiz type, not yet used
+  title?: string; // Optional title for the quiz
 }
 
 // Main GenerateQuiz functional component with generic type <T>
 function SetupQuiz<T extends QuizItem>({
   items ,
   quizType,
+  title,
 
   
 }: SetupQuizProps<T>) {
@@ -135,7 +137,7 @@ function SetupQuiz<T extends QuizItem>({
       };
       
 
-      console.log("QuizType", quizType);
+      // console.log("QuizType", quizType);
 
 //     // Function to clear leaderboard
 //   const clearLeaderboard = () => {
@@ -155,8 +157,8 @@ function SetupQuiz<T extends QuizItem>({
      <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto">
      <h3 className="text-xl font-semibold text-teal-700 mb-4">
      
-
-  { quizType ? quizType.toUpperCase() : "BASIC"}{" "}
+    
+  { quizType ? (title?.toUpperCase() || "QUIZ") : "BASIC"}{" "}
     QUIZ
       </h3>
   
@@ -177,11 +179,11 @@ function SetupQuiz<T extends QuizItem>({
              <div>
               {quizItem && (
            <GenerateHardQuiz
-             
             item={quizItem}
             onNext={nextQuestion}
             onAnswer={handleAnswer}
             handleQuizComplete={handleQuizComplete}
+            
            />
          )}
              </div>

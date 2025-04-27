@@ -21,26 +21,28 @@ function BodyPartsQuizPage() {
    child
    .toLowerCase()
    .replace("-quiz", "")
-   .replace("body-parts", "bodyParts") // Convert "basic-numbers" to "basicNumbers"
+   .replace("basic-body-parts", "bodyParts")
+   .replace("hard-body-parts",  "hardBodyParts") // Convert "basic-numbers" to "basicNumbers"
   //  .replace("sentence-bodyParts", "sentenceBodyParts") // Convert "basic-numbers" to "basicNumbers"
    : "bodyParts"; // Default to "numbers" if child is undefined
  
-     console.log("numberTypeKey",keyType);
+    //  console.log("numberTypeKey",keyType);
  
    const quizTypeMap: Record<string, string> = {
-     bodyParts: "body parts vocabulary",
+     bodyParts: "basic",
+      hardBodyParts: "hard",
     // sentenceBodyParts: "sentence bodyParts",
 
    };
    
-   const quizType = (quizTypeMap[keyType] || "basic") as "basic"; // Determine quiz type based on numberTypeKey
+   const quizType = (quizTypeMap[keyType] === "hard" ? "hard" : "basic") as "basic" | "hard"; // Determine quiz type based on numberTypeKey
  
    const allItems = (bodyPartData[keyType as keyof typeof bodyPartData] || bodyPartData.bodyParts) as BodyPart[] ; // Type assertion to Number[]
    
     //  console.log("Key",keyType);
-     console.log("Map",quizType);
+    //  console.log("Map",quizType);
  
-
+  const title = (quizType === "hard" ? "Hard Body Parts " : "Basic Body Parts ");
 
 
    return (
@@ -49,7 +51,7 @@ function BodyPartsQuizPage() {
       ← Back to Basic BodyParts Lessons
     </Link>
           <div className='mt-16'>
-      <SetupQuiz items={allItems} quizType={quizType}  />
+      <SetupQuiz items={allItems} quizType={quizType} title={title} />
     </div>
     </div>
 

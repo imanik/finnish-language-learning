@@ -22,21 +22,24 @@ function PlacesQuizPage() {
    .toLowerCase()
    .replace("-quiz", "")
    .replace("basic-places", "places") // Convert "basic-numbers" to "basicNumbers"
-  .replace("places-sentence", "placesSentence") // Convert "basic-numbers" to "basicNumbers"
+    .replace("places-sentence", "placesSentence") // Convert "basic-numbers" to "basicNumbers"
+    .replace("hard-places", "hardPlaces")
    : "places"; // Default to "numbers" if child is undefined
  
     // console.log("numberTypeKey",keyType);
  
    const quizTypeMap: Record<string, string> = {
-     places: "places vocabulary",
-     placesSentence: "places in sentence",
+     places: "basic",
+     placesSentence: "sentence",
+     hadPlaces: "hard",
 
    };
    
-   const quizType = (quizTypeMap[keyType] || "basic") as "basic" | "sentence"; // Determine quiz type based on numberTypeKey
+   const quizType = (quizTypeMap[keyType] === "sentence" ? "sentence" : quizTypeMap[keyType] === "hard" ? "hard" : "basic") as "basic" | "sentence" | "hard"; // Determine quiz type based on numberTypeKey
  
    const allItems = (placeData[keyType as keyof typeof placeData] || placeData.places) as Place[] ; // Type assertion to Number[]
    
+   const title = quizType === "sentence" ? "Places in sentence " : quizType === "hard" ? "Hard Places " : " Basic Places ";
     // console.log("Map",quizTypeMap);
  
 
@@ -48,7 +51,7 @@ function PlacesQuizPage() {
       ← Back to Basic Places Lessons
     </Link>
           <div className='mt-16'>
-      <SetupQuiz items={allItems} quizType={quizType}  />
+      <SetupQuiz items={allItems} quizType={quizType} title={title} />
     </div>
     </div>
 

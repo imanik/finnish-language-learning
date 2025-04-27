@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { dayData } from '../../../data/basicA1'; 
 // Removed unused basicA1 import
 import SetupQuiz from '../../../components/SetupQuiz';
+import { title } from 'process';
 
 
 interface Day {
@@ -23,21 +24,25 @@ function DaysQuizPage() {
    .replace("-quiz", "")
    .replace("basic-days", "basicDays") // Convert "basic-numbers" to "basicNumbers"
    .replace("days-sentence", "daysSentence") // Convert "basic-numbers" to "basicNumbers"
+    .replace("hard-days", "hardDays") // Convert "basic-numbers" to "basicNumbers"
    : "basicDays"; // Default to "numbers" if child is undefined
  
     // console.log("numberTypeKey",keyType);
  
    const quizTypeMap: Record<string, string> = {
-     basicDays: "basic days vocabulary",
-    sentenceDays: "days in sentence ",
+     basicDays: "basic",
+    daysSentence: "sentence",
+    hardDays: "hard",
 
    };
    
-   const quizType = (quizTypeMap[keyType] || "basic") as "basic" | "sentence"; // Determine quiz type based on numberTypeKey
+   const quizType = (quizTypeMap[keyType] === "sentence" ? "sentence" : quizTypeMap[keyType] === "hard" ? "hard" : "basic") as "basic" | "sentence" | "hard"; // Determine quiz type based on numberTypeKey
  
    const allItems = (dayData[keyType as keyof typeof dayData] || dayData.basicDays) as Day[] ; // Type assertion to Number[]
    
     // console.log("Map",quizTypeMap);
+
+   const title = (quizType === "hard" ? "Hard Days " : quizType === "sentence" ? "Days in Sentence " : "Basic Days ");
  
 
 
@@ -48,7 +53,7 @@ function DaysQuizPage() {
       ← Back to Basic Days Lessons
     </Link>
           <div className='mt-16'>
-      <SetupQuiz items={allItems} quizType={quizType}  />
+      <SetupQuiz items={allItems} quizType={quizType}  title={title} />
     </div>
     </div>
 

@@ -24,21 +24,24 @@ import SetupQuiz from '../../../components/SetupQuiz'; // Changed to SetupQuiz
       ? child
           .toLowerCase()
           .replace("-quiz", "")
-          .replace("basic-greeting", "basicGreeting")
+          .replace("basic-greetings", "basicGreetings")
+          .replace("hard-greetings", "hardGreetings") // Convert "basic-numbers" to "basicNumbers"
+          
       : "basicGreeting";
   
   
   
     const quizTypeMap: Record<string, string> = {
-      basicGreeting: "basic",
+      basicGreetings: "basic",
+      hardGreetings: "hard",
     };
-    const quizType = (quizTypeMap[keyType] || "basic") as "basic";
+    const quizType = (quizTypeMap[keyType] === "hard" ? "hard" : "basic") as "basic" | "hard";
   
    
       const allItems = (greetingsData[keyType as keyof typeof greetingsData] || greetingsData.basicGreetings) as Greeting[] ; // Type assertion to Number[]
       
        // console.log("Map",quizTypeMap);
-    
+      const title = quizType === "hard" ? "Hard Greetings " : "Basic Greetings ";
    
    
 
@@ -51,7 +54,7 @@ import SetupQuiz from '../../../components/SetupQuiz'; // Changed to SetupQuiz
       ← Back to Basic Greetings Lessons
     </Link>
           <div className='mt-16'>
-      <SetupQuiz items={allItems} quizType={quizType}  />
+      <SetupQuiz items={allItems} quizType={quizType} title={title}  />
     </div>
     </div>
 

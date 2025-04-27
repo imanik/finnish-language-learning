@@ -21,23 +21,27 @@ function FoodsDrinksQuizPage() {
    child
    .toLowerCase()
    .replace("-quiz", "")
-   .replace("foods-drinks", "foodsDrinks") // Convert "basic-numbers" to "basicNumbers"
+   .replace("basic-foods-drinks", "foodsDrinks") // Convert "basic-numbers" to "basicNumbers"
+    .replace("hard-foods-drinks", "hardFoodsDrinks") // Convert "basic-numbers" to "basicNumbers"
   //  .replace("sentence-foodsDrinks", "sentenceFoodsDrinks") // Convert "basic-numbers" to "basicNumbers"
    : "foodsDrinks"; // Default to "numbers" if child is undefined
  
-    // console.log("numberTypeKey",keyType);
+     console.log("numberTypeKey",keyType);
  
    const quizTypeMap: Record<string, string> = {
-     foodsDrinks: "Foods And Drinks",
+     foodsDrinks: "basic",
+      hardFoodsDrinks: "hard",
     // sentenceFoodsDrinks: "sentence foodsDrinks",
 
    };
    
-   const quizType = (quizTypeMap[keyType] || "basic") as "basic"; // Determine quiz type based on numberTypeKey
+   const quizType = (quizTypeMap[keyType] === "hard" ? "hard" : "basic") as "basic" | "hard"; // Determine quiz type based on numberTypeKey
  
    const allItems = (foodData[keyType as keyof typeof foodData] || foodData.foodsDrinks) as FoodsDrinks[] ; // Type assertion to Number[]
    
-    //  console.log("Map",quizType);
+      console.log("Map",quizType);
+
+  const title = (quizType === "hard" ? "Hard Foods & Drinks " : "Basic Foods & Drinks ");
  
 
 
@@ -48,7 +52,7 @@ function FoodsDrinksQuizPage() {
       ← Back to Basic Foods & Drinks Lessons
     </Link>
           <div className='mt-16'>
-      <SetupQuiz items={allItems} quizType={quizType}  />
+      <SetupQuiz items={allItems} quizType={quizType}  title={title} />
     </div>
     </div>
 

@@ -21,23 +21,27 @@ function ClothesWearingsQuizPage() {
    child
    .toLowerCase()
    .replace("-quiz", "")
-   .replace("clothes-wearings", "clothesWearings") // Convert "basic-numbers" to "basicNumbers"
+   .replace("clothes-wearings", "clothesWearings") // Convert "basic-numbers" to "basicNumbersNumbers"
+   .replace("hard-clothes-wearings", "hardClothesWearings") // Convert "basic-numbers" to "basicNumbers"
   //  .replace("sentence-clothesWearings", "sentenceClothesWearings") // Convert "basic-numbers" to "basicNumbers"
    : "clothesWearings"; // Default to "numbers" if child is undefined
  
     // console.log("numberTypeKey",keyType);
  
    const quizTypeMap: Record<string, string> = {
-     clothesWearings: "Clothes And Wearings vocabulary",
+     clothesWearings: "basic",
+      hardClothesWearings: "hard",
     // sentenceClothesWearings: "sentence clothesWearings",
 
    };
    
-   const quizType = (quizTypeMap[keyType] || "basic") as "basic"; // Determine quiz type based on numberTypeKey
+   const quizType = (quizTypeMap[keyType] === "hard" ? "hard" : "basic") as "basic" | "hard"; // Determine quiz type based on numberTypeKey
  
    const allItems = (clothesData[keyType as keyof typeof clothesData] || clothesData.clothesWearings) as ClothesWearings[] ; // Type assertion to Number[]
    
     //  console.log("Map",quizType);
+
+  const title = (quizType === "hard" ? "Hard Clothes & Wearings " : "Basic Clothes & Wearings ");
  
 
 
