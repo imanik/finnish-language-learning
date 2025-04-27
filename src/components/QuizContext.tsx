@@ -15,9 +15,11 @@ interface QuizContextProps {
 const QuizContext = createContext<QuizContextProps | undefined>(undefined);
 
 export const QuizProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+ 
   const [quizScore, setQuizScore] = useState<QuizScore>(() => {
     const stored = localStorage.getItem("overAllQuizScore");
     return stored ? JSON.parse(stored) : { correct: 0, total: 0 };
+ 
   });
 
   useEffect(() => {

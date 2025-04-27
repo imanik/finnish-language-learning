@@ -1866,3 +1866,32 @@ export const phraseData = {
         { finnish: "Paljonko se maksaa?", english: "How much does it cost?", pronunciation: "PAL-jon-ko SE MAK-saa?" },
     ],
     };
+
+export const timeData = {
+
+    times : [
+        { finnish: "aamu", english: "morning", pronunciation: "AA-mu" },
+        { finnish: "päivä", english: "day", pronunciation: "PÄI-vä" },
+        { finnish: "ilta", english: "evening", pronunciation: "IL-ta" },
+        { finnish: "yö", english: "night", pronunciation: "YÖ" },
+        { finnish: "keskipäivä", english: "noon", pronunciation: "KES-ki-PÄI-vä" },
+        { finnish: "keskiyö", english: "midnight", pronunciation: "KES-ki-YÖ" },
+        { finnish: "aikaisin", english: "early", pronunciation: "AI-kai-sin" },
+        { finnish: "myöhään", english: "late", pronunciation: "MYÖ-hään" },
+        { finnish: "aikataulu", english: "schedule", pronunciation: "AI-ka-TAU-lu" },
+        { finnish: "Mitä kello on?", english: "What time is it?", pronunciation: "MI-tä KEL-lo on?" },
+        { finnish: "Paljonko kello on?", english: "What is the time?", pronunciation: "PAL-jon-ko KEL-lo on?" },
+        { finnish: "mihin aikaan?", english: "at what time?", pronunciation: "MI-hin AI-kaan?" },
+        { finnish: "milloin?", english: "when?", pronunciation: "MIL-loin?" },
+        { finnish: "aika", english: "time", pronunciation: "AI-ka" },
+        { finnish: "rannekello", english: "watch", pronunciation: "RAN-ne-KEL-lo" },
+        { finnish: "seinäkello", english: "wall clock", pronunciation: "SEI-nä-KEL-lo" },
+        { finnish: "herätyskello", english: "alarm clock", pronunciation: "HE-rä-tys-KEL-lo" },
+        { finnish: "ajoissa", english: "on time", pronunciation: "A-jois-sa" },
+        { finnish: "myöhässä", english: "late", pronunciation: "MYÖ-häs-sä" },
+        { finnish: "etuajassa", english: "early", pronunciation: "E-tu-A-jas-sa" },
+        { finnish: "ehtiä", english: "to have the time", pronunciation: "EH-ti-ä" },
+
+    ],
+}
+

@@ -22,7 +22,7 @@ import { a1Topics } from '../data';
 
     return (
         <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg w-full max-w-md">
-        <h2 className="text-2xl font-semibold text-gray-800 mb-4">Finnish Numbers</h2>
+        <h2 className="text-2xl font-semibold text-teal-700 mb-4">Finnish Numbers</h2>
         <button
             onClick={() => setShowPronunciation(!showPronunciation)}
             className="bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-900 transform hover:scale-110 transition duration-200 mb-4"
@@ -58,11 +58,6 @@ import { a1Topics } from '../data';
             </button>
         </Link>
 
-        <Link to="/numbers/quiz">
-            <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200">
-                Quiz
-            </button>       
-        </Link>
         </div>
     );
     }

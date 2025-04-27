@@ -43,7 +43,7 @@ function UserStats({ quizScore: propsScore, handleQuizComplete }: UserStatsProps
 
   return (
     <div>
-      <h2 className="text-2xl font-semibold text-gray-800 mb-4">Your Stats</h2>
+      <h2 className="text-2xl font-semibold text-teal-700 mb-4">Your Stats</h2>
       <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
         <div className="mb-4">
           <p className="text-teal-600 mt-2">

@@ -60,14 +60,7 @@
         }
     };
 
-    const resetScore = () => {
-        if (score > 0) promptForNameAndUpdateLeaderboard(score);
-        setScore(0);
-        setCurrentColor(0);
-        setUserGuess('');
-        setFeedback('');
-        setTimeLeft(10);
-    };
+
 
     const promptForNameAndUpdateLeaderboard = (newScore: number) => {
         const name = prompt('Enter your name for the leaderboard:', userName || 'Player');
@@ -82,7 +75,7 @@
 
     return (
          <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg w-full max-w-md">
-        <h2 className="text-2xl font-semibold text-gray-800 mb-4">Finnish Colors</h2>
+        <h2 className="text-2xl font-semibold text-teal-700 mb-4">Finnish Colors</h2>
         
 
       
