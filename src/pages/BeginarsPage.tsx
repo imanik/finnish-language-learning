@@ -100,7 +100,7 @@ function BeginarsPage() {
               {topic.subtopics.map((subtopic) => (
                 <li key={subtopic.title}>
                   <Link to={`/beginars/${toSlug(topic.title)}/${toSlug(subtopic.title)}`}>
-                    {subtopic.title} (Explanation)
+                  <span className="text-teal-900 font-medium hover:text-teal-600"> {subtopic.title} (Explanation)</span>
                   </Link>
                   {subtopic.childTopics && subtopic.childTopics.length > 0 && (
                     <ul className="list-disc list-inside text-gray-700 space-y-2 mb-4 mt-2">
@@ -109,7 +109,7 @@ function BeginarsPage() {
                           <Link
                             to={`/beginars/${toSlug(topic.title)}/${toSlug(subtopic.title)}/${toSlug(child)}`}
                           >
-                            {child}
+                           <span className="text-teal-700 font-medium hover:text-teal-300">{child}</span> 
                           </Link>
                         </li>
                       ))}
