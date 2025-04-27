@@ -94,9 +94,7 @@ function GenerateQuiz<T extends QuizItem>({
 
   return (
     <div>
-           {/* <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-6">
-           <UserStats quizScore={quizScore} handleQuizComplete={handleQuizComplete} />
-           </div> */}
+
     <div className="bg-white p-6 rounded-lg shadow-lg max-w-2xl mx-auto">
       {/* Quiz Question */}
       <h3 className="text-xl font-semibold text-teal-700 mb-4">

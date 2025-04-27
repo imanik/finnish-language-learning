@@ -16,7 +16,7 @@ function UserStats({ quizScore: propsScore, handleQuizComplete }: UserStatsProps
   const { quizScore: contextScore } = useQuiz();
   
   const quizScore = propsScore || contextScore; // 👈 use props if available, otherwise context
-  console.log("Homepage quizScore", quizScore);
+  // console.log("Homepage quizScore", quizScore);
   
   const milestoneInterval = 50;
   const requiredScore = 70;

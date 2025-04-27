@@ -9,10 +9,7 @@
     const [currentColor, setCurrentColor] = useState(0);
     const [score, setScore] = useState(0);
     const [timeLeft, setTimeLeft] = useState(10);
-    const [leaderboard, setLeaderboard] = useState(() => {
-        const saved = localStorage.getItem('finnishQuizLeaderboard');
-        return saved ? JSON.parse(saved) : [];
-    });
+ 
     const [userName, setUserName] = useState('');
 
     const colors = [
@@ -31,7 +28,7 @@
         return () => clearTimeout(timer);
         } else {
         setFeedback('Time’s up!');
-        if (score > 0) promptForNameAndUpdateLeaderboard(score);
+        // if (score > 0) promptForNameAndUpdateLeaderboard(score);
         setTimeout(() => {
             setCurrentColor(Math.floor(Math.random() * colors.length));
             setUserGuess('');
@@ -41,9 +38,9 @@
         }
     }, [timeLeft, score]);
 
-    useEffect(() => {
-        localStorage.setItem('finnishQuizLeaderboard', JSON.stringify(leaderboard));
-    }, [leaderboard]);
+    // useEffect(() => {
+    //     localStorage.setItem('finnishQuizLeaderboard', JSON.stringify(leaderboard));
+    // }, [leaderboard]);
 
     const checkAnswer = () => {
         if (userGuess.toLowerCase() === correctAnswer) {
@@ -62,16 +59,16 @@
 
 
 
-    const promptForNameAndUpdateLeaderboard = (newScore: number) => {
-        const name = prompt('Enter your name for the leaderboard:', userName || 'Player');
-        if (name && newScore > 0) {
-        const updatedLeaderboard = [...leaderboard, { name, score: newScore }]
-            .sort((a, b) => b.score - a.score)
-            .slice(0, 5);
-        setLeaderboard(updatedLeaderboard);
-        setUserName(name); // Save name for next entry
-        }
-    };
+    // const promptForNameAndUpdateLeaderboard = (newScore: number) => {
+    //     const name = prompt('Enter your name for the leaderboard:', userName || 'Player');
+    //     if (name && newScore > 0) {
+    //     const updatedLeaderboard = [...leaderboard, { name, score: newScore }]
+    //         .sort((a, b) => b.score - a.score)
+    //         .slice(0, 5);
+    //     setLeaderboard(updatedLeaderboard);
+    //     setUserName(name); // Save name for next entry
+    //     }
+    // };
 
     return (
          <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg w-full max-w-md">

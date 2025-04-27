@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import UserStats from '../components/UserStats';
 import GenerateQuiz from '../components/GenarateQuiz';
+import GenerateHardQuiz from '../components/GenerateHardQuiz';
 import { useQuiz } from "./QuizContext";
 
 interface QuizScore {
@@ -100,15 +101,6 @@ function SetupQuiz<T extends QuizItem>({
       }));
     };
 
-      // const handleQuizComplete = (wasCorrect: boolean) => {
-      //   // console.log("handleQuizComplete wasCorrect", wasCorrect);
-      //   // Update the quiz score
-      //   setQuizScore((prev) => ({
-      //     total: prev.total + 1,
-      //     correct: wasCorrect ? prev.correct + 1 : prev.correct,
-      //   }));
-      // };
-    
       const resetScore = () => {
         setScore({ correct: 0, total: 0 });
         // setLeaderboard([]); // Reset leaderboard if needed
@@ -143,6 +135,7 @@ function SetupQuiz<T extends QuizItem>({
       };
       
 
+      console.log("QuizType", quizType);
 
 //     // Function to clear leaderboard
 //   const clearLeaderboard = () => {
@@ -178,17 +171,38 @@ function SetupQuiz<T extends QuizItem>({
            Start Quiz
          </button>
        ) : (
-         <GenerateQuiz
-           item={quizItem}
-           optionsPool={items}
-           onNext={nextQuestion}
-           onAnswer={handleAnswer}
-           onReset={resetScore}
-           handleQuizComplete={handleQuizComplete}
-      //     quizScore={quizScore}
-           
-         />
+
+         <>
+           {quizType === "hard" ? (     
+             <div>
+              {quizItem && (
+           <GenerateHardQuiz
+             
+            item={quizItem}
+            onNext={nextQuestion}
+            onAnswer={handleAnswer}
+            handleQuizComplete={handleQuizComplete}
+           />
+         )}
+             </div>
+           ) : (
+             <div>
+                {quizItem && (
+           <GenerateQuiz
+             item={quizItem}
+             optionsPool={items}
+             onNext={nextQuestion}
+             onAnswer={handleAnswer}
+             onReset={resetScore}
+             handleQuizComplete={handleQuizComplete}
+           />
+         )}
+             </div>      
+           )}
+         </>
        )}
+
+        
 
        <div className="mt-6">
          <h4 className="text-lg font-semibold text-teal-700 mb-2">Leaderboard</h4>

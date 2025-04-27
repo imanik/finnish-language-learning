@@ -43,6 +43,12 @@ function VerbsPage()  {
 
                 </section>
 
+                <Link to={`/beginars/most-common-verbs/basic-verbs/basic-verbs-quiz`}>
+                          <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200 m-2">
+                            Basic Verbs Vocabulary Exercises
+                          </button>
+                        </Link>
+
 
                                 
           </div>
@@ -87,6 +93,11 @@ function VerbsPage()  {
                           </div>
 
                       </section>
+                      <Link to={`/beginars/most-common-verbs/basic-verbs/hard-verbs-quiz`}>
+                          <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200 m-2">
+                            Hard Verbs Vocabulary Exercises
+                          </button>
+                        </Link> 
                                 
           </div>
   
@@ -123,7 +134,8 @@ function VerbsPage()  {
                                       </p>
                               </div>
 
-                          </section>                         
+                          </section> 
+                       
                                   
             </div>
   
@@ -217,11 +229,7 @@ function VerbsPage()  {
 
                           </section>
                       
-                        <Link to={`/beginars/most-common-verbs/basic-verbs/basic-verbs-quiz`}>
-                          <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-green-600 transform hover:scale-110 transition duration-200 m-2">
-                            Basic Verbs Vocabulary Exercises
-                          </button>
-                        </Link>
+                       
                                   
             </div>
              

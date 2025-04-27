@@ -426,7 +426,21 @@ export const verbTopics: Topic[] = [
     export const a1Topics: Topic[] = [
       
       
-      
+      { title: "Most common verbs",
+        subtopics: [
+          {title: "Basic Verbs.", 
+            childTopics: ["Basic Verbs Quiz", "Hard Verbs Quiz"],
+          }
+        ],
+       },
+       { 
+        title: "Adjective",
+        subtopics: [
+          {title: "Good, bad or ugly?",
+            childTopics: ["Basic Adjectives Quiz",],
+          }
+        ],
+      },
       {
         title: "What Languages", // Changed from "What language do you speak?"
         subtopics: [
@@ -555,22 +569,7 @@ export const verbTopics: Topic[] = [
             childTopics: ["Places Quiz", "Places Sentence Quiz"],
           }
         ],
-       },
-       { 
-        title: "Adjective",
-        subtopics: [
-          {title: "Good, bad or ugly?",
-            childTopics: ["Basic Adjectives Quiz",],
-          }
-        ],
-      },
-      { title: "Most common verbs",
-        subtopics: [
-          {title: "Basic Verbs.", 
-            childTopics: ["Basic Verbs Quiz",],
-          }
-        ],
-       },
+       },        
       { title: "Talking about simple illnesses",
         subtopics: [
           {title: "Illness",

@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { verbData } from '../../../data/basicA1'; 
 // Removed unused basicA1 import
 import SetupQuiz from '../../../components/SetupQuiz';
+import GenerateHardQuiz from '../../../components/GenerateHardQuiz';
 
 
 interface Verb {
@@ -22,13 +23,14 @@ function VerbsQuizPage() {
    .toLowerCase()
    .replace("-quiz", "")
    .replace("basic-verbs", "basicVerbs") // Convert "basic-numbers" to "basicNumbers"
-  //  .replace("sentence-verbs", "sentenceVerbs") // Convert "basic-numbers" to "basicNumbers"
+   .replace("hard-verbs",  "hardVerbs") // Convert "basic-numbers" to "basicNumbers"
    : "basicVerbs"; // Default to "numbers" if child is undefined
  
     // console.log("numberTypeKey",keyType);
  
    const quizTypeMap: Record<string, string> = {
      basicVerbs: "basic verbs",
+     hardVerbs:  "hard",
     // sentenceVerbs: "sentence verbs",
 
    };
@@ -37,7 +39,7 @@ function VerbsQuizPage() {
  
    const allItems = (verbData[keyType as keyof typeof verbData] || verbData.basicVerbs) as Verb[] ; // Type assertion to Number[]
    
-     console.log("Map",quizType);
+    //  console.log("Map",quizType);
  
 
 
@@ -50,6 +52,9 @@ function VerbsQuizPage() {
           <div className='mt-16'>
       <SetupQuiz items={allItems} quizType={quizType}  />
     </div>
+    {/* <div className='mt-16'>
+      <GenerateHardQuiz items={allItems} quizType={quizType}  />
+    </div> */}
     </div>
 
 
