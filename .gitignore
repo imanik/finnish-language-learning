@@ -37,6 +37,7 @@ asset-manifest.json
 service-worker.js
 
 # Optional: if you also moved build files to root
+test.js
 main.*.js
 main.*.css
 *.map
