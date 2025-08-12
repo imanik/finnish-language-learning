@@ -10,7 +10,7 @@
     const [score, setScore] = useState(0);
     const [timeLeft, setTimeLeft] = useState(10);
  
-    const [userName, setUserName] = useState('');
+    // const [userName, setUserName] = useState('');
 
     const colors = [
         { english: 'Red', finnish: 'Punainen', color: 'bg-red-500' },

@@ -56,6 +56,6 @@ function AnimalsQuizPage() {
 
 
   );
-};
+}
 
 export default AnimalsQuizPage;

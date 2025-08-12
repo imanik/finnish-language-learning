@@ -54,6 +54,6 @@ function PhrasesQuizPage() {
 
 
   );
-};
+}
 
 export default PhrasesQuizPage;

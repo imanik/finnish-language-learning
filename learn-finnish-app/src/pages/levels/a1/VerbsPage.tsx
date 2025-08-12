@@ -235,7 +235,7 @@ function VerbsPage()  {
              
       </div>
   );
-};
+}
 
 export default VerbsPage;
 

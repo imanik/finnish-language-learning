@@ -1,7 +1,7 @@
     // src/components/Numbers.js
     import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { a1Topics } from '../data';
+// import { a1Topics } from '../data';
 
     function Numbers() {
     const [showPronunciation, setShowPronunciation] = useState(false);

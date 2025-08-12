@@ -108,7 +108,7 @@ function IllnesssPage()  {
              
       </div>
   );
-};
+}
 
 export default IllnesssPage;
 

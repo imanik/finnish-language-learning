@@ -108,7 +108,7 @@ function PhrasesPage()  {
              
       </div>
   );
-};
+}
 
 export default PhrasesPage;
 

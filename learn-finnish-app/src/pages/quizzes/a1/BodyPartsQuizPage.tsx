@@ -57,6 +57,6 @@ function BodyPartsQuizPage() {
 
 
   );
-};
+}
 
 export default BodyPartsQuizPage;

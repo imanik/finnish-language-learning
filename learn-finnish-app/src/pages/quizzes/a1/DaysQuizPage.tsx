@@ -59,6 +59,6 @@ function DaysQuizPage() {
 
 
   );
-};
+}
 
 export default DaysQuizPage;

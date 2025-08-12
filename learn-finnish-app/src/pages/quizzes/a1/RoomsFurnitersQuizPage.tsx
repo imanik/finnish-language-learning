@@ -57,6 +57,6 @@ function RoomsFurnituresQuizPage() {
 
 
   );
-};
+}
 
 export default RoomsFurnituresQuizPage;

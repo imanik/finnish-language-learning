@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { locationData } from "../../../data/basicA1";
+// import { locationData } from "../../../data/basicA1";
 
 
 

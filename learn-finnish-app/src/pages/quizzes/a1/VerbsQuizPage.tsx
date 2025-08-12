@@ -59,6 +59,6 @@ function VerbsQuizPage() {
 
 
   );
-};
+}
 
 export default VerbsQuizPage;

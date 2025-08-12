@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+// import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainContent from './components/MainContent';
-import {loginUser, signupUser} from './api';
+import {loginUser} from './api';
+// import {loginUser, signupUser} from './api';
 import { QuizProvider } from './components/QuizContext';
 import { AuthProvider } from './contexts/AuthContext';
 
@@ -30,8 +32,8 @@ import FamilyPage from './pages/levels/a1/FamilyPage';
 import VerbsPage from './pages/levels/a1/VerbsPage';
 import DaysPage from './pages/levels/a1/DaysPage';
 import BeginarsPage from './pages/BeginarsPage';
-import GrammarsPage from './pages/GrammarsPage';
-import NounsPage from './pages/NounsPage';
+// import GrammarsPage from './pages/GrammarsPage';
+// import NounsPage from './pages/NounsPage';
 import DaysQuizPage from './pages/quizzes/a1/DaysQuizPage';
 import VerbsQuizPage from './pages/quizzes/a1/VerbsQuizPage';
 import FamilyQuizPage from './pages/quizzes/a1/FamilyQuizPage';
@@ -163,18 +165,18 @@ function App() {
   );
 
 
-async function handleLogin() {
-  try {
-    const user = await loginUser("test@example.com", "password123");
-    console.log("Logged in user:", user);
-  } catch (error: unknown) {
-    if (error instanceof Error) {
-      console.error("Login error:", error.message);
-    } else {
-      console.error("Unknown error during login", error);
-    }
-  }
-}
+// async function handleLogin() {
+//   try {
+//     const user = await loginUser("test@example.com", "password123");
+//     console.log("Logged in user:", user);
+//   } catch (error: unknown) {
+//     if (error instanceof Error) {
+//       console.error("Login error:", error.message);
+//     } else {
+//       console.error("Unknown error during login", error);
+//     }
+//   }
+// }
 
 
 

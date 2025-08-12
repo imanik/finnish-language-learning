@@ -1,6 +1,6 @@
   import React from "react";
   import { Link } from "react-router-dom";
-  import { nationalityData } from "../../../data/basicA1";
+//   import { nationalityData } from "../../../data/basicA1";
 
 
   function NationalityPage(){

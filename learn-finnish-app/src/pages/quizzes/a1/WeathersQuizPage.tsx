@@ -59,6 +59,6 @@ function WeathersQuizPage() {
 
 
   );
-};
+}
 
 export default WeathersQuizPage;

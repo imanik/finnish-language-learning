@@ -40,7 +40,7 @@ function NumbersQuizPage() {
   
   const quizType = (quizTypeMap[keyType] === "sentence" ? "sentence" : quizTypeMap[keyType] === "hard" ? "hard" : "basic") as "basic" | "ordinal" | "sentence" | "hard"; // Determine quiz type based on numberTypeKey
 
-  const allItems = (numberData[keyType as keyof typeof numberData] || numberData.basicNumbers) as Number[] ; // Type assertion to Number[]
+  const allItems = (numberData[keyType as keyof typeof numberData] || numberData.basicNumbers) as number[] ; // Type assertion to Number[]
   
   const title = quizType === "sentence" ? "Numbers In Sentence " : quizType === "hard" ? "hard numbers " : "basic numbers ";
 
@@ -56,6 +56,6 @@ function NumbersQuizPage() {
 
 </div>
 );
-};
+}
 
 export default NumbersQuizPage;

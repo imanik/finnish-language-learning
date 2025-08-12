@@ -57,6 +57,6 @@ function PlacesQuizPage() {
 
 
   );
-};
+}
 
 export default PlacesQuizPage;

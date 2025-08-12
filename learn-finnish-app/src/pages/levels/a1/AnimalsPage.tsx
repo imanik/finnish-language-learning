@@ -1,6 +1,6 @@
   import React from "react";
   import { Link } from "react-router-dom";
-  import { animalData, bodyPartData } from "../../../data/basicA1";
+  import { animalData } from "../../../data/basicA1";
   import ConjugationTable from "../../../components/ConjugationTable";
 
   function AnimalsPage(){

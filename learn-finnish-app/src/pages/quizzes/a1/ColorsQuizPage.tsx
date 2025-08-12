@@ -53,6 +53,6 @@ interface Color {
  
  
    );
-};
+}
 
 export default ColorsQuizPage;

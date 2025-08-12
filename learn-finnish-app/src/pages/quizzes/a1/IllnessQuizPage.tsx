@@ -57,6 +57,6 @@ function IllnessQuizPage() {
 
 
   );
-};
+}
 
 export default IllnessQuizPage;

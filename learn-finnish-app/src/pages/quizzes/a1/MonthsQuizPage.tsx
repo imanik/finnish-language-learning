@@ -59,6 +59,6 @@ function MonthsQuizPage() {
 
 
   );
-};
+}
 
 export default MonthsQuizPage;

@@ -58,6 +58,6 @@ function FoodsDrinksQuizPage() {
 
 
   );
-};
+}
 
 export default FoodsDrinksQuizPage;
