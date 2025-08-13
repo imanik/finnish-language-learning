@@ -41,7 +41,7 @@ function ClothesWearingsQuizPage() {
    
     //  console.log("Map",quizType);
 
-  const title = (quizType === "hard" ? "Hard Clothes & Wearings " : "Basic Clothes & Wearings ");
+  // const title = (quizType === "hard" ? "Hard Clothes & Wearings " : "Basic Clothes & Wearings ");
  
 
 

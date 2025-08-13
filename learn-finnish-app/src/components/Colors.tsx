@@ -22,21 +22,21 @@
 
     const correctAnswer = colors[currentColor].finnish.toLowerCase();
 
-    useEffect(() => {
-        if (timeLeft > 0) {
-        const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
-        return () => clearTimeout(timer);
-        } else {
-        setFeedback('Time’s up!');
-        // if (score > 0) promptForNameAndUpdateLeaderboard(score);
-        setTimeout(() => {
-            setCurrentColor(Math.floor(Math.random() * colors.length));
-            setUserGuess('');
-            setFeedback('');
-            setTimeLeft(10);
-        }, 1500);
-        }
-    }, [timeLeft, score]);
+useEffect(() => {
+  if (timeLeft > 0) {
+    const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
+    return () => clearTimeout(timer);
+  } else {
+    setFeedback('Time’s up!');
+    setTimeout(() => {
+      setCurrentColor(Math.floor(Math.random() * colors.length));
+      setUserGuess('');
+      setFeedback('');
+      setTimeLeft(10);
+    }, 1500);
+  }
+}, [timeLeft, score, colors.length]);
+
 
     // useEffect(() => {
     //     localStorage.setItem('finnishQuizLeaderboard', JSON.stringify(leaderboard));

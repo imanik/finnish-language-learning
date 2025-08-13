@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { verbData } from '../../../data/basicA1'; 
 // Removed unused basicA1 import
 import SetupQuiz from '../../../components/SetupQuiz';
-import GenerateHardQuiz from '../../../components/GenerateHardQuiz';
+// import GenerateHardQuiz from '../../../components/GenerateHardQuiz';
 
 
 interface Verb {

@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { dayData } from '../../../data/basicA1'; 
 // Removed unused basicA1 import
 import SetupQuiz from '../../../components/SetupQuiz';
-import { title } from 'process';
+// import { title } from 'process';
 
 
 interface Day {

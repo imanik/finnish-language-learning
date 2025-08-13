@@ -5,7 +5,7 @@ import { useAuth } from "../../contexts/AuthContext";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errorMsg, setErrorMsg] = useState("");
+  // const [errorMsg, setErrorMsg] = useState("");
 
 
   
@@ -61,7 +61,7 @@ function Login() {
           className="w-full border p-2 mb-2"
           required
         />
-        {errorMsg && <p className="text-red-500">{errorMsg}</p>}
+        
         <button type="submit" className="bg-blue-500 text-white px-4 py-2">
           Login
         </button>

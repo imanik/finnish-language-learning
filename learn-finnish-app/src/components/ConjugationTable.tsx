@@ -30,7 +30,7 @@ function ConjugationTable({ items, min, max, isVocab } :ConjugationTableProps) {
 // console.log("ConjugationTable loaded", illnesss);
 return (
   <div className="mb-6 overflow-x-auto">
-  <h4 className="text-lg font-semibold text-teal-600 mb-2"></h4>
+  {/* <h4 className="text-lg font-semibold text-teal-600 mb-2"></h4> */}
   <button
         onClick={() => setShowPronunciation(!showPronunciation)}
         className="bg-teal-500 text-white ml-2 px-4 py-2 rounded hover:bg-teal-800 transform hover:scale-110 transition duration-200 mb-4"

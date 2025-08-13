@@ -3,13 +3,13 @@ import React from 'react';
 import {Link, useParams} from 'react-router-dom';
 import {numberData} from '../../../data/basicA1'; // Removed unused basicA1 import
 import SetupQuiz from '../../../components/SetupQuiz'; // Changed to SetupQuiz
-import { keyboard } from '@testing-library/user-event/dist/keyboard';
+// import { keyboard } from '@testing-library/user-event/dist/keyboard';
 
-interface Number {
-  english: string;
-  finnish: string;
-  pronunciation: string;
-}
+// interface Number {
+//   english: string;
+//   finnish: string;
+//   pronunciation: string;
+// }
 
 
 
