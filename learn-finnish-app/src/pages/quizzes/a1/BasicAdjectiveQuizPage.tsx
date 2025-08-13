@@ -3,7 +3,7 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { adjectivesData } from "../../../data/basicA1";
 import SetupQuiz from "../../../components/SetupQuiz"; // Changed to SetupQuiz
-import { title } from "process";
+// import { title } from "process";
 
 
 
