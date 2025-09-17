@@ -110,7 +110,7 @@ const Dashboard: React.FC = () => {
           </button>
         </div>
       </div>
-      {/* <div className="min-h-screen bg-teal-50 p-6 flex items-center justify-center">
+      <div className="min-h-screen bg-teal-50 p-6 flex items-center justify-center">
         <div className="bg-white p-6 rounded-lg shadow-lg max-w-md">
           <h1 className="text-2xl text-teal-700 font-bold mb-4">Login</h1>
           <input
@@ -134,7 +134,7 @@ const Dashboard: React.FC = () => {
             Login
           </button>
         </div>
-      </div> */}
+      </div>
       </div>
     );
   }else{

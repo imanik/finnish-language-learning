@@ -25,6 +25,7 @@ import IllnesssPage from './pages/levels/a1/IllnessPage';
 import NumbersPage from './pages/levels/a1/NumbersPage';
 import AnimalsPage from './pages/levels/a1/AnimalsPage';
 import PhrasesPage from './pages/levels/a1/PhrasesPage';
+import ConversationPage from './pages/ConversationPage';
 import MonthsPage from './pages/levels/a1/MonthsPage';
 import ColorsPage from './pages/levels/a1/ColorsPage';
 import PlacesPage from './pages/levels/a1/PlacesPage';
@@ -53,6 +54,7 @@ import WhatLanguageQuizPage from './pages/quizzes/a1/WhatLanguageQuizPage';
 import BasicAdjectiveQuizPage from './pages/quizzes/a1/BasicAdjectiveQuizPage';
 import RoomsFurnituresQuizPage from './pages/quizzes/a1/RoomsFurnitersQuizPage';
 import ClothesWearingsQuizPage from './pages/quizzes/a1/ClothesWearingsQuizPage';
+import ConversationPractice from './pages/conversations/ConversationPractice';
 
 
 import Login from './components/backend/Login';
@@ -78,6 +80,7 @@ function App() {
         <Route path="/" element={<MainContent />} />
 
         <Route path="/beginars" element={<BeginarsPage />} />
+        <Route path="/conversation" element={<ConversationPage />} />
 
         <Route path="/beginars/what-languages/:topic" element={<WhatLanguages />} />
         <Route path="/beginars/what-languages/:subtopic/:child" element={<WhatLanguageQuizPage />} />
@@ -144,6 +147,8 @@ function App() {
 
         <Route path="/beginars/basic-knowledge-about-telling-the-time/:topic" element={<UnderConstructionPage />} />
         <Route path="//grammars" element={<UnderConstructionPage />} />
+
+        <Route path="/conversation/introduction" element={<ConversationPractice />} />
 
 
 
