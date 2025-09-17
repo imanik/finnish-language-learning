@@ -154,21 +154,24 @@ function SetupQuiz<T extends QuizItem>({
      <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-6">
      <UserStats quizScore={quizScore} handleQuizComplete={handleQuizComplete} />
      </div>
+    
      <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto">
-     <h3 className="text-xl font-semibold text-teal-700 mb-4">
+      <h2 className="text-2xl font-semibold text-teal-700 mb-4">Quiz</h2>
+      <div className="bg-gray-900 rounded-lg border border-gray-300 p-4 mb-6">
+     <h3 className="text-xl font-semibold text-teal-200 mb-4">
      
     
   { quizType ? (title?.toUpperCase() || "QUIZ") : "BASIC"}{" "}
     QUIZ
       </h3>
   
-       <p className="text-gray-600 mb-4">
+       <p className="text-teal-300 mb-4">
          Score: {score.correct}/{score.total} ({((score.correct / score.total) * 100 || 0).toFixed(1)}%)
        </p>
        {!quizItem ? (
          <button
            onClick={startQuiz}
-           className="bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-700"
+           className="bg-teal-300 text-teal-900 px-4 py-2 rounded hover:bg-teal-700 hover:text-white transform hover:scale-110 transition duration-200"
          >
            Start Quiz
          </button>
@@ -207,9 +210,9 @@ function SetupQuiz<T extends QuizItem>({
         
 
        <div className="mt-6">
-         <h4 className="text-lg font-semibold text-teal-700 mb-2">Leaderboard</h4>
+         <h4 className="text-lg font-semibold text-cyan-300 mb-2">Leaderboard</h4>
          {leaderboard.length === 0 ? (
-           <p className="text-gray-600">No scores yet.</p>
+           <p className="text-cyan-400">No scores yet.</p>
          ) : (
            <ul className="text-gray-600">
              {leaderboard.map((entry, index) => (
@@ -221,6 +224,7 @@ function SetupQuiz<T extends QuizItem>({
            </ul>
          )}
        </div>
+     </div>
      </div>
      </div>
   );

@@ -95,9 +95,9 @@ function GenerateQuiz<T extends QuizItem>({
   return (
     <div>
 
-    <div className="bg-white p-6 rounded-lg shadow-lg max-w-2xl mx-auto">
+    <div className="bg-dark-900 p-6 rounded-lg shadow-lg max-w-2xl mx-auto border border-teal-900">
       {/* Quiz Question */}
-      <h3 className="text-xl font-semibold text-teal-700 mb-4">
+      <h3 className="text-xl font-semibold text-teal-200 mb-4">
         What is the meaning of "<span className="text-xl text-red-500">{quizState.question}</span>"?
       </h3>
 
@@ -112,10 +112,10 @@ function GenerateQuiz<T extends QuizItem>({
               checked={selected === option.finnish}
               onChange={() => setSelected(option.finnish)}
               disabled={isCorrect !== null} // Disable selection after answer is submitted
-              className="mr-2"
+              className="mr-2 "
             />
-            {option.finnish}
-            <span className="text-gray-500 ml-2">
+             <span className="text-teal-200 focus:ring-teal-500 border-gray-300">{option.finnish}</span>
+            <span className="text-gray-400 ml-2">
               ({option.pronunciation ?? " "}) {/* Optional pronunciation */}
             </span>
           </label>
@@ -127,7 +127,7 @@ function GenerateQuiz<T extends QuizItem>({
         // Show Submit only if question hasn't been answered
         <button
           onClick={handleSubmit}
-          className="mt-4 bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-700"
+          className="mt-4 bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-700 transform hover:scale-110 transition duration-200"
         >
           Submit
         </button>
@@ -141,7 +141,7 @@ function GenerateQuiz<T extends QuizItem>({
           </p>
           <button
             onClick={onNext}
-            className="mt-2 bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-700 m-4"
+            className="mt-2 bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-700 m-4"
           >
             Next Question
           </button>

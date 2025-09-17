@@ -44,9 +44,9 @@ function UserStats({ quizScore: propsScore, handleQuizComplete }: UserStatsProps
   return (
     <div>
       <h2 className="text-2xl font-semibold text-teal-700 mb-4">Your Stats</h2>
-      <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
+      <section className="bg-gray-900 rounded-lg border border-gray-300 p-4 mb-6">
         <div className="mb-4">
-          <p className="text-teal-600 mt-2">
+          <p className="text-teal-200 mt-2">
             <span className="font-medium"><strong>🧠 Score:</strong></span> {quizScore.correct}/{quizScore.total} ({currentScore}%)
           </p>
           <div className="w-full bg-gray-200 rounded-full h-2.5 mt-1">
@@ -54,15 +54,15 @@ function UserStats({ quizScore: propsScore, handleQuizComplete }: UserStatsProps
           </div>
         </div>
 
-        <p className="text-teal-600 mt-2"><strong>Quizzes Solved:</strong> {quizScore.total}</p>
-        <p className="text-teal-600 mt-2"><strong>Correct Answers:</strong> {quizScore.correct}</p>
-        <p className="text-teal-600 mt-2"><strong>Level:</strong> {currentLevel}</p>
-        <p className="text-teal-600 mt-2"><strong>Quizzes left:</strong> {quizzesToNext}</p>
-        <p className="text-teal-600 mt-2">
+        <p className="text-teal-200 mt-2"><strong>Quizzes Solved:</strong> <span className="text-bold text-3xl animate-pulse">{quizScore.total}</span> </p>
+        <p className="text-teal-200 mt-2"><strong>Correct Answers:</strong><span className="text-bold text-3xl animate-pulse"> {quizScore.correct}</span></p>
+        <p className="text-teal-200 mt-2"><strong>Level:</strong><span className="text-bold text-3xl animate-pulse"> {currentLevel}</span></p>
+        <p className="text-teal-200 mt-2"><strong>Quizzes left:</strong><span className="text-bold text-3xl animate-pulse"> {quizzesToNext}</span></p>
+        <p className="text-teal-200 mt-2">
           <strong>Next Milestone:</strong><br />
           Complete {nextMilestone} quizzes with ≥ {requiredScore}%
         </p>
-        <p className="text-teal-700 font-medium mt-2">{levelUpMessage()}</p>
+        <p className="text-teal-200 font-medium mt-2">{levelUpMessage()}</p>
       </section>
     </div>
   );

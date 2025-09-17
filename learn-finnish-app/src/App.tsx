@@ -148,9 +148,9 @@ function App() {
         <Route path="/beginars/basic-knowledge-about-telling-the-time/:topic" element={<UnderConstructionPage />} />
         <Route path="//grammars" element={<UnderConstructionPage />} />
 
-        <Route path="/conversation/introduction" element={<ConversationPractice />} />
+        {/* <Route path="/conversation/introduction" element={<ConversationPractice />} /> */}
 
-
+        <Route path="/conversation/:child" element={<ConversationPractice />} />
 
         
         <Route path="/dashboard" element={<Dashboard />} />

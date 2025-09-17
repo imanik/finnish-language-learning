@@ -21,7 +21,7 @@ function MainContent() {
 
   return (
     <div className="min-h-screen bg-teal-50 p-6 grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center font-['Roboto']">
-      <h1 className="text-4xl font-bold text-teal-700 mb-8 col-span-full text-center">
+      <h1 className="text-4xl font-bold text-teal-800 mb-8 col-span-full text-center">
         Welcome to Finnish Learning
       </h1>
       <div className={containerClass}>

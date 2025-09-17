@@ -76,15 +76,15 @@ useEffect(() => {
         
 
       
-      <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
+      <section className="bg-gray-900 rounded-lg border border-gray-300 p-4 mb-6">
      
 
         
         
         <ul className="list-none mb-4">
             {colors.map((color, index) => (
-            <li key={index} className="flex items-center mb-2">
-                <span className={`w-6 h-6 mr-2 ${color.color} rounded`}></span>
+            <li key={index} className="flex items-center mb-2 text-teal-200">
+                <span className={`w-6 h-6 mr-2 border border-2px ${color.color} rounded`}></span>
                 <span>{color.english} - {showAnswer || index !== 0 ? color.finnish : '???'}</span>
             </li>
             ))}
@@ -94,7 +94,7 @@ useEffect(() => {
 
         <button
             onClick={() => setShowAnswer(!showAnswer)}
-            className="bg-teal-700 text-white px-4 py-2 rounded hover:bg-teal-900 transform hover:scale-110 transition duration-200 mb-4"
+            className="bg-teal-900 text-white px-4 py-2 rounded hover:bg-teal-300 hover:text-teal-900 transform hover:scale-110 transition duration-200 mb-4"
         >
             {showAnswer ? 'Hide Answers' : 'Show Answers'}
         </button>
@@ -105,7 +105,7 @@ useEffect(() => {
         <p className="text-gray-700 mb-2">Time left: {timeLeft}s</p>
         <div className="w-full bg-gray-200 rounded-full h-2.5 mb-4">
             <div
-            className="bg-teal-500 h-2.5 rounded-full transition-all duration-1000"
+            className="bg-teal-700 h-2.5 rounded-full transition-all duration-1000"
             style={{ width: `${(timeLeft / 10) * 100}%` }}
             ></div>
         </div>
@@ -115,11 +115,11 @@ useEffect(() => {
             value={userGuess}
             onChange={(e) => setUserGuess(e.target.value)}
             placeholder="Type your guess"
-            className="border border-gray-300 p-2 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="bg-gray-900 border border-gray-300 p-2 rounded w-full focus:outline-none focus:ring-2 focus:ring-teal-500"
             />
             <button
             onClick={checkAnswer}
-            className="bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-900 transform hover:scale-110 transition duration-200"
+            className="bg-teal-900 text-white px-4 py-2 rounded hover:bg-teal-300 hover:text-teal-900 transform hover:scale-110 transition duration-200"
             >
             Check Answer
             </button>
@@ -129,7 +129,7 @@ useEffect(() => {
         </p>
         
         <Link to="/beginars/color/rainbow">
-            <button className="mt-4 bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-900 transform hover:scale-110 transition duration-200">
+            <button className="mt-4 bg-teal-900 text-white px-4 py-2 rounded hover:bg-teal-300 hover:text-teal-900 transform hover:scale-110 transition duration-200">
                 Learn More
             </button>
         </Link>

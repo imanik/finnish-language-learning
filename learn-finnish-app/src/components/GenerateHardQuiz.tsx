@@ -73,10 +73,10 @@ function GenerateHardQuiz<T extends QuizItem>({
 
   return (
     <div >
-       <div className="bg-white p-6 rounded-lg shadow-lg max-w-2xl mx-auto">
+       <div className="bg-dark-900 p-6 rounded-lg shadow-lg max-w-2xl mx-auto">
       {/* Quiz Question */}
-      <h3 className="text-xl font-semibold text-teal-700 mb-4">
-        What is the meaning of "<span className="text-xl text-red-500">{item.english}</span>"?
+      <h3 className="text-xl font-semibold text-teal-200 mb-4">
+        What is the meaning of {<span className="text-xl text-red-500">{item.english}</span>}?
       </h3>
 <div className="flex space-x-2 mb-4">
             <input
@@ -84,16 +84,16 @@ function GenerateHardQuiz<T extends QuizItem>({
             value={userGuess}
             onChange={(e) => setUserGuess(e.target.value)}
             placeholder="Type your guess"
-            className="border border-gray-300 p-2 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="bg-gray-900 border border-teal-900 p-2 rounded w-full neon-input focus:ring-2 focus:ring-teal-200 transition shadow-neon"
             />
             <button
             onClick={checkAnswer}
-            className="bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-900 transform hover:scale-110 transition duration-200"
+            className="bg-teal-900 text-white px-4 py-2 rounded hover:bg-teal-300 hover:text-teal-900 transform hover:scale-110 transition duration-200"
             >
             Check Answer
             </button>
         </div>
-        <p className={`mb-2 ${feedback.includes('Correct') ? 'text-green-600' : 'text-red-600'}`}>
+        <p className={`mb-2 ${feedback.includes('Correct') ? 'text-teal-300' : 'text-cyan-400'}`}>
             {feedback}
         </p>
 

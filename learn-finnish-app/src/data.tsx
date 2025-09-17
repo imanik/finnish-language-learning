@@ -592,3 +592,14 @@ export const verbTopics: Topic[] = [
        },
     ];
 
+     export const a1Conversation: Topic[] = [
+      
+      
+      { title: "Most common conversation phrases",
+        subtopics: [
+          {title: "Basic Conversation.", 
+            childTopics: ["Introduction", "Supermarket", "Travel", "Doctor", "Shopping", "Hotel", "Restaurent", "Directions", "Bank"],
+          }
+        ],
+       },
+      ];

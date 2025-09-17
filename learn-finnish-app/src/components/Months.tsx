@@ -22,9 +22,9 @@ function Months() {
     <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg w-full max-w-md">
       <h2 className="text-2xl font-semibold text-teal-700 mb-4">Finnish Months</h2>
 
-      <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
+      <section className="bg-gray-900 rounded-lg border border-gray-300 p-4 mb-6">
 
-      <ul className="list-disc pl-5 text-gray-700">
+      <ul className="list-disc pl-5 text-teal-200">
         {months.map((month, index) => (
           <li key={index} className="flex items-center justify-between m-2">
             <span>
@@ -33,9 +33,9 @@ function Months() {
             </span>
             <button
               onClick={() => playPronunciation(month.finnish)}
-              className="ml-2 bg-teal-600 text-white px-2 py-1 rounded hover:bg-teal-900"
+              className="ml-2 bg-teal-900 text-white px-2 py-1 rounded hover:bg-teal-900"
             >
-              Play
+              🔊
             </button>
           </li>
         ))}
@@ -44,7 +44,7 @@ function Months() {
 
               <Link to="/beginars/month/january-to-december">
               {/* <Link to="/beginars/number/${a1Topics.}`}"> */}
-                  <button className="mt-4 bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-900 transform hover:scale-110 transition duration-200 m-2">
+                  <button className="mt-4 bg-teal-900 text-white px-4 py-2 rounded hover:bg-teal-300 hover:text-teal-900 transform hover:scale-110 transition duration-200 m-2">
                       Learn More
                   </button>
               </Link>
