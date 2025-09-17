@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { LINGVANEX_API_KEY, LINGVANEX_ENDPOINT } from "../../config";
 import { introductionQuestions } from "../../data/conversationData";
-import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/24/solid";
+import { ArrowDownCircleIcon, CheckCircleIcon, XCircleIcon } from "@heroicons/react/24/solid";
 
 
 interface AnswerState {
@@ -36,7 +36,9 @@ function ConversationPractice() {
         { from: "en", to: "fi", data: englishAnswers[id] || "", platform: "api" },
         { headers: { Authorization: `Bearer ${LINGVANEX_API_KEY}`, "Content-Type": "application/json" } }
       );
-      setTranslations(prev => ({ ...prev, [id]: response.data.result }));
+      
+      const result = (response.data as { result: string }).result;
+      setTranslations(prev => ({ ...prev, [id]: result }));
     } catch { setTranslations(prev => ({ ...prev, [id]: "Translation error" })); }
   };
 
@@ -50,7 +52,7 @@ function ConversationPractice() {
         { from: "fi", to: "en", data: userInput, platform: "api" },
         { headers: { Authorization: `Bearer ${LINGVANEX_API_KEY}`, "Content-Type": "application/json" } }
       );
-      const backToEnglish = response.data.result || "";
+      const backToEnglish = (response.data as { result: string }).result || "";
       if (normalize(backToEnglish) === normalize(originalEnglish)) {
         setFeedbacks(prev => ({ ...prev, [id]: "correct" }));
       } else {
@@ -73,7 +75,7 @@ function ConversationPractice() {
   return (
 <div className="min-h-screen bg-teal-50 p-6 font-['Roboto']">
       <Link
-        to="/"
+        to="/conversation"
         className="text-teal-700 hover:underline bg-teal-100 mb-6 inline-block fixed top-0 left-0 w-full px-4 py-2 shadow-md"
       >
         ← Back to Home
@@ -97,7 +99,7 @@ function ConversationPractice() {
             key={q.id}
             ref={questionRefs[index]}
             className={`bg-gray-800 rounded-xl shadow-xl p-6 max-w-xl mx-auto mb-6 transform transition-all duration-700 ease-out
-                ${isActive ? "translate-y-0 opacity-100  transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" : isAnswered ? "translate-y-0 opacity-100 bg-teal-600 border border-teal-100" : "translate-y-6 opacity-60"}`}
+                ${isActive ? "translate-y-0 opacity-100  transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" : isAnswered ? "translate-y-0 opacity-100 bg-teal-700 border border-teal-100" : "translate-y-6 opacity-60"}`}
           >
             <p className="mb-4 text-lg">
               <strong className="text-teal-400 neon-text ">Q:</strong>{" "}
@@ -109,17 +111,6 @@ function ConversationPractice() {
               <span className="text-teal-300">{q.questionFi}</span>
               
             </p>
-
-            {isActive && (
-
-                
-                <p className="mb-4 text-lg">
-              <strong className="text-teal-400 neon-text ">Remaining:</strong>{" "}
-              <span className="text-teal-300">{introductionQuestions.length-activeQuestion}</span>
-            </p>
-            )
-
-            }
 
 
 
@@ -167,6 +158,19 @@ function ConversationPractice() {
                                 </button></span>
                   </p>
                 )}
+
+                
+            {isActive && (
+
+                
+                <p className="mt-8 text-lg">
+              <ArrowDownCircleIcon className="h-5 w-5 animate-pulse text-cyan-400" />{" "}
+              <span className="text-teal-300">{introductionQuestions.length-activeQuestion}</span>
+            </p>
+            )
+
+            }
+
               </>
             ) : (
               <>

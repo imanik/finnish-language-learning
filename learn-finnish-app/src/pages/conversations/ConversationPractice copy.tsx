@@ -43,7 +43,11 @@ const questionRefs = introductionQuestions.map(() => React.createRef<HTMLDivElem
         }
       );
 
-      const result = response.data.result;
+      
+      
+      const result = (response.data as { result: string }).result;
+
+      
       setTranslations((prev) => ({ ...prev, [id]: result }));
       setFeedback((prev) => ({ ...prev, [id]: "✅ Translation complete!" }));
     } catch (error: any) {

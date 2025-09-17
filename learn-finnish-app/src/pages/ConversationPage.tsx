@@ -34,7 +34,9 @@ function ConversationPage() {
         }
       );
 
-      setTranslation(response.data.result || "No translation found");
+      const data = response.data as { result?: string };
+      
+      setTranslation(data.result || "No translation found");
     } catch (error: any) {
       console.error("Translation error:", error.message);
       setTranslation(
@@ -56,14 +58,14 @@ function ConversationPage() {
 
       <div className="mt-16">
         {/* 🔥 Translate Box */}
-        <div className="bg-white rounded-xl shadow-lg p-6 max-w-2xl mx-auto mb-8">
+        <div className="bg-teal-200 rounded-xl shadow-lg p-6 max-w-2xl mx-auto mb-8">
           <h2 className="text-2xl font-semibold text-teal-800 mb-4">
             Translate to Finnish
           </h2>
           <div className="flex gap-4">
             <input
               type="text"
-              placeholder="Enter English word (e.g., 'cat')"
+              placeholder="Enter English word or sentence(e.g., 'cat')"
               value={searchWord}
               onChange={(e) => setSearchWord(e.target.value)}
               className="p-3 border border-gray-300 rounded-lg flex-1 focus:outline-none focus:ring-2 focus:ring-teal-500"
@@ -81,12 +83,17 @@ function ConversationPage() {
             </p>
           )}
         </div>
-        <div className="g-white rounded-xl shadow-lg p-6 max-w-2xl mx-auto mb-8">
-<div className="flex gap-4">
-
+        <div className="bg-teal-200 rounded-xl shadow-lg p-6 max-w-2xl mx-auto mb-8">
+<div >
+<h2 className="text-2xl font-semibold text-teal-800 mb-4">
+            Introduction
+          </h2>
+          ️<p className="text-gray-700 mb-4">Basic conversational phrases to get you started.</p>
+          </div>
+          <div className="text-center">
             <Link to="/conversation/introduction">
                 <button className="mt-4 bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-900 transform hover:scale-110 transition duration-200">
-                    Learn More
+                   Start Now
                 </button>
             </Link>
           </div>
