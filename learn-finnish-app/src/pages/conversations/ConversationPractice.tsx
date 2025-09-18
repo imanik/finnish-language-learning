@@ -131,10 +131,10 @@ const handleEnglishChange = (id: number, value: string) => setEnglishAnswers(pre
 
         {questions.map((q, index) => {
         const isAnswered = index < activeQuestion;   // ✅ works for both modes
-  const isActive = index === activeQuestion;
+        const isActive = index === activeQuestion;
 
         return (
-<div
+        <div
             key={q.id}
             ref={questionRefs[index]}
             className={`bg-gray-900 rounded-xl shadow-xl p-6 max-w-xl mx-auto mb-6 transform transition-all duration-700 ease-out

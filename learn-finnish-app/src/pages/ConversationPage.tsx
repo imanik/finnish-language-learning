@@ -65,7 +65,22 @@ function ConversationPage() {
           <h2 className="text-2xl font-semibold text-teal-800 mb-4">
             Translate to Finnish
           </h2>
-          <div className="flex gap-4">
+          <div className="flex space-x-2 mb-4">
+            <input
+            type="text"
+            value={searchWord}
+            onChange={(e) => setSearchWord(e.target.value)}
+            placeholder="Type your guess"
+            className="bg-gray-900 border border-gray-300 p-2 rounded w-full focus:outline-none focus:ring-2 focus:ring-teal-500"
+            />
+            <button
+            onClick={handleTranslate}
+            className="bg-gradient-to-r from-purple-500 to-teal-500 text-white px-4 py-2 rounded hover:bg-teal-300 hover:text-teal-900 transform hover:scale-110 transition duration-200"
+            >
+            Translate
+            </button>
+        </div>
+          {/* <div className="flex gap-4">
             <input
               type="text"
               placeholder="Enter English word or sentence(e.g., 'cat')"
@@ -79,7 +94,7 @@ function ConversationPage() {
             >
               Translate
             </button>
-          </div>
+          </div> */}
           {translation && (
             <p className="mt-4 text-gray-800">
               <strong>Result:</strong> {translation}
@@ -87,12 +102,7 @@ function ConversationPage() {
           )}
         </div>
         <div className="bg-gradient-to-br from-teal-50 to-teal-200 rounded-xl shadow-lg p-6 max-w-2xl mx-auto mb-8">
-<div >
-<h2 className="text-2xl font-semibold text-teal-800 mb-4">
-            Introduction
-          </h2>
-          ️<p className="text-gray-700 mb-4">Basic conversational phrases to get you started.</p>
-          </div>
+
           <div className="text-center">
             <Link to="/conversation/introduction">
                 <button className="mt-4 bg-teal-900 text-white px-4 py-2 rounded hover:bg-teal-300 hover:text-teal-900 transform hover:scale-110 transition duration-200">
