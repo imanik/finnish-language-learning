@@ -101,7 +101,7 @@ function ConversationPage() {
             </p>
           )}
         </div>
-        <div className="bg-gradient-to-br from-teal-50 to-teal-200 rounded-xl shadow-lg p-6 max-w-2xl mx-auto mb-8">
+        {/* <div className="bg-gradient-to-br from-teal-50 to-teal-200 rounded-xl shadow-lg p-6 max-w-2xl mx-auto mb-8">
 
           <div className="text-center">
             <Link to="/conversation/introduction">
@@ -110,7 +110,7 @@ function ConversationPage() {
                 </button>
             </Link>
           </div>
-        </div>
+        </div> */}
 
 
         <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-6">
@@ -124,9 +124,10 @@ function ConversationPage() {
                             <ul className="ml-6 list-disc">
                               {topic.subtopics.map((subtopic) => (
                                 <li key={subtopic.title}>
-                                  <Link to={`/beginars/${toSlug(topic.title)}/${toSlug(subtopic.title)}`}>
+                                   <h4 className="text-xl font-semibold text-teal-200 mb-2">{subtopic.title}</h4>
+                                  {/* <Link to={`/beginars/${toSlug(topic.title)}/${toSlug(subtopic.title)}`}>
                                     <span className="text-teal-300 font-medium hover:text-teal-600"> {subtopic.title} (Explanation)</span>
-                                  </Link>
+                                  </Link> */}
                                   {subtopic.childTopics && subtopic.childTopics.length > 0 && (
                                     <ul className="list-disc list-inside text-gray-300 space-y-2 mb-4 mt-2  ">
                                       {subtopic.childTopics.map((child) => (
