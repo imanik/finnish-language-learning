@@ -3,8 +3,8 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { adjectivesData } from "../../../data/basicA1";
 import SetupQuiz from "../../../components/SetupQuiz"; // Changed to SetupQuiz
-// import { title } from "process";
-
+import BodyWrapper from "../../../components/BodyWrapper";
+import NavWrapper from "../../../components/NavWrapper";
 
 
 // Define types
@@ -48,14 +48,14 @@ function BasicAdjectiveQuizPage() {
 
 
    return (
-    <div className="min-h-screen bg-teal-50 p-6 font-['Roboto']">
-    <Link to="/beginars/adjective/good-bad-ugly" className="text-teal-700 hover:underline bg-teal-100 mb-6 inline-block fixed top-0 left-0 w-full  px-4 py-2 shadow-md">
-      ← Back to Basic Adjectives Lessons
-    </Link>
+
+
+        <BodyWrapper>
+     <NavWrapper link="/beginars/adjective/good-bad-ugly" title="← Back to Basic Adjectives Lessons"> </NavWrapper>
           <div className='mt-16'>
       <SetupQuiz items={allItems} quizType={quizType} title={title} />
     </div>
-    </div>
+    </BodyWrapper>
 
 
   );

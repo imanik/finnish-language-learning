@@ -3,8 +3,11 @@ import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { LINGVANEX_API_KEY, LINGVANEX_ENDPOINT } from "../../config";
 import { conversationData, Question } from "../../data/conversationData";
+import BodyWrapper from "../../components/BodyWrapper";
+import PageWrapper from "../../components/PageWrapper";
 
 import { CheckCircleIcon, ArrowDownCircleIcon, XCircleIcon } from "@heroicons/react/24/solid";
+import NavWrapper from "../../components/NavWrapper";
 // ... icons import etc.
 
 
@@ -107,24 +110,19 @@ const handleEnglishChange = (id: number, value: string) => setEnglishAnswers(pre
   };
 
   return (
-<div className="min-h-screen bg-teal-50 p-6 font-['Roboto']">
-      <Link
-        to="/conversation"
-        className="text-teal-700 hover:underline bg-teal-100 mb-6 inline-block fixed top-0 left-0 w-full px-4 py-2 shadow-md"
-      >
-        ← Back to Home
-      </Link>
+<BodyWrapper>
 
-       <div>
-         <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-8 mt-16">
-        <h2 className="text-2xl font-semibold text-teal-800 mb-4">
-            {finnishMode ? "Try in Finnish 🇫🇮" : child?.toUpperCase() +" Conversation Practice"}
-        </h2>
-        <p className="text-gray-700 mb-4">
+      <NavWrapper link="/conversation" title=" ← Back to Home"> </NavWrapper>
+
+       <div className="mt-16">
+         <PageWrapper title= {finnishMode ? "Try in Finnish 🇫🇮" : child?.toUpperCase() +" Conversation Practice"}>
+           
+        
+        <p className="text-teal-400 mb-4">
           Practice simple conversations in English and Finnish. Start with English, then switch to Finnish mode for a challenge!
         </p>
 
-         <p className="text-gray-700 mb-8">
+         <p className="text-teal-400 mb-8">
          Note: Try different sentence structures and vocabulary. The AI translation may not always match exactly, but aim for similar meaning.
         </p>
 
@@ -242,7 +240,7 @@ const handleEnglishChange = (id: number, value: string) => setEnglishAnswers(pre
       )}
 
 
-                     {feedbacks[q.id] && (
+      {feedbacks[q.id] && (
         <p
           className={`mt-3 flex items-center gap-2 neon-text transition-all duration-700 ease-in-out
             ${feedbacks[q.id] === "✅ Correct!" ? "text-green-400" : "text-red-500"}`}
@@ -264,44 +262,47 @@ const handleEnglishChange = (id: number, value: string) => setEnglishAnswers(pre
 
 
 
-        {!finnishMode && (
-  <div className="text-center mt-6">
-    <button
-      onClick={() => {
-        setFinnishMode(true)
-        setActiveQuestion(0); // Start from last question
-        questionRefs[questions.length - 1].current?.scrollIntoView({ behavior: "smooth", block: "center" });
-      }}
-      disabled={!allEnglishAnswered}
-      className={`px-6 py-3 rounded-lg text-white text-lg transition-transform hover:scale-105 ${
-        !allEnglishAnswered
-          ? "opacity-40 cursor-not-allowed"
-          : "bg-teal-900 hover:text-teal-900 hover:bg-teal-300"
-      }`}
-    >
-      Start Finnish Mode →
-    </button>
-  </div>
-)}
+              {!finnishMode && (
+          <div className="text-center mt-6">
+            <button
+              onClick={() => {
+                setFinnishMode(true)
+                setActiveQuestion(0)
+                questionRefs[questions.length - 1].current?.scrollIntoView({
+                  behavior: "smooth",
+                  block: "center",
+                })
+              }}
+              disabled={!allEnglishAnswered}
+              className={`px-6 py-3 rounded-lg text-white text-lg transition-transform hover:scale-105 ${
+                !allEnglishAnswered
+                  ? "opacity-40 cursor-not-allowed"
+                  : "bg-teal-900 hover:text-teal-900 hover:bg-teal-300"
+              }`}
+            >
+              Start Finnish Mode →
+            </button>
+          </div>
+        )}
 
-{finnishMode && (
-  <div className="text-center mt-6">
-    <button
-      onClick={() => conversationMenu()}
-      className={`px-6 py-3 rounded-lg text-white text-lg transition-transform hover:scale-105 ${
-        !allFinnishAnswered
-          ? "opacity-40 cursor-not-allowed"
-          : "bg-teal-900 hover:text-teal-900 hover:bg-teal-300"
-      }`}
-    >
-      Finish
-    </button>
-  </div>
-)}
-      </div>
+        {finnishMode && (
+          <div className="text-center mt-6">
+            <button
+              onClick={() => conversationMenu()}
+              className={`px-6 py-3 rounded-lg text-white text-lg transition-transform hover:scale-105 ${
+                !allFinnishAnswered
+                  ? "opacity-40 cursor-not-allowed"
+                  : "bg-teal-900 hover:text-teal-900 hover:bg-teal-300"
+              }`}
+            >
+              Finish
+            </button>
+          </div>
+        )}
+      </PageWrapper>
     </div>
-        </div>
-  );
-}
+</BodyWrapper>
+
+)}
 
 export default ConversationPractice;

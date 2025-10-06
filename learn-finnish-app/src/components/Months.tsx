@@ -1,6 +1,7 @@
 // src/components/Months.js
 import React from 'react';
 import { Link } from 'react-router-dom';
+import CardWrapper from './CardWrapper';
 
 function Months() {
   const months = [
@@ -19,10 +20,9 @@ function Months() {
   };
 
   return (
-    <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg w-full max-w-md">
-      <h2 className="text-2xl font-semibold text-teal-700 mb-4">Finnish Months</h2>
+    <CardWrapper title="Finnish Months">
 
-      <section className="bg-gray-900 rounded-lg border border-gray-300 p-4 mb-6">
+      <section className="bg-gray-900 rounded-lg border border-teal-800 p-4 mb-6">
 
       <ul className="list-disc pl-5 text-teal-200">
         {months.map((month, index) => (
@@ -48,7 +48,7 @@ function Months() {
                       Learn More
                   </button>
               </Link>
-    </div>
+    </CardWrapper>
   );
 }
 

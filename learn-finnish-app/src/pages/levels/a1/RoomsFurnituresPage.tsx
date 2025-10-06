@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { roomData } from "../../../data/basicA1";
 
 import ConjugationTable from "../../../components/ConjugationTable";
+import BodyWrapper from "../../../components/BodyWrapper";
+import NavWrapper from "../../../components/NavWrapper";
+
 
 
 function RoomsFurnituresPage(){
@@ -10,10 +13,9 @@ function RoomsFurnituresPage(){
     
 return (
 
- <div className="min-h-screen bg-teal-50 p-6 font-['Roboto']">
-      <Link to="/beginars" className="text-teal-700 hover:underline bg-teal-100 mb-6 inline-block fixed top-0 left-0 w-full  px-4 py-2 shadow-md">
-        ← Back to Beginars Lesson
-      </Link>
+<BodyWrapper>
+                
+            <NavWrapper link="/beginars" title="← Back to Beginars Lesson"> </NavWrapper>
 
 
 
@@ -130,7 +132,7 @@ return (
       </div>
            
     </div>
-    </div>
+    </BodyWrapper>
 
       );
 

@@ -4,7 +4,8 @@ import { Link, useParams } from 'react-router-dom';
 import { illnessData } from '../../../data/basicA1'; 
 // Removed unused basicA1 import
 import SetupQuiz from '../../../components/SetupQuiz';
-
+import BodyWrapper from '../../../components/BodyWrapper';
+import NavWrapper from '../../../components/NavWrapper';
 
 interface Illness {
   english: string;
@@ -46,14 +47,17 @@ function IllnessQuizPage() {
 
 
    return (
-    <div className="min-h-screen bg-teal-50 p-6 font-['Roboto']">
-    <Link to="/beginars/talking-about-simple-illnesses/illnesss" className="text-teal-700 hover:underline bg-teal-100 mb-6 inline-block fixed top-0 left-0 w-full  px-4 py-2 shadow-md">
-      ← Back to Basic Illness Lessons
-    </Link>
+
+
+         <BodyWrapper>
+
+      <NavWrapper link="/beginars/talking-about-simple-illnesses/illness" title="← Back to Basic Illness Lessons"> </NavWrapper>
+
           <div className='mt-16'>
       <SetupQuiz items={allItems} quizType={quizType}  title={title} />
     </div>
-    </div>
+
+      </BodyWrapper>
 
 
   );

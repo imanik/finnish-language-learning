@@ -3,15 +3,16 @@ import React from 'react';
 import {Link, useParams} from 'react-router-dom';
 import {numberData} from '../../../data/basicA1'; // Removed unused basicA1 import
 import SetupQuiz from '../../../components/SetupQuiz'; // Changed to SetupQuiz
+import BodyWrapper from '../../../components/BodyWrapper';
+import NavWrapper from '../../../components/NavWrapper';
+
 // import { keyboard } from '@testing-library/user-event/dist/keyboard';
 
-// interface Number {
-//   english: string;
-//   finnish: string;
-//   pronunciation: string;
-// }
-
-
+interface Number {
+  english: string;
+  finnish: string;
+  pronunciation: string;
+}
 
 
 function NumbersQuizPage() {
@@ -40,23 +41,23 @@ function NumbersQuizPage() {
   
   const quizType = (quizTypeMap[keyType] === "sentence" ? "sentence" : quizTypeMap[keyType] === "hard" ? "hard" : "basic") as "basic" | "ordinal" | "sentence" | "hard"; // Determine quiz type based on numberTypeKey
 
-  // const allItems = (numberData[keyType as keyof typeof numberData] || numberData.basicNumbers) as number[] ; // Type assertion to Number[]
-      const allItems = numberData[keyType as keyof typeof numberData] ?? numberData.basicNumbers;
+   const allItems = (numberData[keyType as keyof typeof numberData] || numberData.basicNumbers) as Number[] ; // Type assertion to Number[]
+   //   const allItems = numberData[keyType as keyof typeof numberData] ?? numberData.basicNumbers;
   
   const title = quizType === "sentence" ? "Numbers In Sentence " : quizType === "hard" ? "hard numbers " : "basic numbers ";
 
   return (
-    <div className="min-h-screen bg-teal-50 p-6 font-['Roboto']">
-    <Link to="/beginars/number/ready-one-two-three" className="text-teal-700 hover:underline bg-teal-100 mb-6 inline-block fixed top-0 left-0 w-full  px-4 py-2 shadow-md">
-      ← Back to Basic Number Lessons
-    </Link>
 
-    <div className='mt-16'>
-      <SetupQuiz items={allItems} quizType={quizType} title={title} />
+                 <BodyWrapper>
+
+      <NavWrapper link="/beginars/number/ready-one-two-three" title="← Back to Basic Number Lessons"> </NavWrapper>
+
+          <div className='mt-16'>
+      <SetupQuiz items={allItems} quizType={quizType}  title={title} />
     </div>
 
-</div>
-);
+      </BodyWrapper>
+  )
 }
 
 export default NumbersQuizPage;

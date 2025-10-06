@@ -1,72 +1,74 @@
 import React, { useState } from "react";
-import { loginUser } from "../../api";
 import { useAuth } from "../../contexts/AuthContext";
+import CardWrapper from "../CardWrapper";
 
-function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  // const [errorMsg, setErrorMsg] = useState("");
+interface LoginProps {
+  onSwitch?: () => void;   // 👈 a function passed from MainContent
+}
 
-
-  
-  // Inside Login component:
+function Login({ onSwitch }: LoginProps) {
   const { login } = useAuth();
-  
-  
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
+
   const handleSubmit = async (e: React.FormEvent) => {
-  
+    e.preventDefault();
+    setErrorMsg("");
+    console.log("Submitting login…");
     try {
-      const user = await loginUser(email, password);
-      login(user); // Save to context and localStorage
-      console.log("Logged in:", user);
-    } catch (error: unknown) {
-    
+      const user = await login(username, password);  // 🔑 this updates context + UI
+      console.log("Login successful", user);
+    } catch (error) {
+      if (error instanceof Error) {
+        setErrorMsg(error.message);
+      } else {
+        setErrorMsg("Unknown signup error.");
+      }
     }
   };
 
-  // const handleSubmit = async (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   setErrorMsg("");
-
-  //   try {
-  //     const user = await loginUser(email, password);
-  //     console.log("Logged in:", user);
-  //     // TODO: Save user info in context or localStorage
-  //   } catch (error: unknown) {
-  //     if (error instanceof Error) {
-  //       setErrorMsg(error.message);
-  //     } else {
-  //       setErrorMsg("Unknown login error.");
-  //     }
-  //   }
-  // };
+ 
 
   return (
-    <div className="p-4 max-w-md mx-auto">
-      <h2 className="text-xl font-bold mb-4">Login</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="w-full border p-2 mb-2"
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="w-full border p-2 mb-2"
-          required
-        />
-        
-        <button type="submit" className="bg-blue-500 text-white px-4 py-2">
-          Login
+    <CardWrapper title="Track Your Progress">
+      <section className="bg-gray-900 rounded-lg border border-teal-700 p-4 mb-6">
+        <h2 className="text-xl text-teal-400 font-bold mb-4">Login</h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            className="bg-gray-900 border border-teal-800 text-teal-200 mb-5 p-2 rounded w-full focus:outline-none focus:ring-2 focus:ring-teal-500"
+            required
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="bg-gray-900 border border-teal-800 text-teal-200 mb-5 p-2 rounded w-full focus:outline-none focus:ring-2 focus:ring-teal-500"
+            required
+          />
+          {errorMsg && <p className="text-red-500">{errorMsg}</p>}
+          <button type="submit" className="bg-teal-900 text-white px-4 py-2 rounded hover:bg-teal-300 hover:text-teal-900 transform hover:scale-110 transition duration-2002">
+            Login
+          </button>
+        </form>
+        <p className="mt-4 text-sm">
+        Don’t have an account?{" "}
+        <button
+          type="button"
+          onClick={onSwitch}
+          className="text-teal-500 hover:underline"
+        >
+          Sign up
         </button>
-      </form>
-    </div>
+      </p>
+
+      </section>
+    </CardWrapper>
   );
 }
 

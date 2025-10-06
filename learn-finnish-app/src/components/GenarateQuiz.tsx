@@ -34,8 +34,6 @@ function GenerateQuiz<T extends QuizItem>({
   onNext,
   onAnswer,
   onReset,
-
-  // quizScore,
    handleQuizComplete,
   
 }: GenerateQuizProps<T>) {
@@ -49,14 +47,10 @@ function GenerateQuiz<T extends QuizItem>({
   // Stores the current quiz question, correct answer, and answer options
   const [quizState, setQuizState] = useState<QuizState<T> | null>(null);
 
-  // Function to handle the Submit button click
-  const handleSubmit = () => {
-    if (!quizState || selected === null) return; // Guard clause: return if quizState isn't ready or no answer selected
-    const isAnswerCorrect = selected === quizState.correctAnswer;
-    setIsCorrect(isAnswerCorrect); // Store result
-    onAnswer(isAnswerCorrect); // Inform parent component
-    handleQuizComplete(isAnswerCorrect); // Call the quiz completion handler
-  };
+  const [animate, setAnimate] = useState<string>('enter')
+
+  const [isActive, setIsActive] = useState<boolean>(false)
+
 
   // This effect runs whenever a new question item is passed to this component
   useEffect(() => {
@@ -89,21 +83,49 @@ function GenerateQuiz<T extends QuizItem>({
     setIsCorrect(null);
   }, [item, optionsPool]);
 
+  
+  // Function to handle the Submit button click
+  const handleSubmit = () => {
+    if (!quizState || selected === null) return; // Guard clause: return if quizState isn't ready or no answer selected
+    
+
+    setIsActive(true)
+    console.log('isActive,', quizState)
+    const isAnswerCorrect = selected === quizState.correctAnswer;
+    setIsCorrect(isAnswerCorrect); // Store result
+    onAnswer(isAnswerCorrect); // Inform parent component
+    handleQuizComplete(isAnswerCorrect); // Call the quiz completion handler
+  };
+
+  const handleNextQuestion = () => {
+
+    setAnimate("exit")
+    setIsActive(false)
+    setTimeout(() => {
+      onNext()
+      setAnimate('enter')
+
+    },600)
+
+  }
+
   // Render nothing until quizState is ready
   if (!quizState) return null;
 
   return (
     <div>
 
-    <div className="bg-dark-900 p-6 rounded-lg shadow-lg max-w-2xl mx-auto border border-teal-900">
+    <div className={`transition-all duration-300 ease-in-out ${animate === 'enter' ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}>
       {/* Quiz Question */}
       <h3 className="text-xl font-semibold text-teal-200 mb-4">
         What is the meaning of "<span className="text-xl text-red-500">{quizState.question}</span>"?
       </h3>
 
       {/* List of Options */}
-      <div className="space-y-2">
         {quizState.shuffledOptions.map((option, index) => (
+      <div className={` ${isActive && option.finnish === quizState.correctAnswer ?  'border border-teal-900': ' '} rounded-xl shadow-xl p-6 max-w-xl mx-auto mb-6 
+                 transition transform duration-300 ease-out
+                 hover:-translate-y-1 hover:scale-105`}>
           <label key={index} className="block">
             <input
               type="radio"
@@ -119,8 +141,8 @@ function GenerateQuiz<T extends QuizItem>({
               ({option.pronunciation ?? " "}) {/* Optional pronunciation */}
             </span>
           </label>
-        ))}
       </div>
+        ))}
 
       {/* Submit / Feedback / Next Buttons */}
       {isCorrect === null ? (
@@ -140,7 +162,7 @@ function GenerateQuiz<T extends QuizItem>({
               : `Wrong! The correct answer is "${quizState.correctAnswer}".`}
           </p>
           <button
-            onClick={onNext}
+            onClick={handleNextQuestion}
             className="mt-2 bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-700 m-4"
           >
             Next Question

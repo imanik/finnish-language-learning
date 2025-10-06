@@ -1,6 +1,7 @@
     // src/components/Colors.js
     import React, { useState, useEffect } from 'react';
     import { Link } from "react-router-dom";
+import CardWrapper from './CardWrapper';
 
     function Colors() {
     const [showAnswer, setShowAnswer] = useState(false);
@@ -59,24 +60,13 @@ useEffect(() => {
 
 
 
-    // const promptForNameAndUpdateLeaderboard = (newScore: number) => {
-    //     const name = prompt('Enter your name for the leaderboard:', userName || 'Player');
-    //     if (name && newScore > 0) {
-    //     const updatedLeaderboard = [...leaderboard, { name, score: newScore }]
-    //         .sort((a, b) => b.score - a.score)
-    //         .slice(0, 5);
-    //     setLeaderboard(updatedLeaderboard);
-    //     setUserName(name); // Save name for next entry
-    //     }
-    // };
 
     return (
-         <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg w-full max-w-md">
-        <h2 className="text-2xl font-semibold text-teal-700 mb-4">Finnish Colors</h2>
+         <CardWrapper title="Colors">
         
 
       
-      <section className="bg-gray-900 rounded-lg border border-gray-300 p-4 mb-6">
+    <section className="bg-gray-900 rounded-lg border border-teal-800 p-4 mb-6">
      
 
         
@@ -102,7 +92,7 @@ useEffect(() => {
         <h3 className="text-xl font-medium text-gray-800 mb-2">
             Quiz: What’s "{colors[currentColor].english}" in Finnish?
         </h3>
-        <p className="text-gray-700 mb-2">Time left: {timeLeft}s</p>
+        <p className="text-gray-100 mb-2">Time left: {timeLeft}s</p>
         <div className="w-full bg-gray-200 rounded-full h-2.5 mb-4">
             <div
             className="bg-teal-700 h-2.5 rounded-full transition-all duration-1000"
@@ -135,8 +125,7 @@ useEffect(() => {
         </Link>
 
 
-
-        </div>
+    </CardWrapper>
     );
     }
 

@@ -4,7 +4,8 @@ import { Link, useParams } from 'react-router-dom';
 import { foodData } from '../../../data/basicA1'; 
 // Removed unused basicA1 import
 import SetupQuiz from '../../../components/SetupQuiz';
-
+import BodyWrapper from '../../../components/BodyWrapper';
+import NavWrapper from '../../../components/NavWrapper';
 
 interface FoodsDrinks {
   english: string;
@@ -47,15 +48,17 @@ function FoodsDrinksQuizPage() {
 
 
    return (
-    <div className="min-h-screen bg-teal-50 p-6 font-['Roboto']">
-    <Link to="/beginars/most-common-foods-and-drinks/foods-drinks" className="text-teal-700 hover:underline bg-teal-100 mb-6 inline-block fixed top-0 left-0 w-full  px-4 py-2 shadow-md">
-      ← Back to Basic Foods & Drinks Lessons
-    </Link>
+
+
+     <BodyWrapper>
+
+      <NavWrapper link="/beginars/most-common-foods-and-drinks/foods-drinks" title="← Back to Basic Foods & Drinks Lessons"> </NavWrapper>
+
           <div className='mt-16'>
       <SetupQuiz items={allItems} quizType={quizType}  title={title} />
     </div>
-    </div>
 
+      </BodyWrapper>
 
   );
 }

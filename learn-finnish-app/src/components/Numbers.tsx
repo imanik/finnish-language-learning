@@ -1,6 +1,7 @@
     // src/components/Numbers.js
     import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import CardWrapper from './CardWrapper';
 // import { a1Topics } from '../data';
 
     function Numbers() {
@@ -21,8 +22,7 @@ import { Link } from 'react-router-dom';
     };
 
     return (
-        <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg w-full max-w-md">
-        <h2 className="text-2xl font-semibold text-teal-700 mb-4">Finnish Numbers</h2>
+        <CardWrapper title="Finnish Numbers">
         <button
             onClick={() => setShowPronunciation(!showPronunciation)}
             className="bg-teal-900 text-white px-4 py-2 rounded hover:bg-teal-300 hover:text-teal-900 transform hover:scale-110 transition duration-200 mb-4"
@@ -30,7 +30,7 @@ import { Link } from 'react-router-dom';
             {showPronunciation ? 'Hide Pronunciation' : 'Show Pronunciation'}
         </button>
 
-        <section className="bg-gray-900 rounded-lg border border-gray-300 p-4 mb-6">
+        <section className="bg-gray-900 rounded-lg border border-teal-800 p-4 mb-6">
 
 
         <ul className="list-disc pl-5 text-teal-200">
@@ -58,7 +58,7 @@ import { Link } from 'react-router-dom';
             </button>
         </Link>
 
-        </div>
+        </CardWrapper>
     );
     }
 

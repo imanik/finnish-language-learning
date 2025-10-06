@@ -1,4 +1,4 @@
-import { QuizProvider } from './QuizContext'; // import QuizProvider
+import { QuizProvider } from '../contexts/QuizContext'; // import QuizProvider
 import UserStats from './UserStats';
 
 interface MainContentProps {

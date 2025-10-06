@@ -26,14 +26,17 @@ function WhatLanguageQuizPage() {
     : "basicLanguage";
 
     const quizTypeMap: Record<string, string> = {
-      basicLanguage: 'basic language', 
-      languageSentence: ' language in sentence', 
+      basicLanguage: 'basic', 
+      hardLanguage: 'hard', 
+      languageSentence: 'sentence', 
     };
 
-    const quizType = quizTypeMap[keyType] as 'basic' | 'sentence';
+    const quizType = (quizTypeMap[keyType] === "sentence" ? "sentence" : quizTypeMap[keyType] === "hard" ? "hard" : "basic") as "basic" | "sentence" | "hard"; // Determine quiz type based on numberTypeKey
+ 
 
     const allItems = (langaugeData[keyType as keyof typeof langaugeData] || langaugeData.basicLanguage) as Language[];
 
+    const title = quizType === 'sentence' ? "Language in sentence " : quizType === "hard" ? "Hard Language " : "basic language ";
 
    // Render the component UI.
    return (

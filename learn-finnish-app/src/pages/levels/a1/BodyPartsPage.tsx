@@ -2,16 +2,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { bodyPartData } from "../../../data/basicA1";
 import ConjugationTable from "../../../components/ConjugationTable";
+import BodyWrapper from "../../../components/BodyWrapper";
+import NavWrapper from "../../../components/NavWrapper";
+
 
 function BodyPartsPage(){
 
     
 return (
 
- <div className="min-h-screen bg-teal-50 p-6 font-['Roboto']">
-      <Link to="/beginars" className="text-teal-700 hover:underline bg-teal-100 mb-6 inline-block fixed top-0 left-0 w-full  px-4 py-2 shadow-md">
-        ← Back to Beginars Lesson
-      </Link>
+<BodyWrapper>
+                
+            <NavWrapper link="/beginars" title="← Back to Beginars Lesson"> </NavWrapper>
 
 
 
@@ -154,20 +156,9 @@ return (
                                   {/* <p className="text-teal-600 mt-2"><strong>🧠 Tip:</strong> In Finnish, the months are not capitalized. Each ends in -kuu, meaning "moon/month".</p> */}
                   </section>
                   {/* <h4 className="text-xl font-semibold text-teal-700 mb-6"><span className="font-medium">🔸 Adjectives in Nominative </span> (used with "päivä") </h4> */}    
-      </div>
-     
-      
-
-        
-
-
-
-      
-
-
-           
+      </div>   
     </div>
-    </div>
+    </BodyWrapper>
 
       );
 

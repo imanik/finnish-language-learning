@@ -4,8 +4,8 @@ import { Link, useParams } from 'react-router-dom';
 import { verbData } from '../../../data/basicA1'; 
 // Removed unused basicA1 import
 import SetupQuiz from '../../../components/SetupQuiz';
-// import GenerateHardQuiz from '../../../components/GenerateHardQuiz';
-
+import BodyWrapper from '../../../components/BodyWrapper';
+import NavWrapper from '../../../components/NavWrapper';
 
 interface Verb {
   english: string;
@@ -45,18 +45,17 @@ function VerbsQuizPage() {
   const title = (quizType === "hard" ? "Hard Verbs " : "Basic Verbs ");
  
    return (
-    <div className="min-h-screen bg-teal-50 p-6 font-['Roboto']">
-    <Link to="/beginars/most-common-verbs/basic-verbs" className="text-teal-700 hover:underline bg-teal-100 mb-6 inline-block fixed top-0 left-0 w-full  px-4 py-2 shadow-md">
-      ← Back to Basic Verbs Lessons
-    </Link>
+
+
+                 <BodyWrapper>
+
+      <NavWrapper link="/beginars/most-common-verbs/basic-verbs" title="← Back to Basic Verbs Lessons"> </NavWrapper>
+
           <div className='mt-16'>
-      <SetupQuiz items={allItems} quizType={quizType} title = {title}  />
-    </div>
-    {/* <div className='mt-16'>
-      <GenerateHardQuiz items={allItems} quizType={quizType}  />
-    </div> */}
+      <SetupQuiz items={allItems} quizType={quizType}  title={title} />
     </div>
 
+      </BodyWrapper>
 
   );
 }

@@ -2,6 +2,8 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { nationalityData } from "../../../data/basicA1";
 import SetupQuiz from "../../../components/SetupQuiz"; // Changed to SetupQuiz
+import BodyWrapper from "../../../components/BodyWrapper";
+import NavWrapper from "../../../components/NavWrapper";
 
 
 interface Nationality {
@@ -31,23 +33,30 @@ function NationalityQuizPage() {
           // Create a map for type "basic"
 
           const quizTypeMap: Record<string, string> = {
-            nationalitySentence : 'Nationality Sentence',
+            basicNationality: "basic",
+            sentenceNationality: "sentence",
+            hardNationality: "hard",
           }
 
-          const quizType = (quizTypeMap[keyType] || 'basic') as 'basic';
+          const  quizType = (quizTypeMap[keyType] === "sentence" ? "sentence" : quizTypeMap[keyType] === "hard" ? "hard" : "basic") as "basic" | "sentence" | "hard"; 
           const allItems = (nationalityData[keyType as keyof typeof nationalityData] || nationalityData.nationalty) as Nationality[] ; // Type assertion to Number[]
+
+            const title = quizType === "sentence" ? "Nationality In Sentence" : quizType === "hard" ? "Hard Nationality " : "Basic Nationality ";
+ 
       
 // Render the component UI.
 return (
-<div className="min-h-screen bg-teal-50 p-6 font-['Roboto']">
-<Link to="/beginars/nationality/what-nationality-are-you" className="text-teal-700 hover:underline bg-teal-100 mb-6 inline-block fixed top-0 left-0 w-full  px-4 py-2 shadow-md">
- ← Back to Nationality Lessons
-</Link>
-     <div className='mt-16'>
-      <SetupQuiz items={allItems} quizType={quizType}  />
-    </div>
-</div>
 
+
+             <BodyWrapper>
+
+      <NavWrapper link="/beginars/nationality/what-nationality-are-you" title="← Back to Basic Nationality Lessons"> </NavWrapper>
+
+          <div className='mt-16'>
+      <SetupQuiz items={allItems} quizType={quizType}  title={title} />
+    </div>
+
+      </BodyWrapper>
 
 );
   

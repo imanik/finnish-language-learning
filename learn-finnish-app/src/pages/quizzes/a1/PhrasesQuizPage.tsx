@@ -4,6 +4,9 @@ import { Link, useParams } from 'react-router-dom';
 import { phraseData } from '../../../data/basicA1'; 
 // Removed unused basicA1 import
 import SetupQuiz from '../../../components/SetupQuiz';
+import BodyWrapper from '../../../components/BodyWrapper';
+import NavWrapper from '../../../components/NavWrapper';
+
 
 
 interface Phrases {
@@ -28,29 +31,36 @@ function PhrasesQuizPage() {
     // console.log("numberTypeKey",keyType);
  
    const quizTypeMap: Record<string, string> = {
-     phrases: "phrases vocabulary",
-     phrasesSentence: "phrases in sentence",
-
+     basicPhrases: "basic",
+    sentencePhrases: "sentence",
+    hardPhrases: "hard",
    };
+
+
    
-   const quizType = (quizTypeMap[keyType] || "basic") as "basic" | "sentence"; // Determine quiz type based on numberTypeKey
+   const quizType = (quizTypeMap[keyType] || "sentence" ? "sentence" : quizTypeMap[keyType] === "hard" ? "hard" : "basic") as "basic" | "ordinal" | "sentence" | "hard"; // Determine quiz type based on numberTypeKey
  
    const allItems = (phraseData[keyType as keyof typeof phraseData] || phraseData.phrases) as Phrases[] ; // Type assertion to Number[]
    
     // console.log("Map",quizTypeMap);
  
+  const title = quizType === "sentence" ? "Phrases In Sentence " : quizType === "hard" ? "hard phrases " : "basic phrases ";
 
 
 
    return (
-    <div className="min-h-screen bg-teal-50 p-6 font-['Roboto']">
-    <Link to="/beginars/some-survival-finnish-phrases/phrases" className="text-teal-700 hover:underline bg-teal-100 mb-6 inline-block fixed top-0 left-0 w-full  px-4 py-2 shadow-md">
-      ← Back to Basic Phrases Lessons
-    </Link>
+
+
+                     <BodyWrapper>
+
+      <NavWrapper link="/beginars/some-survival-finnish-phrases/phrases" title="← Back to Basic Phrases Lessons"> </NavWrapper>
+
           <div className='mt-16'>
-      <SetupQuiz items={allItems} quizType={quizType}  />
+      <SetupQuiz items={allItems} quizType={quizType}  title={title} />
     </div>
-    </div>
+
+      </BodyWrapper>
+
 
 
   );

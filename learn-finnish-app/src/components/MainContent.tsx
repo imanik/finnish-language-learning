@@ -1,5 +1,4 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
+import React, {useState} from 'react';
 import UserStats from './UserStats';
 import Beginars from './Beginars';
 import Greetings from './Greetings';
@@ -8,31 +7,57 @@ import Colors from './Colors';
 import Days from './Days';
 import Months from './Months';
 import Grammars from './Grammars';
-import { useQuiz } from './QuizContext'; // Make sure to import useQuiz
+import Profile from './backend/profile';
+import Login from './backend/Login';
+import SignupUser from './backend/Signup';
+import { useQuiz } from './../contexts/QuizContext'; // Make sure to import useQuiz
+import { useAuth } from '../contexts/AuthContext';
+import { useTheme } from '../contexts/ThemeContext';
+import { useLocation } from 'react-router-dom';
+import DailyChallenge from './daily/DailyChallenge';
 
 function MainContent() {
+
   // Get quizScore and handleQuizComplete directly from the context
   const { quizScore, handleQuizComplete } = useQuiz();
 
-  const location = useLocation();
-  const containerClass = location.pathname === "/"
-    ? "bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg w-full max-w-md"
-    : "bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-6";
+
+  const [showSignup, setShowSignup] = useState<boolean>(false)
+  const {user} = useAuth()
+
+  const {theme} = useTheme();
+  
+    let containerClass = "min-h-screen p-6 grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center font-['Roboto']"
+  
+    if(theme === 'light'){
+        containerClass += " bg-teal-50";
+    }else{
+     containerClass += ' bg-gray-900'
+      
+    }
+
 
   return (
-    <div className="min-h-screen bg-teal-50 p-6 grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center font-['Roboto']">
-      <h1 className="text-4xl font-bold text-teal-800 mb-8 col-span-full text-center">
-        Welcome to Finnish Learning
+    <div className={containerClass}>
+      <h1 className="text-4xl font-bold text-teal-500 mb-8 col-span-full text-center">
+        Welcome {user ? user.name : 'Guest'} to Finnish Learning
       </h1>
-      <div className={containerClass}>
+     {/* <div className={containerClass}> */}
         {/* Directly using the context's quizScore and handleQuizComplete */}
         <UserStats quizScore={quizScore} handleQuizComplete={handleQuizComplete} />
-      </div>
+      {/* </div> */}
       <Beginars />
       <Greetings />
       <Numbers />
       <Colors />
       <Days />
+      {user ? (
+      <Profile />
+      ) : showSignup ? (
+      <SignupUser onSwitch={() => setShowSignup(false)} />
+      ) : (
+      <Login onSwitch={() => setShowSignup(true)} />
+      )}
       <Months />
       <Grammars />
     </div>

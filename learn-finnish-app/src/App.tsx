@@ -4,8 +4,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainContent from './components/MainContent';
 // import {loginUser} from './api';
 // import {loginUser, signupUser} from './api';
-import { QuizProvider } from './components/QuizContext';
+import { QuizProvider } from './contexts/QuizContext';
 import { AuthProvider } from './contexts/AuthContext';
+import { ThemeProvider } from './contexts/ThemeContext';
 
 
 
@@ -60,6 +61,7 @@ import ConversationPractice from './pages/conversations/ConversationPractice';
 import Login from './components/backend/Login';
 import Signup from './components/backend/Signup';
 import Dashboard from './pages/DashboardPage';
+import DailyChallenge from './components/daily/DailyChallenge';
 
 
 function App() {
@@ -69,7 +71,9 @@ function App() {
 
   return (
 
-    <AuthProvider> 
+    <AuthProvider>
+      <ThemeProvider>
+         
     <QuizProvider>
     <BrowserRouter basename={basename}>
       <Routes>
@@ -81,6 +85,7 @@ function App() {
 
         <Route path="/beginars" element={<BeginarsPage />} />
         <Route path="/conversation" element={<ConversationPage />} />
+        <Route path="/daily-challenge" element={<DailyChallenge />} />
 
         <Route path="/beginars/what-languages/:topic" element={<WhatLanguages />} />
         <Route path="/beginars/what-languages/:subtopic/:child" element={<WhatLanguageQuizPage />} />
@@ -163,6 +168,7 @@ function App() {
       
     </BrowserRouter>
  </QuizProvider>
+ </ThemeProvider>
  </AuthProvider>
 
 

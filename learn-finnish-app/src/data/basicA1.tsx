@@ -1481,7 +1481,6 @@ export const placeData = {
 export const animalData = {
     animals: [
         { finnish: "koira", english: "dog", pronunciation: "KOI-ra" },
-        { finnish: "koira", english: "dog", pronunciation: "KOI-ra" },
         { finnish: "kissa", english: "cat", pronunciation: "KIS-sa" },
         { finnish: "kani", english: "rabbit (bunny)", pronunciation: "KA-ni" },
         { finnish: "marsu", english: "guinea pig", pronunciation: "MAR-su" },

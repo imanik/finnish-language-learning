@@ -2,17 +2,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { dayData } from "../../../data/basicA1";
-
 import ConjugationTable from "../../../components/ConjugationTable";
+import BodyWrapper from "../../../components/BodyWrapper";
+import NavWrapper from "../../../components/NavWrapper";
+
 
 
 function DaysPage() {
     
     return (
-<div className="min-h-screen bg-teal-50 p-6 font-['Roboto']">
-      <Link to="/beginars" className="text-teal-700 hover:underline bg-teal-100 mb-6 inline-block fixed top-0 left-0 w-full  px-4 py-2 shadow-md">
-        ← Back to Beginars Lesson
-      </Link>
+<BodyWrapper>
+                
+            <NavWrapper link="/beginars" title="← Back to Beginars Lesson"> </NavWrapper>
 
       <div className="mt-16">
 
@@ -62,9 +63,6 @@ function DaysPage() {
 
           <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-6">
 
-                {/* <h2 className="text-2xl font-semibold text-teal-800 mb-4">🗓️ Days of the Week – Viikonpäivät (A1 Level)</h2> */}
-                {/* <!-- Header --> */}
-                {/* <h4 className="text-xl font-semibold text-teal-700 mb-6"><span className="font-medium">“The world is colorful (värikäs)”</span>  – let’s learn how to describe it in Finnish!</h4> */}
 
                   <h2 className="text-2xl font-semibold text-teal-600 mb-3">🔁 3. Saying "Every [Day]" → Use -(i)sin or joka + base form</h2>
                 
@@ -199,15 +197,8 @@ function DaysPage() {
                 </button>
             </Link>
           </div>
-
-          
-
-          
-
-          
-
         </div>
-        </div>
+        </BodyWrapper>
         
     );
 

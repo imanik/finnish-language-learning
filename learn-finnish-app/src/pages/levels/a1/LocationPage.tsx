@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import BodyWrapper from "../../../components/BodyWrapper";
+import NavWrapper from "../../../components/NavWrapper";
+
 // import { locationData } from "../../../data/basicA1";
 
 
@@ -9,10 +12,9 @@ function LocationPage(){
     
 return (
 
-<div className="min-h-screen bg-teal-50 p-6 font-['Roboto']">
-      <Link to="/beginars" className="text-teal-700 hover:underline bg-teal-100 mb-6 inline-block fixed top-0 left-0 w-full  px-4 py-2 shadow-md">
-        ← Back to Beginars Lesson
-      </Link>
+<BodyWrapper>
+                
+            <NavWrapper link="/beginars" title="← Back to Beginars Lesson"> </NavWrapper>
 
       <div className="mt-16">
       <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-6">
@@ -175,7 +177,7 @@ return (
 
       
     </div>
-    </div>
+    </BodyWrapper>
 
       );
 

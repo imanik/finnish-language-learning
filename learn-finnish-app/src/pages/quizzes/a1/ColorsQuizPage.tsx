@@ -3,6 +3,8 @@ import React from 'react';
 import {Link, useParams} from 'react-router-dom';
 import { colorData } from '../../../data/basicA1';
 import SetupQuiz from '../../../components/SetupQuiz'; // Changed to SetupQuiz
+import BodyWrapper from '../../../components/BodyWrapper';
+import NavWrapper from '../../../components/NavWrapper';
 
 interface Color {
   english: string;
@@ -40,17 +42,13 @@ interface Color {
  
     return (
 
-           <div className="min-h-screen bg-teal-50 p-6 font-['Roboto']">
-           <Link to="/beginars/color/rainbow" className="text-teal-700 hover:underline bg-teal-100 mb-6 inline-block fixed top-0 left-0 w-full  px-4 py-2 shadow-md">
-             ← Back to Basic Color Lessons
-           </Link>
 
-           <div className='mt-16'>
-      <SetupQuiz items={allItems} quizType={quizType} title={title} />
+         <BodyWrapper>
+     <NavWrapper link="/beginars/color/rainbow" title="← Back to Basic  Color Lessons"> </NavWrapper>
+          <div className='mt-16'>
+      <SetupQuiz items={allItems} quizType={quizType} title= {title}/>
     </div>
-     
-     </div>
- 
+    </BodyWrapper>
  
    );
 }

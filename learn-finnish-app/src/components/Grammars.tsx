@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
+import CardWrapper from "./CardWrapper";
 
 
 
@@ -23,8 +24,7 @@ function Grammars() {
   ];
 
   return (
-    <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg w-full max-w-md">
-      <h2 className="text-2xl font-semibold text-teal-700 mb-4">Finnish Grammar (Coming Soon)</h2>
+    <CardWrapper title="Finnish Grammar (Coming Soon)">
 
       <p className="text-gray-700 mb-4">Finnish grammar is known for its complexity, including cases, vowel harmony, and agglutination.</p>
       
@@ -34,7 +34,7 @@ function Grammars() {
       >
         {showPronunciation ? "Hide Pronunciation" : "Show Pronunciation"}
       </button>
-      <section className="bg-gray-900 rounded-lg border border-gray-300 p-4 mb-6">
+      <section className="bg-gray-900 rounded-lg border border-teal-800 p-4 mb-6">
       <ul className="list-disc pl-5 text-teal-200">
         {grammars.map((grammar, index) => (
           <li key={index} className="flex items-center justify-between m-2">
@@ -61,7 +61,7 @@ function Grammars() {
           Learn More
         </button>
       </Link>
-    </div>
+    </CardWrapper>
   );
   
   }

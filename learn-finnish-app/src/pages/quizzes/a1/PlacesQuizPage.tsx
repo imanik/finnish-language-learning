@@ -4,6 +4,9 @@ import { Link, useParams } from 'react-router-dom';
 import { placeData } from '../../../data/basicA1'; 
 // Removed unused basicA1 import
 import SetupQuiz from '../../../components/SetupQuiz';
+import BodyWrapper from '../../../components/BodyWrapper';
+import NavWrapper from '../../../components/NavWrapper';
+
 
 
 interface Place {
@@ -46,15 +49,16 @@ function PlacesQuizPage() {
 
 
    return (
-    <div className="min-h-screen bg-teal-50 p-6 font-['Roboto']">
-    <Link to="/beginars/most-common-places-in-the-city/places" className="text-teal-700 hover:underline bg-teal-100 mb-6 inline-block fixed top-0 left-0 w-full  px-4 py-2 shadow-md">
-      ← Back to Basic Places Lessons
-    </Link>
+
+                 <BodyWrapper>
+
+      <NavWrapper link="/beginars/most-common-places-in-the-city/places" title="← Back to Basic Places Lessons"> </NavWrapper>
+
           <div className='mt-16'>
-      <SetupQuiz items={allItems} quizType={quizType} title={title} />
-    </div>
+      <SetupQuiz items={allItems} quizType={quizType}  title={title} />
     </div>
 
+      </BodyWrapper>
 
   );
 }

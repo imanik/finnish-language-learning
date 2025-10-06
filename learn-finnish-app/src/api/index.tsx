@@ -1,31 +1,55 @@
-const BASE_URL = "http://localhost:5000/api";
+import React, { useEffect, useState } from "react";
+import ReactDOM from "react-dom/client";
+import App from './../App';
+import { checkAuth } from "./auth";
+import { AuthProvider } from "../contexts/AuthContext";
 
-export async function loginUser(email: string, password: string) {
-  const response = await fetch(`${BASE_URL}/login`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email, password }),
-  });
+async function Root() {
 
-  if (!response.ok) {
-    const error = await response.json();
-    throw new Error(error.error || "Login failed");
+    const [loading, setLoading] = useState(true)
+    const [user, setUser] = useState(null)
+
+    
+
+    useEffect(() => {
+
+        async function init() {
+
+            try{
+               
+                const data = await checkAuth()
+
+                if(data?.authenticated){
+                    setUser(data.user)
+                }
+
+            }catch(err){
+                console.log("Not authenticated");
+            }
+       finally {
+        setLoading(false);
+            
+        }
+    }
+
+    init()
+
+    },[])
+
+    if (loading) {
+    return <div className="text-center p-10">Loading...</div>;
   }
 
-  return await response.json();
+  return (
+    
+    <AuthProvider >
+      <App />
+    </AuthProvider>
+  );
 }
 
-export async function signupUser(username: string, email: string, password: string) {
-  const response = await fetch(`${BASE_URL}/signup`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ username, email, password }),
-  });
+const root = ReactDOM.createRoot(
+  document.getElementById("root") as HTMLElement
+);
 
-  if (!response.ok) {
-    const error = await response.json();
-    throw new Error(error.error || "Signup failed");
-  }
-
-  return await response.json();
-}
+Root()

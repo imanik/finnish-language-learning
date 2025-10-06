@@ -4,7 +4,8 @@ import { Link, useParams } from 'react-router-dom';
 import { dayData } from '../../../data/basicA1'; 
 // Removed unused basicA1 import
 import SetupQuiz from '../../../components/SetupQuiz';
-// import { title } from 'process';
+import BodyWrapper from '../../../components/BodyWrapper';
+import NavWrapper from '../../../components/NavWrapper';
 
 
 interface Day {
@@ -48,14 +49,14 @@ function DaysQuizPage() {
 
 
    return (
-    <div className="min-h-screen bg-teal-50 p-6 font-['Roboto']">
-    <Link to="/beginars/day/sunday-or-monday" className="text-teal-700 hover:underline bg-teal-100 mb-6 inline-block fixed top-0 left-0 w-full  px-4 py-2 shadow-md">
-      ← Back to Basic Days Lessons
-    </Link>
+
+
+             <BodyWrapper>
+     <NavWrapper link="/beginars/day/sunday-or-monday" title="← Back to Basic  Days Lessons"> </NavWrapper>
           <div className='mt-16'>
-      <SetupQuiz items={allItems} quizType={quizType}  title={title} />
+      <SetupQuiz items={allItems} quizType={quizType} title= {title}/>
     </div>
-    </div>
+    </BodyWrapper>
 
 
   );
