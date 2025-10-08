@@ -8,7 +8,7 @@ import NavWrapper from '../../../components/NavWrapper';
 
 // import { keyboard } from '@testing-library/user-event/dist/keyboard';
 
-interface Number {
+interface NumberItem {
   english: string;
   finnish: string;
   pronunciation: string;
@@ -41,8 +41,8 @@ function NumbersQuizPage() {
   
   const quizType = (quizTypeMap[keyType] === "sentence" ? "sentence" : quizTypeMap[keyType] === "hard" ? "hard" : "basic") as "basic" | "ordinal" | "sentence" | "hard"; // Determine quiz type based on numberTypeKey
 
-   const allItems = (numberData[keyType as keyof typeof numberData] || numberData.basicNumbers) as Number[] ; // Type assertion to Number[]
-   //   const allItems = numberData[keyType as keyof typeof numberData] ?? numberData.basicNumbers;
+   const allItems = (numberData[keyType as keyof typeof numberData] || numberData.basicNumbers) as NumberItem[] ; // Type assertion to Number[]
+   
   
   const title = quizType === "sentence" ? "Numbers In Sentence " : quizType === "hard" ? "hard numbers " : "basic numbers ";
 

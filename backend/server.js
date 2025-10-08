@@ -5,15 +5,19 @@ import  session  from 'express-session'
 
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 
 
 app.use(cors({
-  origin: "http://localhost:3000",  // frontend URL
-  credentials: true                 // allow cookies/sessions
+  origin: [
+    "http://localhost:3000",
+    "https://fin.ialc.study"
+  ],
+  credentials: true
 }));
+
 
 app.use(session({
   secret: process.env.SESSION_SECRET || "dev_secret",
@@ -21,7 +25,7 @@ app.use(session({
   saveUninitialized: false,
   cookie: {
     httpOnly: true,
-    secure: false, // https only if true
+    secure: process.env.NODE_ENV === "production",
     sameSite: 'lax'
 
   }
@@ -32,6 +36,15 @@ app.use(session({
 //   console.log("Incoming request:", req.method, req.url);
 //   next();
 // });
+
+app.get('/', (req, res) => {
+  res.send('✅ API is running successfully!');
+});
+
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok', message: 'Backend is running!' });
+});
+
 
 app.use('/api/auth', authRouter)
 
