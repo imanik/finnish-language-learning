@@ -4,7 +4,7 @@ const BASE_URL = "https://fin-learn-backend.onrender.com/api";
 
 export async function loginUser(username: string, password: string) {
 
-
+console.log("Base Url = ",BASE_URL)
   const response = await fetch(`${BASE_URL}/auth/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },

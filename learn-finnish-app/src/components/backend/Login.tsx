@@ -15,7 +15,7 @@ function Login({ onSwitch }: LoginProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMsg("");
-    console.log("Submitting login…");
+    console.log("Submitting login…", { username, password });
     try {
       const user = await login(username, password);  // 🔑 this updates context + UI
       console.log("Login successful", user);
