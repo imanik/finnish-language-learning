@@ -1,8 +1,9 @@
 # dependencies
 /node_modules
+/backend
 
 # build output
-/build
+#/build
 /dist
 /asset-manifest.json
 /index.html

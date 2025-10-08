@@ -25,8 +25,10 @@ function SignupUser({onSwitch}: SignupProps) {
       // TODO: Redirect or save user info
     } catch (error: unknown) {
       if (error instanceof Error) {
+        console.log("Unknown signup error.", error);
         setErrorMsg(error.message);
       } else {
+        console.log("Unknown signup error.");
         setErrorMsg("Unknown signup error.");
       }
     }
