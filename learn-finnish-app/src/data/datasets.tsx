@@ -1,6 +1,5 @@
 import { animalData, bodyPartData, langaugeData, adjectivesData, verbData, greetingsData, nationalityData, familyData, numberData,
     colorData, monthData, dayData, weatherData, roomData, foodData, clothesData, illnessData, placeData, phraseData, timeData,
-    locationData
      }  from "./basicA1";
 
      export const datasets = [
@@ -10,7 +9,6 @@ import { animalData, bodyPartData, langaugeData, adjectivesData, verbData, greet
   { name: "clothes", data: clothesData },
   { name: "family", data: familyData },
   { name: "body", data: bodyPartData },
-  { name: "location", data: locationData },
   { name: "language", data: langaugeData },
   { name: "place", data: placeData },
   { name: "number", data: numberData },

@@ -1,5 +1,5 @@
 import React, { useState} from "react";
-import GenarateDailyChallengeOne from "./GenarateDailyChallengeOne";
+import GenerateDailyChallengeOne from "./GenarateDailyChallengeOne";
 import PageWrapper from "../PageWrapper";
 import GenarateDailyChallengeTwo from "./GenarateDailyChallengeTwo";
 import GenarateDailyChallengeThree from "./GenarateDailyChallengeThree";
@@ -84,13 +84,13 @@ function ChallengeOne<T extends ChallengeItem>({items,quizType,title,onComplete}
             <PageWrapper title="Quiz">
 
                 <div className="bg-gray-900 rounded-lg border border-teal-800 p-4 mb-6">
-                            {/* <h3 className="text-xl font-semibold text-teal-200 mb-4">
-                                {quizType ? (title?.toUpperCase() || "QUIZ") : "DAILY"} QUIZ 
-                            </h3> */}
+                            <h3 className="text-xl font-semibold text-teal-200 mb-4">
+                                {quizType ? (title?.toUpperCase() || "QUIZ") : "BASIC"} QUIZ
+                            </h3>
                     
-                        {/* <p className="text-teal-300 mb-4">
+                        <p className="text-teal-300 mb-4">
                         Score: {score.correct}/{score.total} ({((score.correct / score.total) * 100 || 0).toFixed(1)}%)
-                        </p> */}
+                        </p>
 
                         {!quizItem ? (
                             <button
@@ -103,30 +103,29 @@ function ChallengeOne<T extends ChallengeItem>({items,quizType,title,onComplete}
                             <>
 
                             {activeChallenge === 1 && (
-                                <GenarateDailyChallengeOne
-                                    onComplete={(success) => {
-                                        console.log("success",success)
-                                    if (success) setActiveChallenge(2); // ✅ Go to Challenge 2
-                                    }}
-                                />
-                                )}
+                                 
+                                 <GenarateDailyChallengeThree />
+                                 
+                            )}
 
-                                {activeChallenge === 2 && (
-                                <GenarateDailyChallengeTwo
-                                    onComplete={(success) => {
-                                    if (success) setActiveChallenge(3); // ✅ Go to Challenge 3
-                                    }}
-                                />
-                                )}
+                            {activeChallenge === 2 && (
+                                 
+                                 <GenarateDailyChallengeTwo />
+                                 
+                            )}
 
-                                {activeChallenge === 3 && (
-                                <GenarateDailyChallengeThree
-                                    onComplete={(success) => {
-                                    if (success) alert("🎉 You finished all challenges!");
-                                    }}
-                                />
-                                )}
-
+                            
+                            {activeChallenge === 3 && (
+                                // <p className="text-white">YOU COMPLETE CHALLENGE 1</p>  
+                                <GenerateDailyChallengeOne
+                                // item={quizItem}
+                                // optionsPool={items}
+                                // onNext={nextQuestion}
+                                // onAnswer={handleAnswer}
+                                // onReset={resetScore}
+                                // handleQuizComplete={handleQuizComplete}
+                                />                         
+                            )}
                             </>
 
                         )

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { adjectivesData } from "../../data/basicA1";
+import { datasets } from "../../data/datasets";
 
 interface Data {
   english: string;
@@ -12,11 +12,16 @@ function shuffled<T>(array: T[]): T[] {
 }
 
 function GenarateDailyChallengeTwo({ onComplete }: { onComplete?: (success: boolean) => void }) {
-  
-  const keyType = "basicAdjectives";
-  const allItems =
-    (adjectivesData[keyType as keyof typeof adjectivesData] ||
-      adjectivesData.basicAdjectives) as Data[];
+
+  const randomSet = datasets[Math.floor(Math.random() * datasets.length)]
+  const dataset = randomSet.data
+
+  const keys = Object.keys(dataset)
+  const hasSentence = keys.find(k => k.toLowerCase().includes("sentence"))
+  const keyType = hasSentence || keys[0]
+
+  const allItems = dataset[keyType as keyof typeof dataset] as Data[] 
+
 
   const [quizItems, setQuizItems] = useState<Data[]>([]);
   const [shuffledEnglish, setShuffledEnglish] = useState<Data[]>([]);

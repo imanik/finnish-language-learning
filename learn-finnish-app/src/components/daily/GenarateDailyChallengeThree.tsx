@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { phraseData } from "../../data/basicA1";
-
+import { datasets } from "../../data/datasets";
 
 interface Sentence {
   finnish: string;
   english: string;
+  pronunciation?: string
 }
 
 
@@ -15,10 +15,18 @@ function shuffle<T>(arr: T[]): T[] {
 
 function GenarateDailyChallengeThree({ onComplete }: { onComplete?: (success: boolean) => void }) {
 
-      const keyType = "phrasesSentence";
-      const allItems =
-        (phraseData[keyType as keyof typeof phraseData] ||
-          phraseData.phrasesSentence) as Sentence[];
+      // pick random dataset
+const randomSet = datasets[Math.floor(Math.random() * datasets.length)];
+const dataset = randomSet.data;
+
+// detect which key exists — Sentence or normal
+const keys = Object.keys(dataset);
+const hasSentence = keys.find(k => k.toLowerCase().includes("sentence"));
+const keyType = hasSentence || keys[0]; // use sentence if available, otherwise vocab
+
+const allItems = dataset[keyType as keyof typeof dataset] as Sentence[];
+
+
 
   const [sentences, setSentences] = useState<Sentence[]>([]);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
@@ -48,7 +56,7 @@ function GenarateDailyChallengeThree({ onComplete }: { onComplete?: (success: bo
   };
 
   const prepareSentence = (sentence: Sentence) => {
-    const words = sentence.finnish.replace(".", "").split(" ");
+    const words = sentence.finnish.replace(".", "").replace("?","").split(" ");
     setShuffledWords(shuffle(words));
     setUserSentence([]);
     setFeedback(null);
@@ -60,7 +68,7 @@ function GenarateDailyChallengeThree({ onComplete }: { onComplete?: (success: bo
   };
 
   const handleCheck = () => {
-    const target = sentences[currentIndex].finnish.replace(".", "");
+    const target = sentences[currentIndex].finnish.replace(".", "").replace("?","");
     const correctSentence = target.split(" ").join(" ");
     const userAnswer = userSentence.join(" ");
 
@@ -82,7 +90,7 @@ function GenarateDailyChallengeThree({ onComplete }: { onComplete?: (success: bo
       } else {
         setShowPopup(true);
       }
-    }, 1500); // wait 1.5s before moving on
+    }, 2500); // wait 1.5s before moving on
   };
 
   return (
@@ -113,7 +121,7 @@ function GenarateDailyChallengeThree({ onComplete }: { onComplete?: (success: bo
                 : "bg-gray-800 hover:bg-teal-600 text-white"
             }`}
           >
-            {word}
+            {word.toLowerCase()}
           </button>
         ))}
       </div>

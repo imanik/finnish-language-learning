@@ -1,3 +1,4 @@
+import RoomsFurnituresPage from "../pages/levels/a1/RoomsFurnituresPage";
 
 
 export const familyData = {
@@ -115,6 +116,39 @@ export const familyData = {
         { finnish: "kumppani", english: "partner", pronunciation: "kump-pa-ni" },
         { finnish: "puoliso", english: "spouse", pronunciation: "puo-li-so" },
     ],
+
+    familySentence: [
+    { finnish: "Äiti tekee ruokaa. ", english: "Mother is cooking." },
+    { finnish: "Isä lukee kirjaa. ", english: "Father is reading a book." },
+    { finnish: "Veli pelaa jalkapalloa. ", english: "Brother is playing football." },
+    { finnish: "Sisko piirtää kuvaa. ", english: "Sister is drawing a picture." },
+    { finnish: "Lapset leikkivät pihalla. ", english: "Children are playing in the yard." },
+    { finnish: "Tämä on minun tyttäreni. ", english: "This is my daughter." },
+    { finnish: "Hän on poikani. ", english: "He is my son." },
+    { finnish: "Isoäiti on erittäin ystävällinen. ", english: "Grandmother is very friendly." },
+    { finnish: "Isoisä kertoo tarinoita. ", english: "Grandfather tells stories." },
+    { finnish: " Nämä ovat vanhempani. ", english: "These are my parents." },
+    { finnish: "Isoveli pitää pikkusiskoaan sylissä. ", english: "The older brother is holding his younger sister." },
+    { finnish: "Pikkuveljeni puhuu usein unissaan. ", english: "My younger brother often talks in his sleep." },
+    { finnish: "Rakas aviomieheni kokkaa minulle. ", english: "My beloved husband is cooking for me." },
+    { finnish: "Marion isä on lääkäri. ", english: "Marion's father is a doctor." },
+    { finnish: "Hän on lapsenlapseni. ", english: "She is my grandchild." },
+    { finnish: "Hän on miniäni. ", english: "She is my daughter-in-law." },
+    { finnish: "Hän on vävyni. ", english: "He is my son-in-law." },
+    { finnish: "Tytärpuoli asuu meillä. ", english: "Stepdaughter lives with us." },
+    { finnish: "Isäpuoli on mukava mies. ", english: "Stepfather is a nice man." },
+    { finnish: "Täti asuu toisessa kaupungissa. ", english: "Aunt lives in another city." },
+    { finnish: "Setä kävi eilen kylässä. ", english: "Uncle visited yesterday." },
+    { finnish: "Veljenpoika on opiskelija. ", english: "Nephew is a student." },
+    { finnish: "Veljentytär on taiteilija. ", english: "Niece is an artist." },
+    { finnish: "Serkku on hyvä ystävä. ", english: "Cousin is a good friend." },
+    { finnish: "Aviomies ja vaimo ovat lomalla. ", english: "Husband and wife are on holiday." },
+    { finnish: "Heidän lapsensa ovat pikkuserkkuja. ", english: "Their children are second cousins." },
+    { finnish: "Vanha isoäitini opetti minut neulomaan. ", english: "My old grandmother taught me to knit." },
+    { finnish: "Kuka on tämän lapsen isä? ", english: "Who is the father of this child?" },
+    { finnish: "Hän on minun siskoni. ", english: "She is my sister." },
+    { finnish: "Hän on isäni. ", english: "He is my father." },
+    ]
 
 };
 
@@ -269,6 +303,22 @@ export const locationData = {
     locations: [
         { english: "", finnish: "", },
     ],
+
+    locationsSentence: [
+        { finnish: "Minä juon: kahvia, mutta en tykkää siitä. " , english: "I drink coffee, but I don't like it." },
+        { finnish: "Hän ei tule: tänne, vaan hän matkustaa Helsinkiin. " , english: "He's not coming here; he's traveling to Helsinki." },
+        { finnish: "Minulla on kuusi lasta. " , english: "I have six children." },
+        { finnish: "Minulla on kynä kädessä. " , english: "I have a pen in my hand." },
+        { finnish: "Vasen: käsi on murtunut. " , english: "The left arm is broken." },
+        { finnish: "Ari laskee kymmeneen. " , english: "Ari is counting to ten." },
+        { finnish: "Aurinko laskee. " , english: "The sun goes down." },
+        { finnish: "Lehti putoaa puusta. " , english: "The leaf falls from the tree." },
+        { finnish: "Lehti on pöydällä. " , english: "The newspaper is on the table." },
+        { finnish: "Minulla on oikea vastaus. " , english: "I have the correct answer." },
+        { finnish: "Käänny oikealle! " , english: "Turn right!" },
+    ]
+
+    
 };
 
 
@@ -343,11 +393,44 @@ export const adjectivesData = {
         { finnish: "heikko", english: "weak", pronunciation: "heik-ko" },
         { finnish: "ilmainen", english: "free of charge", pronunciation: "il-mai-nen" },
         { finnish: "maksullinen", english: "costs", pronunciation: "maks-ul-li-nen" }      
-]
+],
+
+    adjectivesSentence: [
+        { finnish: "Aurinkoinen: päivä on kaunis. ", english: "The sunny day is beautiful." },
+        { finnish: "Hän on hyvin kallis. ", english: "He is very expensive." },
+        { finnish: "Olen kiireinen. ", english: "I am busy." },
+        { finnish: "Mies on vanha. ", english: "The man is old." },
+        { finnish: "Tyttö on nuori. ", english: "The girl is young." },
+        { finnish: "Kissa on pieni. ", english: "The cat is small." },
+        { finnish: "Talo on suuri ja moderni. ", english: "The house is big and modern." },
+        { finnish: "On harmaa taivas. ", english: "The sky is gray." },
+        { finnish: "Se on vihreä ruoho. ", english: "That is green grass." },
+        { finnish: "Auto on nopea. ", english: "The car is fast." },
+        { finnish: "Kahvi on kuuma. ", english: "The coffee is hot." },
+        { finnish: "Jää on kylmä. ", english: "The ice is cold." },
+        { finnish: "Lapsi on väsynyt. ", english: "The child is tired." },
+        { finnish: "Olen iloinen. ", english: "I am happy." },
+        { finnish: "Hän on surullinen. ", english: "He is sad." },
+        { finnish: "Ruoka on hyvä. ", english: "The food is good." },
+        { finnish: "Tuntuu pahalta. ", english: "It feels bad." },
+        { finnish: "Nainen on kaunis. ", english: "The woman is beautiful." },
+        { finnish: "Poika on pitkä. ", english: "The boy is tall." },
+        { finnish: "Kirja on lyhyt. ", english: "The book is short." },
+        { finnish: "Lapsi on leikkisä. ", english: "The child is playful." },
+        { finnish: "Tämä on vaikea tehtävä. ", english: "This is a difficult task." },
+        { finnish: "Se on helppo tehtävä. ", english: "That is an easy task." },
+        { finnish: "Haluaisin lämmin vesi. ", english: "I would like warm water." },
+        { finnish: "Haluaisin kylmä juoma. ", english: "I would like a cold drink." },
+        { finnish: "Talo on puhdas. ", english: "The house is clean." },
+        { finnish: "Sänky on pehmeä. ", english: "The bed is soft." },
+        { finnish: "Hiekka on karkea. ", english: "The sand is rough." },
+        { finnish: "Ovi on leveä. ", english: "The door is wide." },
+        { finnish: "Maa on heikko. ", english: "The land is weak." },
+    ]
 
     
 };
-
+ 
 // Define numbers outside the component and export it
 export const numberData = {
 
@@ -485,6 +568,40 @@ export const colorData = {
     { english: 'color of mandarins', finnish: 'mandariininvärinen', pronunciation: 'MAN-da-rii-nin-vä-ri-nen' }
     
     ],
+
+
+    colorsSentence: [
+      {  finnish: " Paita on punainen. ", english: "The shirt is red." },
+      {  finnish: " Minulla on sininen auto. ", english: "I have a blue car." },
+      {  finnish: " Kissa on musta. ", english: "The cat is black." },
+      {  finnish: " Aurinko on keltainen. ", english: "The sun is yellow." },
+      {  finnish: " Puutarhassa on kauniita kukkia. ", english: "There are beautiful flowers in the garden." },
+      {  finnish: " Tässä on valkoinen paperi. ", english: "Here is a white paper." },
+      {  finnish: " Piirsin vihreän puun. ", english: "I drew a green tree." },
+      {  finnish: " Hänellä on ruskeat hiukset. ", english: "She has brown hair." },
+      {  finnish: " Haluatko oranssin mehun? ", english: "Do you want an orange juice?" },
+      {  finnish: " Tämä on violetti mekko. ", english: "This is a purple dress." },
+      {  finnish: " Pöydällä on harmaa maljakko. ", english: "There is a gray vase on the table." },
+      {  finnish: " Ostin hopeanvärisen kellon. ", english: "I bought a silver-colored watch." },
+      {  finnish: " Hänellä on kullanvärinen kaulakoru. ", english: "She has a gold-colored necklace." },
+      {  finnish: " Luonto näyttää vihreältä ja kauniilta. ", english: "Nature looks green and beautiful." },
+      {  finnish: " Puron vesi värjäytyi vihreäksi. ", english: "The water of the creek turned green." },
+      {  finnish: " Vihreässä teessä on luonnostaan kofeiinia. ", english: "Green tea naturally contains caffeine." },
+      {  finnish: " Seuraan tietä vihreään laaksoon. ", english: "I follow the road to the green valley." },
+      {  finnish: " Ydinvoima hyväksytään vihreäksi energiaksi. ", english: "Nuclear power is accepted as green energy." },
+      {  finnish: " Pidän tästä valkoisesta paidasta. ", english: "I like this white shirt." },
+      {  finnish: " Valo oli punainen. ", english: "The light was red." },
+      {  finnish: " Hänellä on tummanvihreä takki. ", english: "She has a dark green jacket." },
+      {  finnish: " Ostan vaaleanpunaisen laukun. ", english: "I will buy a light pink bag." },
+      {  finnish: " Talon seinät ovat keltaiset. ", english: "The house walls are yellow." },
+      {  finnish: " Sininen taivas on kaunis. ", english: "The blue sky is beautiful." },
+      {  finnish: " Tämä on todella violetti omena. ", english: "This is a really purple apple." },
+      {  finnish: " Ostin mustan ja valkoisen juuston. ", english: "I bought black and white cheese." },
+      {  finnish: " Harmaa kivi on kylmä. ", english: "The gray stone is cold." },
+      {  finnish: " Minkä värinen se on? ", english: "What color is it?" },
+      {  finnish: " Väri on punainen. ", english: "The color is red." },
+      {  finnish: " Huoneessa oli paljon värejä. ", english: "There were many colors in the room." },
+    ]
 };
 
 
@@ -921,6 +1038,30 @@ export const roomData = {
     
 
 ],
+
+
+ RoomsFurnituresSentence: [
+    { finnish: "Keittiössä on uusi liesi ja jääkaappi. ", english: "There is a new stove and refrigerator in the kitchen." },
+    { finnish: "Olohuoneessa on mukava sohva, nojatuoli ja sohvapöytä. ", english: "There is a comfortable sofa, an armchair, and a coffee table in the living room." },
+    { finnish: "Makuuhuoneen sängyllä on pehmeä peitto ja useita tyynyjä. ", english: "On the bedroom bed, there is a soft blanket and several pillows." },
+    { finnish: "Työhuoneessa on suuri työpöytä, hyllykkö ja tilava kaappi. ", english: "In the study, there is a large desk, a shelving unit, and a spacious cupboard." },
+    { finnish: "Eteisessä on kenkäkaappi ja peili seinällä. ", english: "In the hallway, there is a shoe cabinet and a mirror on the wall." },
+    { finnish: "Ruokasalissa on iso ruokapöytä ja kuusi tuolia. ", english: "In the dining room, there is a large dining table and six chairs." },
+    { finnish: "Lastenhuoneessa on sänky, lelukori ja pieni pöytä piirtämistä varten. ", english: "In the children's room, there is a bed, a toy basket, and a small table for drawing." },
+    { finnish: "Pesuhuoneessa on pyykkikori, kuivausteline ja pesukone. ", english: "In the laundry room, there is a laundry basket, a drying rack, and a washing machine." },
+    { finnish: "Vessassa on wc-istuin ja pieni kaappi hygieniatuotteille. ", english: "In the toilet, there is a toilet seat and a small cabinet for hygiene products." },
+    { finnish: "Kellarissa on säilytyshyllyt ja pakastin. ", english: "In the basement, there are storage shelves and a freezer." },
+    { finnish: "Parvekkeella on pieni pöytä ja kaksi tuolia. ", english: "On the balcony, there is a small table and two chairs." },
+    { finnish: "Vaatehuoneessa on vaateteline ja laatikosto. ", english: "In the walk-in closet, there is a clothes rack and a chest of drawers." },
+    { finnish: "Pöydällä on lamppu ja kasvi. ", english: "On the table, there is a lamp and a plant." },
+    { finnish: "Kirjahyllyssä on kirjoja ja koriste-esineitä. ", english: "On the bookshelf, there are books and decorative objects." },
+    { finnish: "Ikkunalaudalla on kukkia ja kirja. ", english: "On the windowsill, there are flowers and a book." },
+    { finnish: "Lattialla on matto ja pehmeä poppana. ", english: "On the floor, there is a carpet and a soft rug." },
+    { finnish: "Seinällä on taulu ja kello. ", english: "On the wall, there is a painting and a clock." },
+    { finnish: "Tässä huoneessa on sohvapöytä, nojatuoli ja televisiotaso. ", english: "In this room, there is a coffee table, an armchair, and a TV stand." },
+    { finnish: "Kaapissa on astioita ja ruokatarvikkeita. ", english: "In the cupboard, there are dishes and food supplies." },
+    { finnish: "Sohvalla on pehmeitä tyynyjä ja viltti. ", english: "On the sofa, there are soft pillows and a blanket." },
+ ]
 };
 
 export const foodData = {
@@ -1137,7 +1278,41 @@ export const foodData = {
     { finnish: "energiajuoma", english: "energy drink", pronunciation: "E-ner-gia-JUO-ma" },
     { finnish: "kivennäisvesi", english: "mineral water", pronunciation: "KI-ven-näis-ve-si" },
     { finnish: "appelsiinimehu", english: "orange juice", pronunciation: "AP-pel-sii-ni-me-hu" },
-]
+],
+
+ foodDrinksSentence: [
+
+    {finnish: "Maito on juotavaa. ", english: "Milk is a drink." },
+    {finnish: "Vesi virtaa joessa. ", english: "Water flows in the river." },
+    {finnish: "Kahvi maistuu hyvältä. ", english: "Coffee tastes good." },
+    {finnish: "Leipä on tuoretta. ", english: "The bread is fresh." },
+    {finnish: "Juusto on kypsää. ", english: "The cheese is ripe." },
+    {finnish: "Syön omenaa. ", english: "I am eating an apple." },
+    {finnish: "Juon mehua. ", english: "I am drinking juice." },
+    {finnish: "Peruna on iso. ", english: "The potato is big." },
+    {finnish: "Tarjoilen kananmunia. ", english: "I am serving eggs." },
+    {finnish: "Salaatti on terveellistä. ", english: "Salad is healthy." },
+    {finnish: "Tomaatti on punainen. ", english: "The tomato is red." },
+    {finnish: "Käytän voita. ", english: "I am using butter." },
+   {finnish: " Sokeri on makeaa. ", english: "Sugar is sweet." },
+   {finnish: " Käytän suolaa. ", english: "I am using salt." },
+   {finnish: " Lisään pippuria. ", english: "I am adding pepper." },
+   {finnish: " Riisi on valmista. ", english: "The rice is ready." },
+   {finnish: " Keitän makaronia. ", english: "I am cooking macaroni." },
+   {finnish: " Syön kanaa. ", english: "I am eating chicken." },
+   {finnish: " Nautin lohesta. ", english: "I am enjoying salmon." },
+   {finnish: " Porsaanliha on herkullista. ", english: "Pork is delicious." },
+   {finnish: " Valmistan kastiketta. ", english: "I am making a sauce." },
+   {finnish: " Tarjoan hilloketta. ", english: "I am offering jam." },
+   {finnish: " Jäätelö sulaa. ", english: "The ice cream is melting." },
+   {finnish: " Syön kakkua. ", english: "I am eating cake." },
+   {finnish: " Pullaa on pöydällä. ", english: "Buns are on the table." },
+   {finnish: " Suklaata on paljon. ", english: "There is a lot of chocolate." },
+   {finnish: " Juon kaakaota. ", english: "I am drinking cocoa." },
+   {finnish: " Teetä on kuumana. ", english: "Tea is hot." },
+   {finnish: " Olut on kylmää. ", english: "The beer is cold." },
+   {finnish: " Viini on hyvää. ", english: "The wine is good." },
+ ]
 };
 
 export const clothesData = {
@@ -1257,6 +1432,39 @@ export const clothesData = {
         { finnish:"varvastossut / varvas-sandaalit", english:"flip-flops, thongs, sandals with toe post", pronunciation:"VAR-vas-TOS-sut / VAR-vas-SAN-daalit"},
         
     ],
+
+    clothesSentence: [
+        {finnish: "Hänellä on punainen paita. ", english: "He/She has a red shirt." },
+        {finnish: "Mies pukee paksun takin. ", english: "The man is putting on a thick jacket." },
+        {finnish: "Nainen kävelee lenkkareissa. ", english: "The woman walks in sneakers." },
+        {finnish: "Lapset leikkivät ulkona hupparit päällä. ", english: "The children are playing outside with hoodies on." },
+        {finnish: "Minä puen kauniin mekon ylleni. ", english: "I am putting on a beautiful dress." },
+        {finnish: "Hänellä on yllään tyylikkäät housut. ", english: "He/She is wearing stylish pants." },
+        {finnish: "He käyttävät aurinkolaseja. ", english: "They are wearing sunglasses." },
+        {finnish: "Hänellä on päällään vihreä hattu. ", english: "He/She has a green hat on." },
+        {finnish: "Kissa on kietoutunut peittoon. ", english: "The cat is wrapped in a blanket." },
+        {finnish: "Hän on pukeutunut juhla-asuun. ", english: "He/She is dressed in a party outfit." },
+        {finnish: "Tarjoilija on pukeutunut esiliinaan. ", english: "The waiter is wearing an apron." },
+        {finnish: "Hänellä on yllään neule. ", english: "He/She is wearing a sweater." },
+        {finnish: "Valmentaja käytti hupparia. ", english: "The coach wore a hoodie." },
+        {finnish: "Hän pukeutuu aina farkkuihin. ", english: "He/She always dresses in jeans." },
+        {finnish: "He ovat pukeutuneet uimahalleihin. ", english: "They are dressed for the swimming hall." },
+        {finnish: "Hänellä on päässään pipo. ", english: "He/She has a beanie on their head." },
+        {finnish: "Hän pukee sukat jalkaan. ", english: "He/She is putting socks on their feet." },
+        {finnish: "Hänellä on yllään saappaat. ", english: "He/She is wearing boots." },
+        {finnish: "Hänellä on yllään tummansininen viitta. ", english: "He/She is wearing a dark blue cape." },
+        {finnish: "Hän pukee korvakorut. ", english: "He/She is putting on earrings." },
+       {finnish: " Hänellä on yllään shortsit. ", english: "He/She is wearing shorts." },
+       {finnish: " Hän on pukeutunut aamutakkiin. ", english: "He/She is dressed in a morning robe." },
+       {finnish: " Hänellä on yllään villasukat. ", english: "He/She is wearing wool socks." },
+       {finnish: " He ovat pukeutuneet maastovaatteisiin. ", english: "They are dressed in camouflage clothing." },
+       {finnish: " Hänellä on yllään kimaltava mekko. ", english: "He/She is wearing a glittering dress." },
+       {finnish: " Hän pukee päälleen t-paidan. ", english: "He/She is putting on a t-shirt." },
+       {finnish: " Hänellä on yllään paksu villapaita. ", english: "He/She is wearing a thick wool sweater." },
+       {finnish: " Hän on pukeutunut uima-asuun. ", english: "He/She is dressed in a swimsuit." },
+       {finnish: " Hänellä on yllään pitkät housut. ", english: "He/She is wearing long pants." },
+       {finnish: " Hän on pukeutunut sadeasuun. ", english: "He/She is dressed in rain gear." },
+    ]
 
 };
 
@@ -1675,6 +1883,39 @@ export const verbData = {
 
 
     ],
+
+    verbsSentence: [
+        {finnish: "Juoksen nopeasti. ", english: "I run fast." },
+        {finnish: "Syön omenan. ", english: "I eat an apple." },
+        {finnish: "Luulen sen. ", english: "I believe it." },
+        {finnish: "Kävelen hitaasti. ", english: "I walk slowly." },
+        {finnish: "Tulen kotiin. ", english: "I come home." },
+        {finnish: "Luemme kirjaa. ", english: "We read a book." },
+        {finnish: "Odotamme bussia. ", english: "We wait for the bus." },
+        {finnish: "Näemme hänet. ", english: "We see him." },
+        {finnish: "Kuulemme äänen. ", english: "We hear the sound." },
+        {finnish: "Ymmärrämme sen. ", english: "We understand it." },
+        {finnish: "Hän puhuu suomea. ", english: "He/She speaks Finnish." },
+        {finnish: "Hän asuu Helsingissä. ", english: "He/She lives in Helsinki." },
+        {finnish: "Hän työskentelee täällä. ", english: "He/She works here." },
+        {finnish: "Hän opiskelee yliopistossa. ", english: "He/She studies at the university." },
+        {finnish: "Hän laulaa kauniisti. ", english: "He/She sings beautifully." },
+        {finnish: "Te juotte kahvia. ", english: "You drink coffee." },
+        {finnish: "Te kirjoitatte sähköpostia. ", english: "You write an email." },
+        {finnish: "Te pelaatte jalkapalloa. ", english: "You  play football." },
+        {finnish: "Te piirrätte kuvan. ", english: "You  draw a picture." },
+        {finnish: "Te ajatte autoa. ", english: "You  drive a car." },
+        {finnish: "He lukevat uutisia. ", english: "They read the news." },
+        {finnish: "He rakentavat taloa. ", english: "They build a house." },
+        {finnish: "He myyvät autoa. ", english: "They sell a car." },
+        {finnish: "He ostavat ruokaa. ", english: "They buy food." },
+        {finnish: "He auttavat meitä. ", english: "They help us." },
+        {finnish: "Minä nukun pitkään. ", english: "I sleep for a long time." },
+        {finnish: "Minä istun tuolilla. ", english: "I sit on the chair." },
+        {finnish: "Minä seison pöydän vieressä. ", english: "I stand next to the table." },
+        {finnish: "Minä seisomme täällä. ", english: "I stand here." },
+        {finnish: "Minä käännän sen. ", english: "I translate it." },
+    ]
 };
 
 
@@ -1892,5 +2133,38 @@ export const timeData = {
         { finnish: "ehtiä", english: "to have the time", pronunciation: "EH-ti-ä" },
 
     ],
+
+    timesentence: [
+        { finnish: " Kello on viisi iltapäivällä. ", english: "It is five in the afternoon." },
+        { finnish: " Minä menen kauppaan kello yhdeksältä aamulla. ", english: "I am going to the store at nine in the morning." },
+        { finnish: " Tapaaminen on tänään kello kahdelta. ", english: "The meeting is at two o'clock today." },
+        { finnish: " Junapääte asemalla on kello kymmenen. ", english: "The train arrives at the station at ten." },
+        { finnish: " Työpäiväni päättyy kello viideltä. ", english: "My workday ends at five." },
+        { finnish: " Bussipysäkki on noin kymmenen minuutin kävelymatkan päässä. ", english: "The bus stop is about a ten-minute walk away." },
+        { finnish: " Herään joka päivä kello seitsemän. ", english: "I wake up every day at seven." },
+        { finnish: "  Elokuva alkaa kello kahdeksantoista. ", english: "The movie starts at 18:00." },
+        { finnish: " Kokous kestää noin tunnin. ", english: "The meeting lasts for about an hour." },
+        { finnish: " Kahvini on valmis viidessä minuutissa. ", english: "My coffee will be ready in five minutes." },
+        { finnish: " Olemme jo myöhässä, kello on yli kymmenen. ", english: "We are already late, it is past ten." },
+        { finnish: " Konsertti alkoi kello puoli yhdeksän. ", english: "The concert started at half past eight." },
+        { finnish: " Tarkista kellonaika! ", english: "Check the time!" },
+        { finnish: " Minä olen varattu kello kolmeen saakka. ", english: "I am busy until three o'clock." },
+        { finnish: " Juna lähtee kello kolme. ", english: "The train leaves at three." },
+        { finnish: " Olen valmis kahdessa tunnissa. ", english: "I'll be ready in two hours." },
+        { finnish: " Haluaisin ajanvarauksen huomiseksi. ", english: "I would like an appointment for tomorrow." },
+        { finnish: " Kello käy hitaasti. ", english: "The clock is running slow." },
+        { finnish: " Paljonko kello on? ", english: "What time is it?" },
+        { finnish: " Se tapahtuu kello kahdeltatoista. ", english: "It happens at twelve o'clock." },
+        { finnish: " Minulla on tapaaminen klo 14:00. ", english: "I have an appointment at 2 PM." },
+        { finnish: " Se oli vuosi sitten. ", english: "That was a year ago." },
+        { finnish: " Olen onnellinen hänen kanssaan. ", english: "I am happy with him/her." },
+        { finnish: " Minä rakastan sinua. ", english: "I love you." },
+        { finnish: " Voin soittaa sinulle myöhemmin. ", english: "I can call you later." },
+        { finnish: " En ole koskaan nähnyt tällaista. ", english: "I have never seen anything like this." },
+        { finnish: " Tarvitsen lisää aikaa. ", english: "I need more time." },
+        { finnish: " Voisitko odottaa hetken? ", english: "Could you wait a moment?" },
+        { finnish: " En tiedä. ", english: "I don't know." },
+        { finnish: "  En halua sitä. ", english: "I don't want that." },
+    ]
 }
 

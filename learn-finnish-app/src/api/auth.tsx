@@ -12,7 +12,7 @@ console.log("Base Url = ",BASE_URL)
     credentials: "include"
   });
   
-  console.log('Responese', response)
+ // console.log('Responese', response)
   if (!response.ok) {
     const error = await response.json();
     throw new Error(error.error || "Login failed");
