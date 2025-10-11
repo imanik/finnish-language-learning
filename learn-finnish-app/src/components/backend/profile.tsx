@@ -28,7 +28,7 @@ function Profile() {
           <h2 className="mt-4 text-2xl font-bold text-teal-300">
             {user?.name ?? "Guest User"}
           </h2>
-          <p className="text-teal-400 text-sm">@{user?.username ?? "unknown"}</p>
+          <p className="text-teal-400 text-sm">@{user?.username ?? "Signup for tracking your progress!"}</p>
         </div>
 
         {/* Divider */}
@@ -50,7 +50,7 @@ function Profile() {
             <span>A1 Certified</span>
           </div>
 
-             <div className="flex justify-between text-teal-200">
+            <div className="flex justify-between text-teal-200">
             <span className="font-medium">🎯 Theme Style</span>
             <button className={`px-3 py-1 rounded ${
               theme === "light" ? "bg-teal-600 text-white" : "bg-teal-800"

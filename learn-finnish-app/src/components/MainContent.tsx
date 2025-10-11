@@ -47,17 +47,16 @@ function MainContent() {
         <UserStats quizScore={quizScore} handleQuizComplete={handleQuizComplete} />
       {/* </div> */}
       <Beginars />
-      <Greetings />
+      <Profile />
+      { showSignup ? (
+        <SignupUser onSwitch={() => setShowSignup(false)} />
+      ) : (
+        <Login onSwitch={() => setShowSignup(true)} />
+      )}
       <Numbers />
+      <Greetings />
       <Colors />
       <Days />
-      {user ? (
-      <Profile />
-      ) : showSignup ? (
-      <SignupUser onSwitch={() => setShowSignup(false)} />
-      ) : (
-      <Login onSwitch={() => setShowSignup(true)} />
-      )}
       <Months />
       <Grammars />
     </div>

@@ -56,7 +56,7 @@ function Login({ onSwitch }: LoginProps) {
             Login
           </button>
         </form>
-        <p className="mt-4 text-sm">
+        <p className="mt-4 text-sm text-teal-400">
         Don’t have an account?{" "}
         <button
           type="button"

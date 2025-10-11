@@ -3,6 +3,7 @@
                 import { a1Topics } from "../data";
                 import BodyWrapper from "../components/BodyWrapper";
                 import PageWrapper from "../components/PageWrapper";
+                import NavWrapper from "../components/NavWrapper";
 
                 // Define types for topic components
                 interface TopicComponents {
@@ -64,12 +65,8 @@
 
                   return (
                     <BodyWrapper >
-                      <Link
-                        to="/"
-                        className="text-teal-700 hover:underline bg-teal-100 mb-6 inline-block fixed top-0 left-0 w-full px-4 py-2 shadow-md"
-                      >
-                        ← Back to Home
-                      </Link>
+                      <NavWrapper link="/" title="← Back to Home" > </NavWrapper>
+                     
 
                       <div className="mt-16">
 

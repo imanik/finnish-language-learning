@@ -80,7 +80,7 @@ function SignupUser({onSwitch}: SignupProps) {
           Sign Up
         </button>
       </form>
-      <p className="mt-4 text-sm">
+      <p className="mt-4 text-sm text-teal-400">
         Already have an account?{" "}
         <button
           type="button"
