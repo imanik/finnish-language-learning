@@ -1495,7 +1495,7 @@ export const bodyPartData = {
         { finnish: "kaula", english: "neck", pronunciation: "KAU-la" },
         { finnish: "niska", english: "back of the neck", pronunciation: "NIS-ka" },
 
-
+        
         { finnish: "vatsa", english: "stomach", pronunciation: "VAT-sa" },
         { finnish: "maha", english: "belly", pronunciation: "MA-ha" },
         { finnish: "napa", english: "belly button", pronunciation: "NA-pa" },

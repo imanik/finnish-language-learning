@@ -1,10 +1,14 @@
           import React, { useState, useEffect } from "react";
+          import { useParams } from "react-router-dom";
           import UserStats from '../components/UserStats';
-          import GenerateQuiz from '../components/GenarateQuiz';
-          import GenerateHardQuiz from '../components/GenerateHardQuiz';
+          import GenerateQuiz from './GenarateQuiz';
+          import GenerateHardQuiz from './GenerateHardQuiz';
+          import GenarateMatchQuiz from "./GenarateMatchQuiz";
           import { useQuiz } from "../contexts/QuizContext";
           import PageWrapper from "./PageWrapper";
           import { BuildingOffice2Icon } from "@heroicons/react/24/solid";
+          import GenarateDailyChallengeTwo from "./daily/GenarateDailyChallengeTwo";
+          
 
 
           interface QuizScore {
@@ -37,6 +41,15 @@
           // Main GenerateQuiz functional component with generic type <T>
           function SetupQuiz<T extends QuizItem>({items,quizType,title,}: SetupQuizProps<T>) {
 
+            const {child} = useParams<{child?: string}>();
+            
+            // const keyType = child ?
+              if (child && child.includes("intermediate")){
+                  quizType = "intermediate"
+                  title = (quizType === "intermediate" ? "Matching " : "Basic ");
+
+              }
+ 
               const [quizItem, setQuizItem] = useState<QuizItem | null>(null); // Current quiz question item
               const [score, setScore] = useState<QuizScore>({correct:0, total:0});
               
@@ -163,7 +176,8 @@
         {!quizItem ? (
           <button
             onClick={startQuiz}
-            className="bg-teal-300 text-teal-900 px-4 py-2 rounded hover:bg-teal-700 hover:text-white transform hover:scale-110 transition duration-200"
+            className="bg-teal-300 text-teal-900 px-4 py-2 rounded hover:bg-teal-700 hover:text-white transform 
+            hover:scale-110 transition duration-200"
           >
             Start Quiz
           </button>
@@ -176,7 +190,7 @@
                 onAnswer={handleAnswer}
                 handleQuizComplete={handleQuizComplete}
               />
-            ) : (
+            ) : quizType === "basic" ? (
               <GenerateQuiz
                 item={quizItem}
                 optionsPool={items}
@@ -185,6 +199,12 @@
                 onReset={resetScore}
                 handleQuizComplete={handleQuizComplete}
               />
+            ) : (
+              <GenarateMatchQuiz 
+                items={items}
+                onMatch={handleAnswer}
+                handleMatchingComplete={handleQuizComplete}
+                />
             )}
           </>
         )}

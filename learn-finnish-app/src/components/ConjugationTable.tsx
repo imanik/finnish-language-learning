@@ -19,19 +19,18 @@ interface ConjugationTableProps {
 
 function ConjugationTable({ items, min, max, isVocab } :ConjugationTableProps) {
 
+ console.log("items",items)
   const [showPronunciation, setShowPronunciation] = useState(false);
   const [page, setPage] = useState(0)
   const itemsPerPage = 10
 
   const start = page * itemsPerPage
   const end = start + itemsPerPage
-  const visibleItems = items.filter((_,index)=> {
-  if(min !== undefined && max !== undefined){
-    return index >= min && index <= max
-  }
-  return true
-  }).slice(start,end)
+  const visibleItems = items
+  .slice(min ?? 0, (max ?? items.length) + 1)
+  .slice(page * itemsPerPage, (page + 1) * itemsPerPage);
 
+console.log("Rendering visibleItems:", visibleItems.length, visibleItems);
 
 
 
@@ -79,14 +78,8 @@ return (
       </thead>
       <tbody key={page} className="divide-y divide-teal-800 bg-gray-900 animate-fadeIn">
 
-        {visibleItems
-          .filter((_, index) => {
-            if (min !== undefined && max !== undefined) {
-              return index >= min && index <= max;
-            }
-            return true;
-          })
-          .map((item, index) => (
+        {visibleItems.map((item, index) => (
+           
             <tr key={index} className="hover:bg-teal-700 transition duration-200">
               <td className="px-6 py-4 text-sm text-teal-400">{item.english}</td>
               <td className="px-6 py-4 text-sm text-teal-400">{item.finnish}</td>

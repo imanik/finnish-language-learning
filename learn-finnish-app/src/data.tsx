@@ -429,7 +429,7 @@ export const verbTopics: Topic[] = [
       { title: "Most common verbs",
         subtopics: [
           {title: "Basic Verbs.", 
-            childTopics: ["Basic Verbs Quiz", "Hard Verbs Quiz"],
+            childTopics: ["Basic Verbs Quiz","Intermediate Verbs Quiz", "Hard Verbs Quiz"],
           }
         ],
        },
@@ -437,7 +437,7 @@ export const verbTopics: Topic[] = [
         title: "Adjective",
         subtopics: [
           {title: "Good, bad or ugly?",
-            childTopics: ["Basic Adjectives Quiz", "Hard Adjectives Quiz"],
+            childTopics: ["Basic Adjectives Quiz","Intermediate Adjectives Quiz", "Hard Adjectives Quiz"],
           }
         ],
       },
@@ -446,7 +446,7 @@ export const verbTopics: Topic[] = [
         subtopics: [
           {
             title: "Basic Language",
-            childTopics: ["Basic Language Quiz", "Language Sentence Quiz"],
+            childTopics: ["Basic Language Quiz","Intermediate Language Quiz", "Language Sentence Quiz"],
           },
         ],
       },
@@ -455,11 +455,129 @@ export const verbTopics: Topic[] = [
         subtopics: [
           {
             title: "Family Members",
-            childTopics: ["Basic Family Quiz", "Extended Family Quiz", "Step Family Quiz", "Marital Status Quiz" , "Hard Family Quiz"],
+            childTopics: ["Basic Family Quiz","Intermediate Family Quiz", "Extended Family Quiz", "Step Family Quiz", "Marital Status Quiz" , "Hard Family Quiz"],
           },
         ],
       },
+      
+
       { 
+        title: "Greeting",
+        subtopics: [
+          { title: "How are you?",
+            childTopics: ["Basic Greetings Quiz","Intermediate Greetings Quiz", "Hard Greetings Quiz" ],
+          }
+        ],
+      },
+
+      { 
+        title: "Color",
+        subtopics: [
+          {title: "Rainbow!",
+          childTopics: ["Basic Colors Quiz","Intermediate Colors Quiz", "Extended Colors Quiz", "Hard Colors Quiz"],
+          }
+        ],
+      },
+
+      { 
+        title: "Number",
+        subtopics: [
+          {title: "Ready! One, Two, Three",
+            childTopics: ["Basic Numbers Quiz","Intermediate Numbers Quiz", "Ordinal Numbers Quiz", "Numbers Sentence Quiz" , "Hard Numbers Quiz"],
+          }
+        ],
+      },
+
+      
+      { 
+        title: "Day",
+        subtopics: [
+          {title: "Sunday! or Monday!",
+            childTopics: ["Basic Days Quiz","Intermediate Days Quiz", "Days Sentence Quiz" , "Hard Days Quiz"],
+          }
+        ],
+      },
+
+      
+      { 
+        title: "Month",
+        subtopics: [
+          {title: "January to December",
+            childTopics: ["Basic Months Quiz","Intermediate Months Quiz", "Months Sentence Quiz", "Hard Months Quiz"],
+          }
+        ],
+      },
+
+      { 
+        title: "Weather",
+        subtopics: [
+          {title: "Summer or Winter",
+            childTopics: ["Basic Weathers Quiz","Intermediate Weathers Quiz", "Weathers Sentence Quiz", "Hard Weathers Quiz"],
+          }
+        ],
+      },
+      { title: "Most common rooms and furnitures",
+        subtopics: [
+          {title: "Rooms, Furnitures.",
+            childTopics: ["Basic Rooms, Furnitures Quiz","Intermediate Rooms, Furnitures Quiz", "Hard Rooms, Furnitures Quiz"],
+          }
+        ],
+       },
+      { title: "Most common foods and drinks",
+        subtopics: [
+          {title: "Foods, Drinks.",
+            childTopics: ["Basic Foods, Drinks Quiz","Intermediate Foods, Drinks Quiz", "Hard Foods, Drinks Quiz"],
+          }
+        ],
+       },
+      { title: "Most common clothes and wearings",
+        subtopics: [
+          {title: "Clothes, Wearings.",
+            childTopics: ["Basic Clothes, Wearings Quiz","Intermediate Clothes, Wearings Quiz", "Hard Clothes, Wearings Quiz"],
+          }
+        ],
+       },
+      { title: "Most common body parts",
+        subtopics: [
+          {title: "Body Parts.",
+            childTopics: ["Basic Body Parts Quiz","Intermediate Body Parts Quiz", "Hard Body Parts Quiz"],
+          }
+        ],
+       },
+       { title: "Most common animals",
+        subtopics: [
+          {title: "Animals.",
+            childTopics: ["Basic Animals Quiz","Intermediate Animals Quiz", "Animals Sentence Quiz" , "Hard Animals Quiz"],
+          }
+        ],
+       },
+      { title: "Most common places in the city",
+        subtopics: [
+          {title: "Places.",
+            childTopics: ["Basic Places Quiz","Intermediate Places Quiz", "Places Sentence Quiz", "Hard Places Quiz"],
+          }
+        ],
+       },        
+      { title: "Talking about simple illnesses",
+        subtopics: [
+          {title: "Illness",
+            childTopics: ["Basic Illness Quiz","Intermediate Illness Quiz", "Illness Sentence Quiz", "Hard Illness Quiz"],
+          }
+        ],
+       },
+      { title: "Some survival Finnish phrases",
+        subtopics: [
+          {title: "Phrases",
+            childTopics: ["Phrases Quiz","Intermediate Phrases Quiz", "Phrases Sentence Quiz"],
+          }
+        ],
+       },
+      { title: "Basic knowledge about telling the time",
+        subtopics: [
+          {title: "Time",}
+        ],
+       },
+       { 
         title: "Nationality",
         subtopics: [
           {title: "What nationality are you?",
@@ -473,124 +591,8 @@ export const verbTopics: Topic[] = [
           { title: "Where do you live?", }
         ],
       },
-
-      { 
-        title: "Greeting",
-        subtopics: [
-          { title: "How are you?",
-            childTopics: ["Basic Greetings Quiz", "Hard Greetings Quiz" ],
-          }
-        ],
-      },
-
-      { 
-        title: "Color",
-        subtopics: [
-          {title: "Rainbow!",
-          childTopics: ["Basic Colors Quiz", "Extended Colors Quiz", "Hard Colors Quiz"],
-          }
-        ],
-      },
-
-      { 
-        title: "Number",
-        subtopics: [
-          {title: "Ready! One, Two, Three",
-            childTopics: ["Basic Numbers Quiz", "Ordinal Numbers Quiz", "Numbers Sentence Quiz" , "Hard Numbers Quiz"],
-          }
-        ],
-      },
-
-      
-      { 
-        title: "Day",
-        subtopics: [
-          {title: "Sunday! or Monday!",
-            childTopics: ["Basic Days Quiz", "Days Sentence Quiz" , "Hard Days Quiz"],
-          }
-        ],
-      },
-
-      
-      { 
-        title: "Month",
-        subtopics: [
-          {title: "January to December",
-            childTopics: ["Basic Months Quiz", "Months Sentence Quiz", "Hard Months Quiz"],
-          }
-        ],
-      },
-
-      { 
-        title: "Weather",
-        subtopics: [
-          {title: "Summer or Winter",
-            childTopics: ["Basic Weathers Quiz", "Weathers Sentence Quiz", "Hard Weathers Quiz"],
-          }
-        ],
-      },
-      { title: "Most common rooms and furnitures",
-        subtopics: [
-          {title: "Rooms, Furnitures.",
-            childTopics: ["Basic Rooms, Furnitures Quiz", "Hard Rooms, Furnitures Quiz"],
-          }
-        ],
-       },
-      { title: "Most common foods and drinks",
-        subtopics: [
-          {title: "Foods, Drinks.",
-            childTopics: ["Basic Foods, Drinks Quiz", "Hard Foods, Drinks Quiz"],
-          }
-        ],
-       },
-      { title: "Most common clothes and wearings",
-        subtopics: [
-          {title: "Clothes, Wearings.",
-            childTopics: ["Basic Clothes, Wearings Quiz", "Hard Clothes, Wearings Quiz"],
-          }
-        ],
-       },
-      { title: "Most common body parts",
-        subtopics: [
-          {title: "Body Parts.",
-            childTopics: ["Basic Body Parts Quiz", "Hard Body Parts Quiz"],
-          }
-        ],
-       },
-       { title: "Most common animals",
-        subtopics: [
-          {title: "Animals.",
-            childTopics: ["Basic Animals Quiz", "Animals Sentence Quiz" , "Hard Animals Quiz"],
-          }
-        ],
-       },
-      { title: "Most common places in the city",
-        subtopics: [
-          {title: "Places.",
-            childTopics: ["Basic Places Quiz", "Places Sentence Quiz", "Hard Places Quiz"],
-          }
-        ],
-       },        
-      { title: "Talking about simple illnesses",
-        subtopics: [
-          {title: "Illness",
-            childTopics: ["Basic Illness Quiz", "Illness Sentence Quiz", "Hard Illness Quiz"],
-          }
-        ],
-       },
-      { title: "Some survival Finnish phrases",
-        subtopics: [
-          {title: "Phrases",
-            childTopics: ["Phrases Quiz", "Phrases Sentence Quiz"],
-          }
-        ],
-       },
-      { title: "Basic knowledge about telling the time",
-        subtopics: [
-          {title: "Time",}
-        ],
-       },
     ];
+
 
      export const a1Conversation: Topic[] = [
       

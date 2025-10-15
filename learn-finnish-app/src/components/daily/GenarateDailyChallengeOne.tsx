@@ -24,10 +24,10 @@ function GenarateDailyChallengeOne({onComplete,}: {onComplete?: (success: boolea
   const randomSet = datasets[Math.floor(Math.random() * datasets.length)];
   const dataset = randomSet?.data || {};
   const keys = Object.keys(dataset);
-  const keyType = keys[0];
-  const allItems = dataset[keyType as keyof typeof dataset] as ChallengeItem[];
-  
-    const [showPopup, setShowPopup] = useState(false);
+  const keyType =  keys[Math.floor(Math.random() * keys.length)] as keyof typeof dataset;
+const allItems = Array.isArray(dataset[keyType])
+    ? (dataset[keyType] as ChallengeItem[])
+    : [];
 
   // === Step 2: State ===
   const [quizItems, setQuizItems] = useState<ChallengeItem[]>([]);
@@ -36,6 +36,7 @@ function GenarateDailyChallengeOne({onComplete,}: {onComplete?: (success: boolea
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const [score, setScore] = useState(0);
   const [finished, setFinished] = useState(false);
+  const [animate, setAnimate] = useState<string>('enter')
   const [challengeState, setChallengeState] =
     useState<ChallengeState<ChallengeItem> | null>(null);
 
@@ -52,6 +53,7 @@ function GenarateDailyChallengeOne({onComplete,}: {onComplete?: (success: boolea
     }
     const selectedQuizItems = shuffle(allItems).slice(0, 10);
     setQuizItems(selectedQuizItems);
+    console.log("quizItems",quizItems)
   }
 
   // === Step 4: Load question on index change ===
@@ -159,7 +161,8 @@ function GenarateDailyChallengeOne({onComplete,}: {onComplete?: (success: boolea
   }
 
   return (
-    <div className="p-6">
+    <div className={`transition-all duration-300 ease-in-out ${animate === 'enter' ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}>
+
       <h4 className="text-lg text-gray-200 mb-4">
         What is the meaning of{" "}
         <span className="text-red-400 font-bold">

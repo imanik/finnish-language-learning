@@ -4,6 +4,8 @@ import { bodyPartData } from "../../../data/basicA1";
 import ConjugationTable from "../../../components/ConjugationTable";
 import BodyWrapper from "../../../components/BodyWrapper";
 import NavWrapper from "../../../components/NavWrapper";
+import PageWrapper from "../../../components/PageWrapper";
+
 
 
 function BodyPartsPage(){
@@ -19,14 +21,12 @@ return (
 
       <div className="mt-16">
 
-      <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-6">
-      
-                        <h2 className="text-2xl font-semibold text-teal-800 mb-4">🧍‍♂️ A1 Finnish – Body Parts – Kehonosat </h2>
+      <PageWrapper title="🧍‍♂️ A1 Finnish – Body Parts – Kehonosat"> 
                     {/* <!-- Header --> */}
                         {/* <h4 className="text-xl font-semibold text-teal-700 mb-6"><span className="font-medium">“The world is colorful (värikäs)”</span>  – let’s learn how to describe it in Finnish!</h4> */}
       
                           <h2 className="text-2xl font-semibold text-teal-600 mb-3">🧠 1. The Head and Face – Pää ja kasvot</h2>
-                  <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
+                  <section className="bg-gray-900 rounded-lg border border-teal-900 p-4 mb-6">
                       {/* <p className="text-gray-700 mb-2">These are regular counting numbers: one, two, three...</p> */}
           
                       <ConjugationTable items={bodyPartData.bodyParts} min={0} max={21} isVocab={true} />
@@ -40,16 +40,10 @@ return (
                       </button>
                   </Link>
                   {/* <h4 className="text-xl font-semibold text-teal-700 mb-6"><span className="font-medium">🔸 Adjectives in Nominative </span> (used with "päivä") </h4> */}    
-      </div>
+      </PageWrapper>
 
-      <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-6">
-      
-                        {/* <h2 className="text-2xl font-semibold text-teal-800 mb-4">🏠 A1 Finnish – Rooms and Furniture (Huoneet ja Huonekalut)</h2> */}
-                    {/* <!-- Header --> */}
-                        {/* <h4 className="text-xl font-semibold text-teal-700 mb-6"><span className="font-medium">“The world is colorful (värikäs)”</span>  – let’s learn how to describe it in Finnish!</h4> */}
-      
-                  <h2 className="text-2xl font-semibold text-teal-600 mb-3">🫀 2. The Torso – Vartalo</h2>
-                  <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
+      <PageWrapper title="🫀 2. The Torso – Vartalo">
+                  <section className="bg-gray-900 rounded-lg border border-teal-900 p-4 mb-6">
                       {/* <p className="text-gray-700 mb-2">These are regular counting numbers: one, two, three...</p> */}
           
                       <ConjugationTable items={bodyPartData.bodyParts} min={22} max={36} isVocab={true} />
@@ -58,15 +52,9 @@ return (
                                   {/* <p className="text-teal-600 mt-2"><strong>🧠 Tip:</strong> In Finnish, the months are not capitalized. Each ends in -kuu, meaning "moon/month".</p> */}
                   </section>
                   {/* <h4 className="text-xl font-semibold text-teal-700 mb-6"><span className="font-medium">🔸 Adjectives in Nominative </span> (used with "päivä") </h4> */}    
-      </div>
-      <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-6">
-      
-                        {/* <h2 className="text-2xl font-semibold text-teal-800 mb-4">🏠 A1 Finnish – Rooms and Furniture (Huoneet ja Huonekalut)</h2> */}
-                    {/* <!-- Header --> */}
-                        {/* <h4 className="text-xl font-semibold text-teal-700 mb-6"><span className="font-medium">“The world is colorful (värikäs)”</span>  – let’s learn how to describe it in Finnish!</h4> */}
-      
-                  <h2 className="text-2xl font-semibold text-teal-600 mb-3">💪 3. The Arms and Hands – Kädet</h2>
-                  <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
+      </PageWrapper>
+      <PageWrapper title="💪 3. The Arms and Hands – Kädet">
+                  <section className="bg-gray-900 rounded-lg border border-teal-900 p-4 mb-6">
                       {/* <p className="text-gray-700 mb-2">These are regular counting numbers: one, two, three...</p> */}
           
                       <ConjugationTable items={bodyPartData.bodyParts} min={37} max={53} isVocab={true} />
@@ -75,15 +63,9 @@ return (
                                   {/* <p className="text-teal-600 mt-2"><strong>🧠 Tip:</strong> In Finnish, the months are not capitalized. Each ends in -kuu, meaning "moon/month".</p> */}
                   </section>
                   {/* <h4 className="text-xl font-semibold text-teal-700 mb-6"><span className="font-medium">🔸 Adjectives in Nominative </span> (used with "päivä") </h4> */}    
-      </div>
-      <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-6">
-      
-                        {/* <h2 className="text-2xl font-semibold text-teal-800 mb-4">🏠 A1 Finnish – Rooms and Furniture (Huoneet ja Huonekalut)</h2> */}
-                    {/* <!-- Header --> */}
-                        {/* <h4 className="text-xl font-semibold text-teal-700 mb-6"><span className="font-medium">“The world is colorful (värikäs)”</span>  – let’s learn how to describe it in Finnish!</h4> */}
-      
-                  <h2 className="text-2xl font-semibold text-teal-600 mb-3">🦵 4. The Legs and Feet – Jalat</h2>
-                  <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
+      </PageWrapper>
+      <PageWrapper title="🦵 4. The Legs and Feet – Jalat">
+                  <section className="bg-gray-900 rounded-lg border border-teal-900 p-4 mb-6">
                       {/* <p className="text-gray-700 mb-2">These are regular counting numbers: one, two, three...</p> */}
           
                       <ConjugationTable items={bodyPartData.bodyParts} min={54} max={bodyPartData.bodyParts.length-1} isVocab={true} />
@@ -93,15 +75,9 @@ return (
                   </section>
 
                   {/* <h4 className="text-xl font-semibold text-teal-700 mb-6"><span className="font-medium">🔸 Adjectives in Nominative </span> (used with "päivä") </h4> */}    
-      </div>
-      <div className="bg-gradient-to-br from-teal-50 to-teal-200 p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-6">
-      
-                        {/* <h2 className="text-2xl font-semibold text-teal-800 mb-4">🏠 A1 Finnish – Rooms and Furniture (Huoneet ja Huonekalut)</h2> */}
-                    {/* <!-- Header --> */}
-                        {/* <h4 className="text-xl font-semibold text-teal-700 mb-6"><span className="font-medium">“The world is colorful (värikäs)”</span>  – let’s learn how to describe it in Finnish!</h4> */}
-      
-                  <h2 className="text-2xl font-semibold text-teal-600 mb-3">🧾 Useful Phrases with Bodyparts (Sayings – Sanontoja)s</h2>
-                  <section className="bg-white rounded-lg border border-gray-300 p-4 mb-6">
+      </PageWrapper>
+      <PageWrapper title="🧾 Useful Phrases with Bodyparts (Sayings – Sanontoja)s">
+                  <section className="bg-gray-900 rounded-lg border border-teal-900 p-4 mb-6">
                       {/* <p className="text-gray-700 mb-2">These are regular counting numbers: one, two, three...</p> */}
           
                       <div className="mb-6 overflow-x-auto">
@@ -156,7 +132,7 @@ return (
                                   {/* <p className="text-teal-600 mt-2"><strong>🧠 Tip:</strong> In Finnish, the months are not capitalized. Each ends in -kuu, meaning "moon/month".</p> */}
                   </section>
                   {/* <h4 className="text-xl font-semibold text-teal-700 mb-6"><span className="font-medium">🔸 Adjectives in Nominative </span> (used with "päivä") </h4> */}    
-      </div>   
+      </PageWrapper>
     </div>
     </BodyWrapper>
 

@@ -27,10 +27,10 @@ function GenarateDailyChallengeTwo({ onComplete }: { onComplete?: (success: bool
   const [shuffledEnglish, setShuffledEnglish] = useState<Data[]>([]);
   const [selectedFinnish, setSelectedFinnish] = useState<Data | null>(null);
   const [selectedEnglish, setSelectedEnglish] = useState<Data | null>(null);
+  const [matchedPairs, setMatchedPairs] = useState<Set<string>>(new Set());
 
   const [score, setScore] = useState<number>(0);
   const [attempts, setAttempts] = useState<number>(0);
-  const [matchedPairs, setMatchedPairs] = useState<Set<string>>(new Set());
   const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
