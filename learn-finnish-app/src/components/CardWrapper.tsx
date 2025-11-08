@@ -1,6 +1,7 @@
 // src/components/CardWrapper.tsx
 import React from "react";
 import { useTheme } from "../contexts/ThemeContext";
+import { useLocation } from "react-router-dom";
 
 
 interface CardWrapperProps {
@@ -11,20 +12,25 @@ interface CardWrapperProps {
 function CardWrapper({ title, children }: CardWrapperProps) {
   const { theme } = useTheme();
 
+    let mainBg = 'bg-gradient-to-br from-teal-50 to-teal-200'
+  
+    if(theme === 'light'){
+        mainBg = "bg-gradient-to-br from-teal-50 to-teal-200";
+    }else{
+     mainBg = ' bg-gradient-to-br from-black via-gray-800 to-gray-900 shadow-sm shadow-teal-900'
+      
+    }
 
-  let cardClass = "p-6 rounded-lg shadow-lg w-full max-w-md";
+    const location = useLocation();
+  const containerClass = location.pathname === "/"
+    ? `${mainBg} p-6 rounded-lg shadow-lg w-full max-w-md`
+    : `${mainBg} p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-6`;
 
-  if (theme === "light") {
-    cardClass += " bg-gradient-to-br from-teal-50 to-teal-200";
-  } else if (theme === "dark") {
-     // console.log(theme)
-    cardClass += " bg-gray-800 border border-gray-700 text-white";
-  } else if (theme === "rainbow") {
-    cardClass += " bg-gradient-to-r from-pink-500 via-yellow-500 to-green-500 text-white";
-  }
+
+  
 
   return (
-    <div className={cardClass}>
+    <div className={containerClass}>
       {title && <h2 className="text-2xl font-semibold text-teal-500 mb-4">{title}</h2>}
       {children}
     </div>

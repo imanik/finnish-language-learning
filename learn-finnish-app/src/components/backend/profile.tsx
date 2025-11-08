@@ -19,7 +19,7 @@ function Profile() {
 
   return (
      <CardWrapper title="Your Profile">
-      <div className="bg-gray-900 rounded-xl shadow-lg border border-teal-700 w-full max-w-md p-6">
+       <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-lg border border-teal-700 p-4 mb-6">
         {/* Avatar + Name */}
         <div className="flex flex-col items-center">
           <div className="w-24 h-24 rounded-full bg-teal-600 flex items-center justify-center text-3xl font-bold text-white shadow-md">
@@ -76,13 +76,13 @@ function Profile() {
         </div>
 
         {/* Logout */}
+        </section>
         <button
           onClick={handleLogout}
-          className="mt-6 w-full bg-teal-900 hover:bg-teal-500 text-white py-2 rounded-lg shadow-md transition transform hover:scale-105"
+          className="mt-6 w-full bg-gray-900 hover:bg-teal-500 text-teal-400 hover:text-teal-900 py-2 rounded-lg shadow-sm shadow-teal-900 transition transform hover:scale-105"
         >
           Logout
         </button>
-      </div>
     </CardWrapper>
   );
 }

@@ -30,7 +30,7 @@ function Greetings() {
         {showPronunciation ? 'Hide Pronunciation' : 'Show Pronunciation'}
       </button>
 
-      <section className="bg-gray-900 rounded-lg border border-teal-800 p-4 mb-6">
+     <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-lg border border-teal-700 p-4 mb-6">
 
       <ul className="list-disc pl-5 text-teal-200">
         {greets.map((greet, index) => (
@@ -53,7 +53,7 @@ function Greetings() {
       
       {/* // Inside your component (e.g., Greetings.js): */}
 <Link to="/beginars/greeting/how-are-you">
-  <button className="mt-4 bg-teal-900 text-white px-4 py-2 rounded hover:bg-teal-300 hover:text-teal-900 transform hover:scale-110 transition duration-200">
+  <button className="mt-4 bg-gray-900 text-teal-300  shadow-sm shadow-teal-900 px-4 py-2 rounded hover:bg-teal-300 hover:text-teal-900 transform hover:scale-110 transition duration-200">
     Learn More
   </button>
 </Link>

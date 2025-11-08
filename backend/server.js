@@ -1,6 +1,8 @@
 import express from 'express'
 import cors from "cors";
 import { authRouter } from './routes/auth.js';
+import { leaderboardRouter } from "./routes/leaderboard.js"; // ✅ correct import
+
 import  session  from 'express-session'
 
 
@@ -47,6 +49,7 @@ app.get('/api/health', (req, res) => {
 
 
 app.use('/api/auth', authRouter)
+app.use("/api/leaderboard", leaderboardRouter); // <--- VERY IMPORTANT
 
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`)

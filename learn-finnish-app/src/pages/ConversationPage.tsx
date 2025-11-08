@@ -25,7 +25,10 @@ function ConversationPage() {
 
   const handleTranslate = async () => {
     try {
+
+
       const response = await axios.post(
+      
         LINGVANEX_ENDPOINT, // ✅ from config
         {
           from: "en",
@@ -41,9 +44,13 @@ function ConversationPage() {
         }
       );
 
+        console.log("Hidden",response)
+
       const data = response.data as { result?: string };
       
       setTranslation(data.result || "No translation found");
+      console.log("translation",translation)
+      console.log(data.result)
     } catch (error: any) {
       console.error("Translation error:", error.message);
       setTranslation(
@@ -69,7 +76,7 @@ function ConversationPage() {
             value={searchWord}
             onChange={(e) => setSearchWord(e.target.value)}
             placeholder="Type your guess"
-            className="bg-gray-900 border border-teal-800 p-2 rounded w-full focus:outline-none focus:ring-2 focus:ring-teal-500"
+            className="bg-gray-900 text-gray-200 border border-teal-800 p-2 rounded w-full focus:outline-none focus:ring-2 focus:ring-teal-500"
             />
             <button
             onClick={handleTranslate}
@@ -80,7 +87,7 @@ function ConversationPage() {
         </div>
        
           {translation && (
-            <p className="mt-4 text-gray-800">
+            <p className="mt-4 text-gray-200">
               <strong>Result:</strong> {translation}
             </p>
           )}

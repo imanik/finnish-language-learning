@@ -1,144 +1,148 @@
-import React, { useState} from "react";
+import React, { useState, useEffect } from "react";
 import GenarateDailyChallengeOne from "./GenarateDailyChallengeOne";
 import PageWrapper from "../PageWrapper";
 import GenarateDailyChallengeTwo from "./GenarateDailyChallengeTwo";
 import GenarateDailyChallengeThree from "./GenarateDailyChallengeThree";
+import DailyLeaderboard from "./DailyLeaderboard";
+import { useAuth } from "../../contexts/AuthContext";
+import SignupUser from "../backend/Signup";
+import Login from "../backend/Login";
 
+interface ChallengeScore {
+  correct: number;
+  total: number;
+}
 
+interface ChallengeItem {
+  finnish: string;
+  english: string;
+  pronunciation?: string;
+}
 
-        interface ChallengeScore {
-            correct: number;
-            total: number;
-        }
+interface ChallengeProps<T extends ChallengeItem> {
+  items: T[];
+  quizType?: string;
+  title?: string;
+  onComplete?: (success: boolean) => void;
+}
 
-        interface ChallengeItem {
-            english: string;
-            finnish: string;
-            pronunciation?: string; // optional
-        }
+function ChallengeOne<T extends ChallengeItem>({
+  items,
+  quizType,
+  title,
+  onComplete,
+}: ChallengeProps<T>) {
+  const [quizItem, setQuizItem] = useState<ChallengeItem | null>(null);
+  const [score, setScore] = useState<ChallengeScore>({ correct: 0, total: 0 });
+  const [activeChallenge, setActiveChallenge] = useState<number>(2);
+  const { user } = useAuth(); // ✅ Auth context
+  const [showSignup, setShowSignup] = useState(false);
 
-        interface ChallengeProps<T extends ChallengeItem> {
-            items : T[]; // Current quiz question item
-            quizType?: string; // Optional quiz type, not yet used
-            title?: string; // Optional title for the quiz
-            onComplete?: (success: boolean)=> void
-        }
+  useEffect(() => {
+    if (quizItem) console.log("✅ quizItem updated:", quizItem);
+  }, [quizItem]);
 
-function ChallengeOne<T extends ChallengeItem>({items,quizType,title,onComplete}: ChallengeProps<T>){
-
-    const [quizItem, setQuizItem] = useState<ChallengeItem | null>(null); // Current quiz question item
-    const [score, setScore] = useState<ChallengeScore>({correct:0, total:0});
-    const [activeChallenge, setActiveChallenge] = useState<number>(1)
-
-   // console.log(items)
-
-    const startQuiz = () => {
-        const randomIndex = Math.floor(Math.random() * items.length)
-        setQuizItem(items[randomIndex])
-        setScore({correct:0, total:0})
+  const startQuiz = () => {
+    if (items.length === 0) {
+      console.warn("⚠️ No items available for quiz!");
+      return;
     }
 
-    const nextQuestion = () => {
-        const randomIndex = Math.floor(Math.random()* items.length)
-        setQuizItem(items[randomIndex])
-    }
+    const randomItem = items[Math.floor(Math.random() * items.length)];
+    setQuizItem(randomItem);
+    setScore({ correct: 0, total: 0 });
+  };
 
-    const handleAnswer = (isCorrect:boolean) => {
-        setScore((prev)=>{
-            const newScore = {
-                correct: prev.correct + (isCorrect ? 1 : 0),
-                total: prev.total + 1
-            }
+  const nextQuestion = () => {
+    const nextItem = items[Math.floor(Math.random() * items.length)];
+    setQuizItem(nextItem);
+  };
 
-            return newScore; // ✅ need to return this
-        })
-    }
+  const handleAnswer = (isCorrect: boolean) => {
+    setScore((prev) => ({
+      correct: prev.correct + (isCorrect ? 1 : 0),
+      total: prev.total + 1,
+    }));
+  };
 
-    const resetScore = () => {
-                setScore({ correct: 0, total: 0 });
-        };
+  const resetScore = () => setScore({ correct: 0, total: 0 });
 
-    
-        const handleQuizComplete = (wasCorrect:boolean) => {  
-       // unlock next challenge if score 7/10
+  const handleQuizComplete = () => {
+    if (score.total < 9) return; // wait until 10 questions answered
 
-       console.log('score',score)
-
-       if(score.total < 9) return
-
-      const passed = score.correct >= 7;
+    const passed = score.correct >= 7;
     if (passed) {
       console.log("✅ Unlock next challenge!");
-      setActiveChallenge((prev)=> prev + 1)
+      setActiveChallenge((prev) => prev + 1);
     } else {
       console.log("❌ Failed, restarting challenge...");
       resetScore();
-      setActiveChallenge(1)
+      setActiveChallenge(1);
     }
+  };
 
-    }
+  {/* ✅ Conditional rendering: logged-in users see leaderboard, otherwise signup */}
+  return (
+    <PageWrapper title="">
+      
+      {!user ? (
+        <div className="mt-6 ">
+        <SignupUser onSwitch={() => setShowSignup(false)} />
+        </div>
+      ) : (
+        <div className="mt-6">
+        <DailyLeaderboard />
+        </div>
+      )}
+      
 
+      <div className=" mt-6">
+        <h2 className="text-2xl font-semibold text-teal-500 mb-4">Daily Challenge</h2>
+        {!quizItem ? (
+          !user ? (
+            <Login />
+          ) : (
+            <button
+              onClick={startQuiz}
+              className="mt-4 bg-gray-900 text-teal-300  shadow-sm shadow-teal-900 px-4 py-2 rounded hover:bg-teal-300 hover:text-teal-900 transform hover:scale-110 transition duration-200"
+            >
+              Start Quiz
+            </button>
+          )
+        ) : (
+          <div className="mt-2">
+            {activeChallenge === 1 && (
+              <GenarateDailyChallengeOne
+                onNext={nextQuestion}
+                onAnswer={handleAnswer}
+                onReset={resetScore}
+                handleQuizComplete={handleQuizComplete}
+                onComplete={(success) => {
+                  if (success) setActiveChallenge(2);
+                }}
+              />
+            )}
 
-        return (
+            {activeChallenge === 2 && (
+              <GenarateDailyChallengeTwo
+                onComplete={(success) => {
+                  if (success) setActiveChallenge(3);
+                }}
+              />
+            )}
 
-            <PageWrapper title="Quiz">
-
-                <div className="bg-gray-900 rounded-lg border border-teal-800 p-4 mb-6">
-                            {/* <h3 className="text-xl font-semibold text-teal-200 mb-4">
-                                {quizType ? (title?.toUpperCase() || "QUIZ") : "DAILY"} QUIZ 
-                            </h3> */}
-                    
-                        {/* <p className="text-teal-300 mb-4">
-                        Score: {score.correct}/{score.total} ({((score.correct / score.total) * 100 || 0).toFixed(1)}%)
-                        </p> */}
-
-                        {!quizItem ? (
-                            <button
-                                onClick={startQuiz}
-                                className="bg-teal-300 text-teal-900 px-4 py-2 rounded hover:bg-teal-700 hover:text-white transform hover:scale-110 transition duration-200"
-                                    >
-                                        Start Quiz
-                            </button>
-                        ) : (
-                            <>
-
-                            {activeChallenge === 1 && (
-                                <GenarateDailyChallengeOne
-                                    onComplete={(success) => {
-                                        console.log("success",success)
-                                    if (success) setActiveChallenge(2); // ✅ Go to Challenge 2
-                                    }}
-                                />
-                                )}
-
-                                {activeChallenge === 2 && (
-                                <GenarateDailyChallengeTwo
-                                    onComplete={(success) => {
-                                    if (success) setActiveChallenge(3); // ✅ Go to Challenge 3
-                                    }}
-                                />
-                                )}
-
-                                {activeChallenge === 3 && (
-                                <GenarateDailyChallengeThree
-                                    onComplete={(success) => {
-                                    if (success) alert("🎉 You finished all challenges!");
-                                    }}
-                                />
-                                )}
-
-                            </>
-
-                        )
-
-                    
-                        }
-                </div>
-
-            </PageWrapper>
-        )
-
-
+            {activeChallenge === 3 && (
+              <GenarateDailyChallengeThree
+                onComplete={(success) => {
+                  if (success) alert("🎉 You finished all challenges!");
+                }}
+              />
+            )}
+          </div>
+        )}
+      </div>
+    </PageWrapper>
+  );
 }
 
-export default ChallengeOne
+export default ChallengeOne;

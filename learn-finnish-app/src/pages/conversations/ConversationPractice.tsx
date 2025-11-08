@@ -161,7 +161,7 @@ const handleEnglishChange = (id: number, value: string) => setEnglishAnswers(pre
                   value={englishAnswers[q.id] || ""}
                   onChange={(e) => handleEnglishChange(q.id, e.target.value)}
                   disabled={!isActive}
-                  className="border border-teal-400 bg-gray-900 text-white rounded-lg p-3 w-full mb-4 neon-input focus:ring-2 focus:ring-teal-200 transition shadow-neon"
+                  className="border border-teal-400 bg-gray-900 text-gray-200 rounded-lg p-3 w-full mb-4 neon-input focus:ring-2 focus:ring-teal-200 transition shadow-neon"
                 />
                 <div className="flex gap-3">
                   <button

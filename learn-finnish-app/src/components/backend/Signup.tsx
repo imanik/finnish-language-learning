@@ -36,8 +36,8 @@ function SignupUser({onSwitch}: SignupProps) {
 
   return (
 
-        <CardWrapper title="Track Your Progress">
-      <section className="bg-gray-900 rounded-lg border border-teal-700 p-4 mb-6">
+        <CardWrapper title="">
+       <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-lg border border-teal-700 p-4 mb-6">
          <div className="p-4 max-w-md mx-auto">
       <h2 className="text-xl font-bold text-teal-400 mb-4">Signup</h2>
        <form id="signup-form"  onSubmit={handleSubmit}>

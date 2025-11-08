@@ -13,15 +13,8 @@ function shuffled<T>(array: T[]): T[] {
 
 function GenarateDailyChallengeTwo({ onComplete }: { onComplete?: (success: boolean) => void }) {
 
-
-//  const randomSet = datasets[Math.floor(Math.random() * datasets.length)]
-//  const dataset = randomSet.data
-
-const today = new Date();
-const dayIndex = today.getDate() % datasets.length;
-const dailySet = datasets[dayIndex];
-const dataset = dailySet.data;
-
+  const randomSet = datasets[Math.floor(Math.random() * datasets.length)]
+  const dataset = randomSet.data
 
   const keys = Object.keys(dataset)
   const hasSentence = keys.find(k => k.toLowerCase().includes("sentence"))
@@ -40,17 +33,6 @@ const dataset = dailySet.data;
   const [attempts, setAttempts] = useState<number>(0);
   const [showPopup, setShowPopup] = useState(false);
 
-const [timeTaken, setTimeTaken] = useState(0);
-const [timerActive, setTimerActive] = useState(false);
-
-useEffect(() => {
-  if (timerActive) {
-    const interval = setInterval(() => setTimeTaken((t) => t + 1), 1000);
-    return () => clearInterval(interval);
-  }
-}, [timerActive]);
-
-
   useEffect(() => {
     startGame();
   }, []);
@@ -65,8 +47,6 @@ useEffect(() => {
     setShowPopup(false);
     setSelectedFinnish(null);
     setSelectedEnglish(null);
-    setTimeTaken(0);
-    setTimerActive(true);
   };
 
   useEffect(() => {
@@ -85,31 +65,11 @@ useEffect(() => {
     }
   }, [selectedFinnish, selectedEnglish]);
 
-useEffect(() => {
-  if (attempts >= 10) {
-    setTimerActive(false);
-    setShowPopup(true);
-  }
-}, [attempts]);
-
-const finalScore = Math.max(0, (score * 100) - timeTaken * 2);
-
-useEffect(() => {
-  if (showPopup) {
-   // const finalScore = Math.max(0, (score * 100) - timeTaken * 2);
-    fetch("/api/leaderboard", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        date: new Date().toISOString().slice(0, 10),
-        topic: dailySet.name,
-        score: finalScore,
-        time: timeTaken,
-        correct: score,
-      }),
-    });
-  }
-}, [showPopup]);
+  useEffect(() => {
+    if (attempts >= 10) {
+      setShowPopup(true);
+    }
+  }, [attempts]);
 
   return (
     <div className="bg-gray-900 p-6 rounded-lg shadow-lg relative">
@@ -173,9 +133,6 @@ useEffect(() => {
       {showPopup && (
         <div className="absolute inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50">
           <div className="bg-gray-800 p-6 rounded-lg shadow-lg text-center max-w-sm w-full">
-            <h3 className="text-xl font-bold text-teal-300 mb-2">{dailySet.name.toUpperCase()} Challenge</h3>
-              <p className="text-teal-400">Time: {timeTaken}s</p>
-              <p className="text-teal-400 mb-4">Score: {finalScore}</p>
             {score >= 7 ? (
               <>
                 <h3 className="text-green-400 text-xl font-bold mb-4">

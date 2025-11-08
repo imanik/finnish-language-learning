@@ -76,6 +76,22 @@ await db.exec(`CREATE TABLE IF NOT EXISTS reviews (
   FOREIGN KEY (reviewee_id) REFERENCES users(id)
 )`)
 
+// -- Reviews after meeting
+await db.exec(`
+CREATE TABLE IF NOT EXISTS leaderboard (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER,                     -- Links to users.id
+  date TEXT NOT NULL,                  -- e.g. '2025-10-13'
+  topic TEXT,                          -- e.g. 'Food', 'Greetings'
+  score INTEGER,                       -- e.g. 780
+  time INTEGER,                        -- seconds taken
+  correct INTEGER,                     -- number of correct answers
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);
+`);
+
+
      
 
          await db.close()

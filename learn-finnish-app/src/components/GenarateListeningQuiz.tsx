@@ -16,7 +16,7 @@ interface QuizState<T extends QuizItem> {
 }
 
 // Props for GenerateQuiz component — made generic using <T extends QuizItem>
-interface GenerateQuizProps<T extends QuizItem> {
+interface GenerateListeningQuizProps<T extends QuizItem> {
   item: T; // Current quiz question item
   optionsPool: T[]; // All options to generate incorrect answers
   onNext: () => void; // Function to load next question
@@ -28,7 +28,7 @@ interface GenerateQuizProps<T extends QuizItem> {
 }
 
 // Main GenerateQuiz functional component with generic type <T>
-function GenerateQuiz<T extends QuizItem>({
+function GenerateListeningQuiz<T extends QuizItem>({
   item,
   optionsPool,
   onNext,
@@ -36,7 +36,7 @@ function GenerateQuiz<T extends QuizItem>({
   onReset,
    handleQuizComplete,
   
-}: GenerateQuizProps<T>) {
+}: GenerateListeningQuizProps<T>) {
 
   // Stores the user's selected answer (value: finnish term)
   const [selected, setSelected] = useState<string | null>(null);
@@ -97,6 +97,12 @@ function GenerateQuiz<T extends QuizItem>({
     handleQuizComplete(isAnswerCorrect); // Call the quiz completion handler
   };
 
+  const playPronunciation = (text: string) => {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'fi-FI';
+    window.speechSynthesis.speak(utterance);
+  };
+
   const handleNextQuestion = () => {
 
     setAnimate("exit")
@@ -117,13 +123,21 @@ function GenerateQuiz<T extends QuizItem>({
 
     <div className={`transition-all duration-300 ease-in-out ${animate === 'enter' ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}>
       {/* Quiz Question */}
-      <h3 className="text-xl font-semibold text-teal-200 mb-4">
-        What is the meaning of "<span className="text-xl text-red-500">{quizState.question}</span>"?
+      
+
+       <h3 className="text-xl font-semibold text-teal-200 mb-4">
+       <button
+              onClick={() => playPronunciation(quizState.correctAnswer)}
+              className="ml-2 mr-4 bg-gray-900 text-teal-300 shadow-sm shadow-teal-900 px-2 py-1 rounded hover:bg-teal-500 hover:text-teal-900 transform hover:scale-110 transition duration-200"
+            >
+              🔊
+            </button>
+             What do you hear?
       </h3>
 
       {/* List of Options */}
         {quizState.shuffledOptions.map((option, index) => (
-      <div className={` ${isActive && option.finnish === quizState.correctAnswer ?  'border border-teal-900': ' '} rounded-xl shadow-xl p-6 max-w-xl mx-auto mb-6 
+      <div className={` ${isActive && option.finnish === quizState.correctAnswer ?  'border border-teal-900': ' '} flex justify-between text-teal-200 block w-full p-2 mb-2 bg-gray-900 shadow-sm shadow-teal-900 rounded 
                  transition transform duration-300 ease-out
                  hover:-translate-y-1 hover:scale-105`}>
           <label key={index} className="block">
@@ -138,7 +152,7 @@ function GenerateQuiz<T extends QuizItem>({
             />
              <span className="text-teal-200 focus:ring-teal-500 border-gray-300">{option.finnish}</span>
             <span className="text-gray-400 ml-2">
-              ({option.pronunciation ?? " "}) {/* Optional pronunciation */}
+              ({option.english ?? " "}) {/* Optional pronunciation */}
             </span>
           </label>
       </div>
@@ -163,14 +177,13 @@ function GenerateQuiz<T extends QuizItem>({
           </p>
           <button
             onClick={handleNextQuestion}
-            className="mt-2 bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-700 m-4"
+            className="mt-2 bg-gray-900 text-teal-300  px-4 py-2 rounded hover:bg-teal-400 hover:text-teal-900 shadow-sm shadow-teal-900 m-4"
           >
             Next Question
           </button>
-          
           <button
             onClick={onReset}
-            className="m-4 bg-red-500 text-white px-4 py-2 rounded"
+            className="mt-2 bg-gray-900 text-teal-300  px-4 py-2 rounded hover:bg-teal-400 hover:text-teal-900 shadow-sm shadow-teal-900 m-4"
           >
             Reset Score
           </button>
@@ -181,4 +194,4 @@ function GenerateQuiz<T extends QuizItem>({
   );
 }
 
-export default GenerateQuiz;
+export default GenerateListeningQuiz;

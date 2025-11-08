@@ -429,7 +429,7 @@ export const verbTopics: Topic[] = [
       { title: "Most common verbs",
         subtopics: [
           {title: "Basic Verbs.", 
-            childTopics: ["Basic Verbs Quiz","Intermediate Verbs Quiz", "Hard Verbs Quiz"],
+            childTopics: ["Basic Verbs Quiz","Intermediate Verbs Quiz", "Hard Verbs Quiz", "Verbs Listening Quiz"],
           }
         ],
        },

@@ -66,7 +66,7 @@ useEffect(() => {
         
 
       
-    <section className="bg-gray-900 rounded-lg border border-teal-800 p-4 mb-6">
+     <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-lg border border-teal-700 p-4 mb-6">
      
 
         
@@ -84,7 +84,7 @@ useEffect(() => {
 
         <button
             onClick={() => setShowAnswer(!showAnswer)}
-            className="bg-teal-900 text-white px-4 py-2 rounded hover:bg-teal-300 hover:text-teal-900 transform hover:scale-110 transition duration-200 mb-4"
+            className="bg-gray-900 text-teal-300  px-4 py-2 rounded hover:bg-teal-300 hover:text-teal-900 transform hover:scale-110 transition duration-200 mb-4"
         >
             {showAnswer ? 'Hide Answers' : 'Show Answers'}
         </button>
@@ -105,11 +105,11 @@ useEffect(() => {
             value={userGuess}
             onChange={(e) => setUserGuess(e.target.value)}
             placeholder="Type your guess"
-            className="bg-gray-900 border border-gray-300 p-2 rounded w-full focus:outline-none focus:ring-2 focus:ring-teal-500"
+            className="bg-gray-900 border border-teal-900 p-2 rounded w-full focus:outline-none focus:ring-2 focus:ring-teal-500"
             />
             <button
             onClick={checkAnswer}
-            className="bg-teal-900 text-white px-4 py-2 rounded hover:bg-teal-300 hover:text-teal-900 transform hover:scale-110 transition duration-200"
+            className="bg-gray-900 text-teal-300  shadow-sm shadow-teal-900 px-4 py-2 rounded hover:bg-teal-300 hover:text-teal-900 transform hover:scale-110 transition duration-200"
             >
             Check Answer
             </button>
@@ -119,7 +119,7 @@ useEffect(() => {
         </p>
         
         <Link to="/beginars/color/rainbow">
-            <button className="mt-4 bg-teal-900 text-white px-4 py-2 rounded hover:bg-teal-300 hover:text-teal-900 transform hover:scale-110 transition duration-200">
+            <button className="mt-4 bg-gray-900 text-teal-300  shadow-sm shadow-teal-900 px-4 py-2 rounded hover:bg-teal-300 hover:text-teal-900 transform hover:scale-110 transition duration-200">
                 Learn More
             </button>
         </Link>

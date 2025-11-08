@@ -88,7 +88,7 @@ const allItems = dataset[keyType as keyof typeof dataset] as Sentence[];
         setCurrentIndex((prev) => prev + 1);
         prepareSentence(sentences[currentIndex + 1]);
       } else {
-        setShowPopup(true);
+        currentIndex >= 10 ? setShowPopup(true) : setShowPopup(false)
       }
     }, 2500); // wait 1.5s before moving on
   };

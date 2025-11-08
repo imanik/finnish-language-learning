@@ -53,7 +53,7 @@ function UserStats({ quizScore: propsScore, handleQuizComplete }: UserStatsProps
     if(theme === 'light'){
         mainBg = "bg-gradient-to-br from-teal-50 to-teal-200";
     }else{
-     mainBg = ' bg-gray-800'
+     mainBg = ' bg-gradient-to-br from-black via-gray-800 to-gray-900 shadow-sm shadow-teal-900'
       
     }
 
@@ -66,44 +66,47 @@ function UserStats({ quizScore: propsScore, handleQuizComplete }: UserStatsProps
   return (
     
  <div className={containerClass}> 
-      <section className="bg-gray-900 rounded-lg border border-teal-800 p-4 mb-6">
-        
+     <h3 className="text-xl font-semibold text-teal-200 mb-4">
+          Your Stats
+        </h3>
+      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-lg border border-teal-800 p-4 mb-6">
+            
         <div className="mb-4">
           <p className="text-teal-200 mt-2">
             <span className="font-medium"><strong>🧠 Score:</strong></span> {quizScore.correct}/{quizScore.total} ({currentScore}%)
           </p>
           <div className="w-full bg-teal-900 rounded-full h-2.5 mt-1">
-            <div className="bg-teal-600 h-2.5 rounded-full" style={{ width: `${currentScore}%` }} />
+            <div className="bg-teal-600 h-2.5 rounded-full shadow-lg shadow-teal-900 rounded " style={{ width: `${currentScore}%` }} />
           </div>
         </div>
 
           {/* Info */}
         <div className="space-y-3">
-          <div className="flex justify-between text-teal-200">
+          <div className="flex justify-between text-teal-200 block w-full p-2 mb-2 bg-gray-900 shadow-sm shadow-teal-900 rounded">
             <span className="font-medium">Quizzes Solved</span>
             <span className="text-bold text-3xl animate-pulse">{quizScore.total}</span>
           </div>
-          <div className="flex justify-between text-teal-200">
+          <div className="flex justify-between text-teal-200 block w-full p-2 mb-2 bg-gray-900 shadow-sm shadow-teal-900/50 rounded">
             <span className="font-medium">Correct Answers</span>
             <span className="text-bold text-3xl animate-pulse">{quizScore.correct}</span>
           </div>
        
-          <div className="flex justify-between text-teal-200">
+          <div className="flex justify-between text-teal-200 block w-full p-2 mb-2 bg-gray-900 shadow-sm shadow-teal-900/50 rounded">
             <span className="font-medium">Level</span>
             <span className="text-bold text-3xl animate-pulse">{currentLevel}</span>
           </div>
 
-          <div className="flex justify-between text-teal-200">
+          <div className="flex justify-between text-teal-200 block w-full p-2 mb-2 bg-gray-900 shadow-sm shadow-teal-900/50 rounded">
             <span className="font-medium">Quizzes left</span>
             <span className="text-bold text-3xl animate-pulse">{quizzesToNext}</span>
           </div>
 
-          <div className="flex justify-between text-teal-200">
+          <div className="flex justify-between text-teal-200 block w-full p-2 mb-2 bg-gray-900 shadow-sm shadow-teal-900/50 rounded">
             <span className="font-medium">Next Milestone</span>
             <span>Complete {nextMilestone} quizzes with ≥ {requiredScore}%</span>
           </div>
 
-          <div className="flex justify-between text-teal-200">
+          <div className="flex justify-between text-teal-200 block w-full p-2 mb-2 bg-gray-900 shadow-sm shadow-teal-900/50 rounded">
             <span className="font-medium">{levelUpMessage()}</span>
           </div>
 

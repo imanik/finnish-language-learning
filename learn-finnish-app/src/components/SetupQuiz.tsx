@@ -4,6 +4,7 @@
           import GenerateQuiz from './GenarateQuiz';
           import GenerateHardQuiz from './GenerateHardQuiz';
           import GenarateMatchQuiz from "./GenarateMatchQuiz";
+          import GenerateListeningQuiz from "./GenarateListeningQuiz";
           import { useQuiz } from "../contexts/QuizContext";
           import PageWrapper from "./PageWrapper";
           import { BuildingOffice2Icon } from "@heroicons/react/24/solid";
@@ -48,6 +49,10 @@
                   quizType = "intermediate"
                   title = (quizType === "intermediate" ? "Matching " : "Basic ");
 
+              }
+              else if(child && child.includes("listening")){
+                  quizType = "listening"
+                  title = (quizType === "listening" ? "Listening " : "Basic ")
               }
  
               const [quizItem, setQuizItem] = useState<QuizItem | null>(null); // Current quiz question item
@@ -145,15 +150,6 @@
                     return newScore;
                   });
                 };
-                
-
-                // console.log("QuizType", quizType);
-
-          //     // Function to clear leaderboard
-          //   const clearLeaderboard = () => {
-          //     localStorage.removeItem('finnishQuizLeaderboard'); // Remove only this key
-          //     setLeaderboard([]); // Reset state to empty array
-          //   };
             
 
             return (
@@ -163,7 +159,7 @@
     
 
     <PageWrapper title="Quiz">
-      <div className="bg-gray-900 rounded-lg border border-teal-800 p-4 mb-6">
+      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-lg border border-teal-800 p-4 mb-6">
         <h3 className="text-xl font-semibold text-teal-200 mb-4">
           {quizType ? (title?.toUpperCase() || "QUIZ") : "BASIC"} QUIZ
         </h3>
@@ -199,12 +195,21 @@
                 onReset={resetScore}
                 handleQuizComplete={handleQuizComplete}
               />
-            ) : (
+            ) : quizType === "intermediate" ? (
               <GenarateMatchQuiz 
                 items={items}
                 onMatch={handleAnswer}
                 handleMatchingComplete={handleQuizComplete}
                 />
+            ) : (
+              <GenerateListeningQuiz
+                item={quizItem}
+                optionsPool={items}
+                onNext={nextQuestion}
+                onAnswer={handleAnswer}
+                onReset={resetScore}
+                handleQuizComplete={handleQuizComplete}
+              />
             )}
           </>
         )}
@@ -224,7 +229,7 @@
             </ul>
           )}
         </div>
-      </div>
+      </section>
     </PageWrapper>
     </div>
  

@@ -20,7 +20,7 @@ function PageWrapper({title, children}: PageWrapperProps){
     
     else if(theme === "dark"){
 
-        pageClass+= " bg-gray-800"
+        pageClass+= " bg-gradient-to-br from-black via-gray-800 to-gray-900 shadow-sm shadow-teal-900"
 
     }
 

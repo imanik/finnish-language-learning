@@ -1,24 +1,25 @@
-import { getDBConnection } from './db.js'
+// database/viewTables.js
+import { getDBConnection } from "./db.js";
 
-async function logTable() {
-  const db = await getDBConnection()
+async function viewTables() {
+  const db = await getDBConnection();
 
-  const tableName = 'users'
+  console.log("📂 Database connected!");
 
-  try { 
+  // 🧍 View all users
+  const users = await db.all(`SELECT * FROM users`);
+  console.log("👥 Users table:");
+  console.table(users);
 
-    const table = await db.all(`SELECT * FROM ${tableName}`)
-    console.table(table)
+  // 🏆 View all leaderboard entries
+  const leaderboard = await db.all(`SELECT * FROM leaderboard`);
+  console.log("🏆 Leaderboard table:");
+  console.table(leaderboard);
 
-  } catch (err) {
-
-    console.error('Error fetching table:', err.message)
-
-  } finally {
-
-    await db.close()
-
-  }
+  await db.close();
+  console.log("✅ Connection closed.");
 }
 
-logTable()
+viewTables().catch(err => {
+  console.error("❌ Error viewing tables:", err);
+});

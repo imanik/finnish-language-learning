@@ -28,6 +28,8 @@ function DailyChallenge(){
     const allItems = (adjectivesData[keyType as keyof typeof adjectivesData] || adjectivesData.basicAdjectives) as Data[] ; // Type assertion to Number[]
     const { name, data } = getRandomDataset();
 
+    console.log("name", name)
+
 
     return (
             <BodyWrapper>

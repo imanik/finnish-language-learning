@@ -13,8 +13,7 @@ import SignupUser from './backend/Signup';
 import { useQuiz } from './../contexts/QuizContext'; // Make sure to import useQuiz
 import { useAuth } from '../contexts/AuthContext';
 import { useTheme } from '../contexts/ThemeContext';
-import { useLocation } from 'react-router-dom';
-import DailyChallenge from './daily/DailyChallenge';
+import DailyLeaderboard from './daily/DailyLeaderboard';
 
 function MainContent() {
 
@@ -51,7 +50,12 @@ function MainContent() {
       { showSignup ? (
         <SignupUser onSwitch={() => setShowSignup(false)} />
       ) : (
-        <Login onSwitch={() => setShowSignup(true)} />
+        
+        user ? (
+            <DailyLeaderboard />
+          ) : (
+            <Login onSwitch={() => setShowSignup(true)} />
+          )
       )}
       <Numbers />
       <Greetings />

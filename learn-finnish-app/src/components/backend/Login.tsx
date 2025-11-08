@@ -31,8 +31,8 @@ function Login({ onSwitch }: LoginProps) {
  
 
   return (
-    <CardWrapper title="Track Your Progress">
-      <section className="bg-gray-900 rounded-lg border border-teal-700 p-4 mb-6">
+    <CardWrapper title="">
+       <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-lg border border-teal-700 p-4 mb-6">
         <h2 className="text-xl text-teal-400 font-bold mb-4">Login</h2>
         <form onSubmit={handleSubmit}>
           <input
@@ -52,22 +52,22 @@ function Login({ onSwitch }: LoginProps) {
             required
           />
           {errorMsg && <p className="text-red-500">{errorMsg}</p>}
-          <button type="submit" className="bg-teal-900 text-white px-4 py-2 rounded hover:bg-teal-300 hover:text-teal-900 transform hover:scale-110 transition duration-2002">
+          <button type="submit" className="w-full bg-gray-900 text-teal-300 px-4 py-2 shadow-sm shadow-teal-900 rounded hover:bg-teal-300 hover:text-teal-900">
             Login
           </button>
         </form>
-        <p className="mt-4 text-sm text-teal-400">
-        Don’t have an account?{" "}
+        </section>
+        <p className="mt-4 mb-4 text-sm text-teal-400">
+        <span >Don’t have an account?{" "}</span>
         <button
           type="button"
           onClick={onSwitch}
-          className="text-teal-500 hover:underline"
+          className=  "w-full bg-gray-900 text-teal-300 px-4 py-2 shadow-sm shadow-teal-900 rounded hover:bg-teal-300 hover:text-teal-900"
         >
           Sign up
         </button>
       </p>
 
-      </section>
     </CardWrapper>
   );
 }
