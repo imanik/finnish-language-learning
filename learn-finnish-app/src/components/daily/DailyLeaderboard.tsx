@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CardWrapper from "../CardWrapper";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface LeaderboardEntry {
   username: string | null;
@@ -26,7 +27,16 @@ const DailyLeaderboard: React.FC = () => {
 
   const fetchLeaderboard = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/leaderboard/data");
+      const API_BASE =
+        window.location.hostname === "localhost"
+          ? "http://localhost:5000"
+          : "https://fin-learn-backend.onrender.com";
+
+      const res = await fetch(`${API_BASE}/api/leaderboard/data`, {
+        credentials: "include", // ✅ include cookie for login/session
+      });
+
+
       if (!res.ok) throw new Error("Failed to fetch leaderboard");
       const json = await res.json();
 
@@ -73,31 +83,47 @@ const DailyLeaderboard: React.FC = () => {
               <th className="p-3 text-right">Time (s)</th>
             </tr>
           </thead>
-          <tbody>
-            {topFive.map((entry) => (
-                <tr
-                key={entry.rank}
-                className={`${
-                    entry.rank === 1
-                    ? "bg-yellow-800/30"
-                    : entry.rank === 2
-                    ? "bg-gray-800/30"
-                    : "bg-gray-700/20"
-                } border-b border-gray-700`}
-                >
-                <td className="p-3">{entry.rank}</td>
-                <td className="p-3">{entry.username || "Guest"}</td>
-                <td className="p-3 text-right">{entry.score}</td>
-                <td className="p-3 text-right">{entry.time}</td>
-              </tr>
-            ))}
-          </tbody>
+
+
+<tbody>
+  <AnimatePresence>
+    {topFive.map((entry) => (
+      <motion.tr
+        key={entry.user_id}
+        layout
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -10 }}
+        transition={{ duration: 0.5 }}
+        className={`${
+          entry.rank === 1
+            ? "bg-yellow-800/30"
+            : entry.rank === 2
+            ? "bg-gray-800/30"
+            : "bg-gray-700/20"
+        } border-b border-gray-700`}
+      >
+        <td
+          className={`p-3 ${
+            entry.rank === 1 ? "animate-pulse text-yellow-300 font-bold" : ""
+          }`}
+        >
+          {entry.rank}
+        </td>
+        <td className="p-3">{entry.username || "Guest"}</td>
+        <td className="p-3 text-right">{entry.score}</td>
+        <td className="p-3 text-right">{entry.time}</td>
+      </motion.tr>
+    ))}
+  </AnimatePresence>
+</tbody>
+
         </table>
       )}
 
       {user && user.rank > 5 && (
           <div className="mt-6 border-t border-gray-700 pt-4 text-center">
-          <p className="text-gray-400 mb-2">Your Position</p>
+          <p className="text-gray-400 mb-2">{user.username}  Position</p>
           <div className="bg-gray-800/50 rounded-md p-3">
             <strong>#{user.rank}</strong> {user.username || "You"} — {user.score} pts
           </div>

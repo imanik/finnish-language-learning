@@ -34,7 +34,7 @@ function ChallengeOne<T extends ChallengeItem>({
 }: ChallengeProps<T>) {
   const [quizItem, setQuizItem] = useState<ChallengeItem | null>(null);
   const [score, setScore] = useState<ChallengeScore>({ correct: 0, total: 0 });
-  const [activeChallenge, setActiveChallenge] = useState<number>(2);
+  const [activeChallenge, setActiveChallenge] = useState<number>(1);
   const { user } = useAuth(); // ✅ Auth context
   const [showSignup, setShowSignup] = useState(false);
 
@@ -102,6 +102,7 @@ function ChallengeOne<T extends ChallengeItem>({
           !user ? (
             <Login />
           ) : (
+
             <button
               onClick={startQuiz}
               className="mt-4 bg-gray-900 text-teal-300  shadow-sm shadow-teal-900 px-4 py-2 rounded hover:bg-teal-300 hover:text-teal-900 transform hover:scale-110 transition duration-200"
