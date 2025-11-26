@@ -20,8 +20,8 @@ app.use(cookieParser());
 
 // CORS setup
 const allowedOrigins = [
-  "http://localhost:3000",               // React dev server
-  "https://fin.ialc.com", // Production frontend
+  "http://localhost:3000",
+  "https://fin.ialc.study",   // 🔹 Correct production frontend
 ];
 
 app.use(
