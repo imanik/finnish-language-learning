@@ -4,69 +4,64 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import session from "express-session";
 import dotenv from "dotenv";
-
+import createTables from "./database/createTables.js"; // Import your script
 import { authRouter } from "./routes/auth.js";
 import { leaderboardRouter } from "./routes/leaderboard.js";
-import { getDBConnection } from "./database/db.js";
 
-
-
-// Load environment variables
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// ✅ Middleware
+// Run database setup on startup
+createTables().then(() => {
+  console.log('Database initialized');
+}).catch((err) => {
+  console.error('Database setup failed:', err);
+});
+
+// Middleware
 app.use(express.json());
 app.use(cookieParser());
 
-// CORS setup
 const allowedOrigins = [
   "http://localhost:3000",
-  "https://fin.ialc.study",   // 🔹 Correct production frontend
+  "https://fin.ialc.study", // Your production frontend
 ];
 
-app.use(
-  cors({
-    origin: allowedOrigins,
-    credentials: true, // Allow cookies to be sent cross-origin
-  })
-);
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true,
+}));
 
-app.set("trust proxy", 1); // Required when using Render/Heroku/railway
+app.use(session({
+  secret: process.env.SESSION_SECRET || "defaultsecret",
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "lax",
+    maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+  },
+}));
 
-
-// Session setup
-app.use(
-  session({
-    secret: process.env.SESSION_SECRET || "defaultsecret",
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production", // only send cookies over HTTPS in prod
-      sameSite: "lax", // allows cross-origin with credentials
-      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
-    },
-  })
-);
-
-// Optional: log incoming requests for debugging
+// Log incoming requests
 app.use((req, res, next) => {
   console.log(`${req.method} ${req.url}`);
   next();
 });
 
-// Basic health check
+// Health check
 app.get("/", (req, res) => {
   res.send("✅ API is running successfully!");
 });
+
 app.get("/api/health", (req, res) => {
   res.json({ status: "ok", message: "Backend is running!" });
 });
 
-// ✅ Routes
+// Routes
 app.use("/api/auth", authRouter);
 app.use("/api/leaderboard", leaderboardRouter);
 
@@ -87,4 +82,3 @@ app.listen(PORT, () => {
 }).on("error", (err) => {
   console.error("Failed to start server:", err);
 });
-
