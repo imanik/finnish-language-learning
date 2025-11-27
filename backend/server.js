@@ -7,6 +7,9 @@ import dotenv from "dotenv";
 
 import { authRouter } from "./routes/auth.js";
 import { leaderboardRouter } from "./routes/leaderboard.js";
+import { getDBConnection } from "./database/db.js";
+
+
 
 // Load environment variables
 dotenv.config();
@@ -30,6 +33,9 @@ app.use(
     credentials: true, // Allow cookies to be sent cross-origin
   })
 );
+
+app.set("trust proxy", 1); // Required when using Render/Heroku/railway
+
 
 // Session setup
 app.use(
@@ -81,3 +87,4 @@ app.listen(PORT, () => {
 }).on("error", (err) => {
   console.error("Failed to start server:", err);
 });
+

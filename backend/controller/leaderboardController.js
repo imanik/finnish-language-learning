@@ -32,6 +32,32 @@ export async function leaderboardEntry(req, res) {
   }
 }
 
+// controller/leaderboardController.js
+export async function leaderboardData(req, res) {
+  const db = await getDBConnection();
+  try {
+    const currentUserId = req.session.userId || null;
+
+    const rows = await db.all(`
+      SELECT u.id as user_id, u.username, l.topic, l.score, l.time, l.correct, l.date
+      FROM leaderboard l
+      JOIN users u ON l.user_id = u.id
+      WHERE l.score > 0
+      ORDER BY l.score DESC, l.time ASC
+    `);
+
+    const ranked = rows.map((r, i) => ({ ...r, rank: i + 1 }));
+    const topFive = ranked.slice(0, 5);
+    const user = ranked.find((r) => r.user_id === currentUserId) || null;
+
+    res.json({ topFive, user });
+  } catch (err) {
+    console.error("Leaderboard fetch error:", err);
+    res.status(500).json({ error: "Failed to load leaderboard" });
+  }
+}
+
+/*
 export async function leaderboardData(req, res) {
   const db = await getDBConnection();
 
@@ -66,6 +92,7 @@ export async function leaderboardData(req, res) {
   }
 }
 
+*/
 // async (req, res) => {
   
 export async function leaderboardUpdate(req, res) {
