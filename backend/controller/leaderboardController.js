@@ -36,7 +36,8 @@ export async function leaderboardData(req, res) {
   const db = await getDBConnection();
 
   try {
-    const currentUserId = req.session.userId || null;
+ //   const currentUserId = req.session.userId || null;
+     const currentUserId = req.session?.userId || null;
 
     // Fetch leaderboard data (only real users)
     const rows = await db.all(`
