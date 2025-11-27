@@ -21,20 +21,21 @@ export async function getDBConnection() {
 }
 */
 
-// database/db.js (or rename from your current db.js)
-const { Pool } = require('pg');
+// database/db.js
+import { Pool } from 'pg';
 
-// Create connection pool
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL, // From Render env var
-  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false   // Required for Render's free Postgres
+  }
 });
 
 export const getDBConnection = async () => {
   return pool;
 };
 
-// Close connection on app shutdown (optional)
+// Optional: graceful shutdown
 process.on('SIGINT', async () => {
   await pool.end();
   process.exit(0);
