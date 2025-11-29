@@ -24,8 +24,12 @@ export async function getDBConnection() {
 // database/db.js
 import { Pool } from 'pg';
 
+//DATABASE_URL=
+
+ const DATABASE_URL = "postgres://finlearn_user:i3ClA1tSBKekMZDYBeL6ugip1Tp1kfQb@dpg-d4k3806uk2gs73fjo5u0-a.oregon-postgres.render.com/finlearn"
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
+  //connectionString: process.env.DATABASE_URL,
+  connectionString: DATABASE_URL,
   ssl: {
     rejectUnauthorized: false   // Required for Render's free Postgres
   }

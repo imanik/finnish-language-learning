@@ -6,7 +6,7 @@ import session from "express-session";
 import dotenv from "dotenv";
 import createTables from "./database/createTables.js"; // Import your script
 import { authRouter } from "./routes/auth.js";
-import { leaderboardRouter } from "./routes/leaderboard.js";
+import leaderboardRouter  from "./routes/leaderboard.js";
 
 dotenv.config();
 

@@ -6,7 +6,7 @@ import {
   leaderboardUpdate
 } from '../controller/leaderboardController.js';
 
-export const leaderboardRouter = express.Router();
+ const leaderboardRouter = express.Router();
 
 console.log("Leaderboard router loaded");
 

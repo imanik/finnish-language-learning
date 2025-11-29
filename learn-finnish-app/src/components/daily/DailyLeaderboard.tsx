@@ -27,11 +27,12 @@ const DailyLeaderboard: React.FC = () => {
 
   const fetchLeaderboard = async () => {
     try {
-      const API_BASE =
-        window.location.hostname === "localhost"
-          ? "http://localhost:5000"
-          : "https://fin-learn-backend.onrender.com";
-
+      // const API_BASE =
+      // window.location.hostname === "localhost"
+      // ? "http://localhost:5000"
+      // : "https://fin-learn-backend.onrender.com";
+      
+      const API_BASE = "https://fin-learn-backend.onrender.com"
       const res = await fetch(`${API_BASE}/api/leaderboard/data`, {
         credentials: "include", // ✅ include cookie for login/session
       });
