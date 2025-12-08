@@ -10,7 +10,7 @@ function PageWrapper({title, children}: PageWrapperProps){
 
    const {theme} = useTheme() 
 
-    let pageClass = "p-6 rounded-lg shadow-lg max-w-2xl mx-auto mb-8"
+    let pageClass = "p-6 rounded-lg shadow-lg max-w-2xl mx-auto mt-8 mb-8"
 
     if(theme === "light"){
 

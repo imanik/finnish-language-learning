@@ -1,197 +1,413 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { verbData } from '../../../data/basicA1';
+  import React from 'react';
+  import { Link } from 'react-router-dom';
+  import { verbData } from '../../../data/basicA1';
 
-import ConjugationTable from '../../../components/ConjugationTable';
-import BodyWrapper from '../../../components/BodyWrapper';
-import NavWrapper from '../../../components/NavWrapper';
-import PageWrapper from '../../../components/PageWrapper';
+  import ConjugationTable from '../../../components/ConjugationTable';
+  import BodyWrapper from '../../../components/BodyWrapper';
+  import NavWrapper from '../../../components/NavWrapper';
+  import PageWrapper from '../../../components/PageWrapper';
+  import ListSection from '../../../components/sections/ListSection';
+  import Boxsection from '../../../components/sections/BoxSection';
+
+  const vtData = [
+    {
+      title: "🔸 VT-1",
+      rule: "Ends in two vowels (aa, ää, oa, öä, ua, yö, ea, eä)",
+      example: "Example: minä puhun (puhua → to speak)",
+    },
+    {
+      title: "🔸 VT-2",
+      rule: "Ends in -da/-dä",
+      example: "Example: minä syön (syödä → to eat)",
+    },
+    {
+      title: "🔸 VT-3",
+      rule: "Ends in -la/-lä, -na/-nä, -ra/-rä, -sta/-stä",
+      example: "Example: minä tulen (tulla → to come)",
+    },
+    {
+      title: "🔸 VT-4",
+      rule: "Ends in -ata/-ätä",
+      example: "Example: minä pelaan (pelata → to play)",
+    },
+    {
+      title: "🔸 VT-5",
+      rule: "Ends in -ita/-itä",
+      example: "Example: minä tarvitsen (tarvita → to need)",
+    },
+    {
+      title: "🔸 VT-6",
+      rule: "Ends in -eta/-etä",
+      example: "Not in top 100, rare",
+    },
+  ];
+
+  const ptData = [
+    {
+      title: "🔹 Uncountable / indefinite amount",
+      rule: "Some, not all",
+      example: "Example: Minä juon kahvia. → I drink (some) coffee.",
+    },
+    {
+      title: "🔹 After numbers 2 or more",
+      rule: "Multi-item → not whole",
+      example: "Example: Ostin kolme omenaa. → I bought 3 apples.",
+    },
+    {
+      title: "🔹 Ongoing action / incomplete",
+      rule: "Not finished",
+      example: "Example: Luin kirjaa. → I was reading (not finished).",
+    },
+    {
+      title: "🔹 Negative sentence",
+      rule: "Always in negative",
+      example: "Example: En syö lihaa. → I don't eat meat.",
+    },
+    {
+      title: "🔹 Some verbs require partitive",
+      rule: "Love, like, wait, want, play, search",
+      example: "Example: Rakastan sinua. → I love you.",
+    },
+    {
+      title: "🔹 Asking what something is",
+      rule: "Describing some type",
+      example: "Se on hyvää ruokaa. → It is good food",
+    },
+  ];
+  const nptData = [
+    {
+      title: "🔸 Whole object",
+      example: "Example: Luin kirjan. → I read the whole book (complete).",
+    },
+    {
+      title: "🔸 Exact amount (1)",
+      example: "Example: Minulla on yksi kissa. → One cat  (nominative).",
+    },
+    {
+      title: "🔸 Finished action",
+      example: "Example: Join kahvin. → I drank the whole coffee (finished).",
+    },
+    
+  ];
+
+  const rptData = [
+    
+      {
+      title: "🔸 Ending → -a / -ä ",
+      rule: "jos sanan lopussa on 1 vokaali → If there is 1 vowel at the end of the word",
+      example: "kurukku → kurukkua",
+      exampleTwo: "viini → viinia, kissa → kissaa",
+    },
+    {
+      title: "🔸 Ending → -ta / -tä",
+      rule: "jos sanan lopussa on 2 vokaali tai konsonantti →  If there are 2 vowels or consonants at the end of a word",
+      example: "voi → voita",
+      exampleTwo: "ananas → ananasta",
+    },
+    {
+      title: "🔸 Ending → -tta / -ttä",
+      rule: "Jos sanan lopussa on -e vokaali tai -si partitiivi on → If the word ends with an -e vowel or -si partitive",
+      example: "tuore → tuoretta, ",
+      exampleTwo: "file → filettä",
+    },
+    {
+      title: "🔸 Ending → -sta / -stä ",
+      rule: "jos sanan lopussa on -nen partitiivi  → If the word ends with -nen partitive",
+      example: "punainen → punaista",
+      exampleTwo: "tyypillinen → tyypillistä.",
+    },
+    
+  ]
+
+  const tenseData = [
+    
+      {
+      title: "1️⃣ Present (preesens):",
+      rule: "👉 Action happening now → incomplete → partitive.",
+      example: "Minä juon kahvia. → I drink coffee.",
+      exampleTwo: "Hän odottaa bussia. → He is waiting for the bus.",
+    },
+    {
+      title: "2️⃣ Past (imperfekti):",
+      rule: "👉 Action was happening, but not completed → partitive.",
+      example: "Minä join kahvia. → I drank coffee (not finished).",
+      exampleTwo: "Hän odotti bussia. → He waited for the bus.",
+    },
+    {
+      title: "3️⃣ Future (Finnish uses present + context):",
+      rule: "👉 Finnish has no separate future tense, so we use present form + time word. → Partitive stays same.",
+      example: "Minä juon kahvia huomenna. → I will drink coffee tomorrow.",
+      exampleTwo: "Hän odottaa bussia kohta. → He will soon wait for the bus.",
+    },
+    
+  ]
 
 
-function VerbsPage()  {
-  return (
-  
-<BodyWrapper>
-                
-            <NavWrapper link="/beginars" title="← Back to Beginars Lesson"> </NavWrapper>
-  
-  
-  
-        
-  
-        <PageWrapper title='✅ A1 Lesson - First 100 Basic Finnish Verbs'>
-  
-                <h2 className="text-xl font-semibold text-teal-700 mb-2">📌 1 → 100:</h2>      
-                      <section className="bg-gray-900 rounded-lg border border-teal-800 p-4 mb-6">
-                                
-                    
-                            <ConjugationTable items={verbData.basicVerbs} min={0} max={100} isVocab={true}/>
-        
-                              
-                      </section>
-                    
-                <section className="bg-gray-900 rounded-lg border border-teal-800 p-4 mb-6">
 
-                <div className=" p-4 rbg-gray-900 rounded-lg mb-4">
-                            <h3 className="text-xl font-medium text-teal-700 mb-2">🔤 Verb Structure in Finnish</h3>
-                            <p className="text-teal-400">In Finnish, every verb has a basic form called the infinitive, usually ending in -a or -ä (e.g. syödä to eat). From that base, we form different versions to express who is doing the action and if it’s affirmative or negative.
-                            </p>
-                            <ul className=" text-teal-400 space-y-2 m-6">
-                            <li> For now, we’ll focus on the first person singular form (minä I).</li>
-                            </ul>
-                            
-                    </div>
-
-                </section>
-
-                <Link to={`/beginars/most-common-verbs/basic-verbs/basic-verbs-quiz`}>
-                          <button className="mt-4 bg-teal-900 text-white px-4 py-2 rounded hover:bg-teal-600 transform hover:scale-110 transition duration-200 m-2">
-                            Basic Verbs Vocabulary Exercises
-                          </button>
-                        </Link>
-
-
-                                
-          </PageWrapper>
-  
+  function VerbsPage()  {
+    return (
+    
+  <BodyWrapper>
+                  
+              <NavWrapper link="/beginars" title="← Back to Beginars Lesson"> </NavWrapper>
+    
+    
+    
           
-  
-  
-  
-        <PageWrapper title='🔢 What Are Verb Types'>
-                    
-                      <section className="bg-gray-900 rounded-lg border border-teal-800  p-4 mb-6">
-
-                      <div className=" p-4 rbg-gray-900 rounded-lg   mb-4">
-                                  
-                                  <p className="text-teal-400">Finnish verbs are divided into six types, based on how they behave when conjugated. Knowing the verb type helps you guess how to use new verbs, especially their present tense forms.
-                                  </p>
-                                  <ul className="text-teal-400 space-y-2 m-6">
-                                  <li>Here’s a quick guide to the types:</li>
-                                  </ul>
-                                  <ul className=" text-teal-400 space-y-2 m-6">
-                                  <li>VT-1.	<span className="text-teal-700">Ends in -a/-ä preceded by 2+ consonants or vowels	puhua (to speak)</span> → minä puhun</li>
-                                  <li>VT-2.	<span className="text-teal-700">Ends in -da/-dä	syödä (to eat)</span> → minä syön</li>
-                                  <li>VT-3.  <span className="text-teal-700">Ends in -la/-lä, -na/-nä, -ra/-rä, -sta/-stä	tulla (to come)</span> → minä tulen</li>
-                                  <li>VT-4.  <span className="text-teal-700">Ends in -ata/-ätä	pelata (to play)</span> → minä pelaan</li>
-                                  <li>VT-5.  <span className="text-teal-700">Ends in -ita/-itä	tarvita (to need)</span> → minä tarvitsen</li>
-                                  <li>VT-6.  <span className="text-teal-700">Ends in -eta/-etä	rare;</span>  not in top 100</li>
-                                  </ul>
-
-                                  <p className="text-teal-600 mt-2"><strong>🧠 Tip:</strong> We'll mark each verb in the list with its verb type (VT) so you can start to spot patterns.
-                                  </p>
-                          </div>
-
-                      </section>
-                      <Link to={`/beginars/most-common-verbs/basic-verbs/hard-verbs-quiz`}>
-                          <button className="mt-4 bg-teal-900 text-white px-4 py-2 rounded hover:bg-teal-500 transform hover:scale-110 transition duration-200 m-2">
-                            Hard Verbs Vocabulary Exercises
-                          </button>
-                        </Link> 
-                                
-            </PageWrapper>
-  
-         <PageWrapper title='✅ Positive vs ❌ Negative Forms'>
-
-         
-                
+    
+          <PageWrapper title='✅ A1 Lesson - First 100 Basic Finnish Verbs'>
+    
+                  <h2 className="text-xl font-semibold text-teal-700 mb-2">📌 1 → 100:</h2>      
                         <section className="bg-gray-900 rounded-lg border border-teal-800 p-4 mb-6">
+                                  
+                      
+                              <ConjugationTable items={verbData.basicVerbs} min={0} max={100} isVocab={true}/>
+          
+                                
+                        </section>
+                      
 
-                          <div className=" p-4 rbg-gray-900 rounded-lg mb-4">
-                                      <p className="text-teal-400">In Finnish, negative sentences use a special <span className="text-teal-700">negative verb (en, et, ei, emme, ette, eivät)</span> plus the <span className="text-teal-700">main verb stem</span>.
-                                      </p>
-                                      <ul className="text-teal-400 space-y-2 m-6">
-                                      <li>📌 Examples:</li>
-                                      </ul>
-                                      <ul className=" list-disc text-teal-400 space-y-2 m-6">
-                                      <li>	<span className="text-teal-700">minä syön </span> → I eat</li>
-                                      <li>	<span className="text-teal-700">minä en syö </span> → I don’t eat</li>
-                                      <li>  <span className="text-teal-700">minä rakastan </span> → I love</li>
-                                      <li>  <span className="text-teal-700">minä en rakasta </span> → I don’t love</li>
-                                      </ul>
 
-                                      <p className="text-teal-600 mt-2"><strong>📌 Notice:</strong>  How in negative sentences, the verb stem loses its personal ending.
-                                      </p>
-                              </div>
+                  <Link to={`/beginars/most-common-verbs/basic-verbs/basic-verbs-quiz`}>
+                            <button className="mt-4 bg-teal-900 text-white px-4 py-2 rounded hover:bg-teal-600 transform hover:scale-110 transition duration-200 m-2">
+                              Basic Verbs Vocabulary Exercises
+                            </button>
+                          </Link>
 
-                          </section> 
-                       
                                   
             </PageWrapper>
-  
-            <PageWrapper title='📖 Learning from Patterns'>                              
+    
+            
+    
+    
+    
+          <PageWrapper title='🔤 Verb Structure in Finnish'>
+                      
+                    
+                        <ListSection
+                            title= ""
+                            text="In Finnish, every verb has a basic form called the infinitive, usually ending in -a or -ä (e.g. syödä to eat). From that base, we form different versions to express who is doing the action and if it’s affirmative or negative."
+                            textTwo='Finnish verbs are divided into six types, based on how they behave when conjugated. Knowing the verb type helps you guess how to use new verbs, especially their present tense forms.'
+                            listCounts={1}
+                            lists={[
+                              "For now, we’ll focus on the first person singular form (minä → I).",
+                            
+                            ]}
+  />
+
+        </PageWrapper>
 
 
-                          <section className="bg-gray-900 rounded-lg border border-teal-800 p-4 mb-6">
+        <PageWrapper title='🔢 Finnish Verb Types (VT1–VT6)'>
+                      
+        <Boxsection
+        
+        boxTypes={vtData}
+        column={2}
+        notice={`📌 Notice: Use this sentence to remember VT3 endings 👉 “LeNaRyS” L = -la → N = -na → R = -ra → S = -sta  💡 Any verb that ends with these + a/ä → Verb Type 3`}
+          />
 
-                            <div className=" p-4 rbg-gray-900 rounded-lg mb-4">
-                                    
-                                        <h4 className="text-lg font-semibold text-teal-700 mb-2">1. Olla (to be) – VT3</h4>
-                                        <ul className=" list-disc text-teal-400 space-y-2 m-6">
-                                        <li>	<span className="text-teal-700">minä olen   </span> → I am</li>
-                                        <li>	<span className="text-teal-700">minä en ole   </span> → I am not</li>
-                                        </ul>
-                                        <h4 className="text-lg font-semibold text-teal-700 mb-2">2. Syödä (to eat) – VT2</h4>
-                                        <ul className="text-teal-400 space-y-2 m-6">
-                                        <li>	<span className="text-teal-700">minä syön    </span> → I eat</li>
-                                        <li>	<span className="text-teal-700">minä en syö    </span> → I don’t eat</li>
-                                        </ul>
-                                        <h4 className="text-lg font-semibold text-teal-700 mb-2">3. Pelata (to play sports) – VT4</h4>
-                                        <ul className="text-teal-400 space-y-2 m-6">
-                                        <li>	<span className="text-teal-700">minä pelaan    </span> → I play</li>
-                                        <li>	<span className="text-teal-700">minä en pelaa    </span> → I don’t play</li>
-                                        </ul>
-                                        <h4 className="text-lg font-semibold text-teal-700 mb-2">4. Nukkua (to sleep) – VT1</h4>
-                                        <ul className="text-teal-400 space-y-2 m-6">
-                                        <li>	<span className="text-teal-700">minä nukun    </span> → I sleep</li>
-                                        <li>	<span className="text-teal-700">minä en nuku   </span> → I don’t sleep</li>
-                                        </ul>
-                                        <h4 className="text-lg font-semibold text-teal-700 mb-2">5. Ajatella (to think) – VT3</h4>
-                                        <ul className="text-teal-400 space-y-2 m-6">
-                                        <li>	<span className="text-teal-700">minä ajattelen    </span> → I think</li>
-                                        <li>	<span className="text-teal-700">minä en ajattele    </span> → I don’t think</li>
-                                        </ul>
+          <Link to={`/beginars/most-common-verbs/basic-verbs/hard-verbs-quiz`}>
+                            <button className="mt-4 bg-gray-900 text-teal-400 px-4 py-2 rounded hover:bg-teal-500 transform hover:scale-110 transition duration-200 m-2">
+                              Hard Verbs Vocabulary Exercises
+                            </button>
+                          </Link> 
+    
+          </PageWrapper>
+                      
+    
+          <PageWrapper title='✅ Positive vs ❌ Negative Forms'>
 
-                                        <p className="text-teal-600 mt-2"><strong>📌 Notice:</strong>  How in negative sentences, the verb stem loses its personal ending.
-                                        </p>
-                                </div>
+          
+                  
 
-                            </section>
+
+            <ListSection
+            text="In Finnish, negative sentences use a special negative verb (en, et, ei, emme, ette, eivät) plus the main verb stem."
+            example="Examples:"
+            listCounts={4}
+            lists={[
+              "minä syön → I eat",
+              "minä en syö → I don’t eat",
+              "minä rakastan → I love",
+              "minä en rakasta → I don’t love",
+              "sinä juot → you drink", // extra, won't show if listCounts=4
+            ]}
+          />
+
                         
+                                    
+              </PageWrapper>
+    
+              
+
+                <PageWrapper title='📘 What is the Partitive Case?'>
+
+                  <ListSection
+            text="Partitive is one of the Finnish grammatical cases."
+            example=""
+            listCounts={4}
+            lists={[
+              "It tells that →  something is incomplete, unlimited, not finished, or not whole.",
+              "It often shows → “some of something”, uncounted, unfinished, or not exact amount.",
+            ]}
+          />
+
+                      <Boxsection
+        
+        boxTypes={ptData}
+        notice={``}
+        column={2}
+          />       
+                        
+                        
+
+                            </PageWrapper>
+                            <PageWrapper title='📊 Milloin partitiivia EI pidä käyttää? → When NOT to use the Partitive? '>
+
+                              <Boxsection
+        
+        boxTypes={nptData}
+        notice={``}
+        column={3}
+          />  
+
+                            </PageWrapper>
+                           
+                           
+                            <PageWrapper title='🔄 Kuinka monta partitiivimuotoa on olemassa? → How Many Partitive Forms Are There? '>
+                         <Boxsection
+        
+        boxTypes={rptData}
+        notice={`🧠 HUOM!/Note: Retiisi, lasi ja oranssi eivät ole si-sanoja. Ne kuuluvat ryhmään 1 (lopussa yksi vokaali) . → Radish, glass and orange are not si-words. They belong to group 1 (one vowel at the end)`}
+        column={1}
+          />  
+
+                            </PageWrapper>
+                           
+                           
+                            <PageWrapper title='❤️ Verbit, jotka aina käyttävät partitiivia  →  Verbs that Always Use Partitive  '>
+
+                            
+                            <ListSection
+            text="Partitive is one of the Finnish grammatical cases."
+            example="Examples:"
+            listCounts={8}
+            lists={[
+              " rakastaa	→ to love ",
+              " odottaa	→ to wait ",
+              " auttaa	→ to help ",
+              " etsiä	→ to search ",
+              " ymmärtää	→ to understand ",
+              " harrastaa	→ to practice (hobby) ",
+              " soittaa	→ to play (instrument) ",
+              " pelata	→ to play (game) "
+            ]}
+          />
+
+                     <ListSection
+            text="Partitive is one of the Finnish grammatical cases."
+            textTwo='📌 Notice: In Finnish, negative sentences use a special negative verb (en, et, ei, emme, ette, eivät) plus the main verb stem. '
+            example="Examples:"
+            listCounts={3}
+            lists={[
+             "Hän rakastaa sinua. →   He loves you.",
+            "Me odotamme bussia.  → We are waiting for the bus.",
+            "Hän etsii puhelinta. → He is looking for the phone."
+            ]}
+          />
                           
                                     
               </PageWrapper>
 
-              <PageWrapper title='💡 Special Notes'>
+                <PageWrapper title='🕒 Tenses with Partitive'>
 
-                        <section className="bg-gray-900 rounded-lg  p-4 mb-6">
+                   <Boxsection
+        
+        boxTypes={tenseData}
+        notice=""
+        column={1}
+          />  
+                
+               
+                
+                </PageWrapper>
 
-                          <div className=" p-4 rbg-gray-900 rounded-lg border border-teal-800 mb-4">
-                                     
-                                      <ul className="text-teal-400 space-y-2 m-6">
-                                      <li>📌 Examples:</li>
-                                      </ul>
-                                      <ul className=" list-disc text-teal-400 space-y-2 m-6">
-                                      <li>Some verbs change their stem	<span className="text-teal-700">(like tehdä → minä teen, nähdä → minä näen).</span> These are irregular and must be memorized.</li>
-                                      <li>	Some verbs have contextual uses. For example:</li>
-                                      <li>  <span className="text-teal-700">soittaa</span> can mean to play an instrument or to call someone.</li>
-                                      <li>  <span className="text-teal-700">pelata </span>  is used for playing structured games (sports, video games).</li>
-                                      </ul>
+                <PageWrapper title='🧠 Easy Memory Trick'>
 
-                                      {/* <p className="text-teal-600 mt-2"><strong>📌 Notice:</strong>  How in negative sentences, the verb stem loses its personal ending.
-                                      </p> */}
-                              </div>
+                   <ListSection
+            text="Partitive is one of the Finnish grammatical cases."
+            example="Examples:"
+            listCounts={4}
+            lists={[
+              " Partitive = Some	→ 🍰 Slice of cake, not whole ",
+              " Negative sentence → 🚫 Always partitive ",
+              " Unfinished action → ⏳ Hourglass – action ongoing ",
+              " After numbers (2+) → 👥 More than one → partitive ",
+            ]}
+          />
 
-                          </section>
-                      
-                       
-                                  
-            </PageWrapper>
-             
-      </BodyWrapper>
-  );
-}
+                 
 
-export default VerbsPage;
+                            </PageWrapper>
+                            <PageWrapper title='🔎 Compare'>
+                              
+                  <ListSection
+            text=""
+            example="Examples:"
+            listCounts={4}
+            lists={[
+             "Minä luen kirjan.	 → I read the whole book. = Accusative",
+            "Minä luen kirjaa.	 → I am reading (incomplete). = Partitive",
+            "Minulla on kirja.	 →I have one book. = Nominative",
+            "Minä luen kirjoja.	 → I have some books. = Partitive",
+            ]}
+          />
+                            
+
+                  </PageWrapper>
+                  <PageWrapper title='📝 Summary'>
+
+                    <ListSection
+            text=""
+            example=" Use Partitive When:"
+            listCounts={5}
+            lists={[
+             "Quantity (2+)	 → Minulla on 3 koiraa.  ",
+            "Not complete / ongoing	 → Luen kirjaa.  ",
+            "Negative	 → En juo maitoa.  ",
+            "Uncountable	 → Syön riisiä.  ",
+            "Some specific verbs	 → Rakastan sinua.  ",
+            ]}
+          />
+                              
+
+                           
+
+                  </PageWrapper>
+                <PageWrapper title='💡 Special Notes'>
+
+                  <ListSection
+            text= "Some verbs change their stem	(like tehdä → minä teen, nähdä → minä näen). These are irregular and must be memorized."
+            example=" Some verbs have contextual uses. For example::"
+            listCounts={2}
+            lists={[
+              "  soittaa → can mean to play an instrument or to call someone.",
+              "  pelata  → is used for playing structured games (sports, video games).",
+            ]}
+          />
+
+                          
+                            
+                        
+                        
+                                    
+              </PageWrapper>
+              
+        </BodyWrapper>
+    );
+  }
+
+  export default VerbsPage;
 
 

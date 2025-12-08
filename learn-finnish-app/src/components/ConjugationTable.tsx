@@ -52,13 +52,13 @@ return (
   {/* <h4 className="text-lg font-semibold text-teal-600 mb-2"></h4> */}
   <button
         onClick={() => setShowPronunciation(!showPronunciation)}
-        className="bg-teal-900 text-white ml-2 px-4 py-2 rounded hover:bg-teal-800 transform hover:scale-110 transition duration-200 mb-4"
+        className="bg-gray-800 text-teal-300 ml-2 px-4 py-2 rounded hover:bg-teal-800 transform hover:scale-110 transition duration-200 mb-4"
       >
         {showPronunciation ? 'Hide Pronunciation' : 'Show Pronunciation'}
       </button>
-  <div className="min-w-full  inline-block align-middle border border-teal-800 rounded-lg overflow-hidden">
-    <table className="min-w-full divide-y divide-teal-800">
-      <thead className="bg-teal-900">
+  <div className="min-w-full  inline-block align-middle border border-gray-900 rounded-lg overflow-hidden">
+    <table className="min-w-full divide-y divide-gray-800">
+      <thead className="bg-gray-800">
         <tr>
           <th className="px-6 py-3 text-left text-sm font-medium text-teal-500 uppercase tracking-wider">
             English
@@ -76,11 +76,11 @@ return (
           </th>
         </tr>
       </thead>
-      <tbody key={page} className="divide-y divide-teal-800 bg-gray-900 animate-fadeIn">
+      <tbody key={page} className="divide-y divide-gray-900 bg-black animate-fadeIn">
 
         {visibleItems.map((item, index) => (
            
-            <tr key={index} className="hover:bg-teal-700 transition duration-200">
+            <tr key={index} className="hover:bg-gray-900 transition  transition-transform hover:scale-105 duration-200">
               <td className="px-6 py-4 text-sm text-teal-400">{item.english}</td>
               <td className="px-6 py-4 text-sm text-teal-400">{item.finnish}</td>
               {showPronunciation &&
@@ -100,18 +100,18 @@ return (
           ))}
       </tbody>
     </table>
-    <div className="flex justify-between bg-gray-900">
+    <div className="flex justify-between bg-gray-900 mt-4">
   <button
     disabled={page === 0}
     onClick={() => setPage(p => p - 1)}
-    className="px-4 py-2 bg-teal-800 text-white rounded disabled:opacity-40"
+    className="px-4 py-2 bg-gray-800 text-teal-300 rounded disabled:opacity-40 transition  transition-transform hover:scale-105 duration-200"
   >
     ← Prev
   </button>
   <button
     disabled={end >= items.length}
     onClick={() => setPage(p => p + 1)}
-    className="px-4 py-2 bg-teal-800 text-white rounded disabled:opacity-40"
+    className="px-4 py-2 bg-gray-800 text-teal-300 rounded disabled:opacity-40 transition  transition-transform hover:scale-105 duration-200"
   >
     Next →
   </button>
