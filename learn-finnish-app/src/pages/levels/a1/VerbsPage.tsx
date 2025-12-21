@@ -149,7 +149,7 @@
     
   <BodyWrapper>
                   
-              <NavWrapper link="/beginars" title="← Back to Beginars Lesson"> </NavWrapper>
+              <NavWrapper link="/beginars" title="← Back to Beginars Lesson" > </NavWrapper>
     
     
     

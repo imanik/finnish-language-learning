@@ -52,7 +52,8 @@ function MainContent() {
       ) : (
         
         user ? (
-            <DailyLeaderboard />
+            // <DailyLeaderboard />
+            <Login onSwitch={() => setShowSignup(true)} />
           ) : (
             <Login onSwitch={() => setShowSignup(true)} />
           )
