@@ -1,6 +1,6 @@
 import React from "react";
-import NavWrapper from "../NavWrapper";
-import BodyWrapper from "../BodyWrapper";
+import NavWrapper from "../wrapper/NavWrapper";
+import BodyWrapper from "../wrapper/BodyWrapper";
 import ChallengeOne from "./ChallengeOne";
 import { datasets } from "../../data/datasets";
 import { adjectivesData } from "../../data/basicA1";

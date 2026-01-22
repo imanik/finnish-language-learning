@@ -3,8 +3,8 @@ import React from 'react';
 import {Link, useParams} from 'react-router-dom';
 import {numberData} from '../../../data/basicA1'; // Removed unused basicA1 import
 import SetupQuiz from '../../../components/SetupQuiz'; // Changed to SetupQuiz
-import BodyWrapper from '../../../components/BodyWrapper';
-import NavWrapper from '../../../components/NavWrapper';
+import NavWrapper from '../../../components/wrapper/NavWrapper';
+import BodyWrapper from '../../../components/wrapper/BodyWrapper';
 
 // import { keyboard } from '@testing-library/user-event/dist/keyboard';
 

@@ -2,8 +2,8 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { familyData } from "../../../data/basicA1";
 import SetupQuiz from "../../../components/SetupQuiz"; // Changed to SetupQuiz
-import BodyWrapper from "../../../components/BodyWrapper";
-import NavWrapper from "../../../components/NavWrapper";
+import NavWrapper from '../../../components/wrapper/NavWrapper';
+import BodyWrapper from '../../../components/wrapper/BodyWrapper';
 
 
 interface Family {

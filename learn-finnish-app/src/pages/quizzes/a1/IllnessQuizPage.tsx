@@ -4,8 +4,8 @@ import { Link, useParams } from 'react-router-dom';
 import { illnessData } from '../../../data/basicA1'; 
 // Removed unused basicA1 import
 import SetupQuiz from '../../../components/SetupQuiz';
-import BodyWrapper from '../../../components/BodyWrapper';
-import NavWrapper from '../../../components/NavWrapper';
+import NavWrapper from '../../../components/wrapper/NavWrapper';
+import BodyWrapper from '../../../components/wrapper/BodyWrapper';
 
 interface Illness {
   english: string;

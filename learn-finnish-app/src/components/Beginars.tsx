@@ -1,7 +1,7 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-import CardWrapper from "./CardWrapper";
+import CardWrapper from "./wrapper/CardWrapper";
 
 function Beginars() {
   return (

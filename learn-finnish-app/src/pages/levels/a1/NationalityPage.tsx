@@ -1,8 +1,8 @@
             import React from "react";
             import { Link } from "react-router-dom";
-            import BodyWrapper from "../../../components/BodyWrapper";
-            import NavWrapper from "../../../components/NavWrapper";
-            import PageWrapper from "../../../components/PageWrapper";
+            import BodyWrapper from "../../../components/wrapper/BodyWrapper";
+import NavWrapper from "../../../components/wrapper/NavWrapper";
+import PageWrapper from "../../../components/wrapper/PageWrapper";
 
 
             //   import { nationalityData } from "../../../data/basicA1";

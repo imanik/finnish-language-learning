@@ -1,17 +1,14 @@
-import React, {useEffect, useState}from 'react';
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import CardWrapper from './wrapper/CardWrapper';
+import CardWrapper from "./wrapper/CardWrapper";
 
-  const days = [
-    { english: 'Monday', finnish: 'Maanantai', color: '#5b0404ff' },
-    { english: 'Tuesday', finnish: 'Tiistai', color: '#5a3f06ff' },
-    { english: 'Wednesday', finnish: 'Keskiviikko', color: '#1e3b2fff' },
-    { english: 'Thursday', finnish: 'Torstai', color: '#040e48ff' },
-    { english: 'Friday', finnish: 'Perjantai', color: '#013013ff' },
-    { english: 'Saturday', finnish: 'Lauantai', color: '#3f0f35ff' },
-    { english: 'Sunday', finnish: 'Sunnuntai', color: '#4a0436ff' },
-  ];
+const colors = [
+  { name: "Red", fi: "Punainen", color: "#ef4444" },
+  { name: "Blue", fi: "Sininen", color: "#3b82f6" },
+  { name: "Green", fi: "Vihreä", color: "#22c55e" },
+  { name: "Yellow", fi: "Keltainen", color: "#eab308" },
+  { name: "Purple", fi: "Violetti", color: "#a855f7" },
+];
 
 function metallicGradient(hex: string) {
   return `
@@ -27,11 +24,8 @@ function metallicGradient(hex: string) {
 }
 
 
-function Days() {
-
-
-
-  const [index, setIndex] = useState(0);
+export default function ColorBounceVocabulary() {
+   const [index, setIndex] = useState(0);
     const [showText, setShowText] = useState(false);
   
     useEffect(() => {
@@ -43,7 +37,7 @@ function Days() {
   
       // Change time
       const changeTimer = setTimeout(() => {
-        setIndex((prev) => (prev + 1) % days.length);
+        setIndex((prev) => (prev + 1) % colors.length);
       }, 5000);
   
       return () => {
@@ -54,7 +48,7 @@ function Days() {
     }, [index]);
 
   return (
-    <CardWrapper title="🎨 Learn Day's Name">
+    <CardWrapper title="🎨 Learn Colors">
       <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-lg border border-teal-700 p-6">
         
         {/* BOUNCE AREA */}
@@ -63,17 +57,17 @@ function Days() {
               {/* DIGITAL CLOCK */}
               <AnimatePresence mode="wait">
   <motion.div
-    key={days[index].finnish}
+    key={colors[index].fi}
     initial={{ opacity: 0, y: 20 }}
     animate={{
       opacity: 1,
       y: 0,
-      background: metallicGradient(days[index].color),
+      background: metallicGradient(colors[index].color),
     }}
     exit={{ opacity: 0, y: -120 }}
     transition={{ duration: 0.6 }}
     className="
-      text-3xl font-mono
+      text-6xl font-mono
       px-10 py-6 rounded-xl
       shadow-[0_0_40px_rgba(255,255,255,0.25)]
       border border-white/20
@@ -81,7 +75,7 @@ function Days() {
       backdrop-blur-sm
     "
   >
-    {days[index].finnish}
+    {colors[index].fi}
   </motion.div>
 </AnimatePresence>
 
@@ -91,7 +85,7 @@ function Days() {
         <div className="mt-6 h-8 flex items-center justify-center overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.p
-              key={showText ? days[index].english : "default"}
+              key={showText ? colors[index].name : "default"}
               initial={{ opacity: 0, y: 10 }}
             //   style={{ backgroundColor: "#cccccc" }}
               animate={{ opacity: 1, y: 0 }}
@@ -100,7 +94,7 @@ function Days() {
               className="text-xl text-teal-300"
             >
               {showText
-                ? days[index].english
+                ? colors[index].name
                 : "What's the color?"}
             </motion.p>
           </AnimatePresence>
@@ -112,5 +106,3 @@ function Days() {
     </CardWrapper>
   );
 }
-
-export default Days;

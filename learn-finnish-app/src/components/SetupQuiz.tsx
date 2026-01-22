@@ -6,7 +6,7 @@
           import GenarateMatchQuiz from "./GenarateMatchQuiz";
           import GenerateListeningQuiz from "./GenarateListeningQuiz";
           import { useQuiz } from "../contexts/QuizContext";
-          import PageWrapper from "./PageWrapper";
+          import PageWrapper from "./wrapper/PageWrapper";
           import { BuildingOffice2Icon } from "@heroicons/react/24/solid";
           import GenarateDailyChallengeTwo from "./daily/GenarateDailyChallengeTwo";
           

@@ -1,65 +1,121 @@
-    // src/components/Numbers.js
-    import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import CardWrapper from './CardWrapper';
-// import { a1Topics } from '../data';
+import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import CardWrapper from "./wrapper/CardWrapper";
 
-    function Numbers() {
-    const [showPronunciation, setShowPronunciation] = useState(false);
+const metallicGradient = (color: string) => `linear-gradient(135deg, ${color}, rgba(255,255,255,0.3))`;
+
+
 
     const numbers = [
-        { english: '1', finnish: 'Yksi',  pronunciation: 'YUK-si' },
-        { english: '2', finnish: 'Kaksi', pronunciation: 'KAHK-si' },
-        { english: '3', finnish: 'Kolme', pronunciation: 'KOL-me' },
-        // { english: '4', finnish: 'Neljä', pronunciation: 'NEL-ya' },
-        // { english: '5', finnish: 'Viisi', pronunciation: 'VEE-si' },
+        { icon: '1', fi: 'Yksi',  en: 'One', color: "#ff8352ff" },
+        { icon: '2', fi: 'Kaksi', en: 'Two', color: "#a0d7ffff" },
+        { icon: '3', fi: 'Kolme', en: 'Three', color: "#fca7b4ff" },
+        { icon: '4', fi: 'Neljä', en: 'Four', color: "#cb94ffff" },
+        { icon: '5', fi: 'Viisi', en: 'Five', color: "#57e41aff" },
     ];
 
-    const playPronunciation = (text: string) => {
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = 'fi-FI';
-        window.speechSynthesis.speak(utterance);
+  function Numbers() {
+
+const [index, setIndex] = useState(0);
+
+const cardVariants = {
+  hidden: { rotate: -10, scale: 0.7, opacity: 0 },
+  show: {
+    rotate: 0,
+    scale: 1,
+    opacity: 1,
+    transition: {
+      duration: 0.4,
+      when: "beforeChildren",
+      delayChildren: 0.2,
+    },
+  },
+  exit: {
+    rotate: 10,
+    scale: 0,
+    opacity: 0,
+    transition: { duration: 0.3 },
+  },
+};
+
+const contentVariants = {
+  hidden: { opacity: 0, y: 10 },
+  show: {
+    opacity: 1,
+    y: 0,
+    color: numbers[index].color,
+    transition: { duration: 0.3 },
+  },
+};
+  const [showText, setShowText] = useState(false);
+
+  useEffect(() => {
+    // Show explanation after time appears
+    const showTimer = setTimeout(() => setShowText(true), 2000);
+
+    // Hide explanation
+    const hideTimer = setTimeout(() => setShowText(false), 3500);
+
+    // Change time
+    const changeTimer = setTimeout(() => {
+      setIndex((prev) => (prev + 1) % numbers.length);
+    }, 5000);
+
+    return () => {
+      clearTimeout(showTimer);
+      clearTimeout(hideTimer);
+      clearTimeout(changeTimer);
     };
+  }, [index]);
 
-    return (
-        <CardWrapper title="Finnish Numbers">
-        <button
-            onClick={() => setShowPronunciation(!showPronunciation)}
-            className="bg-teal-900 text-white px-4 py-2 rounded hover:bg-teal-300 hover:text-teal-900 transform hover:scale-110 transition duration-200 mb-4"
-        >
-            {showPronunciation ? 'Hide Pronunciation' : 'Show Pronunciation'}
-        </button>
+  return (
+    <CardWrapper title="Clock">
 
-        <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-lg border border-teal-700 p-4 mb-6">
+         <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-lg border border-teal-700 p-4 mb-6">
 
 
-        <ul className="list-disc pl-5 text-teal-200">
-            {numbers.map((number, index) => (
-                <li key={index} className="flex items-center justify-between m-2">
-                <span>
-                    {number.english} - {number.finnish}{' '}
-                    {showPronunciation && <span className="text-teal-200">({number.pronunciation})</span>}
-                </span>
-                <button
-                    onClick={() => playPronunciation(number.finnish)}
-                    className="ml-2 bg-gray-900 text-teal-300  px-2 py-1 rounded hover:bg-teal-500 transform hover:scale-110 transition duration-200"
-                >
-                    🔊
-                </button>
-                </li>
-            ))}
-        </ul>
+    <div className="flex flex-col items-center justify-center mt-20">
+
+        <AnimatePresence mode="wait">
+  <motion.div
+    key={numbers[index].fi}
+    variants={cardVariants}
+    initial="hidden"
+    animate="show"
+    exit="exit"
+    className="text-4xl font-mono text-cyan-400 bg-black text-center px-10 py-6 rounded-xl shadow-[0_0_30px_#22d3ee]"
+  >
+    <motion.div variants={contentVariants}>
+      <div className="text-5xl mb-2">{numbers[index].icon}</div>
+      <div>{numbers[index].fi}</div>
+    </motion.div>
+  </motion.div>
+</AnimatePresence>
+
+      
+     
+
+    </div>
+    <div className="mt-6 h-8 flex items-center justify-center overflow-hidden">
+  <AnimatePresence mode="wait">
+    <motion.p
+      key={showText ? numbers[index].en : "default"}
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.4 }}
+      className="text-xl text-teal-300"
+    >
+      {showText
+        ? numbers[index].en
+        : "What's the meaning?"}
+    </motion.p>
+    
+  </AnimatePresence>
+</div>
         </section>
-
-        <Link to="/beginars/number/ready-one-two-three">
-        {/* <Link to="/beginars/number/${a1Topics.}`}"> */}
-            <button className="mt-4 bg-gray-900 text-teal-300 shadow-sm shadow-teal-900 px-4 py-2 rounded hover:bg-teal-300 hover:text-teal-900 transform hover:scale-110 transition duration-200 m-2">
-                Learn More
-            </button>
-        </Link>
-
-        </CardWrapper>
-    );
+              </CardWrapper>
+  );
     }
 
     export default Numbers;

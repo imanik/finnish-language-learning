@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { familyData } from "../../../data/basicA1";
 
 import ConjugationTable from "../../../components/ConjugationTable";
-import BodyWrapper from "../../../components/BodyWrapper";
-import NavWrapper from "../../../components/NavWrapper";
-import PageWrapper from "../../../components/PageWrapper";
+import BodyWrapper from "../../../components/wrapper/BodyWrapper";
+import NavWrapper from "../../../components/wrapper/NavWrapper";
+import PageWrapper from "../../../components/wrapper/PageWrapper";
 
 
 

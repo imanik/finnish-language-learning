@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import CardWrapper from "../CardWrapper";
+import CardWrapper from "../wrapper/CardWrapper";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface LeaderboardEntry {

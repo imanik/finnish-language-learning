@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import BodyWrapper from "../../../components/BodyWrapper";
-import NavWrapper from "../../../components/NavWrapper";
+import BodyWrapper from "../../../components/wrapper/BodyWrapper";
+import NavWrapper from "../../../components/wrapper/NavWrapper";
 
 // import { locationData } from "../../../data/basicA1";
 

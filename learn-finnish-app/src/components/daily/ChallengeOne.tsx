@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import GenarateDailyChallengeOne from "./GenarateDailyChallengeOne";
-import PageWrapper from "../PageWrapper";
+import PageWrapper from "../wrapper/PageWrapper";
 import GenarateDailyChallengeTwo from "./GenarateDailyChallengeTwo";
 import GenarateDailyChallengeThree from "./GenarateDailyChallengeThree";
 import DailyLeaderboard from "./DailyLeaderboard";

@@ -1,7 +1,7 @@
     // src/components/Colors.js
     import React, { useState, useEffect } from 'react';
     import { Link } from "react-router-dom";
-import CardWrapper from './CardWrapper';
+    import CardWrapper from './wrapper/CardWrapper';
 
     function Colors() {
     const [showAnswer, setShowAnswer] = useState(false);

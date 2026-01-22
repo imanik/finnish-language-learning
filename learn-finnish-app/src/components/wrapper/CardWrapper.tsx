@@ -1,6 +1,6 @@
 // src/components/CardWrapper.tsx
 import React from "react";
-import { useTheme } from "../contexts/ThemeContext";
+import { useTheme } from "../../contexts/ThemeContext";
 import { useLocation } from "react-router-dom";
 
 

@@ -4,9 +4,8 @@ import {  useParams } from 'react-router-dom';
 import { animalData } from '../../../data/basicA1'; 
 // Removed unused basicA1 import
 import SetupQuiz from '../../../components/SetupQuiz';
-import NavWrapper from '../../../components/NavWrapper';
-import BodyWrapper from '../../../components/BodyWrapper';
-
+import NavWrapper from '../../../components/wrapper/NavWrapper';
+import BodyWrapper from '../../../components/wrapper/BodyWrapper';
 
 interface Animal {
   english: string;

@@ -1,9 +1,9 @@
                 import React, { useState } from "react";
                 import { Link, useParams } from "react-router-dom";
                 import { a1Topics } from "../data";
-                import BodyWrapper from "../components/BodyWrapper";
-                import PageWrapper from "../components/PageWrapper";
-                import NavWrapper from "../components/NavWrapper";
+                import BodyWrapper from "../components/wrapper/BodyWrapper";
+                import PageWrapper from "../components/wrapper/PageWrapper";
+                import NavWrapper from "../components/wrapper/NavWrapper";
 
                 // Define types for topic components
                 interface TopicComponents {

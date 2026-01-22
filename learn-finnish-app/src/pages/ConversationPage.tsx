@@ -3,9 +3,9 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { LINGVANEX_API_KEY, LINGVANEX_ENDPOINT } from "../config"; // ✅ used config file
 import { a1Conversation } from "../data";
-import BodyWrapper from "../components/BodyWrapper";
-import PageWrapper from "../components/PageWrapper";
-import NavWrapper from "../components/NavWrapper";
+import BodyWrapper from "../components/wrapper/BodyWrapper";
+import PageWrapper from "../components/wrapper/PageWrapper";
+import NavWrapper from "../components/wrapper/NavWrapper";
 
 
 

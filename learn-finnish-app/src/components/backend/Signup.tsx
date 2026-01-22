@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
-import CardWrapper from "../CardWrapper";
+import CardWrapper from "../wrapper/CardWrapper";
 
 interface SignupProps {
   onSwitch?: () => void;

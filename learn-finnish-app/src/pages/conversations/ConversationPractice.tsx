@@ -3,11 +3,11 @@ import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { LINGVANEX_API_KEY, LINGVANEX_ENDPOINT } from "../../config";
 import { conversationData, Question } from "../../data/conversationData";
-import BodyWrapper from "../../components/BodyWrapper";
-import PageWrapper from "../../components/PageWrapper";
-
+import BodyWrapper from "../../components/wrapper/BodyWrapper";
+import PageWrapper from "../../components/wrapper/PageWrapper";
+import NavWrapper from "../../components/wrapper/NavWrapper";
 import { CheckCircleIcon, ArrowDownCircleIcon, XCircleIcon } from "@heroicons/react/24/solid";
-import NavWrapper from "../../components/NavWrapper";
+
 // ... icons import etc.
 
 

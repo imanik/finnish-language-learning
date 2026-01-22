@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { colorData } from "../../../data/basicA1";
 import ConjugationTable from "../../../components/ConjugationTable";
-import BodyWrapper from "../../../components/BodyWrapper";
-import NavWrapper from "../../../components/NavWrapper";
+import BodyWrapper from "../../../components/wrapper/BodyWrapper";
+import NavWrapper from "../../../components/wrapper/NavWrapper";
 
 function ColorsPage(){
 

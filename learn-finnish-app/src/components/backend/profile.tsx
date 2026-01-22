@@ -1,7 +1,7 @@
 import React from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import { useTheme } from "../../contexts/ThemeContext";
-import CardWrapper from "../CardWrapper";
+import CardWrapper from "../wrapper/CardWrapper";
 
 function Profile() {
   const { logout, user } = useAuth();

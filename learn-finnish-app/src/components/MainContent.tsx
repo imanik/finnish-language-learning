@@ -14,6 +14,8 @@ import { useQuiz } from './../contexts/QuizContext'; // Make sure to import useQ
 import { useAuth } from '../contexts/AuthContext';
 import { useTheme } from '../contexts/ThemeContext';
 import DailyLeaderboard from './daily/DailyLeaderboard';
+import LearningClock from './LearningClock';
+import ColorBounceVocabulary from './ColorBounceVocabulary';
 
 function MainContent() {
 
@@ -60,7 +62,9 @@ function MainContent() {
       )}
       <Numbers />
       <Greetings />
-      <Colors />
+      <LearningClock />
+      <ColorBounceVocabulary />
+      {/* <Colors /> */}
       <Days />
       <Months />
       <Grammars />
